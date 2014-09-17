@@ -14,4 +14,4 @@ gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
 gem 'rake', '>= 0.9.4'
 
 # Development
-gem 'awesome_print_motion'
+gem 'motion_print'

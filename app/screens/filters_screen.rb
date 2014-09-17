@@ -1,7 +1,7 @@
 class FiltersScreen < PM::TableScreen
   # searchable
   title "Filter Dropzones"
-  tab_bar_item title: "Filters", item: "sort"
+  tab_bar_item title: "Filters", item: "filter"
 
   def on_load
   end
