@@ -1,0 +1,16 @@
+.repl_history
+build
+tags
+resources/*.nib
+resources/*.momd
+resources/*.storyboardc
+.DS_Store
+*~
+*.sw[po]
+/vendor/
+**/*.xcodeproj/xcuserdata
+/_release/
+**/*.xcuserdata/*
+provisioning/*
+_data
+server

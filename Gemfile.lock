@@ -1,0 +1,93 @@
+GIT
+  remote: git://github.com/clayallsopp/formotion.git
+  revision: bd7344e8ea1cf57f844c132cf78e2d34994fd708
+  branch: master
+  specs:
+    formotion (1.8)
+      bubble-wrap (>= 1.4.0)
+      motion-require (>= 0.1.0)
+
+GIT
+  remote: git://github.com/clearsightstudio/ProMotion.git
+  revision: f2633f645c0d691ecc11ee4d086d5e163f5740af
+  specs:
+    ProMotion (2.0.1)
+      methadone (~> 1.7)
+
+GIT
+  remote: git://github.com/rubymotion/BubbleWrap.git
+  revision: 0dda9aae69b6f6f47babb8dc29a2077f14d27210
+  specs:
+    bubble-wrap (1.7.1)
+      bubble-wrap-http (= 1.7.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (3.2.19)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    afmotion (2.1.5)
+      motion-cocoapods (>= 1.4.1)
+      motion-require (>= 0.1)
+    awesome_print_motion (0.1.0)
+    bubble-wrap-http (1.7.1)
+    claide (0.6.1)
+    cocoapods (0.33.1)
+      activesupport (>= 3.2.15, < 4)
+      claide (~> 0.6.1)
+      cocoapods-core (= 0.33.1)
+      cocoapods-downloader (~> 0.6.1)
+      cocoapods-plugins (~> 0.2.0)
+      cocoapods-trunk (~> 0.1.1)
+      cocoapods-try (~> 0.3.0)
+      colored (~> 1.2)
+      escape (~> 0.0.4)
+      json_pure (~> 1.8)
+      nap (~> 0.7)
+      open4 (~> 1.3)
+      xcodeproj (~> 0.17.0)
+    cocoapods-core (0.33.1)
+      activesupport (>= 3.2.15)
+      fuzzy_match (~> 2.0.4)
+      json_pure (~> 1.8)
+      nap (~> 0.5)
+    cocoapods-downloader (0.6.1)
+    cocoapods-plugins (0.2.0)
+      nap
+    cocoapods-trunk (0.1.4)
+      json_pure (~> 1.8)
+      nap (>= 0.6)
+      netrc
+    cocoapods-try (0.3.0)
+    colored (1.2)
+    escape (0.0.4)
+    fuzzy_match (2.0.4)
+    i18n (0.6.11)
+    json_pure (1.8.1)
+    methadone (1.7.0)
+      bundler
+    motion-cocoapods (1.5.0)
+      cocoapods (>= 0.32.1)
+    motion-require (0.2.0)
+    multi_json (1.10.1)
+    nap (0.8.0)
+    netrc (0.7.7)
+    open4 (1.3.4)
+    rake (10.3.2)
+    xcodeproj (0.17.0)
+      activesupport (~> 3.0)
+      colored (~> 1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ProMotion!
+  afmotion (~> 2.1.0)
+  awesome_print_motion
+  bubble-wrap!
+  cocoapods
+  formotion!
+  motion-cocoapods
+  rake (>= 0.9.4)
