@@ -39,3 +39,21 @@ Motion::Project::App.setup do |app|
   end
 
 end
+
+class Motion::Project::App
+  class << self
+    alias_method :really_build, :build
+    def build platform, options = {}
+      file_path = 'resources/dropzones.geojson'
+      web_path = 'https://raw.githubusercontent.com/MohawkApps/USPADropzones/master/dropzones.geojson'
+      unless File.exist?(file_path)
+        require 'open-uri'
+        open(file_path, 'wb') do |file|
+          file << open(web_path).read
+        end
+      end
+
+      really_build(platform, options)
+    end
+  end
+end

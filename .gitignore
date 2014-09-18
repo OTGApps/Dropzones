@@ -14,3 +14,4 @@ resources/*.storyboardc
 provisioning/*
 _data
 server
+resources/dropzones.geojson
