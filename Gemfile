@@ -9,6 +9,7 @@ gem 'bubble-wrap', :github => 'rubymotion/BubbleWrap', :require => ['bubble-wrap
 gem 'afmotion', '~> 2.1.0'
 gem 'formotion', :github => 'clayallsopp/formotion', :branch => 'master'
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
+gem 'ProMotion-map'
 
 # Rubygems
 gem 'rake', '>= 0.9.4'

@@ -24,6 +24,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ProMotion-map (0.3.0)
+      ProMotion (~> 2.0)
     activesupport (3.2.19)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
@@ -84,6 +86,7 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion!
+  ProMotion-map
   afmotion (~> 2.1.0)
   bubble-wrap!
   cocoapods
