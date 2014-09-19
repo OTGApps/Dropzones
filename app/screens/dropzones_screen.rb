@@ -22,16 +22,18 @@ class DropzonesScreen < PM::TableScreen
       }
       data[k].sort_by{|dz| dz['properties']['name'] }.each do |dz|
         section[:cells] << {
-          title: dz['properties']['name']
-          # More stuff here
-          action: :show_dz
+          title: dz['properties']['name'],
+          action: :show_dz,
+          arguments: { anchor: dz['properties']['anchor'] },
+          accessory_type: :disclosure_indicator
         }
       end
       section
     end
   end
 
-  def show_dz
+  def show_dz(args = {})
+    open DZ.new(anchor: args[:anchor])
   end
 
 end

@@ -29,8 +29,7 @@ class MapScreen < PM::MapScreen
   end
 
   def show_dz
-    dzdata = GeoJSON.sharedData.find_dz(selected_annotations.first.params[:anchor])
-    open DZ.new(data: dzdata)
+    open DZ.new(anchor: selected_annotations.first.params[:anchor])
   end
 
   def show_user
