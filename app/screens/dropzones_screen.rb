@@ -4,7 +4,7 @@ class DropzonesScreen < PM::TableScreen
   tab_bar_item title: "Dropzones", item: "airplane"
 
   def on_load
-    GeoJSON.sharedData
+    # GeoJSON.sharedData
   end
 
   def will_appear
@@ -15,18 +15,23 @@ class DropzonesScreen < PM::TableScreen
   end
 
   def table_format(data)
-    data.keys.map do |k|
+    data.keys.sort.map do |k|
       section = {
         title: k,
         cells: []
       }
-      data[k].each do |dz|
+      data[k].sort_by{|dz| dz['properties']['name'] }.each do |dz|
         section[:cells] << {
           title: dz['properties']['name']
+          # More stuff here
+          action: :show_dz
         }
       end
       section
     end
+  end
+
+  def show_dz
   end
 
 end
