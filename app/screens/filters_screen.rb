@@ -14,7 +14,9 @@ class FiltersScreen < PM::TableScreen
       subtitle: "Find the DZs closest to you right now!"
     }, {
       title: "By State",
-      subtitle: "All the DZs nicely organized by state."
+      subtitle: "All the DZs nicely organized by state.",
+      action: :show_by_state,
+      accessory_type: :disclosure_indicator
     }, {
       title: "Aircraft Type",
       subtitle: "Looking to jump a specific aircraft?"
@@ -26,5 +28,9 @@ class FiltersScreen < PM::TableScreen
       subtitle: "Make sure the DZ has what you're looking for."
     }]
   }]
+  end
+
+  def show_by_state
+    open StatesScreen
   end
 end
