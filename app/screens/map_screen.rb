@@ -4,10 +4,12 @@ class MapScreen < PM::MapScreen
 
   def on_load
     set_nav_bar_button :right, image: UIImage.imageNamed('location-arrow'), action: :show_user
+    @initial_zoom = false
   end
 
   def on_appear
-    zoom_to_fit_annotations
+    zoom_to_fit_annotations unless @initial_zoom
+    @initial_zoom = true
     show_user_location
   end
 
