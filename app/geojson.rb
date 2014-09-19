@@ -12,18 +12,6 @@ class GeoJSON
     @regions ||= json.group_by { |obj| obj['properties']['region'] }
   end
 
-  def map_annotations
-    @annotations ||= begin
-      json.map do |dz|
-        {
-          longitude: dz['geometry']['coordinates'].first,
-          latitude: dz['geometry']['coordinates'].last,
-          title: dz['properties']['name'],
-          subtitle: dz['properties']['location'].last
-        }      end
-    end
-  end
-
   def find_dz(anchor)
     @dzs ||= {}
     @dzs[anchor] ||= json.find{|dz| dz['properties']['anchor'] == anchor.to_s }

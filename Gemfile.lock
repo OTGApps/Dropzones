@@ -21,11 +21,15 @@ GIT
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
 
-GEM
-  remote: https://rubygems.org/
+PATH
+  remote: ../ProMotion-map
   specs:
     ProMotion-map (0.3.0)
       ProMotion (~> 2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     activesupport (3.2.19)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
@@ -86,7 +90,7 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion!
-  ProMotion-map
+  ProMotion-map!
   afmotion (~> 2.1.0)
   bubble-wrap!
   cocoapods
