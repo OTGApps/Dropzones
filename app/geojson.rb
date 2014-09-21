@@ -19,7 +19,7 @@ class GeoJSON
   def by_aircraft(aircraft)
     json.select{ |dz|
       !dz['properties']['aircraft'].nil? && dz['properties']['aircraft'].find{ |ac|
-        ac.match(aircraft)
+        ac.squeeze(' ').match(aircraft)
       }
     }
   end
@@ -50,15 +50,16 @@ class GeoJSON
     end
   end
 
-  def aircraft
-    @unique_aircraft ||= json.map{ |dz|
-      dz['properties']['aircraft']
+  def unique_attribute(att)
+    @unique ||= {}
+    @unique[att] ||= json.map{ |dz|
+      dz['properties'][att]
     }
     .flatten(1)
     .uniq
     .compact
     .map{|ac|
-      (ac[1] == ' ' ) ? ac.split(' ')[1..-1].join(' ').singularize : ac
+      (ac[1] == ' ') ? ac.split(' ')[1..-1].join(' ').singularize.squeeze(' ') : ac.squeeze(' ')
     }.uniq
     .sort
   end

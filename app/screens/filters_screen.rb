@@ -24,7 +24,9 @@ class FiltersScreen < PM::TableScreen
       accessory_type: :disclosure_indicator
     }, {
       title: "Training Capabilities",
-      subtitle: "Tool cool for AFF and want to try static line?"
+      subtitle: "Too cool for AFF and want to try static line?",
+      action: :show_by_training,
+      accessory_type: :disclosure_indicator
     },{
       title: "Facilities",
       subtitle: "Make sure the DZ has what you're looking for."
@@ -38,5 +40,9 @@ class FiltersScreen < PM::TableScreen
 
   def show_by_aircraft
     open AircraftScreen
+  end
+
+  def show_by_training
+    open TrainingScreen
   end
 end

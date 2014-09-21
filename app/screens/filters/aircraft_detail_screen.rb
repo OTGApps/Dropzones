@@ -1,26 +1,22 @@
-class AircraftDetailScreen < MasterTableScreen
-  attr_accessor :aircraft_name
+class FilterDetailScreen < MasterTableScreen
+  attr_accessor :attribute_name
 
   def on_load
-    mp 'onload'
   end
 
   def will_appear
-    self.title = @aircraft_name
-    mp 'willappear'
+    self.title = @attribute_name
   end
 
   def table_data
-    mp 'table_data'
     [{cells:dz_cells}]
   end
 
   def dz_cells
-    mp "Aircraft: #{@aircraft_name}"
-    GeoJSON.sharedData.by_aircraft(@aircraft_name).map do |a|
+    GeoJSON.sharedData.by_aircraft(@attribute_name).map do |dz|
       {
-        title: a['properties']['name'],
-        action: :show_dzs,
+        title: dz['properties']['name'],
+        action: :show_dz,
         accessory_type: :disclosure_indicator,
         arguments: {
           anchor: dz['properties']['anchor']

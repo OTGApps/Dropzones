@@ -12,10 +12,10 @@ class AircraftScreen < MasterTableScreen
   end
 
   def cells
-    GeoJSON.sharedData.aircraft.map do |a|
+    GeoJSON.sharedData.unique_attribute('aircraft').map do |a|
       {
         title: a,
-        action: :show_dzs,
+        action: :show_details,
         accessory_type: :disclosure_indicator,
         arguments: {
           aircraft: a
@@ -24,8 +24,7 @@ class AircraftScreen < MasterTableScreen
     end
   end
 
-  def show_dzs(args={})
-    mp args
-    open AircraftDetailScreen.new(aircraft_name: args[:aircraft])
+  def show_details(args={})
+    open FilterDetailScreen.new(attribute_name: args[:aircraft])
   end
 end
