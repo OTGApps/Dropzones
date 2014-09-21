@@ -19,7 +19,9 @@ class FiltersScreen < PM::TableScreen
       accessory_type: :disclosure_indicator
     }, {
       title: "Aircraft Type",
-      subtitle: "Looking to jump a specific aircraft?"
+      subtitle: "Looking to jump a specific aircraft?",
+      action: :show_by_aircraft,
+      accessory_type: :disclosure_indicator
     }, {
       title: "Training Capabilities",
       subtitle: "Tool cool for AFF and want to try static line?"
@@ -32,5 +34,9 @@ class FiltersScreen < PM::TableScreen
 
   def show_by_state
     open StatesScreen
+  end
+
+  def show_by_aircraft
+    open AircraftScreen
   end
 end

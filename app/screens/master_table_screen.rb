@@ -9,8 +9,11 @@ class MasterTableScreen < PM::TableScreen
         section[:cells] << {
           title: dz['properties']['name'],
           action: :show_dz,
-          arguments: { anchor: dz['properties']['anchor'] },
-          accessory_type: :disclosure_indicator
+          arguments: {
+            anchor: dz['properties']['anchor']
+          },
+          accessory_type: :disclosure_indicator,
+          search_text: dz['properties']['name'] + " " + k
         }
       end
       section

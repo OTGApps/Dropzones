@@ -9,14 +9,14 @@ GIT
 
 GIT
   remote: git://github.com/clearsightstudio/ProMotion.git
-  revision: f2633f645c0d691ecc11ee4d086d5e163f5740af
+  revision: ae80748f9bde5e388b8f6c52c9cf3cf50eeb26e7
   specs:
     ProMotion (2.0.1)
       methadone (~> 1.7)
 
 GIT
   remote: git://github.com/rubymotion/BubbleWrap.git
-  revision: 0dda9aae69b6f6f47babb8dc29a2077f14d27210
+  revision: 7e79245944826cd0748086940fc6df8a77330489
   specs:
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
@@ -75,7 +75,9 @@ GEM
     motion-cocoapods (1.5.0)
       cocoapods (>= 0.32.1)
     motion-require (0.2.0)
-    motion_print (0.0.2)
+    motion-support (0.2.6)
+      motion-require (>= 0.0.6)
+    motion_print (0.0.3)
     multi_json (1.10.1)
     nap (0.8.0)
     netrc (0.7.7)
@@ -96,5 +98,6 @@ DEPENDENCIES
   cocoapods
   formotion!
   motion-cocoapods
+  motion-support
   motion_print
   rake (>= 0.9.4)

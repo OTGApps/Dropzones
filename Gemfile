@@ -10,6 +10,7 @@ gem 'afmotion', '~> 2.1.0'
 gem 'formotion', :github => 'clayallsopp/formotion', :branch => 'master'
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
 gem 'ProMotion-map', path: '../ProMotion-map'
+gem 'motion-support', :require => false
 
 # Rubygems
 gem 'rake', '>= 0.9.4'
