@@ -1,12 +1,6 @@
 class TrainingScreen < MasterTableScreen
   title "Dropzones by Training"
 
-  def on_load
-  end
-
-  def will_appear
-  end
-
   def table_data
     [{cells:cells}]
   end
@@ -18,13 +12,13 @@ class TrainingScreen < MasterTableScreen
         action: :show_dzs,
         accessory_type: :disclosure_indicator,
         arguments: {
-          training: a
+          search: a
         }
       }
     end
   end
 
   def show_dzs(args={})
-    open FilterDetailScreen.new(attribute_name: args[:training])
+    open FilterDetailScreen.new(search: args[:search], attribute: 'training')
   end
 end

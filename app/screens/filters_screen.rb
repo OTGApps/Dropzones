@@ -28,8 +28,10 @@ class FiltersScreen < PM::TableScreen
       action: :show_by_training,
       accessory_type: :disclosure_indicator
     },{
-      title: "Facilities",
-      subtitle: "Make sure the DZ has what you're looking for."
+      title: "Services Offered",
+      subtitle: "Make sure the DZ has what you're looking for.",
+      action: :show_by_services,
+      accessory_type: :disclosure_indicator
     }]
   }]
   end
@@ -44,5 +46,9 @@ class FiltersScreen < PM::TableScreen
 
   def show_by_training
     open TrainingScreen
+  end
+
+  def show_by_services
+    open ServicesScreen
   end
 end

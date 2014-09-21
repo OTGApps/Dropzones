@@ -1,12 +1,12 @@
-class AircraftScreen < MasterTableScreen
-  title "Dropzones by Aircraft"
+class ServicesScreen < MasterTableScreen
+  title "Services Offered"
 
   def table_data
     [{cells:cells}]
   end
 
   def cells
-    GeoJSON.sharedData.unique_attribute('aircraft').map do |a|
+    GeoJSON.sharedData.unique_attribute('services').map do |a|
       {
         title: a,
         action: :show_dzs,
@@ -19,6 +19,6 @@ class AircraftScreen < MasterTableScreen
   end
 
   def show_dzs(args={})
-    open FilterDetailScreen.new(search: args[:search], attribute: 'aircraft')
+    open FilterDetailScreen.new(search: args[:search], attribute: 'services')
   end
 end

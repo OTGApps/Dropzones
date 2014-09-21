@@ -16,12 +16,13 @@ class GeoJSON
     @states ||= json.group_by{ |obj| States.state(state(obj)) }
   end
 
-  def by_aircraft(aircraft)
+  def by_attribute(att, search)
     json.select{ |dz|
-      !dz['properties']['aircraft'].nil? && dz['properties']['aircraft'].find{ |ac|
-        ac.squeeze(' ').match(aircraft)
+      !dz['properties'][att].nil? && dz['properties'][att].find{ |ac|
+        mp ac
+        ac.squeeze(' ').match(search)
       }
-    }
+    }.sort_by{|dz| dz['properties']['name'] }
   end
 
   def find_dz(anchor)

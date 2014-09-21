@@ -1,11 +1,8 @@
 class FilterDetailScreen < MasterTableScreen
-  attr_accessor :attribute_name
-
-  def on_load
-  end
+  attr_accessor :search, :attribute
 
   def will_appear
-    self.title = @attribute_name
+    self.title = @search
   end
 
   def table_data
@@ -13,7 +10,7 @@ class FilterDetailScreen < MasterTableScreen
   end
 
   def dz_cells
-    GeoJSON.sharedData.by_aircraft(@attribute_name).map do |dz|
+    GeoJSON.sharedData.by_attribute(@attribute, @search).map do |dz|
       {
         title: dz['properties']['name'],
         action: :show_dz,
