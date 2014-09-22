@@ -65,6 +65,20 @@ class GeoJSON
     .sort
   end
 
+  def sorted_by_distance_from(coordinate, &block)
+    coordinate = CLLocation.alloc.initWithLatitude(coordinate[:lat], longitude:coordinate[:lon]) unless coordinate.is_a?(CLLocation)
+
+    # Get their distnaces
+    dzs_with_distance = json.map do |dz|
+      dz_coord = CLLocation.alloc.initWithLatitude(dz['geometry']['coordinates'].last, longitude:dz['geometry']['coordinates'].first)
+      distance = coordinate.distanceFromLocation(dz_coord)
+      dz[:current_distance] = Distance.new(distance) # In Meters
+      dz
+    end
+
+    block.call(dzs_with_distance.sort_by { |dz| dz[:current_distance] })
+  end
+
   private
 
   def location

@@ -11,7 +11,9 @@ class FiltersScreen < PM::TableScreen
     title: nil,
     cells: [{
       title: "Near Me",
-      subtitle: "Find the DZs closest to you right now!"
+      subtitle: "Find the DZs closest to you right now!",
+      action: :show_near_me,
+      accessory_type: :disclosure_indicator
     }, {
       title: "By State",
       subtitle: "All the DZs nicely organized by state.",
@@ -34,6 +36,10 @@ class FiltersScreen < PM::TableScreen
       accessory_type: :disclosure_indicator
     }]
   }]
+  end
+
+  def show_near_me
+    open NearMeScreen
   end
 
   def show_by_state

@@ -23,6 +23,10 @@ Motion::Project::App.setup do |app|
   app.prerendered_icon = true
   # app.info_plist['APP_STORE_ID'] = 823834093
 
+  # Location Services
+  app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
+  app.info_plist['NSLocationWhenInUseUsageDescription'] = app.info_plist['NSLocationAlwaysUsageDescription']
+
   app.entitlements['get-task-allow'] = true
   app.codesign_certificate = "iPhone Developer: Mark Rickert (YA2VZGDX4S)"
   app.provisioning_profile = "./provisioning/development.mobileprovision"
