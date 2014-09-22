@@ -2,7 +2,7 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 require 'motion-support/inflector'
-
+require 'rake/hooks'
 begin
   require 'bundler'
   Bundler.require
@@ -41,12 +41,20 @@ Motion::Project::App.setup do |app|
 
 end
 
-# class Motion::Project::App
-#   class << self
-#     alias_method :really_build, :build
-#     def build platform, options = {}
+before :"build:simulator" do
+  puts "running prebuild"
+  file_path = 'resources/dropzones.geojson'
+  web_path = 'https://raw.githubusercontent.com/MohawkApps/USPADropzones/master/dropzones.geojson'
+  unless File.exist?(file_path)
+    require 'open-uri'
+    open(file_path, 'wb') do |file|
+      file << open(web_path).read
+    end
+  end
+end
 
-#       really_build(platform, options)
-#     end
-#   end
-# end
+after :clean do
+  puts "Deleting Geojson file."
+  file_path = 'resources/dropzones.geojson'
+  File.delete(file_path) if File.exist?(file_path)
+end
