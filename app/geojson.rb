@@ -9,11 +9,12 @@ class GeoJSON
   end
 
   def by_region
-    @regions ||= json.group_by{ |obj| obj['properties']['region'] }
+    # TODO - sort this alphabetically
+    @regions ||= json.group_by{ |dz| dz['properties']['region'] }
   end
 
   def by_state
-    @states ||= json.group_by{ |obj| States.state(state(obj)) }
+    @states ||= json.group_by{ |dz| States.state(state(dz)) }
   end
 
   def by_attribute(att, search)

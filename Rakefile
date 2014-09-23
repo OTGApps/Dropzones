@@ -27,13 +27,15 @@ Motion::Project::App.setup do |app|
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
   app.info_plist['NSLocationWhenInUseUsageDescription'] = app.info_plist['NSLocationAlwaysUsageDescription']
 
-  app.entitlements['get-task-allow'] = true
-  app.codesign_certificate = "iPhone Developer: Mark Rickert (YA2VZGDX4S)"
-  app.provisioning_profile = "./provisioning/development.mobileprovision"
-
   app.pods do
     pod 'FlurrySDK'
     pod 'Appirater'
+  end
+
+  app.development do
+    app.entitlements['get-task-allow'] = true
+    app.codesign_certificate = "iPhone Developer: Mark Rickert (YA2VZGDX4S)"
+    app.provisioning_profile = "../Provisioning/WildcardDevelopment.mobileprovision"
   end
 
   app.release do
@@ -45,7 +47,7 @@ Motion::Project::App.setup do |app|
 
 end
 
-before :"build:simulator" do
+before :"build:simulator", :"build:device" do
   puts "running prebuild"
   file_path = 'resources/dropzones.geojson'
   web_path = 'https://raw.githubusercontent.com/MohawkApps/USPADropzones/master/dropzones.geojson'
