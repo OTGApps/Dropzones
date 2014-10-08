@@ -12,12 +12,16 @@ end
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Dropzones'
-  app.deployment_target = '7.0'
+
+  app.sdk_version = "8.1"
+  app.deployment_target = '7.1'
+
   app.device_family = [:iphone]
   app.interface_orientations = [:portrait, :portrait_upside_down]
+
   app.identifier = 'com.mohawkapps.dropzones'
   app.seed_id = 'DW9QQZR4ZL'
-  app.version = '1'
+  app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
   app.short_version = '1.0.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
@@ -27,8 +31,13 @@ Motion::Project::App.setup do |app|
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
   app.info_plist['NSLocationWhenInUseUsageDescription'] = app.info_plist['NSLocationAlwaysUsageDescription']
 
+  app.info_plist["UIStatusBarHidden"] = true
+  app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
+  app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
+
   app.pods do
     pod 'FlurrySDK'
+    pod 'OpenInChrome'
     pod 'Appirater'
   end
 

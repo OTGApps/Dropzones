@@ -5,54 +5,49 @@ GIT
     ProMotion (2.0.1)
       methadone (~> 1.7)
 
-GIT
-  remote: git://github.com/rubymotion/BubbleWrap.git
-  revision: 7e79245944826cd0748086940fc6df8a77330489
+PATH
+  remote: ../BubbleWrap
   specs:
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
 
-PATH
-  remote: ../ProMotion-map
-  specs:
-    ProMotion-map (0.3.0)
-      ProMotion (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
+    ProMotion-map (0.4.1)
+      ProMotion (~> 2.0)
     activesupport (3.2.19)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     bubble-wrap-http (1.7.1)
-    claide (0.6.1)
-    cocoapods (0.33.1)
+    claide (0.7.0)
+    cocoapods (0.34.2)
       activesupport (>= 3.2.15, < 4)
-      claide (~> 0.6.1)
-      cocoapods-core (= 0.33.1)
-      cocoapods-downloader (~> 0.6.1)
-      cocoapods-plugins (~> 0.2.0)
-      cocoapods-trunk (~> 0.1.1)
-      cocoapods-try (~> 0.3.0)
+      claide (~> 0.7.0)
+      cocoapods-core (= 0.34.2)
+      cocoapods-downloader (~> 0.7.2)
+      cocoapods-plugins (~> 0.3.1)
+      cocoapods-trunk (~> 0.3.0)
+      cocoapods-try (~> 0.4.1)
       colored (~> 1.2)
       escape (~> 0.0.4)
       json_pure (~> 1.8)
-      nap (~> 0.7)
+      nap (~> 0.8)
       open4 (~> 1.3)
-      xcodeproj (~> 0.17.0)
-    cocoapods-core (0.33.1)
+      xcodeproj (~> 0.19.2)
+    cocoapods-core (0.34.2)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
       json_pure (~> 1.8)
-      nap (~> 0.5)
-    cocoapods-downloader (0.6.1)
-    cocoapods-plugins (0.2.0)
+      nap (~> 0.8.0)
+    cocoapods-downloader (0.7.2)
+    cocoapods-plugins (0.3.1)
       nap
-    cocoapods-trunk (0.1.4)
+    cocoapods-trunk (0.3.0)
       json_pure (~> 1.8)
-      nap (>= 0.6)
+      nap (>= 0.8)
       netrc
-    cocoapods-try (0.3.0)
+    cocoapods-try (0.4.1)
     colored (1.2)
     escape (0.0.4)
     fuzzy_match (2.0.4)
@@ -60,8 +55,8 @@ GEM
     json_pure (1.8.1)
     methadone (1.7.0)
       bundler
-    motion-cocoapods (1.5.0)
-      cocoapods (>= 0.32.1)
+    motion-cocoapods (1.6.0)
+      cocoapods (>= 0.34)
     motion-require (0.2.0)
     motion-support (0.2.6)
       motion-require (>= 0.0.6)
@@ -73,7 +68,8 @@ GEM
     rake (10.3.2)
     rake-hooks (1.2.3)
       rake
-    xcodeproj (0.17.0)
+    ruby_motion_query (0.8.0)
+    xcodeproj (0.19.3)
       activesupport (~> 3.0)
       colored (~> 1.2)
 
@@ -82,7 +78,7 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion!
-  ProMotion-map!
+  ProMotion-map
   bubble-wrap!
   cocoapods
   motion-cocoapods
@@ -90,3 +86,4 @@ DEPENDENCIES
   motion_print
   rake (>= 0.9.4)
   rake-hooks
+  ruby_motion_query

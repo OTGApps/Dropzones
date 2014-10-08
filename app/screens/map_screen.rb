@@ -3,7 +3,7 @@ class MapScreen < PM::MapScreen
   tab_bar_item title: "Map", item: "map"
 
   def on_load
-    set_nav_bar_button :right, image: UIImage.imageNamed('location-arrow'), action: :show_user
+    set_nav_bar_button :right, image: UIImage.imageNamed('location-target'), action: :show_user
     @initial_zoom = false
   end
 
