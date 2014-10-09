@@ -27,17 +27,24 @@ class AppDelegate < PM::Delegate
 
   def set_appearance
     blue = "#062D5A".to_color
+    white = UIColor.whiteColor
 
-    UINavigationBar.appearance.setBarTintColor(blue)
-    # shadow = NSShadow.alloc.init
-    # shadow.shadowColor = UIColor.colorWithRed(0.0, green:0.0, blue:0.0, alpha:0.8)
-    # shadow.shadowOffset = CGSizeMake(0, 1)
-    # [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys: [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName, shadow, NSShadowAttributeName, [UIFont fontWithName:@"Helvetica Neue" size:21.0], NSFontAttributeName, nil]];
-    UINavigationBar.appearance.setTintColor(blue)
+    # UIWindow.appearance.tap do |ap|
+    #   ap.tintColor = white
+    # end
 
-    UIApplication.sharedApplication.setStatusBarStyle(UIStatusBarStyleLightContent)
-    UIApplication.sharedApplication.setStatusBarHidden(false, withAnimation:UIStatusBarAnimationSlide)
-    UINavigationBar.appearance.setTitleTextAttributes({NSForegroundColorAttributeName => UIColor.whiteColor})
+    UINavigationBar.appearance.tap do |ap|
+      ap.setBarTintColor(blue)
+      ap.setTintColor(white)
+      ap.setTitleTextAttributes({
+        NSForegroundColorAttributeName => white
+      })
+    end
+
+    UIApplication.sharedApplication.tap do |ap|
+      ap.setStatusBarStyle(UIStatusBarStyleLightContent)
+      ap.setStatusBarHidden(false, withAnimation:UIStatusBarAnimationSlide)
+    end
   end
 
   #Flurry exception handler

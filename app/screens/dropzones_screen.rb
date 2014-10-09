@@ -20,7 +20,7 @@ class DropzonesScreen < PM::TableScreen
       subtitle: 'All the DZs nicely organized by state.',
       action: :show_by_state,
       accessory_type: :disclosure_indicator,
-      image: 'globe'
+      image: 'usa'
     }, {
       title: 'By Region',
       subtitle: 'All the DZs listed by USPA region.',
@@ -35,13 +35,13 @@ class DropzonesScreen < PM::TableScreen
       image: 'airplane'
     }, {
       title: 'Training Capabilities',
-      subtitle: 'Too cool for AFF and want to try static line?',
+      subtitle: 'Too cool for AFF & want to try static line?',
       action: :show_by_training,
       accessory_type: :disclosure_indicator,
       image: 'megaphone'
     },{
       title: 'Services Offered',
-      subtitle: 'Make sure the DZ has what you\'re looking for.',
+      subtitle: 'Wait... some dropzones have a POOL?!',
       action: :show_by_services,
       accessory_type: :disclosure_indicator,
       image: 'bathtub'
