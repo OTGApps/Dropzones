@@ -17,6 +17,7 @@ Motion::Project::App.setup do |app|
   app.deployment_target = '7.1'
 
   app.device_family = [:iphone]
+  app.archs['iPhoneOS'] |= ['arm64']
   app.interface_orientations = [:portrait, :portrait_upside_down]
 
   app.identifier = 'com.mohawkapps.dropzones'
@@ -40,6 +41,9 @@ Motion::Project::App.setup do |app|
     pod 'OpenInChrome'
     pod 'Appirater'
   end
+
+  app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
+
 
   app.development do
     app.entitlements['get-task-allow'] = true

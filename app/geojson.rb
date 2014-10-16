@@ -5,7 +5,13 @@ class GeoJSON
   end
 
   def initialize
+    @location = nil
     json
+  end
+
+  def location=(l)
+    mp "Setting location: #{l}"
+    @location = l
   end
 
   def by_region
@@ -20,10 +26,9 @@ class GeoJSON
   def by_attribute(att, search)
     json.select{ |dz|
       !dz['properties'][att].nil? && dz['properties'][att].find{ |ac|
-        mp ac
         ac.squeeze(' ').match(search)
       }
-    }.sort_by{|dz| dz['properties']['name'] }
+    }
   end
 
   def find_dz(anchor)
@@ -32,8 +37,15 @@ class GeoJSON
   end
 
   def json
-    @j_data ||= BW::JSON.parse(File.read(location))
-    @j_data['features']
+    @j_data ||= BW::JSON.parse(File.read(file_location))
+
+    if @location.nil?
+      mp 'getting json without location'
+      @j_data['features']
+    else
+      mp 'getting json with location'
+      sorted_by_distance(@j_data['features'])
+    end
   end
 
   def state(data)
@@ -66,24 +78,25 @@ class GeoJSON
     .sort
   end
 
-  def sorted_by_distance_from(coordinate, &block)
-    coordinate = CLLocation.alloc.initWithLatitude(coordinate[:lat], longitude:coordinate[:lon]) unless coordinate.is_a?(CLLocation)
-
+  def sorted_by_distance(dzs)
+    mp "location: "
+    mp @location
     # Get their distnaces
-    dzs_with_distance = json.map do |dz|
+    dzs_with_distance = dzs.map do |dz|
       dz_coord = CLLocation.alloc.initWithLatitude(dz['geometry']['coordinates'].last, longitude:dz['geometry']['coordinates'].first)
-      distance = coordinate.distanceFromLocation(dz_coord)
+      distance = @location.distanceFromLocation(dz_coord)
       dz[:current_distance] = Distance.new(distance) # In Meters
       dz
     end
 
-    block.call(dzs_with_distance.sort_by { |dz| dz[:current_distance] })
+    # Sort by distance
+    dzs_with_distance.sort_by { |dz| dz[:current_distance] }
   end
 
   private
 
-  def location
-    @location ||= File.join(App.resources_path, "dropzones.geojson")
+  def file_location
+    @file_location ||= File.join(App.resources_path, "dropzones.geojson")
   end
 
 end

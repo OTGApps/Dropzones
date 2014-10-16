@@ -7,10 +7,12 @@ gem 'cocoapods'
 # RubyMotion
 # gem 'bubble-wrap', :github => 'rubymotion/BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 gem 'bubble-wrap', :github => 'cognitiveflux/BubbleWrap', branch: 'CLLocationManagerDelegate_didUpdateLocations', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
+# gem 'bubble-wrap', path: '../BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 # gem 'afmotion', '~> 2.1.0'
 # gem 'formotion', :github => 'clayallsopp/formotion', :branch => 'master'
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
-gem 'ProMotion-map', path: '../ProMotion-map'
+# gem 'ProMotion', path: '../ProMotion'
+gem 'ProMotion-map'#, path: '../ProMotion-map'
 gem 'motion-support', :require => false # For Inflectors
 gem 'ruby_motion_query'
 
@@ -21,3 +23,4 @@ gem 'rake-hooks'
 # Development
 gem 'motion_print'
 gem 'reset-sim'
+gem 'pry'

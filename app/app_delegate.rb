@@ -22,7 +22,7 @@ class AppDelegate < PM::Delegate
       Appirater.appLaunched true
     end
 
-    open_tab_bar DropzonesScreen.new(nav_bar:true),MapScreen.new(nav_bar: true)
+    open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
   end
 
   def set_appearance
