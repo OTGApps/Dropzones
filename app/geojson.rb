@@ -41,7 +41,7 @@ class GeoJSON
 
     if @location.nil?
       mp 'getting json without location'
-      @j_data['features']
+      @sorted ||= @j_data['features'].sort_by{|dz| dz['properties']['name'] }
     else
       mp 'getting json with location'
       sorted_by_distance(@j_data['features'])

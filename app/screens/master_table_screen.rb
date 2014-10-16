@@ -5,12 +5,12 @@ class MasterTableScreen < PM::TableScreen
       purpose: 'We need to use your GPS because...',
       authorization_type: :when_in_use) do |location|
         GeoJSON.sharedData.location = location
+        update_table_data
     end
   end
 
-  def map_and_show_dzs(data = nil)
-    data = GeoJSON.sharedData.json if data.nil?
-    @dzs = data.map do |dz|
+  def build_cells(data)
+    data.map do |dz|
       {
         title: dz['properties']['name'],
         subtitle: distance_away(dz),
@@ -21,33 +21,27 @@ class MasterTableScreen < PM::TableScreen
         accessory_type: :disclosure_indicator,
       }
     end
+  end
+
+  def map_and_show_dzs(data = nil, update = true)
+    data = GeoJSON.sharedData.json if data.nil?
+    @dzs = build_cells(data)
+
     update_table_data
     end_refreshing
   end
 
   def table_format(data)
     data.keys.sort.map do |k|
-      section = {
+      {
         title: k,
-        cells: []
+        cells: build_cells(data[k])
       }
-      data[k].sort_by{|dz| dz['properties']['name'] }.each do |dz|
-        section[:cells] << {
-          title: dz['properties']['name'],
-          action: :show_dz,
-          arguments: {
-            anchor: dz['properties']['anchor']
-          },
-          accessory_type: :disclosure_indicator,
-          search_text: dz['properties']['name'] + " " + k
-        }
-      end
-      section
     end
   end
 
   def distance_away(dz)
-    return "" unless dz[:current_distance]
+    return '' unless dz[:current_distance]
 
     if App::Persistence['metric'] == true
       distance = dz[:current_distance].kilometers.round
