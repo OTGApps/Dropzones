@@ -1,20 +1,29 @@
 class FilterDetailScreen < MasterTableScreen
+  refreshable
   attr_accessor :search, :attribute
 
+  def on_refresh ; refresh ; end
+  def on_appear ; refresh ; end
+
   def on_load
-    @dzs = [{title: 'Loading...'}]
+    @td = [{cells:[{title: "Loading..."}]}]
+    super
   end
 
   def will_appear
+    super
     self.title = @search
-    load_data
+  end
+
+  def refresh
+    @td = [{
+      cells:build_cells(GeoJSON.sharedData.by_attribute(@attribute, @search))
+    }]
+    end_refreshing
+    update_table_data
   end
 
   def table_data
-    [{cells:@dzs}]
-  end
-
-  def load_data
-    locate_user(GeoJSON.sharedData.by_attribute(@attribute, @search))
+    @td
   end
 end

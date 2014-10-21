@@ -1,6 +1,5 @@
 class StatesScreen < MasterTableScreen
   title "Dropzones by State"
-  searchable
   refreshable
 
   def on_refresh ; refresh ; end
@@ -8,7 +7,7 @@ class StatesScreen < MasterTableScreen
 
   def on_load
     super
-    @td = [{title:nil, cells:[{title: "Loading..."}]}]
+    @td = [{cells:[{title: "Loading..."}]}]
   end
 
   def refresh

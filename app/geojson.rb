@@ -16,15 +16,20 @@ class GeoJSON
 
   def by_region
     # TODO - sort this alphabetically
-    @regions ||= json.group_by{ |dz| dz['properties']['region'] }
+    @regions ||= json.group_by{ |dz| dz['properties']['region'] }.each do |region, dzs|
+      dzs.sort_by!{|dz| dz['properties']['name'] }
+    end
   end
 
   def by_state
-    @states ||= json.group_by{ |dz| States.state(state(dz)) }
+    @states ||= json.group_by{ |dz| States.state(state(dz)) }.each do |region, dzs|
+      dzs.sort_by!{|dz| dz['properties']['name'] }
+    end
   end
 
   def by_attribute(att, search)
-    json.select{ |dz|
+    @by_att = {}
+    @by_att["#{att}_#{search}"] ||= json.select{ |dz|
       !dz['properties'][att].nil? && dz['properties'][att].find{ |ac|
         ac.squeeze(' ').match(search)
       }

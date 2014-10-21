@@ -1,12 +1,16 @@
 class MasterTableScreen < PM::TableScreen
-
   def on_load
     BW::Location.get_once(
-      purpose: 'We need to use your GPS because...',
-      authorization_type: :when_in_use) do |location|
+      purpose: 'Determines how far away you are from dropzones.',
+      authorization_type: :when_in_use
+    ) do |location|
         GeoJSON.sharedData.location = location
         update_table_data
     end
+  end
+
+  def will_appear
+    navigationController.navigationBar.topItem.title = ''
   end
 
   def build_cells(data)
