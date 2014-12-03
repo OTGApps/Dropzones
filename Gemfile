@@ -11,8 +11,8 @@ gem 'bubble-wrap', :github => 'cognitiveflux/BubbleWrap', branch: 'CLLocationMan
 # gem 'afmotion', '~> 2.1.0'
 # gem 'formotion', :github => 'clayallsopp/formotion', :branch => 'master'
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
-# gem 'ProMotion', path: '../ProMotion'
-gem 'ProMotion-map'#, path: '../ProMotion-map'
+gem 'ProMotion-map'
+# gem 'ProMotion-form'
 gem 'motion-support', :require => false # For Inflectors
 gem 'ruby_motion_query'
 
@@ -23,4 +23,3 @@ gem 'rake-hooks'
 # Development
 gem 'motion_print'
 gem 'reset-sim'
-gem 'pry'

@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/clearsightstudio/ProMotion.git
-  revision: eb484fddb924753e98e2e675696aa2562d776abd
+  revision: 6f8d2ea5738023ac88fce8b1100dc348574bfc3c
   specs:
-    ProMotion (2.0.1)
+    ProMotion (2.1.0)
       methadone (~> 1.7)
 
 GIT
@@ -16,71 +16,69 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    ProMotion-map (0.4.2)
+    ProMotion-map (0.5.0)
       ProMotion (~> 2.0)
-    activesupport (3.2.19)
-      i18n (~> 0.6, >= 0.6.4)
-      multi_json (~> 1.0)
+    activesupport (4.1.8)
+      i18n (~> 0.6, >= 0.6.9)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.1)
+      tzinfo (~> 1.1)
     bubble-wrap-http (1.7.1)
     claide (0.7.0)
-    cocoapods (0.34.2)
-      activesupport (>= 3.2.15, < 4)
+    cocoapods (0.35.0)
+      activesupport (>= 3.2.15)
       claide (~> 0.7.0)
-      cocoapods-core (= 0.34.2)
-      cocoapods-downloader (~> 0.7.2)
+      cocoapods-core (= 0.35.0)
+      cocoapods-downloader (~> 0.8.0)
       cocoapods-plugins (~> 0.3.1)
-      cocoapods-trunk (~> 0.3.0)
-      cocoapods-try (~> 0.4.1)
+      cocoapods-trunk (~> 0.4.1)
+      cocoapods-try (~> 0.4.2)
       colored (~> 1.2)
       escape (~> 0.0.4)
-      json_pure (~> 1.8)
+      molinillo (~> 0.1.2)
       nap (~> 0.8)
       open4 (~> 1.3)
-      xcodeproj (~> 0.19.2)
-    cocoapods-core (0.34.2)
+      xcodeproj (~> 0.20.2)
+    cocoapods-core (0.35.0)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
-      json_pure (~> 1.8)
       nap (~> 0.8.0)
-    cocoapods-downloader (0.7.2)
-    cocoapods-plugins (0.3.1)
+    cocoapods-downloader (0.8.0)
+    cocoapods-plugins (0.3.2)
       nap
-    cocoapods-trunk (0.3.0)
-      json_pure (~> 1.8)
+    cocoapods-trunk (0.4.1)
       nap (>= 0.8)
-      netrc
-    cocoapods-try (0.4.1)
-    coderay (1.1.0)
+      netrc (= 0.7.8)
+    cocoapods-try (0.4.2)
     colored (1.2)
     escape (0.0.4)
     fuzzy_match (2.0.4)
     i18n (0.6.11)
-    json_pure (1.8.1)
-    methadone (1.7.0)
+    json (1.8.1)
+    methadone (1.8.0)
       bundler
-    method_source (0.8.2)
-    motion-cocoapods (1.6.0)
+    minitest (5.4.3)
+    molinillo (0.1.2)
+    motion-cocoapods (1.7.0)
       cocoapods (>= 0.34)
     motion-require (0.2.0)
     motion-support (0.2.6)
       motion-require (>= 0.0.6)
-    motion_print (0.0.3)
-    multi_json (1.10.1)
+    motion_print (0.0.4)
     nap (0.8.0)
-    netrc (0.7.7)
+    netrc (0.7.8)
     open4 (1.3.4)
-    pry (0.10.1)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
-    rake (10.3.2)
+    rake (10.4.1)
     rake-hooks (1.2.3)
       rake
     reset-sim (1.0)
-    ruby_motion_query (0.8.0)
-    slop (3.6.0)
-    xcodeproj (0.19.3)
-      activesupport (~> 3.0)
+    ruby_motion_query (0.9.0)
+    thread_safe (0.3.4)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    xcodeproj (0.20.2)
+      activesupport (>= 3)
       colored (~> 1.2)
 
 PLATFORMS
@@ -94,7 +92,6 @@ DEPENDENCIES
   motion-cocoapods
   motion-support
   motion_print
-  pry
   rake (>= 0.9.4)
   rake-hooks
   reset-sim
