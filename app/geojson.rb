@@ -44,7 +44,7 @@ class GeoJSON
   def json
     @j_data ||= BW::JSON.parse(File.read(file_location))
 
-    if @location.nil?
+    if @location.nil? || (@location.is_a?(Hash) && @location.has_key?(:error))
       mp 'getting json without location'
       @sorted ||= @j_data['features'].sort_by{|dz| dz['properties']['name'] }
     else

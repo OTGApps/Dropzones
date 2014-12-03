@@ -11,7 +11,6 @@ class NearMeScreen < MasterTableScreen
   end
 
   def refresh
-    mp "Refreshing"
     map_and_show_dzs
   end
 
