@@ -10,11 +10,12 @@ gem 'bubble-wrap', :github => 'cognitiveflux/BubbleWrap', branch: 'CLLocationMan
 # gem 'bubble-wrap', path: '../BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 # gem 'afmotion', '~> 2.1.0'
 # gem 'formotion', :github => 'clayallsopp/formotion', :branch => 'master'
+
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
 gem 'ProMotion-map'
 # gem 'ProMotion-form'
 gem 'motion-support', :require => false # For Inflectors
-gem 'ruby_motion_query'
+gem 'redpotion'
 
 # Rubygems
 gem 'rake', '>= 0.9.4'

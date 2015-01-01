@@ -37,7 +37,7 @@ Motion::Project::App.setup do |app|
   app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
 
   app.pods do
-    pod 'FlurrySDK'
+    # pod 'FlurrySDK'
     pod 'OpenInChrome'
     pod 'Appirater'
   end

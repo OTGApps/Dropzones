@@ -21,6 +21,11 @@ class RegionsScreen < MasterTableScreen
     colors.each do |territory, t_color|
       if isEqualToColor(color, color2:t_color.to_color, withTolerance:0.1)
         puts territory
+        section_index = promotion_table_data.sections.index{|s| s[:title].split(' (').first.delete(" ").downcase.to_sym == territory}
+
+        scrollIndexPath = NSIndexPath.indexPathForRow(0, inSection:section_index)
+        table_view.scrollToRowAtIndexPath(scrollIndexPath, atScrollPosition:UITableViewScrollPositionTop, animated:true)
+
         break
       end
     end
@@ -38,25 +43,26 @@ class RegionsScreen < MasterTableScreen
 
   def colors
     {
-      midatlantic: '#16981B',
-      northcentral: '#FD9828',
       central: '#CB996A',
       eastern: '#CA6768',
-      mideastern: '#FDFD38',
       gulf: '#3669C9',
-      southwestern: '#FC3A99',
-      southern: '#973436',
-      southeast: '#199ACA',
-      northeast: '#CA0B15',
-      western: '#FC0F3B',
-      northwest: '#9ACA28',
+      :"mid-atlantic" => '#16981B',
+      mideastern: '#FDFD38',
       mountain: '#179867',
-      pacific: '#983897'
+      northcentral: '#FD9828',
+      northeast: '#CA0B15',
+      northwest: '#9ACA28',
+      pacific: '#983897',
+      southeast: '#199ACA',
+      southern: '#973436',
+      southwest: '#FC3A99',
+      western: '#FC0F3B',
+      # TODO - Add territories
     }
   end
 
   def table_data
-    table_format(GeoJSON.sharedData.by_region)
+    @table_data ||= table_format(GeoJSON.sharedData.by_region)
   end
 
 end

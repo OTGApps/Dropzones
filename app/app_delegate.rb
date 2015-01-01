@@ -48,8 +48,8 @@ class AppDelegate < PM::Delegate
   end
 
   #Flurry exception handler
-  def uncaughtExceptionHandler(exception)
-    Flurry.logError("Uncaught", message:"Crash!", exception:exception)
-  end
+  # def uncaughtExceptionHandler(exception)
+  #   Flurry.logError("Uncaught", message:"Crash!", exception:exception)
+  # end
 
 end
