@@ -1,4 +1,6 @@
 class MasterTableScreen < PM::TableScreen
+  include OpenDZScreen
+
   def on_load
     BW::Location.get_once(
       purpose: 'Determines how far away you are from dropzones.',
@@ -18,7 +20,7 @@ class MasterTableScreen < PM::TableScreen
       {
         title: dz['properties']['name'],
         subtitle: distance_away(dz),
-        action: :show_dz,
+        action: :open_dz_screen,
         arguments: {
           anchor: dz['properties']['anchor']
         },
@@ -52,13 +54,9 @@ class MasterTableScreen < PM::TableScreen
       distance_word = 'km'
     else
       distance = dz[:current_distance].miles.round
-      distance_word = ' miles'
+      distance_word = distance == 1 ? ' mile' : ' miles'
     end
 
     "#{distance}#{distance_word} away."
-  end
-
-  def show_dz(args = {})
-    open DZ.new(anchor: args[:anchor])
   end
 end

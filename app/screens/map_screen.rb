@@ -1,6 +1,8 @@
 class MapScreen < PM::MapScreen
+  include OpenDZScreen
   title "All Dropzones"
   tab_bar_item title: "Map", item: "map"
+  status_bar :light
 
   def on_load
     set_nav_bar_button :right, image: UIImage.imageNamed('location-target'), action: :show_user
@@ -28,8 +30,12 @@ class MapScreen < PM::MapScreen
     end
   end
 
+  def on_user_location(location)
+    # Nothing to see here... please move along
+  end
+
   def show_dz
-    open DZ.new(anchor: selected_annotations.first.params[:anchor])
+    open_dz_screen({anchor: selected_annotations.first.params[:anchor]})
   end
 
   def show_user

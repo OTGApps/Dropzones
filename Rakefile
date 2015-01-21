@@ -21,7 +21,7 @@ Motion::Project::App.setup do |app|
   app.interface_orientations = [:portrait, :portrait_upside_down]
 
   app.identifier = 'com.mohawkapps.dropzones'
-  app.seed_id = 'DW9QQZR4ZL'
+  # app.seed_id = 'DW9QQZR4ZL'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
   app.short_version = '1.0.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
@@ -43,7 +43,6 @@ Motion::Project::App.setup do |app|
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
-
 
   app.development do
     app.entitlements['get-task-allow'] = true

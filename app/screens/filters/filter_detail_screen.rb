@@ -1,5 +1,6 @@
 class FilterDetailScreen < MasterTableScreen
   refreshable
+  status_bar :light
   attr_accessor :search, :attribute
 
   def on_refresh ; refresh ; end

@@ -1,5 +1,9 @@
 class TrainingScreen < MasterTableScreen
-  title "Dropzones by Training"
+  status_bar :light
+
+  def will_appear
+    self.title = "Dropzones by Training"
+  end
 
   def table_data
     [{cells:cells}]

@@ -1,6 +1,6 @@
 class NearMeScreen < MasterTableScreen
-  title "Dropzones Near Me"
   refreshable
+  status_bar :light
 
   def on_refresh ; refresh ; end
   def on_appear ; refresh ; end
@@ -8,6 +8,10 @@ class NearMeScreen < MasterTableScreen
   def on_load
     super
     @dzs = [{title: "Loading..."}]
+  end
+
+  def will_appear
+    self.title = "Dropzones Near Me"
   end
 
   def refresh

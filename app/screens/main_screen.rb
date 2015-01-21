@@ -1,7 +1,11 @@
 class MainScreen < PM::TableScreen
   # searchable
-  title 'Find Dropzones'
   tab_bar_item title: 'Dropzones', item: 'airplane'
+  status_bar :light
+
+  def will_appear
+    self.title = 'Find Dropzones'
+  end
 
   def table_data
   [{

@@ -1,8 +1,12 @@
 class AircraftScreen < MasterTableScreen
-  title "Dropzones by Aircraft"
+  status_bar :light
 
   def table_data
     [{cells:cells}]
+  end
+
+  def will_appear
+    self.title = "Dropzones by Aircraft"
   end
 
   def cells

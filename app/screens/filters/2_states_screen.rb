@@ -1,11 +1,15 @@
 class StatesScreen < MasterTableScreen
-  title "Dropzones by State"
+  status_bar :light
 
   def on_appear ; load_data ; end
 
   def on_load
     super
     @td = [{cells:[{title: "Loading..."}]}]
+  end
+
+  def will_appear
+    self.title = "Dropzones by State"
   end
 
   def load_data
@@ -32,9 +36,15 @@ class StatesScreen < MasterTableScreen
   end
 
   def state_cell(state)
+    count = dz_count(state)
+    if count == 1
+      sub = "#{dz_count(state)} Drop Zone"
+    else
+      sub = "#{dz_count(state)} Drop Zones"
+    end
     {
       title: state,
-      subtitle: "#{dz_count(state)} Drop Zones",
+      subtitle: sub,
       accessory_type: :disclosure_indicator,
       action: :show_state,
       arguments: {
