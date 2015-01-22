@@ -8,11 +8,13 @@ class AppDelegate < PM::Delegate
     BW.debug = true unless App.info_plist['AppStoreRelease'] == true
 
     unless Device.simulator?
-      app_id = App.info_plist['APP_STORE_ID']
+      # Crittercism
+      crittercism_app_id = "54c05ae83cf56b9e0457d5f5"
+      Crittercism.enableWithAppID(crittercism_app_id)
 
       # Flurry
-      # NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
-      # Flurry.startSession((App.info_plist['AppStoreRelease'] == true ? "IRHW8V9LE2M38WJLSM6T" : "3W88Z2Q6MR87NHGDSMVV"))
+      NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
+      Flurry.startSession("Y33SK5D8R48YDGTDZZG3")
     end
 
     open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
@@ -41,8 +43,8 @@ class AppDelegate < PM::Delegate
   end
 
   #Flurry exception handler
-  # def uncaughtExceptionHandler(exception)
-  #   Flurry.logError("Uncaught", message:"Crash!", exception:exception)
-  # end
+  def uncaughtExceptionHandler(exception)
+    Flurry.logError("Uncaught", message:"Crash!", exception:exception)
+  end
 
 end

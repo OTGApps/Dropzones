@@ -20,7 +20,6 @@ Motion::Project::App.setup do |app|
   app.interface_orientations = [:portrait, :portrait_upside_down]
 
   app.identifier = 'io.otgapps.dropzones'
-  # app.seed_id = 'DW9QQZR4ZL'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
   app.short_version = '1.0.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
@@ -42,6 +41,7 @@ Motion::Project::App.setup do |app|
   app.pods do
     pod 'OpenInChrome'
     pod 'CrittercismSDK'
+    pod 'FlurrySDK'
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
@@ -54,6 +54,7 @@ Motion::Project::App.setup do |app|
 
   app.release do
     app.info_plist['AppStoreRelease'] = true
+    app.seed_id = 'DW9QQZR4ZL'
     app.entitlements['get-task-allow'] = false
     app.codesign_certificate = "iPhone Distribution: Mohawk Apps, LLC (DW9QQZR4ZL)"
     app.provisioning_profile = "./provisioning/release.mobileprovision"
