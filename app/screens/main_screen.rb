@@ -5,6 +5,11 @@ class MainScreen < PM::TableScreen
 
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back
+    set_nav_bar_button :right, {
+      title: "Info",
+      image: UIImage.imageNamed("info"),
+      action: :open_info
+    }
   end
 
   def table_data
@@ -82,5 +87,9 @@ class MainScreen < PM::TableScreen
 
   def show_by_region
     open RegionsScreen
+  end
+
+  def open_info
+    open_modal InfoScreen.new(nav_bar: true)
   end
 end
