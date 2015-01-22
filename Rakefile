@@ -17,10 +17,9 @@ Motion::Project::App.setup do |app|
   app.deployment_target = '7.1'
 
   app.device_family = [:iphone]
-  app.archs['iPhoneOS'] |= ['arm64']
   app.interface_orientations = [:portrait, :portrait_upside_down]
 
-  app.identifier = 'com.mohawkapps.dropzones'
+  app.identifier = 'io.otgapps.dropzones'
   # app.seed_id = 'DW9QQZR4ZL'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
   app.short_version = '1.0.0'
@@ -36,9 +35,13 @@ Motion::Project::App.setup do |app|
   app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
   app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
 
+  app.frameworks += [
+    'SystemConfiguration'
+  ]
+
   app.pods do
-    # pod 'FlurrySDK'
     pod 'OpenInChrome'
+    pod 'CrittercismSDK'
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
