@@ -1,6 +1,5 @@
 class States
   def self.all
-    # TODO - check these abbreviateions
     {
       al: 'Alabama',
       ak: 'Alaska',

@@ -62,7 +62,6 @@ class RegionsScreen < MasterTableScreen
       southern: '#973436',
       southwest: '#FC3A99',
       western: '#FC0F3B',
-      # TODO - Add territories
     }
   end
 
