@@ -39,7 +39,6 @@ Motion::Project::App.setup do |app|
   app.pods do
     # pod 'FlurrySDK'
     pod 'OpenInChrome'
-    pod 'Appirater'
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")

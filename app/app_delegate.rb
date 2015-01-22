@@ -13,13 +13,6 @@ class AppDelegate < PM::Delegate
       # Flurry
       # NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
       # Flurry.startSession((App.info_plist['AppStoreRelease'] == true ? "IRHW8V9LE2M38WJLSM6T" : "3W88Z2Q6MR87NHGDSMVV"))
-
-      # Appirater
-      Appirater.setAppId app_id
-      Appirater.setDaysUntilPrompt 5
-      Appirater.setUsesUntilPrompt 10
-      Appirater.setTimeBeforeReminding 5
-      Appirater.appLaunched true
     end
 
     open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
