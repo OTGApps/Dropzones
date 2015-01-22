@@ -8,7 +8,6 @@ class NearMeScreen < MasterTableScreen
 
   def on_load
     super
-    set_nav_bar_button :back, title: '', style: :plain, action: :back
     @dzs = [{title: "Loading..."}]
   end
 
