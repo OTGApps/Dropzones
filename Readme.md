@@ -3,6 +3,19 @@
 
 #### A [RubyMotion](http://www.rubymotion.com/) application brought to you by [Off The Grid Apps](http://otgapps.io/).
 
+Looking for somewhere to make your first skydive? Are you an experienced skydiver looking for fun new places to jump? Then this app is for you!
+
+Dropzones lists all current U.S. Parachute Association (USPA) member dropzones in an easy to navigate interface. Because these dropzones are USPA certified, you can be assured that the staff, training, equipment, and airplanes are top-quality!
+
+* Quickly find the dropzones closest to where you are now!
+* Search by state, region, aircraft, services offered, and training capabilities.
+* See a map of every USPA dropzone in the US!
+* Detailed information about each dropzone
+
+Use this app to plan your next skydiving road trip across the uUnited States!
+
+This app is open source. Browse the source code here: https://github.com/OTGApps/Dropzones
+
 ## Download from the App Store
 
 [![image](http://ax.phobos.apple.com.edgesuite.net/images/web/linkmaker/badge_appstore-lrg.gif)](https://itunes.apple.com/us/app/dropzones-uspa-dropzone-finder/id960515397?mt=8&uo=4&at=10l4yY&ct=github)
@@ -19,7 +32,7 @@
 
 ## Screenshots
 
-<a href="_marketing/screenshots/1.0.0/iPhone4/1.png"><img src="_marketing/screenshots/1.0.0/iPhone4/1.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/iPhone4/2.png"><img src="_marketing/screenshots/1.0.0/iPhone4/2.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/iPhone4/3.png"><img src="_marketing/screenshots/1.0.0/iPhone4/3.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/iPhone4/4.png"><img src="_marketing/screenshots/1.0.0/iPhone4/4.png" alt="Screenshot" width="140"  /></a> <a href="_marketing/screenshots/1.0.0/iPhone4/5.png"><img src="_marketing/screenshots/1.0.0/iPhone4/5.png" alt="Screenshot" width="140" /></a>
+<a href="_marketing/screenshots/1.0.0/4.7/1.png"><img src="_marketing/screenshots/1.0.0/4.7/1.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/4.7/2.png"><img src="_marketing/screenshots/1.0.0/4.7/2.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/4.7/3.png"><img src="_marketing/screenshots/1.0.0/4.7/3.png" alt="Screenshot" width="140" /></a> <a href="_marketing/screenshots/1.0.0/4.7/4.png"><img src="_marketing/screenshots/1.0.0/4.7/4.png" alt="Screenshot" width="140"  /></a> <a href="_marketing/screenshots/1.0.0/4.7/5.png"><img src="_marketing/screenshots/1.0.0/4.7/5.png" alt="Screenshot" width="140" /></a>
 
 ## Contributing:
 
