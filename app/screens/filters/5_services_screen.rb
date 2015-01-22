@@ -1,12 +1,9 @@
 class ServicesScreen < MasterTableScreen
   status_bar :light
+  title "Services Offered"
 
   def table_data
     [{cells:cells}]
-  end
-
-  def will_appear
-    self.title = "Services Offered"
   end
 
   def cells

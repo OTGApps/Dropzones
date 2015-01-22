@@ -1,17 +1,15 @@
 class NearMeScreen < MasterTableScreen
-  refreshable
+  # refreshable
   status_bar :light
+  title "Dropzones Near Me"
 
-  def on_refresh ; refresh ; end
+  # def on_refresh ; refresh ; end
   def on_appear ; refresh ; end
 
   def on_load
     super
+    set_nav_bar_button :back, title: '', style: :plain, action: :back
     @dzs = [{title: "Loading..."}]
-  end
-
-  def will_appear
-    self.title = "Dropzones Near Me"
   end
 
   def refresh

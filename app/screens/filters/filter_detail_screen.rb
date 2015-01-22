@@ -1,18 +1,15 @@
 class FilterDetailScreen < MasterTableScreen
-  refreshable
   status_bar :light
   attr_accessor :search, :attribute
 
-  def on_refresh ; refresh ; end
   def on_appear ; refresh ; end
 
   def on_load
-    @td = [{cells:[{title: "Loading..."}]}]
     super
+    @td = [{cells:[{title: "Loading..."}]}]
   end
 
   def will_appear
-    super
     self.title = @search
   end
 
@@ -20,7 +17,6 @@ class FilterDetailScreen < MasterTableScreen
     @td = [{
       cells:build_cells(GeoJSON.sharedData.by_attribute(@attribute, @search))
     }]
-    end_refreshing
     update_table_data
   end
 

@@ -3,8 +3,7 @@ class StateDetailScreen < MasterTableScreen
   status_bar :light
   attr_accessor :state_name, :state
 
-  def on_load
-    super
+  def will_appear
     @td = [{cells:[{title: "Loading..."}]}]
     self.title = state_name
   end

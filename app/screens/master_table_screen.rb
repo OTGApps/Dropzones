@@ -2,6 +2,7 @@ class MasterTableScreen < PM::TableScreen
   include OpenDZScreen
 
   def on_load
+    set_nav_bar_button :back, title: '', style: :plain, action: :back
     BW::Location.get_once(
       purpose: 'Determines how far away you are from dropzones.',
       authorization_type: :when_in_use
@@ -9,10 +10,6 @@ class MasterTableScreen < PM::TableScreen
         GeoJSON.sharedData.location = location
         update_table_data
     end
-  end
-
-  def will_appear
-    navigationController.navigationBar.topItem.title = ''
   end
 
   def build_cells(data)

@@ -5,6 +5,7 @@ class MapScreen < PM::MapScreen
   status_bar :light
 
   def on_load
+    set_nav_bar_button :back, title: '', style: :plain, action: :back
     set_nav_bar_button :right, image: UIImage.imageNamed('location-target'), action: :show_user
     @initial_zoom = false
   end

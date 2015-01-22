@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/clearsightstudio/ProMotion.git
+  revision: 4b3c6a0828cdc4a4f0be2c34e839fbce5c06de8a
+  branch: fix-webscreen-autodetected-links
+  specs:
+    ProMotion (2.2.0)
+      methadone (~> 1.7)
+
+GIT
   remote: git://github.com/cognitiveflux/BubbleWrap.git
   revision: 0a89cf3896830cdeade2bef5e932b2dc07a53cbf
   branch: CLLocationManagerDelegate_didUpdateLocations
@@ -9,8 +17,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    ProMotion (2.2.0)
-      methadone (~> 1.7)
     ProMotion-map (0.5.0)
       ProMotion (~> 2.0)
     activesupport (4.2.0)
@@ -87,7 +93,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ProMotion
+  ProMotion!
   ProMotion-map
   bubble-wrap!
   motion-cocoapods

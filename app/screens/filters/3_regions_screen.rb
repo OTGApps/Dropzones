@@ -1,9 +1,6 @@
 class RegionsScreen < MasterTableScreen
   status_bar :light
-
-  def will_appear
-    self.title = "Dropzones by Region"
-  end
+  title "Dropzones by Region"
 
   def table_header_view
     image = UIImage.imageNamed('regions')

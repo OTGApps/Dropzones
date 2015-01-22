@@ -1,15 +1,12 @@
 class StatesScreen < MasterTableScreen
   status_bar :light
+  title "Dropzones by State"
 
   def on_appear ; load_data ; end
 
   def on_load
     super
     @td = [{cells:[{title: "Loading..."}]}]
-  end
-
-  def will_appear
-    self.title = "Dropzones by State"
   end
 
   def load_data
