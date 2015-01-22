@@ -24,7 +24,7 @@ Motion::Project::App.setup do |app|
   app.short_version = '1.0.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
-  # app.info_plist['APP_STORE_ID'] = 823834093
+  app.info_plist['APP_STORE_ID'] = 960515397
 
   # Location Services
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
@@ -42,6 +42,7 @@ Motion::Project::App.setup do |app|
     pod 'OpenInChrome'
     pod 'CrittercismSDK'
     pod 'FlurrySDK'
+    pod 'Appirater'
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
