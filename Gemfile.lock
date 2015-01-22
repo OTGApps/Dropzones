@@ -1,9 +1,8 @@
 GIT
   remote: git://github.com/clearsightstudio/ProMotion.git
-  revision: 4b3c6a0828cdc4a4f0be2c34e839fbce5c06de8a
-  branch: fix-webscreen-autodetected-links
+  revision: 9b5dc1be00067cfe5350c0a373c7d25121604a79
   specs:
-    ProMotion (2.2.0)
+    ProMotion (2.2.1)
       methadone (~> 1.7)
 
 GIT
