@@ -12,6 +12,15 @@ class MainScreen < PM::TableScreen
     }
   end
 
+  def on_appear
+    BW::Location.get_once(
+      purpose: 'Determines how far away you are from dropzones.',
+      authorization_type: :when_in_use
+    ) do |location|
+      GeoJSON.sharedData.location = location
+    end
+  end
+
   def table_data
   [{
     title: nil,
