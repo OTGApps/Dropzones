@@ -30,9 +30,9 @@ Motion::Project::App.setup do |app|
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
   app.info_plist['NSLocationWhenInUseUsageDescription'] = app.info_plist['NSLocationAlwaysUsageDescription']
 
-  app.info_plist["UIStatusBarHidden"] = true
   app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
-  app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
+  app.info_plist["UIStatusBarHidden"] = true
+  # app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
 
   app.frameworks += [
     'SystemConfiguration'

@@ -37,10 +37,6 @@ class AppDelegate < PM::Delegate
     blue = "#062D5A".to_color
     white = UIColor.whiteColor
 
-    # UIWindow.appearance.tap do |ap|
-    #   ap.tintColor = white
-    # end
-
     UINavigationBar.appearance.tap do |ap|
       ap.setBarTintColor(blue)
       ap.setTintColor(white)
