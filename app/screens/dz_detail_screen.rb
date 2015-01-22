@@ -23,6 +23,7 @@ class DZDetailScreen < PM::WebScreen
     c = ""
     c << css
     c << name
+    c << website
     c << description
     c << location
     c << contact
@@ -43,6 +44,10 @@ class DZDetailScreen < PM::WebScreen
     "<h1>" + raw_name + "</h1>"
   end
 
+  def website
+    paragraph_with_breaks dz['properties']['website']
+  end
+
   def location
     paragraph_with_breaks dz['properties']['location'], "Location:"
   end
@@ -60,7 +65,7 @@ class DZDetailScreen < PM::WebScreen
   end
 
   def description
-    "<p>#{dz['properties']['description']}</p>" if dz['properties']['description']
+    paragraph_with_breaks dz['properties']['description']
   end
 
   def aircraft
