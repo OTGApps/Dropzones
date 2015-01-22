@@ -14,12 +14,24 @@ class TrainingScreen < MasterTableScreen
     GeoJSON.sharedData.unique_attribute('training').map do |a|
       {
         title: a,
+        subtitle: subtitle(a),
         action: :show_dzs,
         accessory_type: :disclosure_indicator,
         arguments: {
           search: a
         }
       }
+    end
+  end
+
+  def subtitle(title)
+    case title
+    when "AFF"
+      "Accelerated Free Fall"
+    when "IAD"
+      "Instructor Assisted Deployment"
+    when "SL"
+      "Static Line"
     end
   end
 
