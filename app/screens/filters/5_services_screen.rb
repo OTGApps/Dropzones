@@ -2,6 +2,10 @@ class ServicesScreen < MasterTableScreen
   status_bar :light
   title "Services Offered"
 
+  def on_appear
+    Flurry.logEvent("VIEW_SERVICES") unless Device.simulator?
+  end
+
   def table_data
     [{cells:cells}]
   end

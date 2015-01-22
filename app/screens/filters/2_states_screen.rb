@@ -2,7 +2,10 @@ class StatesScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by State"
 
-  def on_appear ; load_data ; end
+  def on_appear
+    Flurry.logEvent("VIEW_STATES") unless Device.simulator?
+    load_data
+  end
 
   def on_load
     super

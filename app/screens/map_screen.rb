@@ -11,6 +11,8 @@ class MapScreen < PM::MapScreen
   end
 
   def on_appear
+    Flurry.logEvent("VIEW_MAP") unless Device.simulator?
+
     zoom_to_fit_annotations unless @initial_zoom
     @initial_zoom = true
     show_user_location

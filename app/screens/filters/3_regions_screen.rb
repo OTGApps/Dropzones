@@ -2,6 +2,10 @@ class RegionsScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by Region"
 
+  def on_appear
+    Flurry.logEvent("VIEW_REGIONS") unless Device.simulator?
+  end
+
   def table_header_view
     image = UIImage.imageNamed('regions')
     @image_view = UIImageView.alloc.initWithFrame(CGRectMake(0, 0, 320, 202))

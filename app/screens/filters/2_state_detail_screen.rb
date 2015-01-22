@@ -4,6 +4,7 @@ class StateDetailScreen < MasterTableScreen
   attr_accessor :state_name, :state
 
   def will_appear
+    Flurry.logEvent("VIEW_STATE_DETAIL", withParameters:{state: state_name}) unless Device.simulator?
     @td = [{cells:[{title: "Loading..."}]}]
     self.title = state_name
   end

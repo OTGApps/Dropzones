@@ -1,10 +1,11 @@
 class NearMeScreen < MasterTableScreen
-  # refreshable
   status_bar :light
   title "Dropzones Near Me"
 
-  # def on_refresh ; refresh ; end
-  def on_appear ; refresh ; end
+  def on_appear
+    Flurry.logEvent("VIEW_NEAR_ME") unless Device.simulator?
+    refresh
+  end
 
   def on_load
     super

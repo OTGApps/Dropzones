@@ -2,6 +2,10 @@ class TrainingScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by Training"
 
+  def on_appear
+    Flurry.logEvent("VIEW_TRAINING") unless Device.simulator?
+  end
+
   def table_data
     [{cells:cells}]
   end
