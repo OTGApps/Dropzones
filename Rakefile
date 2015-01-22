@@ -32,7 +32,10 @@ Motion::Project::App.setup do |app|
 
   app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
   app.info_plist["UIStatusBarHidden"] = true
-  # app.info_plist["UIStatusBarStyle"] = "UIStatusBarStyleLightContent"
+  app.info_plist["UIRequiredDeviceCapabilities"] = {
+    "location-services" => true,
+    "gps" => true,
+  }
 
   app.frameworks += [
     'SystemConfiguration'
