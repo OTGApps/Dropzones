@@ -1,0 +1,21 @@
+PODS:
+  - Appirater (2.0.4)
+  - CrittercismSDK (5.0.7)
+  - FlurrySDK (5.4.0):
+    - FlurrySDK/FlurrySDK (= 5.4.0)
+  - FlurrySDK/FlurrySDK (5.4.0)
+  - OpenInChrome (0.0.1)
+
+DEPENDENCIES:
+  - Appirater
+  - CrittercismSDK
+  - FlurrySDK
+  - OpenInChrome
+
+SPEC CHECKSUMS:
+  Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
+  CrittercismSDK: 1f1a91c7a51ca8044e675765bde5d2aa97295b1d
+  FlurrySDK: bed9e5598353f867508d164795a451e3ada92cb6
+  OpenInChrome: b7c73ddf8fe0a1788dc0549c3c4c70e3c84da578
+
+COCOAPODS: 0.35.0
