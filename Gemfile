@@ -20,3 +20,4 @@ gem 'rake-hooks'
 
 # Development
 gem 'newclear'
+gem 'motion-appstore'
