@@ -24,7 +24,7 @@ class DZDetailScreen < PM::WebScreen
     if App::Persistence['shown_warning'].nil?
       App.alert("Disclaimer:", {
         cancel_button_title: "Got it!",
-        message: "While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect informaton reported by the USPA.\n\nPlease verify all information with the dropzone directly."
+        message: "While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly."
       })
       App::Persistence['shown_warning'] = true
     end
