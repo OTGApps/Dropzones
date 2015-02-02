@@ -46,6 +46,7 @@ Motion::Project::App.setup do |app|
     pod 'CrittercismSDK'
     pod 'FlurrySDK'
     pod 'Appirater'
+    pod 'BFNavigationBarDrawer'
   end
 
   app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")

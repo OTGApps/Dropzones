@@ -1,5 +1,6 @@
 PODS:
   - Appirater (2.0.4)
+  - BFNavigationBarDrawer (1.0.2)
   - CrittercismSDK (5.0.7)
   - FlurrySDK (5.4.0):
     - FlurrySDK/FlurrySDK (= 5.4.0)
@@ -8,12 +9,14 @@ PODS:
 
 DEPENDENCIES:
   - Appirater
+  - BFNavigationBarDrawer
   - CrittercismSDK
   - FlurrySDK
   - OpenInChrome
 
 SPEC CHECKSUMS:
   Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
+  BFNavigationBarDrawer: c59a8e9f8db3d60cd4641e78dba96de2f9bd483b
   CrittercismSDK: 1f1a91c7a51ca8044e675765bde5d2aa97295b1d
   FlurrySDK: bed9e5598353f867508d164795a451e3ada92cb6
   OpenInChrome: b7c73ddf8fe0a1788dc0549c3c4c70e3c84da578

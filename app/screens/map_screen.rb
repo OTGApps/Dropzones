@@ -8,11 +8,19 @@ class MapScreen < PM::MapScreen
     set_nav_bar_button :back, title: '', style: :plain, action: :back
     set_nav_bar_button :right, image: UIImage.imageNamed('location-target'), action: :show_user
     @initial_zoom = false
+
+    # Create the toolbar
+    BFNavigationBarDrawer.alloc.init.tap do |d|
+      d.tintColor = UIColor.whiteColor
+      d.barTintColor = UIColor.colorWithRed(0.024, green:0.176, blue:0.353, alpha:1) #062d5a
+      d.items = segmented_control
+      d.showFromNavigationBar(self.navigationController.navigationBar, animated:false)
+    end
   end
 
   def on_appear
     Flurry.logEvent("VIEW_MAP") unless Device.simulator?
-
+    segment_value_changed(nil)
     zoom_to_fit_annotations unless @initial_zoom
     @initial_zoom = true
     show_user_location
@@ -31,6 +39,32 @@ class MapScreen < PM::MapScreen
         }
       end
     end
+  end
+
+  def segment_value_changed(sender)
+    App::Persistence['map_type'] = sender.selectedSegmentIndex if sender
+
+    case App::Persistence['map_type']
+    when 0
+      map.setMapType MKMapTypeStandard
+    when 1
+      map.setMapType MKMapTypeHybrid
+    when 2
+      map.setMapType MKMapTypeSatellite
+    end
+  end
+
+  def segmented_control
+    control = UISegmentedControl.alloc.initWithItems(["Map", "Hybrid", "Satellite"]).tap do |sc|
+      sc.segmentedControlStyle = UISegmentedControlStyleBar
+      sc.selectedSegmentIndex = App::Persistence['map_type'] || 0
+    end
+    rmq(control).on(:value_changed) do |sender|
+      segment_value_changed(sender)
+    end
+    item = UIBarButtonItem.alloc.initWithCustomView(control)
+    fs = UIBarButtonItem.alloc.initWithBarButtonSystemItem(UIBarButtonSystemItemFlexibleSpace, target:nil, action:nil)
+    [fs, item, fs]
   end
 
   def on_user_location(location)
