@@ -46,11 +46,11 @@ class MapScreen < PM::MapScreen
 
     case App::Persistence['map_type']
     when 0
-      map.setMapType MKMapTypeStandard
+      self.type = MKMapTypeStandard
     when 1
-      map.setMapType MKMapTypeHybrid
+      self.type = MKMapTypeHybrid
     when 2
-      map.setMapType MKMapTypeSatellite
+      self.type = MKMapTypeSatellite
     end
   end
 
