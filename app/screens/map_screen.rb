@@ -10,11 +10,10 @@ class MapScreen < PM::MapScreen
     @initial_zoom = false
 
     # Create the toolbar
-    BFNavigationBarDrawer.alloc.init.tap do |d|
+    @toolbar = BFNavigationBarDrawer.alloc.init.tap do |d|
       d.tintColor = UIColor.whiteColor
       d.barTintColor = UIColor.colorWithRed(0.024, green:0.176, blue:0.353, alpha:1) #062d5a
       d.items = segmented_control
-      d.showFromNavigationBar(self.navigationController.navigationBar, animated:false)
     end
   end
 
@@ -24,6 +23,10 @@ class MapScreen < PM::MapScreen
     zoom_to_fit_annotations unless @initial_zoom
     @initial_zoom = true
     show_user_location
+  end
+
+  def will_appear
+    @toolbar.showFromNavigationBar(self.navigationController.navigationBar, animated:true) if @toolbar
   end
 
   def annotation_data
@@ -72,6 +75,7 @@ class MapScreen < PM::MapScreen
   end
 
   def show_dz
+    @toolbar.hideAnimated(true) if @toolbar
     open_dz_screen({anchor: selected_annotations.first.params[:anchor]})
   end
 
