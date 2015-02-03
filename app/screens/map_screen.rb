@@ -59,6 +59,7 @@ class MapScreen < PM::MapScreen
 
   def segmented_control
     control = UISegmentedControl.alloc.initWithItems(["Map", "Hybrid", "Satellite"]).tap do |sc|
+      sc.frame = [sc.frame.origin,[sc.frame.size.width + 100, sc.frame.size.height]] # Make it widerer
       sc.segmentedControlStyle = UISegmentedControlStyleBar
       sc.selectedSegmentIndex = App::Persistence['map_type'] || 0
     end
