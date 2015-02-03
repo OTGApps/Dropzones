@@ -5,7 +5,7 @@ class DZDetailScreen < PM::WebScreen
   def on_load
     set_nav_bar_button :right, {
       title: "Open In Maps",
-      image: UIImage.imageNamed("compass"),
+      image: UIImage.imageNamed("car"),
       tint_color: UIColor.whiteColor,
       action: :open_in_maps
     }
