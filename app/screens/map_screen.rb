@@ -26,7 +26,7 @@ class MapScreen < PM::MapScreen
   end
 
   def will_appear
-    @toolbar.showFromNavigationBar(self.navigationController.navigationBar, animated:true) if @toolbar
+    @toolbar.showFromNavigationBar(self.navigationController.navigationBar, animated:true) if @toolbar && !@toolbar.isVisible
   end
 
   def annotation_data
@@ -76,7 +76,7 @@ class MapScreen < PM::MapScreen
   end
 
   def show_dz
-    @toolbar.hideAnimated(true) if @toolbar
+    @toolbar.hideAnimated(true) if @toolbar && @toolbar.isVisible
     open_dz_screen({anchor: selected_annotations.first.params[:anchor]})
   end
 
