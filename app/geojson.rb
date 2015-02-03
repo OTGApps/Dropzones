@@ -4,6 +4,46 @@ class GeoJSON
     @instance
   end
 
+  def data_url
+    'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
+  end
+
+  def file_name
+    "dropzones.geojson"
+  end
+
+  def documents_file
+    file_name.document_path
+  end
+
+  def resources_file
+    file_name.resource_path
+  end
+
+  def downloaded_file_exists?
+    documents_file.file_exists?
+  end
+
+  def download_new_data(&block)
+    mp "Initiating downloading of new data."
+    # Only check for new data every 2 days (or 30 seconds if in the simulator)
+    check_interval = Device.simulator? ? 30 : 172800
+    if App::Persistence['last_data_check'].to_i < Time.now.to_i - check_interval
+      mp 'Downloading new data file'
+      AFMotion::HTTP.get(data_url) do |result|
+        mp 'got result'
+        if result.success?
+          mp 'got successful result.'
+          mp 'writing data to file.'
+          result.object.write_to(documents_file)
+          clear_cache!
+          App::Persistence['last_data_check'] = Time.now
+          block.call
+        end
+      end
+    end
+  end
+
   def initialize
     @location = nil
     json
@@ -28,7 +68,7 @@ class GeoJSON
   end
 
   def by_attribute(att, search)
-    @by_att = {}
+    @by_att ||= {}
     @by_att["#{att}_#{search}"] ||= json.select{ |dz|
       !dz['properties'][att].nil? && dz['properties'][att].find{ |ac|
         ac.squeeze(' ').match(search)
@@ -98,10 +138,18 @@ class GeoJSON
     dzs_with_distance.sort_by { |dz| dz[:current_distance] }
   end
 
-  private
+  def clear_cache!
+    @regions = nil
+    @states = nil
+    @dzs = nil
+    @j_data = nil
+    @sorted = nil
+    @unique = nil
+    @by_att = nil
+  end
 
   def file_location
-    @file_location ||= File.join(App.resources_path, "dropzones.geojson")
+    downloaded_file_exists? ? documents_file : resources_file
   end
 
 end

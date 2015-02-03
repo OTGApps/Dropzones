@@ -13,17 +13,24 @@ GIT
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
 
-GEM
-  remote: https://rubygems.org/
+PATH
+  remote: ../ProMotion-map
   specs:
     ProMotion-map (0.5.0)
       ProMotion (~> 2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     activesupport (4.2.0)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    afmotion (2.5)
+      motion-cocoapods (>= 1.4.1)
+      motion-require (>= 0.1)
     bubble-wrap-http (1.7.1)
     claide (0.7.0)
     cocoapods (0.35.0)
@@ -82,6 +89,7 @@ GEM
       ruby_motion_query (~> 1.0)
     reset-sim (1.0)
     ruby_motion_query (1.0.0)
+    sugarcube (2.12.3)
     thread_safe (0.3.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -94,7 +102,8 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion!
-  ProMotion-map
+  ProMotion-map!
+  afmotion
   bubble-wrap!
   motion-appstore
   motion-cocoapods
@@ -103,3 +112,4 @@ DEPENDENCIES
   rake (>= 0.9.4)
   rake-hooks
   redpotion
+  sugarcube
