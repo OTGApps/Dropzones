@@ -5,14 +5,7 @@ class StateDetailScreen < MasterTableScreen
 
   def will_appear
     Flurry.logEvent("VIEW_STATE_DETAIL", withParameters:{state: state_name}) unless Device.simulator?
-    @td = [{cells:[{title: "Loading..."}]}]
     self.title = state_name
-  end
-
-  def refresh
-    # @td = table_format(GeoJSON.sharedData.by_state)
-    # end_refreshing
-    # update_table_data
   end
 
   def table_data
