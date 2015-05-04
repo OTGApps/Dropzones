@@ -3,6 +3,7 @@ class MasterTableScreen < PM::TableScreen
 
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back
+
     BW::Location.get_once(
       purpose: 'Determines how far away you are from dropzones.',
       authorization_type: :when_in_use
@@ -10,6 +11,15 @@ class MasterTableScreen < PM::TableScreen
         GeoJSON.sharedData.location = location
         update_table_data
     end
+  end
+
+  def loading_table_data
+    [{
+      title:nil,
+      cells: [{
+        title: "Loading..."
+      }]
+    }]
   end
 
   def build_cells(data)

@@ -7,19 +7,17 @@ class NearMeScreen < MasterTableScreen
     refresh
   end
 
-  def on_load
-    super
-    @dzs = [{title: "Loading..."}]
-  end
-
   def refresh
     map_and_show_dzs
   end
 
   def table_data
-    [{
-      title: nil,
-      cells: @dzs
-    }]
+    if @dzs
+      [{
+        cells: @dzs
+      }]
+    else
+      loading_table_data
+    end
   end
 end
