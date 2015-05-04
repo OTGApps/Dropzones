@@ -19,3 +19,4 @@ vendor/*/build*/
 .gems
 resources/dropzones.geojson
 provisioning/
+_releases
