@@ -40,7 +40,7 @@ class MasterTableScreen < PM::TableScreen
     data = GeoJSON.sharedData.json if data.nil?
     @dzs = build_cells(data)
 
-    update_table_data
+    update_table_data if update
     end_refreshing
   end
 
