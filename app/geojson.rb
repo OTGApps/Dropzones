@@ -4,48 +4,11 @@ class GeoJSON
     @instance
   end
 
-  def data_url
-    'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
-  end
-
-  def file_name
-    "dropzones.geojson"
-  end
-
-  def documents_file
-    file_name.document_path
-  end
-
-  def resources_file
-    file_name.resource_path
-  end
-
-  def downloaded_file_exists?
-    documents_file.file_exists?
-  end
-
-  def download_new_data(&block)
-    mp "Initiating downloading of new data."
-    # Only check for new data every 2 days (or 30 seconds if in the simulator)
-    check_interval = Device.simulator? ? 30 : 172800
-    if App::Persistence['last_data_check'].to_i < Time.now.to_i - check_interval
-      mp 'Downloading new data file'
-      AFMotion::HTTP.get(data_url) do |result|
-        mp 'got result'
-        if result.success?
-          mp 'got successful result.'
-          mp 'writing data to file.'
-          result.object.write_to(documents_file)
-          clear_cache!
-          App::Persistence['last_data_check'] = Time.now
-          block.call
-        end
-      end
-    end
-  end
-
   def initialize
     @location = nil
+    App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
+      reload_data
+    end
     json
   end
 
@@ -69,11 +32,11 @@ class GeoJSON
 
   def by_attribute(att, search)
     @by_att ||= {}
-    @by_att["#{att}_#{search}"] ||= json.select{ |dz|
-      !dz['properties'][att].nil? && dz['properties'][att].find{ |ac|
+    @by_att["#{att}_#{search}"] ||= json.select do |dz|
+      !dz['properties'][att].nil? && dz['properties'][att].find do |ac|
         ac.squeeze(' ').match(search)
-      }
-    }
+      end
+    end
   end
 
   def find_dz(anchor)
@@ -95,12 +58,14 @@ class GeoJSON
 
   def state(data)
     # Extract the state out of the location array
-    mp data['properties']['location']
+    # mp data['properties']['location']
     c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+,\s\w{2}\s\d{5}(-\d{4})?$/) != nil }
 
     if c_s_z.nil?
       if data['properties']['location'].find{ |l| l == 'US Virgin Islands' }
         'US Virgin Islands'
+      elsif data['properties']['location'].find{ |l| l == 'Puerto Rico' }
+        'Puerto Rico'
       else
         'Unknown'
       end
@@ -111,15 +76,14 @@ class GeoJSON
 
   def unique_attribute(att)
     @unique ||= {}
-    @unique[att] ||= json.map{ |dz|
+    @unique[att] ||= json.map do |dz|
       dz['properties'][att]
-    }
-    .flatten(1)
+    end.flatten(1)
     .uniq
     .compact
-    .map{|ac|
+    .map do |ac|
       (ac[1] == ' ') ? ac.split(' ')[1..-1].join(' ').singularize.squeeze(' ') : ac.squeeze(' ')
-    }.uniq
+    end.uniq
     .sort
   end
 
@@ -138,6 +102,11 @@ class GeoJSON
     dzs_with_distance.sort_by { |dz| dz[:current_distance] }
   end
 
+  def reload_data
+    mp "Got a data reloaded notification. Clearing cache."
+    clear_cache!
+  end
+
   def clear_cache!
     @regions = nil
     @states = nil
@@ -148,8 +117,12 @@ class GeoJSON
     @by_att = nil
   end
 
+  def resources_file
+    MotionConcierge.local_file_name.resource_path
+  end
+
   def file_location
-    downloaded_file_exists? ? documents_file : resources_file
+    MotionConcierge.downloaded_file_exists? ? MotionConcierge.local_file_path : resources_file
   end
 
 end

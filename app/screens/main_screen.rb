@@ -19,12 +19,6 @@ class MainScreen < PM::TableScreen
     ) do |location|
       GeoJSON.sharedData.location = location
     end
-
-    @_done_once ||= begin
-      GeoJSON.sharedData.download_new_data do
-        update_table_data
-      end
-    end
   end
 
   def table_data
