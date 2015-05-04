@@ -12,7 +12,7 @@ class MapScreen < PM::MapScreen
     # Create the toolbar
     @toolbar = BFNavigationBarDrawer.alloc.init.tap do |d|
       d.tintColor = UIColor.whiteColor
-      d.barTintColor = UIColor.colorWithRed(0.024, green:0.176, blue:0.353, alpha:1) #062d5a
+      d.barTintColor = UIColor.colorWithRed(0.024, green:0.176, blue:0.353, alpha:1) # 062d5a
       d.items = segmented_control
     end
   end

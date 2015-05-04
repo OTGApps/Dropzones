@@ -17,7 +17,7 @@ class StateDetailScreen < MasterTableScreen
 
   def table_data
     [{
-      cells: state.sort_by{|s| s['current_distance']}.map{|dz| dz_cell(dz)}
+      cells: state.sort_by{|s| s['current_distance']}.map{ |dz| dz_cell(dz) }
     }]
   end
 

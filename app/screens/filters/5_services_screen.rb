@@ -23,7 +23,7 @@ class ServicesScreen < MasterTableScreen
     end
   end
 
-  def show_dzs(args={})
+  def show_dzs(args = {})
     open FilterDetailScreen.new(search: args[:search], attribute: 'services')
   end
 end
