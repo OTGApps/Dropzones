@@ -13,7 +13,7 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Dropzones'
 
-  app.sdk_version = "8.1"
+  app.sdk_version = "8.3"
   app.deployment_target = '7.1'
 
   app.device_family = [:iphone]
@@ -55,6 +55,7 @@ Motion::Project::App.setup do |app|
     app.entitlements['get-task-allow'] = true
     app.codesign_certificate = "iPhone Developer: Mark Rickert (YA2VZGDX4S)"
     app.provisioning_profile = "../Provisioning/WildcardDevelopment.mobileprovision"
+    # app.concat_files exclude: [ "/app/" ], parallel: 3
   end
 
   app.release do
@@ -63,6 +64,7 @@ Motion::Project::App.setup do |app|
     app.entitlements['get-task-allow'] = false
     app.codesign_certificate = "iPhone Distribution: Mohawk Apps, LLC (DW9QQZR4ZL)"
     app.provisioning_profile = "./provisioning/release.mobileprovision"
+    # app.concat_files
   end
 
 end

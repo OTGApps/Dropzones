@@ -37,11 +37,11 @@ DEPENDENCIES:
   - OpenInChrome
 
 SPEC CHECKSUMS:
-  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
-  Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
-  BFNavigationBarDrawer: c59a8e9f8db3d60cd4641e78dba96de2f9bd483b
-  CrittercismSDK: 1f1a91c7a51ca8044e675765bde5d2aa97295b1d
-  FlurrySDK: bed9e5598353f867508d164795a451e3ada92cb6
-  OpenInChrome: b7c73ddf8fe0a1788dc0549c3c4c70e3c84da578
+  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
+  Appirater: 8783318c36414e8de3ea023443028df94c1b784b
+  BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
+  CrittercismSDK: f1364ebf70823dea25a5f5edbed31f445b36120a
+  FlurrySDK: 7f929b68dea38ce735979fb039229f62c0b697b5
+  OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.37.0
