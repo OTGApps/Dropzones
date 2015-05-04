@@ -13,8 +13,10 @@ gem 'bubble-wrap', :github => 'cognitiveflux/BubbleWrap', branch: 'CLLocationMan
 # gem 'bubble-wrap', path: '../BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 
 gem 'ProMotion', :github => 'clearsightstudio/ProMotion'
-gem 'ProMotion-map', path: "../ProMotion-map"
+gem 'ProMotion-map'
 gem 'motion-support', :require => false # For Inflectors
+# gem 'motion-concierge', path: '../motion-concierge'
+gem 'motion-concierge'#, github: 'OTGApps/motion-concierge'
 
 # Rubygems
 gem 'rake', '>= 0.9.4'
@@ -23,3 +25,4 @@ gem 'rake-hooks'
 # Development
 gem 'newclear'
 gem 'motion-appstore'
+# gem 'compressor'

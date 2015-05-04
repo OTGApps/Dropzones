@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/clearsightstudio/ProMotion.git
-  revision: 9b5dc1be00067cfe5350c0a373c7d25121604a79
+  revision: 9c2980d8a048177ba309c727f861f65b191a2165
   specs:
-    ProMotion (2.2.1)
+    ProMotion (2.3.0)
       methadone (~> 1.7)
 
 GIT
@@ -13,16 +13,14 @@ GIT
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
 
-PATH
-  remote: ../ProMotion-map
-  specs:
-    ProMotion-map (0.5.0)
-      ProMotion (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.0)
+    ProMotion-map (0.7.0)
+      ProMotion (~> 2.0)
+    RedAlert (1.0)
+      ruby_motion_query (>= 1.3.4)
+    activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -32,29 +30,28 @@ GEM
       motion-cocoapods (>= 1.4.1)
       motion-require (>= 0.1)
     bubble-wrap-http (1.7.1)
-    claide (0.7.0)
-    cocoapods (0.35.0)
+    claide (0.8.1)
+    cocoapods (0.37.0)
       activesupport (>= 3.2.15)
-      claide (~> 0.7.0)
-      cocoapods-core (= 0.35.0)
-      cocoapods-downloader (~> 0.8.0)
-      cocoapods-plugins (~> 0.3.1)
-      cocoapods-trunk (~> 0.4.1)
-      cocoapods-try (~> 0.4.2)
+      claide (~> 0.8.1)
+      cocoapods-core (= 0.37.0)
+      cocoapods-downloader (~> 0.9.0)
+      cocoapods-plugins (~> 0.4.2)
+      cocoapods-trunk (~> 0.6.0)
+      cocoapods-try (~> 0.4.3)
       colored (~> 1.2)
       escape (~> 0.0.4)
-      molinillo (~> 0.1.2)
+      molinillo (~> 0.2.3)
       nap (~> 0.8)
-      open4 (~> 1.3)
-      xcodeproj (~> 0.20.2)
-    cocoapods-core (0.35.0)
+      xcodeproj (~> 0.24.1)
+    cocoapods-core (0.37.0)
       activesupport (>= 3.2.15)
       fuzzy_match (~> 2.0.4)
       nap (~> 0.8.0)
-    cocoapods-downloader (0.8.1)
-    cocoapods-plugins (0.3.2)
+    cocoapods-downloader (0.9.0)
+    cocoapods-plugins (0.4.2)
       nap
-    cocoapods-trunk (0.4.1)
+    cocoapods-trunk (0.6.0)
       nap (>= 0.8)
       netrc (= 0.7.8)
     cocoapods-try (0.4.3)
@@ -63,37 +60,41 @@ GEM
     fuzzy_match (2.0.4)
     i18n (0.7.0)
     json (1.8.2)
-    methadone (1.8.0)
+    methadone (1.9.0)
       bundler
-    minitest (5.5.1)
-    molinillo (0.1.2)
+    minitest (5.6.1)
+    molinillo (0.2.3)
     motion-appstore (1.0.6)
     motion-cocoapods (1.7.0)
       cocoapods (>= 0.34)
+    motion-concierge (0.0.2)
+      afmotion (~> 2.5)
+      motion-cocoapods (~> 1.7)
     motion-require (0.2.0)
     motion-support (0.2.6)
       motion-require (>= 0.0.6)
-    motion_print (0.0.4)
+    motion_print (1.0.0)
     nap (0.8.0)
     netrc (0.7.8)
-    newclear (0.4)
+    newclear (1.1)
       reset-sim
-    open4 (1.3.4)
     rake (10.4.2)
     rake-hooks (1.2.3)
       rake
-    redpotion (0.5.0)
-      ProMotion (~> 2.2)
+    redpotion (1.1.5)
+      ProMotion (~> 2.3)
+      RedAlert
       motion-cocoapods
       motion_print
-      ruby_motion_query (~> 1.0)
+      rake
+      ruby_motion_query (~> 1.3.5)
     reset-sim (1.0)
-    ruby_motion_query (1.0.0)
-    sugarcube (2.12.3)
-    thread_safe (0.3.4)
+    ruby_motion_query (1.3.5)
+    sugarcube (3.3.5)
+    thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    xcodeproj (0.20.2)
+    xcodeproj (0.24.1)
       activesupport (>= 3)
       colored (~> 1.2)
 
@@ -102,11 +103,12 @@ PLATFORMS
 
 DEPENDENCIES
   ProMotion!
-  ProMotion-map!
+  ProMotion-map
   afmotion
   bubble-wrap!
   motion-appstore
   motion-cocoapods
+  motion-concierge
   motion-support
   newclear
   rake (>= 0.9.4)
