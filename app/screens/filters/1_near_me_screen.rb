@@ -4,10 +4,6 @@ class NearMeScreen < MasterTableScreen
 
   def on_appear
     Flurry.logEvent("VIEW_NEAR_ME") unless Device.simulator?
-    refresh
-  end
-
-  def refresh
     map_and_show_dzs
   end
 
