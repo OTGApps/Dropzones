@@ -4,7 +4,7 @@ class StatesScreen < MasterTableScreen
 
   def will_appear
     @reload_observer = App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
-      set_loading
+      @td = nil
       @states = nil
       load_data
     end
