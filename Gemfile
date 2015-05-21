@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem 'motion-cocoapods'
 
 # RubyMotion
-gem 'redpotion', '~> 1.2.0'
+gem 'redpotion', github: 'infinitered/redpotion'
 gem 'afmotion'
 gem 'sugarcube', require: ['sugarcube-files']
 

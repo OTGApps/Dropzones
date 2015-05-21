@@ -6,11 +6,24 @@ GIT
     bubble-wrap (1.7.1)
       bubble-wrap-http (= 1.7.1)
 
+GIT
+  remote: git://github.com/infinitered/redpotion.git
+  revision: 8595b0536d40cee462ad2ecbe3678b4cd82d1b1f
+  specs:
+    redpotion (1.2.0)
+      ProMotion (>= 2.3.1)
+      RedAlert
+      motion-cocoapods
+      motion_print
+      rake
+      ruby_motion_query (>= 1.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    ProMotion (2.3.1)
+    ProMotion (2.4.2)
       methadone (~> 1.7)
+      motion_print (~> 1.0)
     ProMotion-map (0.7.0)
       ProMotion (~> 2.0)
     RedAlert (1.1)
@@ -77,13 +90,6 @@ GEM
     rake (10.4.2)
     rake-hooks (1.2.3)
       rake
-    redpotion (1.2.0)
-      ProMotion (~> 2.3.1)
-      RedAlert
-      motion-cocoapods
-      motion_print
-      rake
-      ruby_motion_query (~> 1.4.0)
     reset-sim (1.0)
     ruby_motion_query (1.4.0)
     sugarcube (3.3.5)
@@ -109,5 +115,5 @@ DEPENDENCIES
   newclear
   rake (>= 0.9.4)
   rake-hooks
-  redpotion (~> 1.2.0)
+  redpotion!
   sugarcube
