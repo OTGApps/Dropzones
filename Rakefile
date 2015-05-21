@@ -67,6 +67,8 @@ Motion::Project::App.setup do |app|
     # app.concat_files
   end
 
+  app.concat_files exclude: [ "/app/" ], parallel: 3
+
 end
 
 before :"build:simulator", :"build:device" do

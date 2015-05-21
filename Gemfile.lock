@@ -56,6 +56,7 @@ GEM
       netrc (= 0.7.8)
     cocoapods-try (0.4.3)
     colored (1.2)
+    compressor (0.0.4)
     escape (0.0.4)
     fuzzy_match (2.0.4)
     i18n (0.7.0)
@@ -106,6 +107,7 @@ DEPENDENCIES
   ProMotion-map
   afmotion
   bubble-wrap!
+  compressor (>= 0.0.4)
   motion-appstore
   motion-cocoapods
   motion-concierge

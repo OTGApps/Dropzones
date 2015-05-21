@@ -25,4 +25,4 @@ gem 'rake-hooks'
 # Development
 gem 'newclear'
 gem 'motion-appstore'
-# gem 'compressor'
+gem 'compressor', ">= 0.0.4"
