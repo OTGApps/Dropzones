@@ -1,31 +1,31 @@
 PODS:
-  - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection (= 2.5.0)
-    - AFNetworking/NSURLSession (= 2.5.0)
-    - AFNetworking/Reachability (= 2.5.0)
-    - AFNetworking/Security (= 2.5.0)
-    - AFNetworking/Serialization (= 2.5.0)
-    - AFNetworking/UIKit (= 2.5.0)
-  - AFNetworking/NSURLConnection (2.5.0):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.0):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.0)
-  - AFNetworking/Security (2.5.0)
-  - AFNetworking/Serialization (2.5.0)
-  - AFNetworking/UIKit (2.5.0):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Appirater (2.0.4)
+  - Appirater (2.0.5)
   - BFNavigationBarDrawer (1.0.2)
-  - CrittercismSDK (5.0.7)
-  - FlurrySDK (5.4.0):
-    - FlurrySDK/FlurrySDK (= 5.4.0)
-  - FlurrySDK/FlurrySDK (5.4.0)
+  - CrittercismSDK (5.2.0)
+  - FlurrySDK (6.4.0):
+    - FlurrySDK/FlurrySDK (= 6.4.0)
+  - FlurrySDK/FlurrySDK (6.4.0)
   - OpenInChrome (0.0.1)
 
 DEPENDENCIES:
@@ -37,11 +37,11 @@ DEPENDENCIES:
   - OpenInChrome
 
 SPEC CHECKSUMS:
-  AFNetworking: 96ac9bf3eda33582701cb1fcc5b896aa1e20311e
-  Appirater: 8783318c36414e8de3ea023443028df94c1b784b
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
   BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
-  CrittercismSDK: f1364ebf70823dea25a5f5edbed31f445b36120a
-  FlurrySDK: 7f929b68dea38ce735979fb039229f62c0b697b5
+  CrittercismSDK: a8f09d8f1d9fea3bc0714a954a079062c5c9d914
+  FlurrySDK: 626112353069318dfdb4c1d5528a486e3298ecd1
   OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
 
-COCOAPODS: 0.37.0
+COCOAPODS: 0.37.1
