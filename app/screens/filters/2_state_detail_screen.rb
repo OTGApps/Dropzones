@@ -6,6 +6,7 @@ class StateDetailScreen < MasterTableScreen
   def will_appear
     Flurry.logEvent("VIEW_STATE_DETAIL", withParameters:{state: state_name}) unless Device.simulator?
     self.title = state_name
+    super
   end
 
   def table_data

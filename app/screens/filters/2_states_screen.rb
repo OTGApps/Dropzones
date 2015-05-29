@@ -2,14 +2,6 @@ class StatesScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by State"
 
-  def will_appear
-    @reload_observer = App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
-      @td = nil
-      @states = nil
-      load_data
-    end
-  end
-
   def on_appear
     Flurry.logEvent("VIEW_STATES") unless Device.simulator?
     load_data
