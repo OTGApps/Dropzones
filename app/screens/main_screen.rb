@@ -40,7 +40,7 @@ class MainScreen < PM::TableScreen
       height: cell_height
     }, {
       title: 'By Region',
-      subtitle: 'All the DZs listed by USPA region.',
+      subtitle: 'All US DZs listed by USPA region.',
       action: :show_by_region,
       accessory_type: :disclosure_indicator,
       image: 'signpost',
