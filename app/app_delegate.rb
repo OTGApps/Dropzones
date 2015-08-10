@@ -1,7 +1,10 @@
 class AppDelegate < PM::Delegate
+  include CDQ
   tint_color "#062D5A".to_color
 
   def on_load(app, options)
+    cdq.setup
+
     set_appearance
     set_concierge
 

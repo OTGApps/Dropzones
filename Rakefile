@@ -13,7 +13,6 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Dropzones'
 
-  app.sdk_version = "8.3"
   app.deployment_target = '7.1'
 
   app.device_family = [:iphone]
@@ -86,3 +85,5 @@ after :clean do
   file_path = 'resources/dropzones.geojson'
   File.delete(file_path) if File.exist?(file_path)
 end
+
+task :"build:simulator" => :"schema:build"
