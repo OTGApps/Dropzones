@@ -12,7 +12,6 @@ gem 'redpotion', github: 'infinitered/redpotion'
 gem 'ProMotion', github: 'clearsightstudio/ProMotion'
 gem 'afmotion'
 gem 'sugarcube', require: ['sugarcube-files']
-gem 'cdq'
 
 gem 'bubble-wrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 # gem 'bubble-wrap', path: '../BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']

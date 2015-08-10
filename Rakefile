@@ -85,5 +85,3 @@ after :clean do
   file_path = 'resources/dropzones.geojson'
   File.delete(file_path) if File.exist?(file_path)
 end
-
-task :"build:simulator" => :"schema:build"
