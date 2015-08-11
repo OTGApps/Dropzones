@@ -31,7 +31,11 @@ class GeoJSON
     @by_att ||= {}
     @by_att["#{att}_#{search}"] ||= json.select do |dz|
       !dz['properties'][att].nil? && dz['properties'][att].find do |ac|
-        ac.squeeze(' ').match(search)
+        if att == 'aircraft'
+          ac == search || ac[2..-1] == search || ac[2..-2] == search
+        else
+          ac.match(search)
+        end
       end
     end
   end
@@ -84,7 +88,7 @@ class GeoJSON
     .uniq
     .compact
     .map do |ac|
-      (ac =~ /[0-9]{1}\ .*/) ? ac[2..-1].singularize.squeeze(' ') : ac.squeeze(' ')
+      (ac =~ /[0-9]{1}\ .*/) ? ac[2..-1].singularize : ac
     end.uniq
     .sort
   end
