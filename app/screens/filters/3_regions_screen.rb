@@ -25,7 +25,6 @@ class RegionsScreen < MasterTableScreen
 
     colors.each do |territory, t_color|
       if isEqualToColor(color, color2:t_color.to_color, withTolerance:0.1)
-        puts territory
         section_index = promotion_table_data.sections.index{|s| s[:title].split(' (').first.delete(" ").downcase.to_sym == territory}
 
         scrollIndexPath = NSIndexPath.indexPathForRow(0, inSection:section_index)
