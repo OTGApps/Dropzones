@@ -1,6 +1,6 @@
 class RegionsScreen < MasterTableScreen
   status_bar :light
-  title "US Dropzones by Region"
+  title "Dropzones by Region"
 
   def on_appear
     Flurry.logEvent("VIEW_REGIONS") unless Device.simulator?
