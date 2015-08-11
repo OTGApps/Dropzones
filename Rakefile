@@ -20,7 +20,7 @@ Motion::Project::App.setup do |app|
 
   app.identifier = 'io.otgapps.dropzones'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
-  app.short_version = '1.1.0'
+  app.short_version = '2.0.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
   app.info_plist['APP_STORE_ID'] = 960515397
@@ -85,4 +85,35 @@ after :clean do
   puts "Deleting Geojson file."
   file_path = 'resources/dropzones.geojson'
   File.delete(file_path) if File.exist?(file_path)
+end
+
+
+desc "Run simulator on iPhone"
+task :iphone4 do
+    exec 'bundle exec rake device_name="iPhone 4s"'
+end
+
+desc "Run simulator on iPhone"
+task :iphone5 do
+    exec 'bundle exec rake device_name="iPhone 5"'
+end
+
+desc "Run simulator on iPhone"
+task :iphone6 do
+    exec 'bundle exec rake device_name="iPhone 6"'
+end
+
+desc "Run simulator on iPhone"
+task :iphone6plus do
+    exec 'bundle exec rake device_name="iPhone 6 Plus"'
+end
+
+desc "Run simulator in iPad Retina"
+task :retina do
+    exec 'bundle exec rake device_name="iPad Retina"'
+end
+
+desc "Run simulator on iPad Air"
+task :ipad do
+    exec 'bundle exec rake device_name="iPad Air"'
 end

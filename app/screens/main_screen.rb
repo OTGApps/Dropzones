@@ -12,6 +12,10 @@ class MainScreen < PM::TableScreen
     }
   end
 
+  def will_appear
+    update_table_data
+  end
+
   def on_appear
     BW::Location.get_once(
       purpose: 'Determines how far away you are from dropzones.',
@@ -66,8 +70,27 @@ class MainScreen < PM::TableScreen
       accessory_type: :disclosure_indicator,
       image: 'megaphone',
       height: cell_height
+    }, {
+      title: 'Flagged',
+      subtitle: flagged_subtitle,
+      action: :show_by_flagged,
+      accessory_type: :disclosure_indicator,
+      image: 'flag_black',
+      height: cell_height
     }]
   }]
+  end
+
+  def flagged_subtitle
+    favs = GeoJSON.sharedData.favorites
+    case favs.count
+    when 0
+      'Your flagged DZs.'
+    when 1
+      "You have #{favs.count} flagged DZ."
+    else
+      "You have #{favs.count} flagged DZs."
+    end
   end
 
   def cell_height
@@ -96,6 +119,10 @@ class MainScreen < PM::TableScreen
 
   def show_by_region
     open RegionsScreen
+  end
+
+  def show_by_flagged
+    open FlaggedScreen
   end
 
   def open_info

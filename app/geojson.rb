@@ -36,6 +36,11 @@ class GeoJSON
     end
   end
 
+  def favorites
+    favs = App::Persistence[:flagged].select{|k,v| v == true}.keys
+    json.select{|dz| favs.include?(dz['properties']['anchor'])}
+  end
+
   def find_dz(anchor)
     @dzs ||= {}
     @dzs[anchor] ||= json.find{|dz| dz['properties']['anchor'] == anchor.to_s }
