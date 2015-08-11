@@ -10,6 +10,7 @@ gem 'rake-hooks'
 # RubyMotion
 gem 'redpotion', github: 'infinitered/redpotion'
 gem 'ProMotion', github: 'clearsightstudio/ProMotion'
+# gem 'ProMotion', path: '../ProMotion'
 gem 'RedAlert'
 gem 'afmotion'
 gem 'sugarcube', require: ['sugarcube-files']
