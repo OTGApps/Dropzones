@@ -59,7 +59,7 @@ class StatesScreen < MasterTableScreen
     }
   end
 
-  def show_state(args = {})
+  def show_state(args)
     open StateDetailScreen.new(args)
   end
 

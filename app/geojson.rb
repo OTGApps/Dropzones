@@ -79,7 +79,7 @@ class GeoJSON
     .uniq
     .compact
     .map do |ac|
-      (ac[1] == ' ') ? ac.split(' ')[1..-1].join(' ').singularize.squeeze(' ') : ac.squeeze(' ')
+      (ac =~ /[0-9]{1}\ .*/) ? ac[2..-1].singularize.squeeze(' ') : ac.squeeze(' ')
     end.uniq
     .sort
   end
