@@ -3,12 +3,49 @@ class DZDetailScreen < PM::WebScreen
   attr_accessor :anchor
 
   def on_load
-    set_nav_bar_button :right, {
+    init_nav_bar_buttons
+  end
+
+  def init_nav_bar_buttons
+    set_nav_bar_buttons :right, [driving_button, (dz_flagged? ? flagged_button : unflagged_button)]
+  end
+
+  def driving_button
+    {
       title: "Open In Maps",
       image: UIImage.imageNamed("car"),
       tint_color: UIColor.whiteColor,
       action: :open_in_maps
     }
+  end
+
+  def flagged_button
+    {
+      title: "Flagged",
+      image: UIImage.imageNamed("flag_full"),
+      tint_color: UIColor.whiteColor,
+      action: :toggle_flag
+    }
+  end
+
+  def unflagged_button
+    {
+      title: "Flag",
+      image: UIImage.imageNamed("flag"),
+      tint_color: UIColor.whiteColor,
+      action: :toggle_flag
+    }
+  end
+
+  def toggle_flag
+    flags = App::Persistence[:flagged].mutableCopy
+    flags[anchor] = !dz_flagged?
+    App::Persistence[:flagged] = flags
+    init_nav_bar_buttons
+  end
+
+  def dz_flagged?
+    App::Persistence[:flagged].fetch(anchor, false)
   end
 
   def will_appear

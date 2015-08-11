@@ -26,6 +26,11 @@ class MapScreen < PM::MapScreen
   end
 
   def will_appear
+    if @flags != App::Persistence[:flagged]
+      @flags = App::Persistence[:flagged]
+      @annotations = nil
+      update_annotation_data
+    end
     @toolbar.showFromNavigationBar(self.navigationController.navigationBar, animated:true) if @toolbar && !@toolbar.isVisible
   end
 
@@ -38,9 +43,18 @@ class MapScreen < PM::MapScreen
           title: dz['properties']['name'],
           subtitle: dz['properties']['location'].last,
           action: :show_dz,
-          anchor: dz['properties']['anchor']
+          anchor: dz['properties']['anchor'],
+          pin_color: pin_color(dz['properties']['anchor'])
         }
       end
+    end
+  end
+
+  def pin_color(anchor)
+    if @flags.fetch(anchor, false)
+      :green
+    else
+      :red
     end
   end
 

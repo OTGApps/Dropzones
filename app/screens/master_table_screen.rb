@@ -31,17 +31,28 @@ class MasterTableScreen < PM::TableScreen
   end
 
   def build_cells(data)
-    data.map do |dz|
-      {
-        title: dz['properties']['name'],
-        subtitle: distance_away(dz),
-        action: :open_dz_screen,
-        arguments: {
-          anchor: dz['properties']['anchor']
-        },
-        accessory_type: :disclosure_indicator,
-      }
-    end
+    data.map{|dz| dz_cell(dz) }
+  end
+
+  def dz_cell(dz)
+    {
+      title: dz['properties']['name'],
+      subtitle: distance_away(dz),
+      action: :open_dz_screen,
+      arguments: {
+        anchor: dz['properties']['anchor']
+      },
+      accessory_type: :disclosure_indicator,
+      image: (App::Persistence[:flagged].fetch(dz['properties']['anchor'], false) ? flagged_image : unflagged_image),
+    }
+  end
+
+  def flagged_image
+    @_flagged_image ||= UIImage.imageNamed("flag_full").imageWithRenderingMode(UIImageRenderingModeAlwaysTemplate)
+  end
+
+  def unflagged_image
+    @_unflagged_image ||= UIImage.imageNamed("flag").imageWithRenderingMode(UIImageRenderingModeAlwaysTemplate)
   end
 
   def map_and_show_dzs(data = nil, update = true)

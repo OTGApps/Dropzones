@@ -1,6 +1,7 @@
 class NearMeScreen < MasterTableScreen
   status_bar :light
   title "Dropzones Near Me"
+  searchable
 
   def on_appear
     Flurry.logEvent("VIEW_NEAR_ME") unless Device.simulator?

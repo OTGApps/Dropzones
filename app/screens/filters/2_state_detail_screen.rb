@@ -15,15 +15,4 @@ class StateDetailScreen < MasterTableScreen
     }]
   end
 
-  def dz_cell(dz)
-    {
-      title: dz['properties']['name'],
-      subtitle: distance_away(dz),
-      action: :open_dz_screen,
-      arguments: {
-        anchor: dz['properties']['anchor']
-      },
-      accessory_type: :disclosure_indicator,
-    }
-  end
 end

@@ -37,14 +37,14 @@ class StatesScreen < MasterTableScreen
   def state_cell(state)
     count = dz_count(state)
     if count == 1
-      sub = "#{dz_count(state)} Drop Zone"
+      subtitle = "#{dz_count(state)} Drop Zone"
     else
-      sub = "#{dz_count(state)} Drop Zones"
+      subtitle = "#{dz_count(state)} Drop Zones"
     end
 
     {
       title: state,
-      subtitle: sub,
+      subtitle: subtitle,
       cell_identifier: state,
       accessory_type: :disclosure_indicator,
       action: :show_state,
