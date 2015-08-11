@@ -1,7 +1,6 @@
 class StatesScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by State"
-  searchable hide_initially: true
 
   def on_appear
     Flurry.logEvent("VIEW_STATES") unless Device.simulator?
