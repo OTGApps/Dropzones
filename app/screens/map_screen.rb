@@ -7,7 +7,6 @@ class MapScreen < PM::MapScreen
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back
     set_nav_bar_button :right, image: UIImage.imageNamed('location-target'), action: :show_user
-    @initial_zoom = false
 
     # Create the toolbar
     @toolbar = BFNavigationBarDrawer.alloc.init.tap do |d|
@@ -20,8 +19,6 @@ class MapScreen < PM::MapScreen
   def on_appear
     Flurry.logEvent("VIEW_MAP") unless Device.simulator?
     segment_value_changed(nil)
-    zoom_to_fit_annotations unless @initial_zoom
-    @initial_zoom = true
     show_user_location
   end
 
