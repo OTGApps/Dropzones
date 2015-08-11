@@ -13,7 +13,10 @@ class StatesScreen < MasterTableScreen
 
   def load_data
     @td = [{
-      cells: state_names.map{ |name| state_cell(name) }
+      cells: [state_cell("International")]
+    },{
+      title: "United States",
+      cells: state_names.reject{|name| name == "International" }.map{ |name| state_cell(name) }
     }]
     update_table_data
   end
@@ -47,6 +50,7 @@ class StatesScreen < MasterTableScreen
       subtitle: subtitle,
       cell_identifier: state,
       accessory_type: :disclosure_indicator,
+      image: UIImage.imageNamed("flags/#{state.downcase.gsub(' ', '-')}"),
       action: :show_state,
       arguments: {
         state_name: state,

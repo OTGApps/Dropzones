@@ -24,6 +24,7 @@ Motion::Project::App.setup do |app|
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
   app.info_plist['APP_STORE_ID'] = 960515397
+  app.resources_dirs << ['resources/flags']
 
   # Location Services
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
