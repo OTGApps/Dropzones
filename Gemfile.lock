@@ -103,6 +103,7 @@ PLATFORMS
 DEPENDENCIES
   ProMotion!
   ProMotion-map
+  RedAlert
   afmotion
   bubble-wrap
   motion-appstore

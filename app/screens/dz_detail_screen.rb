@@ -62,10 +62,11 @@ class DZDetailScreen < PM::WebScreen
   def on_appear
     Flurry.logEvent("VIEW_DZ_DETAIL", withParameters:{name: raw_name}) unless Device.simulator?
     if App::Persistence['shown_warning'].nil?
-      App.alert("Disclaimer:", {
-        cancel_button_title: "Got it!",
-        message: "While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly.\n\nIf you are a DZO please update your information directly with the USPA."
-      })
+      app.alert(
+        title: "Disclaimer",
+        message: "While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly.\n\nIf you are a DZO please update your information directly with the USPA.",
+        actions: [ "Got it!" ]
+      )
       App::Persistence['shown_warning'] = true
     end
   end
@@ -152,20 +153,19 @@ class DZDetailScreen < PM::WebScreen
       return
     end
 
-    BW::UIAlertView.new({
+    app.alert(
       title: "Open In Maps",
       message: "This will leave #{App.name} and open Apple Maps. Are you sure you want to continue?",
-      buttons: ["Yes", "Don't Show this again", "No"],
-      cancel_button_index: 2
-    }) do |alert|
-      if alert.clicked_button.cancel?
-      elsif alert.clicked_button.title == "Yes"
-        open_it
-      else
-        App::Persistence['no_maps_confirmation'] = true
-        open_it
+      actions: [ :yes, "Don't show this again", :no]) do |button_tag|
+        case button_tag
+        when :yes
+          open_it
+        when :no
+        else
+          App::Persistence['no_maps_confirmation'] = true
+          open_it
+        end
       end
-    end.show
   end
 
   def open_it

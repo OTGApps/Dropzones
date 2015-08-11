@@ -3,7 +3,7 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     set_appearance
-    
+
     # 3rd Party integrations
     BW.debug = true unless App.info_plist['AppStoreRelease'] == true
 
