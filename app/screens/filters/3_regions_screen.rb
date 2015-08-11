@@ -66,7 +66,7 @@ class RegionsScreen < MasterTableScreen
   end
 
   def table_data
-    @table_data ||= table_format(GeoJSON.sharedData.by_region)
+    table_format(GeoJSON.sharedData.by_region)
   end
 
 end

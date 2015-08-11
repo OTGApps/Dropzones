@@ -1,6 +1,7 @@
 class AircraftScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by Aircraft"
+  searchable hide_initially: true
 
   def on_appear
     Flurry.logEvent("VIEW_AIRCRAFT") unless Device.simulator?

@@ -75,9 +75,6 @@ GEM
     motion-appstore (1.0.6)
     motion-cocoapods (1.7.3)
       cocoapods (>= 0.34)
-    motion-concierge (0.0.2)
-      afmotion (~> 2.5)
-      motion-cocoapods (~> 1.7)
     motion-require (0.2.0)
     motion-support (0.2.6)
       motion-require (>= 0.0.6)
@@ -110,7 +107,6 @@ DEPENDENCIES
   bubble-wrap
   motion-appstore
   motion-cocoapods
-  motion-concierge
   motion-support
   motion_print
   newclear

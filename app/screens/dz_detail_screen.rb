@@ -49,12 +49,6 @@ class DZDetailScreen < PM::WebScreen
   end
 
   def will_appear
-    @reload_observer = App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
-      @_dz = nil
-      set_title
-      set_initial_content
-    end
-
     set_title
     set_attributes web, {
       background_color: UIColor.whiteColor

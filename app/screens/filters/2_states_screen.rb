@@ -1,14 +1,14 @@
 class StatesScreen < MasterTableScreen
   status_bar :light
   title "Dropzones by State"
+  searchable hide_initially: true
 
   def on_appear
     Flurry.logEvent("VIEW_STATES") unless Device.simulator?
-    load_data
   end
 
-  def will_disappear
-    App.notification_center.unobserve @reload_observer
+  def will_appear
+    load_data
   end
 
   def load_data

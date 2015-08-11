@@ -3,7 +3,7 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     set_appearance
-    set_concierge
+    
     # 3rd Party integrations
     BW.debug = true unless App.info_plist['AppStoreRelease'] == true
 
@@ -33,7 +33,6 @@ class AppDelegate < PM::Delegate
 
   def on_activate
     Appirater.appEnteredForeground(true)
-    MotionConcierge.fetch
   end
 
   def set_appearance
@@ -52,13 +51,6 @@ class AppDelegate < PM::Delegate
       ap.setStatusBarStyle(UIStatusBarStyleLightContent)
       ap.setStatusBarHidden(false, withAnimation:UIStatusBarAnimationSlide)
     end
-  end
-
-  def set_concierge
-    MotionConcierge.remote_file_url = 'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
-    MotionConcierge.fetch_interval = 86400 # Once a day
-    MotionConcierge.debug = BW.debug?
-    MotionConcierge.debug_fetch_interval = 30 # Every 30 seconds
   end
 
   # Flurry exception handler

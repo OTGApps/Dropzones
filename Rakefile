@@ -71,7 +71,7 @@ end
 before :"build:simulator", :"build:device" do
   puts "running prebuild"
   file_path = 'resources/dropzones.geojson'
-  web_path = 'https://raw.githubusercontent.com/MohawkApps/USPADropzones/master/dropzones.geojson'
+  web_path = 'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
   unless File.exist?(file_path)
     require 'open-uri'
     open(file_path, 'wb') do |file|

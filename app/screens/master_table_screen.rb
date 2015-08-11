@@ -1,14 +1,6 @@
 class MasterTableScreen < PM::TableScreen
   include OpenDZScreen
 
-  def will_appear
-    @reload_observer = App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
-      mp "Got a reload notification form motion-concierge"
-      @dzs = nil
-      map_and_show_dzs
-    end
-  end
-
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back
 
@@ -19,6 +11,10 @@ class MasterTableScreen < PM::TableScreen
         GeoJSON.sharedData.location = location
         update_table_data
     end
+  end
+
+  def will_appear
+    update_table_data
   end
 
   def loading_table_data

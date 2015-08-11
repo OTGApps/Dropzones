@@ -4,7 +4,6 @@ class FilterDetailScreen < MasterTableScreen
 
   def on_appear
     Flurry.logEvent("VIEW_ATTRIBUTE_DETAIL", withParameters:{attribute: attribute, search: search}) unless Device.simulator?
-    refresh
   end
 
   def on_load
@@ -14,11 +13,12 @@ class FilterDetailScreen < MasterTableScreen
 
   def will_appear
     self.title = @search
+    refresh
   end
 
   def refresh
     @td = [{
-      cells:build_cells(GeoJSON.sharedData.by_attribute(@attribute, @search))
+      cells: build_cells(GeoJSON.sharedData.by_attribute(@attribute, @search))
     }]
     update_table_data
   end

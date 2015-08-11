@@ -20,9 +20,6 @@ gem 'bubble-wrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-
 gem 'ProMotion-map'
 gem 'motion-support', :require => false # For Inflectors
 
-# gem 'motion-concierge', path: '../motion-concierge'
-gem 'motion-concierge'#, github: 'OTGApps/motion-concierge'
-
 # Development
 gem 'motion_print'
 gem 'newclear'

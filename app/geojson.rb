@@ -6,9 +6,6 @@ class GeoJSON
 
   def initialize
     @location = nil
-    App.notification_center.observe 'MotionConciergeNewDataReceived' do |notification|
-      reload_data
-    end
     json
   end
 
@@ -45,7 +42,7 @@ class GeoJSON
   end
 
   def json
-    @j_data ||= BW::JSON.parse(File.read(file_location))
+    @j_data ||= BW::JSON.parse(File.read(resources_file))
 
     if @location.nil? || (@location.is_a?(Hash) && @location.has_key?(:error))
       mp 'getting json without location'
@@ -58,7 +55,7 @@ class GeoJSON
 
   def state(data)
     # Extract the state out of the location array
-    # mp data['properties']['location']
+    mp data['properties']['location']
     c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+,\s\w{2}\s\d{5}(-\d{4})?$/) != nil }
 
     if c_s_z.nil?
@@ -67,7 +64,7 @@ class GeoJSON
       elsif data['properties']['location'].find{ |l| l == 'Puerto Rico' }
         'Puerto Rico'
       else
-        'Unknown'
+        'International'
       end
     else
       c_s_z.split(' ')[-2]
@@ -102,27 +99,12 @@ class GeoJSON
     dzs_with_distance.sort_by { |dz| dz[:current_distance] }
   end
 
-  def reload_data
-    mp "Got a data reloaded notification. Clearing cache."
-    clear_cache!
-  end
-
-  def clear_cache!
-    @regions = nil
-    @states = nil
-    @dzs = nil
-    @j_data = nil
-    @sorted = nil
-    @unique = nil
-    @by_att = nil
+  def file_name
+    "dropzones.geojson"
   end
 
   def resources_file
-    MotionConcierge.local_file_name.resource_path
-  end
-
-  def file_location
-    MotionConcierge.downloaded_file_exists? ? MotionConcierge.local_file_path : resources_file
+    file_name.resource_path
   end
 
 end
