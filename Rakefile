@@ -20,7 +20,7 @@ Motion::Project::App.setup do |app|
 
   app.identifier = 'io.otgapps.dropzones'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
-  app.short_version = '2.0.0'
+  app.short_version = '2.1.0'
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
   app.info_plist['APP_STORE_ID'] = 960515397
