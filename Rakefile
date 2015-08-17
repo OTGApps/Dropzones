@@ -15,8 +15,8 @@ Motion::Project::App.setup do |app|
 
   app.deployment_target = '7.1'
 
-  app.device_family = [:iphone]
-  app.interface_orientations = [:portrait, :portrait_upside_down]
+  app.device_family = [:iphone, :ipad]
+  app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
 
   app.identifier = 'io.otgapps.dropzones'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
@@ -54,7 +54,7 @@ Motion::Project::App.setup do |app|
   app.development do
     app.entitlements['get-task-allow'] = true
     app.codesign_certificate = "iPhone Developer: Mark Rickert (YA2VZGDX4S)"
-    app.provisioning_profile = "../Provisioning/WildcardDevelopment.mobileprovision"
+    app.provisioning_profile = "./provisioning/development.mobileprovision"
   end
 
   app.release do
