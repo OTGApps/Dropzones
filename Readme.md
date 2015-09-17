@@ -12,7 +12,7 @@ Dropzones lists all current U.S. Parachute Association (USPA) member dropzones i
 * See a map of every USPA dropzone in the US!
 * Detailed information about each dropzone
 
-Use this app to plan your next skydiving road trip across the uUnited States!
+Use this app to plan your next skydiving road trip across the United States!
 
 This app is open source. Browse the source code here: https://github.com/OTGApps/Dropzones
 
