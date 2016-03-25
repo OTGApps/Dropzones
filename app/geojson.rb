@@ -65,7 +65,7 @@ class GeoJSON
   def state(data)
     # Extract the state out of the location array
     mp data['properties']['location']
-    c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+,\s\w{2}\s\d{5}(-\d{4})?$/) != nil }
+    c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+,\s\w{2,20}\s\d{5}(-\d{4})?$/) != nil }
 
     if c_s_z.nil?
       if data['properties']['location'].find{ |l| l == 'US Virgin Islands' }
@@ -76,7 +76,12 @@ class GeoJSON
         'International'
       end
     else
-      c_s_z.split(' ')[-2]
+      result = c_s_z.split(' ')[-2]
+      if result.length == 2
+        result
+      else
+        States.all.key(result)
+      end
     end
   end
 
