@@ -36,6 +36,8 @@ Motion::Project::App.setup do |app|
     "location-services" => true,
     "gps" => true,
   }
+  app.info_plist["UIRequiresFullScreen"] = true
+  app.entitlements["beta-reports-active"] = true
 
   app.frameworks += [
     'SystemConfiguration'
