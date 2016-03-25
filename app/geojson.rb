@@ -98,6 +98,7 @@ class GeoJSON
       (ac =~ /[0-9]{1}\ .*/) ? ac[2..-1].singularize : ac
     end.uniq
     .sort
+    .reject{|aircraft| aircraft.match("Super-Charged") }
   end
 
   def sorted_by_distance(dzs)
