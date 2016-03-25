@@ -29,6 +29,7 @@ class AppDelegate < PM::Delegate
     end
 
     open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
+    # open_tab_bar AircraftScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
   end
 
   def on_activate
