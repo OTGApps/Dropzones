@@ -20,3 +20,4 @@ vendor/*/build*/
 resources/dropzones.geojson
 provisioning/
 _releases
+config/crittercism.yml
