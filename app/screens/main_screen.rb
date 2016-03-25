@@ -43,20 +43,13 @@ class MainScreen < PM::TableScreen
       image: 'usa',
       height: cell_height
     }, {
-      title: 'By Region',
-      subtitle: 'All DZs listed by USPA region.',
-      action: :show_by_region,
-      accessory_type: :disclosure_indicator,
-      image: 'signpost',
-      height: cell_height
-    }, {
       title: 'Aircraft Type',
       subtitle: 'Looking to jump a specific aircraft?',
       action: :show_by_aircraft,
       accessory_type: :disclosure_indicator,
       image: 'airplane',
       height: cell_height
-    },{
+    }, {
       title: 'Services Offered',
       subtitle: 'Wait... some dropzones have a POOL?!',
       action: :show_by_services,
