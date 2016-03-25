@@ -67,49 +67,56 @@ Motion::Project::App.setup do |app|
 
 end
 
-before :"build:simulator", :"build:device", :"archive:distribution" do
-  puts "running prebuild"
-  file_path = 'resources/dropzones.geojson'
-  web_path = 'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
-  require 'open-uri'
-  open(file_path, 'w+') do |file|
-    file << open(web_path).read
-  end
+# before :"build:simulator", :"build:device", :"archive:distribution" do
+#   puts "running prebuild"
+#   file_path = 'resources/dropzones.geojson'
+#   web_path = 'https://raw.githubusercontent.com/OTGApps/USPADropzones/master/dropzones.geojson'
+#   require 'open-uri'
+#   open(file_path, 'w+') do |file|
+#     file << open(web_path).read
+#   end
+# end
+
+# after :clean do
+#   puts "Deleting Geojson file."
+#   file_path = 'resources/dropzones.geojson'
+#   File.delete(file_path) if File.exist?(file_path)
+# end
+
+
+def build_path
+  "build/iPhoneOS-7.1-Release/"
 end
 
-after :clean do
-  puts "Deleting Geojson file."
-  file_path = 'resources/dropzones.geojson'
-  File.delete(file_path) if File.exist?(file_path)
+def ipa_name
+  "\"#{Motion::Project::App.config.name}.ipa\""
 end
 
-
-desc "Run simulator on iPhone"
-task :iphone4 do
-    exec 'bundle exec rake device_name="iPhone 4s"'
+def dsym_name
+  "\"#{Motion::Project::App.config.name}.app.dSYM\""
 end
 
-desc "Run simulator on iPhone"
-task :iphone5 do
-    exec 'bundle exec rake device_name="iPhone 5"'
-end
+after :"archive:distribution" do
+  dsym_zip = "#{dsym_name}.zip"
+  dsym_zip_path = File.join(build_path, dsym_zip)
 
-desc "Run simulator on iPhone"
-task :iphone6 do
-    exec 'bundle exec rake device_name="iPhone 6"'
-end
+  puts "Removing old DSYM..."
+  sh "rm -f #{dsym_zip_path}"
 
-desc "Run simulator on iPhone"
-task :iphone6plus do
-    exec 'bundle exec rake device_name="iPhone 6 Plus"'
-end
+  puts "Zipping DSYM..."
+  sh "zip -r #{dsym_zip_path} #{File.join(build_path, dsym_name)}"
 
-desc "Run simulator in iPad Retina"
-task :retina do
-    exec 'bundle exec rake device_name="iPad Retina"'
-end
+  config = YAML.load_file("config/crittercism.yml")
+  app_id = config['crittercism']['app_id']
+  api_key = config['crittercism']['api_key']
 
-desc "Run simulator on iPad Air"
-task :ipad do
-    exec 'bundle exec rake device_name="iPad Air"'
+  puts "Uploading DSYM..."
+  sh_cmd = <<-CMD
+curl -F dsym=@"#{dsym_zip_path}" -F key="#{api_key}" \
+"https://api.crittercism.com/api_beta/dsym/#{app_id}"
+  CMD
+
+  puts "Running: #{sh_cmd}"
+
+  sh sh_cmd
 end
