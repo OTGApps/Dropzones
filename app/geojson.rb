@@ -34,7 +34,9 @@ class GeoJSON
         if att == 'aircraft'
           ac == search || ac[2..-1] == search || ac[2..-2] == search
         else
-          ac.match(search)
+          m = ac.match(search)
+          m = ac == search if m.nil?
+          m
         end
       end
     end
