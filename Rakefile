@@ -49,7 +49,6 @@ Motion::Project::App.setup do |app|
     pod 'BFNavigationBarDrawer'
   end
 
-  app.vendor_project('vendor/UIImageColorAtPoint', :static, cflags: "-fobjc-arc")
 
   app.development do
     app.entitlements['get-task-allow'] = true
