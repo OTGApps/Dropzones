@@ -111,7 +111,6 @@ class DZDetailScreen < PM::WebScreen
     s << "<strong>Phone 2:</strong> " + dz['properties']['phone 2'] + "<br />" if dz['properties']['phone 2']
     s << "<strong>Fax:</strong> " + dz['properties']['fax'] + "<br />" if dz['properties']['fax']
     s << "<strong>Email:</strong> " + dz['properties']['email'] + "<br />" if dz['properties']['email']
-    s << "<strong>Distance to nearest hotel/motel:</strong> " + dz['properties']['distance'] + "<br />" if dz['properties']['distance']
     s << "</p>"
     h + s
   end
