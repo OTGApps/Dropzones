@@ -20,16 +20,16 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Appirater (2.0.5)
+  - Appirater (2.1.2)
   - BFNavigationBarDrawer (1.0.2)
-  - CrittercismSDK (5.2.0)
+  - CrittercismSDK (5.6.7)
   - FlurrySDK (5.4.0):
     - FlurrySDK/FlurrySDK (= 5.4.0)
   - FlurrySDK/FlurrySDK (5.4.0)
   - OpenInChrome (0.0.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - AFNetworking (~> 2.5.0)
   - Appirater
   - BFNavigationBarDrawer
   - CrittercismSDK
@@ -38,10 +38,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Appirater: e7c0a47fb67ee5041ce8479e6ba960927fb40264
+  Appirater: f1c9e53e8b612193e6256144f6a0fd2e31f4340d
   BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
-  CrittercismSDK: b22f9541803c2babb1c8996862b097dc47ec7105
+  CrittercismSDK: 54d27268be8377b6d64ed61d80f43178b32f2fea
   FlurrySDK: b58d7061711e13977e3c43b29acfefd80f65f4cd
   OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 9c982b3dfea97a80eacab76ff4e574758254bc77
+
+COCOAPODS: 1.2.0
