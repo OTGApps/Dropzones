@@ -80,12 +80,20 @@ class GeoJSON
       c_s_z = c_s_z.gsub(/\s(\d{4})$/, ' 0\1')
 
       result = SHPAddressUtils.addressComponentsFromAddress(c_s_z)
-      state = result["State"]
-
-      if state.length == 2
-        state
+      if result.nil?
+        'International'
       else
-        States.all.key(state)
+        state = result["State"]
+
+        if state.nil?
+          'International'
+        elsif state.length == 2
+          state
+        elsif States.all.key(state)
+          States.all.key(state)
+        else
+          'International'
+        end
       end
     end
   end

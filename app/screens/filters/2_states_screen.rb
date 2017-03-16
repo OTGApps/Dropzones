@@ -40,9 +40,9 @@ class StatesScreen < MasterTableScreen
   def state_cell(state)
     count = dz_count(state)
     if count == 1
-      subtitle = "#{dz_count(state)} Drop Zone"
+      subtitle = "#{dz_count(state)} Dropzone"
     else
-      subtitle = "#{dz_count(state)} Drop Zones"
+      subtitle = "#{dz_count(state)} Dropzones"
     end
 
     {
