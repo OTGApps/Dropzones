@@ -13,7 +13,7 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Dropzones'
 
-  app.deployment_target = '7.1'
+  app.deployment_target = '9.1'
 
   app.device_family = [:iphone, :ipad]
   app.interface_orientations = [:portrait, :landscape_left, :landscape_right, :portrait_upside_down]
@@ -87,7 +87,7 @@ end
 
 
 def build_path
-  "build/iPhoneOS-7.1-Release/"
+  "build/iPhoneOS-9.1-Release/"
 end
 
 def ipa_name
