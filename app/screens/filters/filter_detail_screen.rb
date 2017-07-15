@@ -3,7 +3,7 @@ class FilterDetailScreen < MasterTableScreen
   attr_accessor :search, :attribute
 
   def on_appear
-    Flurry.logEvent("VIEW_ATTRIBUTE_DETAIL", withParameters:{attribute: attribute, search: search}) unless Device.simulator?
+    # Flurry.logEvent("VIEW_ATTRIBUTE_DETAIL", withParameters:{attribute: attribute, search: search}) unless Device.simulator?
   end
 
   def on_load

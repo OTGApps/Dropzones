@@ -15,8 +15,8 @@ class AppDelegate < PM::Delegate
       Crittercism.enableWithAppID(crittercism_app_id)
 
       # Flurry
-      NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
-      Flurry.startSession("Y33SK5D8R48YDGTDZZG3")
+      # NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
+      # Flurry.startSession("Y33SK5D8R48YDGTDZZG3")
 
       # Appirater
       app_id = App.info_plist['APP_STORE_ID']
@@ -55,8 +55,8 @@ class AppDelegate < PM::Delegate
   end
 
   # Flurry exception handler
-  def uncaughtExceptionHandler(exception)
-    Flurry.logError("Uncaught", message:"Crash!", exception:exception)
-  end
+  # def uncaughtExceptionHandler(exception)
+  #   Flurry.logError("Uncaught", message:"Crash!", exception:exception)
+  # end
 
 end

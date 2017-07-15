@@ -3,7 +3,7 @@ class ServicesScreen < MasterTableScreen
   title "Services Offered"
 
   def on_appear
-    Flurry.logEvent("VIEW_SERVICES") unless Device.simulator?
+    # Flurry.logEvent("VIEW_SERVICES") unless Device.simulator?
   end
 
   def table_data

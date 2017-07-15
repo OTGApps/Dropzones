@@ -60,7 +60,7 @@ class DZDetailScreen < PM::WebScreen
   end
 
   def on_appear
-    Flurry.logEvent("VIEW_DZ_DETAIL", withParameters:{name: raw_name}) unless Device.simulator?
+    # Flurry.logEvent("VIEW_DZ_DETAIL", withParameters:{name: raw_name}) unless Device.simulator?
     if App::Persistence['shown_warning'].nil?
       app.alert(
         title: "Disclaimer",

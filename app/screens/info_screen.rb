@@ -10,7 +10,7 @@ class InfoScreen < PM::GroupedTableScreen
   end
 
   def on_appear
-    Flurry.logEvent("VIEW_INFO") unless Device.simulator?
+    # Flurry.logEvent("VIEW_INFO") unless Device.simulator?
   end
 
   def table_data

@@ -17,7 +17,7 @@ class MapScreen < PM::MapScreen
   end
 
   def on_appear
-    Flurry.logEvent("VIEW_MAP") unless Device.simulator?
+    # Flurry.logEvent("VIEW_MAP") unless Device.simulator?
     segment_value_changed(nil)
     show_user_location
   end

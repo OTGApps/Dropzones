@@ -4,7 +4,7 @@ class NearMeScreen < MasterTableScreen
   searchable hide_initially: true
 
   def on_appear
-    Flurry.logEvent("VIEW_NEAR_ME") unless Device.simulator?
+    # Flurry.logEvent("VIEW_NEAR_ME") unless Device.simulator?
     map_and_show_dzs
   end
 

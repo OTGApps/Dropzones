@@ -3,7 +3,7 @@ class FlaggedScreen < MasterTableScreen
   title "Your Flagged Dropzones"
 
   def on_appear
-    Flurry.logEvent("VIEW_FLAGGED") unless Device.simulator?
+    # Flurry.logEvent("VIEW_FLAGGED") unless Device.simulator?
   end
 
   def table_data

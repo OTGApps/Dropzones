@@ -3,7 +3,7 @@ class TrainingScreen < MasterTableScreen
   title "Dropzones by Training"
 
   def on_appear
-    Flurry.logEvent("VIEW_TRAINING") unless Device.simulator?
+    # Flurry.logEvent("VIEW_TRAINING") unless Device.simulator?
   end
 
   def table_data

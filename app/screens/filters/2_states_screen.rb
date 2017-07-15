@@ -4,7 +4,7 @@ class StatesScreen < MasterTableScreen
   searchable hide_initially: true
 
   def on_appear
-    Flurry.logEvent("VIEW_STATES") unless Device.simulator?
+    # Flurry.logEvent("VIEW_STATES") unless Device.simulator?
   end
 
   def will_appear

@@ -4,7 +4,7 @@ class AircraftScreen < MasterTableScreen
   searchable hide_initially: true
 
   def on_appear
-    Flurry.logEvent("VIEW_AIRCRAFT") unless Device.simulator?
+    # Flurry.logEvent("VIEW_AIRCRAFT") unless Device.simulator?
   end
 
   def table_data
