@@ -39,10 +39,10 @@ class InfoScreen < PM::GroupedTableScreen
         subtitle: "Text, Email, Tweet, or Facebook!",
         accessory_type: :disclosure_indicator,
         action: :share,
-      },{
-        title: "Rate #{App.name} on iTunes",
-        accessory_type: :disclosure_indicator,
-        action: :rate,
+      # },{
+      #   title: "Rate #{App.name} on iTunes",
+      #   accessory_type: :disclosure_indicator,
+      #   action: :rate,
       }]
     }, {
       title: "#{App.name} is open source!",
@@ -77,7 +77,7 @@ class InfoScreen < PM::GroupedTableScreen
     open_modal activity_vc
   end
 
-  def rate
-    Appirater.rateApp
-  end
+  # def rate
+  #   Appirater.rateApp
+  # end
 end

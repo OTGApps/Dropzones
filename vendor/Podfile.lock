@@ -20,25 +20,22 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Appirater (2.1.2)
   - BFNavigationBarDrawer (1.0.2)
   - CrittercismSDK (5.7.1)
   - OpenInChrome (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
-  - Appirater
   - BFNavigationBarDrawer
   - CrittercismSDK
   - OpenInChrome
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Appirater: f1c9e53e8b612193e6256144f6a0fd2e31f4340d
   BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
   CrittercismSDK: 58c6d4f143a624880b6fe1a29e2bf1543eb8c75f
   OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
 
-PODFILE CHECKSUM: 493805ca906a2685283c386e6729b7bff1608348
+PODFILE CHECKSUM: 673a84ea1985481cb85aa669622b40181a675c27
 
 COCOAPODS: 1.2.1

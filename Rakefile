@@ -46,7 +46,6 @@ Motion::Project::App.setup do |app|
   app.pods do
     pod 'OpenInChrome'
     pod 'CrittercismSDK'
-    pod 'Appirater'
     pod 'BFNavigationBarDrawer'
   end
 

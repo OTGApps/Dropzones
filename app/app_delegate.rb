@@ -19,13 +19,13 @@ class AppDelegate < PM::Delegate
       # Flurry.startSession("Y33SK5D8R48YDGTDZZG3")
 
       # Appirater
-      app_id = App.info_plist['APP_STORE_ID']
-      Appirater.setAppId(app_id)
-      Appirater.setDaysUntilPrompt(5)
-      Appirater.setUsesUntilPrompt(10)
-      Appirater.setSignificantEventsUntilPrompt(5)
-      Appirater.setTimeBeforeReminding(2)
-      Appirater.appLaunched true
+      # app_id = App.info_plist['APP_STORE_ID']
+      # Appirater.setAppId(app_id)
+      # Appirater.setDaysUntilPrompt(5)
+      # Appirater.setUsesUntilPrompt(10)
+      # Appirater.setSignificantEventsUntilPrompt(5)
+      # Appirater.setTimeBeforeReminding(2)
+      # Appirater.appLaunched true
     end
 
     open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
@@ -33,7 +33,7 @@ class AppDelegate < PM::Delegate
   end
 
   def on_activate
-    Appirater.appEnteredForeground(true)
+    # Appirater.appEnteredForeground(true)
   end
 
   def set_appearance
