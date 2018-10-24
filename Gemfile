@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'http://rubygems.org'
 
 # Cocoapods
 gem 'motion-cocoapods'
@@ -9,8 +9,8 @@ gem 'rake-hooks'
 
 # RubyMotion
 gem 'redpotion', github: 'infinitered/redpotion'
-gem 'ProMotion', github: 'clearsightstudio/ProMotion'
-# gem 'ProMotion', path: '../ProMotion'
+# gem 'ProMotion', github: 'clearsightstudio/ProMotion'
+gem 'ProMotion', path: '../ProMotion'
 gem 'RedAlert'
 gem 'afmotion'
 gem 'sugarcube', require: ['sugarcube-files']
@@ -25,3 +25,4 @@ gem 'motion-support', :require => false # For Inflectors
 gem 'motion_print'
 gem 'newclear'
 gem 'motion-appstore'
+gem 'motion-provisioning'
