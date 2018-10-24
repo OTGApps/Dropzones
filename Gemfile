@@ -19,7 +19,6 @@ gem 'bubble-wrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-
 # gem 'bubble-wrap', path: '../BubbleWrap', :require => ['bubble-wrap/core', 'bubble-wrap/mail', 'bubble-wrap/location']
 
 gem 'ProMotion-map'
-gem 'motion-support', :require => false # For Inflectors
 
 # Development
 gem 'motion_print'

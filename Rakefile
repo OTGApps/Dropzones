@@ -2,8 +2,6 @@
 $:.unshift("/Library/RubyMotion/lib")
 $:.unshift("~/.rubymotion/rubymotion-templates")
 require 'motion/project/template/ios'
-# require 'motion-support/inflector'
-# require 'rake/hooks'
 
 begin
   require 'bundler'

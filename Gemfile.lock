@@ -171,7 +171,6 @@ GEM
       fastlane (~> 2.85)
       highline (>= 1.7.2, < 2.0.0)
     motion-require (0.2.0)
-    motion-support (1.2.0)
     motion_print (1.2.0)
     multi_json (1.13.1)
     multi_xml (0.6.0)
@@ -248,7 +247,6 @@ DEPENDENCIES
   motion-appstore
   motion-cocoapods
   motion-provisioning
-  motion-support
   motion_print
   newclear
   rake (>= 0.9.4)
