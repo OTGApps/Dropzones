@@ -9,25 +9,6 @@ class AppDelegate < PM::Delegate
 
     App::Persistence[:flagged] ||= {}
 
-    unless Device.simulator?
-      # Crittercism
-      crittercism_app_id = "54c05ae83cf56b9e0457d5f5"
-      Crittercism.enableWithAppID(crittercism_app_id)
-
-      # Flurry
-      # NSSetUncaughtExceptionHandler("uncaughtExceptionHandler")
-      # Flurry.startSession("Y33SK5D8R48YDGTDZZG3")
-
-      # Appirater
-      # app_id = App.info_plist['APP_STORE_ID']
-      # Appirater.setAppId(app_id)
-      # Appirater.setDaysUntilPrompt(5)
-      # Appirater.setUsesUntilPrompt(10)
-      # Appirater.setSignificantEventsUntilPrompt(5)
-      # Appirater.setTimeBeforeReminding(2)
-      # Appirater.appLaunched true
-    end
-
     open_tab_bar MainScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
     # open_tab_bar AircraftScreen.new(nav_bar:true), MapScreen.new(nav_bar: true)
   end

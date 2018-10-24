@@ -21,21 +21,24 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - BFNavigationBarDrawer (1.0.2)
-  - CrittercismSDK (5.7.1)
   - OpenInChrome (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
   - BFNavigationBarDrawer
-  - CrittercismSDK
   - OpenInChrome
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - BFNavigationBarDrawer
+    - OpenInChrome
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
-  CrittercismSDK: 58c6d4f143a624880b6fe1a29e2bf1543eb8c75f
   OpenInChrome: f1f3f9dec682216fe78a0d7fe0b5b263d6312c32
 
-PODFILE CHECKSUM: 673a84ea1985481cb85aa669622b40181a675c27
+PODFILE CHECKSUM: 1013441f50bd1281b7481014b3951fa79076af08
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3
