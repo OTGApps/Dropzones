@@ -22,6 +22,22 @@ class MainScreen < PM::TableScreen
     ) do |location|
       GeoJSON.sharedData.location = location
     end
+
+    # Notify them about flags
+    flag_alert
+  end
+
+  def flag_alert
+    if (App::Persistence[:flagged] || []).count > 0
+      if App::Persistence['shown_flag_alert'].nil?
+        app.alert(
+          title: "We're Sorry",
+          message: "Looks like you had some dropzones flagged. Due to a change in the USPA's website, all flags have been removed. You can re-flag the dropzones at any time.",
+          actions: [ "Got it!" ]
+        )
+      end
+    end
+    App::Persistence['shown_flag_alert'] = true
   end
 
   def table_data
