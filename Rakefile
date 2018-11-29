@@ -21,8 +21,6 @@ Motion::Project::App.setup do |app|
   app.identifier = 'io.otgapps.dropzones'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
   app.short_version = '2.4.0'
-  app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
-  app.prerendered_icon = true
   app.info_plist['APP_STORE_ID'] = 960515397
   app.info_plist['ITSAppUsesNonExemptEncryption'] = false
 
@@ -38,7 +36,6 @@ Motion::Project::App.setup do |app|
       'CFBundleIconFiles' => ['AppIcon60x60', 'AppIcon76x76']
     }
   }
-
 
   # Location Services
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'

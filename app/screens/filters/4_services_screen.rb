@@ -1,5 +1,4 @@
 class ServicesScreen < MasterTableScreen
-  status_bar :light
   title "Services Offered"
 
   def on_appear

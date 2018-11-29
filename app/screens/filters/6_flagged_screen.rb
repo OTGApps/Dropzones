@@ -1,5 +1,4 @@
 class FlaggedScreen < MasterTableScreen
-  status_bar :light
   title "Your Flagged Dropzones"
 
   def on_appear

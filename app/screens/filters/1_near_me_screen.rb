@@ -1,5 +1,4 @@
 class NearMeScreen < MasterTableScreen
-  status_bar :light
   title "Dropzones Near Me"
   searchable hide_initially: true
 

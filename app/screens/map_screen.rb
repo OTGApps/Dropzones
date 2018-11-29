@@ -2,7 +2,6 @@ class MapScreen < PM::MapScreen
   include OpenDZScreen
   title "All Dropzones"
   tab_bar_item title: "Map", item: "map"
-  status_bar :light
 
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back

@@ -1,6 +1,5 @@
 class InfoScreen < PM::GroupedTableScreen
   title "About #{App.name}"
-  status_bar :light
 
   def on_load
     set_nav_bar_button :right, {

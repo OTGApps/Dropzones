@@ -1,5 +1,4 @@
 class FilterDetailScreen < MasterTableScreen
-  status_bar :light
   attr_accessor :search, :attribute
 
   def on_appear

@@ -1,5 +1,4 @@
 class DZDetailScreen < PM::WebScreen
-  status_bar :light
   attr_accessor :anchor
 
   def on_load

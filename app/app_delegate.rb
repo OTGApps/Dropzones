@@ -28,11 +28,6 @@ class AppDelegate < PM::Delegate
         NSForegroundColorAttributeName => white
       })
     end
-
-    UIApplication.sharedApplication.tap do |ap|
-      ap.setStatusBarStyle(UIStatusBarStyleLightContent)
-      ap.setStatusBarHidden(false, withAnimation:UIStatusBarAnimationSlide)
-    end
   end
 
   # Flurry exception handler

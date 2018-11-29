@@ -1,5 +1,4 @@
 class TrainingScreen < MasterTableScreen
-  status_bar :light
   title "Dropzones by Training"
 
   def on_appear

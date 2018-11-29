@@ -1,5 +1,4 @@
 # class StatesScreen < MasterTableScreen
-#   status_bar :light
 #   title "Dropzones by State"
 #   searchable hide_initially: true
 

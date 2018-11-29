@@ -1,7 +1,6 @@
 class MainScreen < PM::TableScreen
   title 'Find Dropzones'
   tab_bar_item title: 'Dropzones', item: 'airplane'
-  status_bar :light
 
   def on_load
     set_nav_bar_button :back, title: '', style: :plain, action: :back

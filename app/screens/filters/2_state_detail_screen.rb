@@ -1,6 +1,5 @@
 # class StateDetailScreen < MasterTableScreen
 #   include OpenDZScreen
-#   status_bar :light
 #   attr_accessor :state_name, :state
 
 #   def will_appear
