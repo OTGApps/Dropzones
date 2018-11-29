@@ -1,5 +1,5 @@
 # Dropzones [![Code Climate](https://codeclimate.com/github/OTGApps/Dropzones.png)](https://codeclimate.com/github/OTGApps/Dropzones)
-![App Icon](resources/Icon-120.png)
+![App Icon](resources/Assets.xcassets/AppIcon.appiconset/60x60@2x.png)
 
 #### A [RubyMotion](http://www.rubymotion.com/) application brought to you by [Off The Grid Apps](http://otgapps.io/).
 

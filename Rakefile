@@ -24,6 +24,21 @@ Motion::Project::App.setup do |app|
   app.icons = Dir.glob("resources/Icon*.png").map{|icon| icon.split("/").last}
   app.prerendered_icon = true
   app.info_plist['APP_STORE_ID'] = 960515397
+  app.info_plist['ITSAppUsesNonExemptEncryption'] = false
+
+  app.info_plist['CFBundleIcons'] = {
+    'CFBundlePrimaryIcon' => {
+      'CFBundleIconName' => 'AppIcon',
+      'CFBundleIconFiles' => ['AppIcon60x60']
+    }
+  }
+  app.info_plist['CFBundleIcons~ipad'] = {
+    'CFBundlePrimaryIcon' => {
+      'CFBundleIconName' => 'AppIcon',
+      'CFBundleIconFiles' => ['AppIcon60x60', 'AppIcon76x76']
+    }
+  }
+
 
   # Location Services
   app.info_plist['NSLocationAlwaysUsageDescription'] = 'Helps locate dropzones near you.'
