@@ -20,7 +20,7 @@ Motion::Project::App.setup do |app|
 
   app.identifier = 'io.otgapps.dropzones'
   app.version =  (`git rev-list HEAD --count`.strip.to_i).to_s
-  app.short_version = '2.4.0'
+  app.short_version = '2.5.0'
   app.info_plist['APP_STORE_ID'] = 960515397
   app.info_plist['ITSAppUsesNonExemptEncryption'] = false
 
