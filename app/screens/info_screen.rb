@@ -21,7 +21,7 @@ class InfoScreen < PM::GroupedTableScreen
         cell_style: UITableViewCellStyleValue1
       },{
         title: "Copyright",
-        subtitle: "© 2015 Off The Grid Apps, LLC",
+        subtitle: "© 2015-2018 Off The Grid Apps, LLC",
         cell_style: UITableViewCellStyleValue1
       },{
         title: "Visit otgapps.io",
