@@ -50,13 +50,13 @@ class MainScreen < PM::TableScreen
       accessory_type: :disclosure_indicator,
       image: 'location-pin',
       height: cell_height
-    # }, {
-    #   title: 'By State',
-    #   subtitle: 'All the DZs nicely organized by state.',
-    #   action: :show_by_state,
-    #   accessory_type: :disclosure_indicator,
-    #   image: 'usa',
-    #   height: cell_height
+    }, {
+      title: 'By State',
+      subtitle: 'All the DZs nicely organized by state.',
+      action: :show_by_state,
+      accessory_type: :disclosure_indicator,
+      image: 'usa',
+      height: cell_height
     }, {
       title: 'Aircraft Type',
       subtitle: 'Looking to jump a specific aircraft?',
@@ -109,9 +109,9 @@ class MainScreen < PM::TableScreen
     open NearMeScreen
   end
 
-  # def show_by_state
-  #   open StatesScreen
-  # end
+  def show_by_state
+    open StatesScreen
+  end
 
   def show_by_aircraft
     open AircraftScreen

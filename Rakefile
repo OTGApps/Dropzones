@@ -23,6 +23,7 @@ Motion::Project::App.setup do |app|
   app.short_version = '2.5.0'
   app.info_plist['APP_STORE_ID'] = 960515397
   app.info_plist['ITSAppUsesNonExemptEncryption'] = false
+  app.resources_dirs << ['resources/flags']
 
   app.info_plist['CFBundleIcons'] = {
     'CFBundlePrimaryIcon' => {
