@@ -66,34 +66,23 @@ class GeoJSON
 
   def state(data)
     # Extract the state out of the location array
-    c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+,\s\w{2,20}(\s\w{2,20})?\s\d{4,5}(-\d{4})?$/) != nil }
+    c_s_z = data['properties']['location'].find{|l| (l =~ /^[\w\s.]+(,)?\s\w{2,20}(\s\w{2,20})?\s\d{4,5}(-\d{4})?( US)$/) != nil }
 
     if c_s_z.nil?
-      if data['properties']['location'].find{ |l| l == 'US Virgin Islands' }
-        'US Virgin Islands'
-      elsif data['properties']['location'].find{ |l| l == 'Puerto Rico' }
-        'Puerto Rico'
-      else
-        'International'
-      end
+      'International'
     else
       c_s_z = c_s_z.gsub(/\s(\d{4})$/, ' 0\1')
 
-      result = SHPAddressUtils.addressComponentsFromAddress(c_s_z)
-      if result.nil?
-        'International'
-      else
-        state = result["State"]
+      # Find the first instance of a state name
+      idx = c_s_z.index(/[A-Z]{2,2}/)
+      return 'International' if idx.nil?
 
-        if state.nil?
-          'International'
-        elsif state.length == 2
-          state
-        elsif States.all.key(state)
-          States.all.key(state)
-        else
-          'International'
-        end
+      state = c_s_z[idx...idx+2]
+
+      if state.length == 2
+        state.upcase
+      else
+        'International'
       end
     end
   end
