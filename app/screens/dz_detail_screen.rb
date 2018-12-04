@@ -144,8 +144,6 @@ class DZDetailScreen < PM::WebScreen
   end
 
   def open_in_maps
-    mp 'opening in maps'
-
     if App::Persistence['no_maps_confirmation'] == true
       open_it
       return

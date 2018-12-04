@@ -13,7 +13,7 @@ GIT
 PATH
   remote: ../ProMotion
   specs:
-    ProMotion (2.8.0)
+    ProMotion (2.8.2)
       methadone (~> 1.7)
       motion_print (~> 1.0)
 

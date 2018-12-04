@@ -49,7 +49,7 @@ class GeoJSON
 
   def find_dz(anchor)
     @dzs ||= {}
-    @dzs[anchor] ||= json.find{|dz| dz['properties']['anchor'] == anchor.to_s }
+    @dzs[anchor] ||= json.find{|dz| dz['properties']['anchor'].to_s == anchor.to_s }
   end
 
   def json
