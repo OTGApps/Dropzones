@@ -1,0 +1,8 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+      <!-- Customize your theme here. -->
+      <item name="android:textColor">@color/black</item>
+      <item name="colorPrimaryDark">@color/blue_top</item>
+      <item name="colorAccent">@color/blue_top</item>
+    </style>
+</resources>

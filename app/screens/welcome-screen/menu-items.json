@@ -1,0 +1,55 @@
+[
+  {
+    "id": 0,
+    "title": "Near Me",
+    "subtitle": "Find the DZs closest to you right now!",
+    "iconName": "map-marker"
+  },
+  {
+    "id": 1,
+    "title": "Alphabetical",
+    "subtitle": "The whole kit and caboodle!",
+    "iconName": "font",
+    "screen": "alphabetical"
+  },
+  {
+    "id": 2,
+    "title": "By State",
+    "subtitle": "Only useful if you live in the United States.",
+    "iconName": "map",
+    "screen": "by-state"
+  },
+  {
+    "id": 3,
+    "title": "By Region",
+    "subtitle": "All DZs listed by USPA region.",
+    "iconName": "map-signs"
+  },
+  {
+    "id": 4,
+    "title": "Aircraft Type",
+    "subtitle": "Want to jump a specific aircraft?",
+    "iconName": "plane",
+    "screen": "by-aircraft"
+  },
+  {
+    "id": 5,
+    "title": "Services Offered",
+    "subtitle": "Wait... some dropzones have a POOL?",
+    "iconName": "bath",
+    "screen": "by-services"
+  },
+  {
+    "id": 6,
+    "title": "Training Capibilities",
+    "subtitle": "Too cool for AFF and want to try static line?",
+    "iconName": "cubes",
+    "screen": "by-training"
+  },
+  {
+    "id": 7,
+    "title": "Flagged",
+    "subtitle": "Your flagged DZs",
+    "iconName": "flag"
+  }
+]

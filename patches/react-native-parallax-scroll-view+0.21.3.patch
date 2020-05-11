@@ -1,0 +1,127 @@
+diff --git a/node_modules/react-native-parallax-scroll-view/src/index.js b/node_modules/react-native-parallax-scroll-view/src/index.js
+index 8787b6f..b892f3f 100644
+--- a/node_modules/react-native-parallax-scroll-view/src/index.js
++++ b/node_modules/react-native-parallax-scroll-view/src/index.js
+@@ -37,6 +37,7 @@ const IPropTypes = {
+ 	renderContentBackground: func,
+ 	renderFixedHeader: func,
+ 	renderForeground: func,
++	forceScroll: bool,
+ 	renderScrollComponent: func,
+ 	renderStickyHeader: func,
+ 	stickyHeaderHeight: number,
+@@ -59,8 +60,8 @@ class ParallaxScrollView extends Component {
+ 		}
+ 		this.state = {
+ 			scrollY: new Animated.Value(0),
+-			viewHeight: window.height,
+-			viewWidth: window.width
++			viewHeight: this.props.viewHeight ? this.props.viewHeight : window.height,
++			viewWidth: this.props.viewWidth ? this.props.viewWidth : window.width
+ 		}
+ 		this.scrollY = new Animated.Value(0)
+ 		this._footerComponent = { setNativeProps() { } } // Initial stub
+@@ -85,6 +86,7 @@ class ParallaxScrollView extends Component {
+ 			renderContentBackground,
+ 			renderFixedHeader,
+ 			renderForeground,
++			forceScroll,
+ 			renderParallaxHeader,
+ 			renderScrollComponent,
+ 			renderStickyHeader,
+@@ -110,13 +112,13 @@ class ParallaxScrollView extends Component {
+ 			stickyHeaderHeight,
+ 			renderForeground: renderForeground || renderParallaxHeader
+ 		})
+-		const bodyComponent = this._wrapChildren(children, {
+-			contentBackgroundColor,
+-			stickyHeaderHeight,
+-			renderContentBackground,
+-			contentContainerStyle
+-		})
+-		const footerSpacer = this._renderFooterSpacer({ contentBackgroundColor })
++		// const bodyComponent = this._wrapChildren(children, {
++		// 	contentBackgroundColor,
++		// 	stickyHeaderHeight,
++		// 	renderContentBackground,
++		// 	contentContainerStyle
++		// })
++		const footerSpacer = forceScroll ? this._renderFooterSpacer({ contentBackgroundColor }) : null
+ 		const maybeStickyHeader = this._maybeRenderStickyHeader({
+ 			parallaxHeaderHeight,
+ 			stickyHeaderHeight,
+@@ -145,7 +147,7 @@ class ParallaxScrollView extends Component {
+ 						// onScroll: this._onScroll.bind(this)
+ 					},
+ 					foreground,
+-					bodyComponent,
++					children,
+ 					footerSpacer
+ 				)}
+ 				{maybeStickyHeader}
+@@ -371,14 +373,22 @@ class ParallaxScrollView extends Component {
+ 	}) {
+ 		const { viewWidth } = this.state
+ 		const { scrollY } = this
++
++		const translateY = interpolate(scrollY, {
++			inputRange: [0, stickyHeaderHeight],
++			outputRange: [-stickyHeaderHeight, 0],
++			extrapolate: 'clamp'
++		})
++
+ 		if (renderStickyHeader || renderFixedHeader) {
+ 			const p = pivotPoint(parallaxHeaderHeight, stickyHeaderHeight)
+ 			return (
+-				<View
++				<Animated.View
+ 					style={[
+ 						styles.stickyHeader,
+ 						{
+ 							width: viewWidth,
++							transform: [{ translateY }],
+ 							...(stickyHeaderHeight ? { height: stickyHeaderHeight } : null)
+ 						}
+ 					]}
+@@ -388,8 +398,9 @@ class ParallaxScrollView extends Component {
+ 							style={{
+ 								backgroundColor: backgroundColor,
+ 								height: stickyHeaderHeight,
++								transform: [{ translateY }],
+ 								opacity: interpolate(scrollY, {
+-									inputRange: [0, p],
++									inputRange: [stickyHeaderHeight, p],
+ 									outputRange: [0, 1],
+ 									extrapolate: 'clamp'
+ 								})
+@@ -413,7 +424,7 @@ class ParallaxScrollView extends Component {
+ 						</Animated.View>
+ 						: null}
+ 					{renderFixedHeader && renderFixedHeader()}
+-				</View>
++				</Animated.View>
+ 			)
+ 		} else {
+ 			return null
+@@ -434,6 +445,7 @@ ParallaxScrollView.defaultProps = {
+ 	renderContentBackground: noRender,
+ 	renderParallaxHeader: renderEmpty, // Deprecated (will be removed in 0.18.0)
+ 	renderForeground: null,
++	forceScroll: true,
+ 	stickyHeaderHeight: 0,
+ 	contentContainerStyle: null,
+ 	outputScaleValue: 5
+diff --git a/node_modules/react-native-parallax-scroll-view/src/styles.js b/node_modules/react-native-parallax-scroll-view/src/styles.js
+index 4562277..710ddec 100644
+--- a/node_modules/react-native-parallax-scroll-view/src/styles.js
++++ b/node_modules/react-native-parallax-scroll-view/src/styles.js
+@@ -3,7 +3,8 @@ const StyleSheet = require('react-native').StyleSheet;
+ const styles = StyleSheet.create({
+   container: {
+     flex: 1,
+-    backgroundColor: 'transparent'
++    backgroundColor: 'transparent',
++    overflow: 'hidden'
+   },
+   parallaxHeaderContainer: {
+     backgroundColor: 'transparent',
