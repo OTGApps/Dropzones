@@ -19,12 +19,12 @@
     "iconName": "map",
     "screen": "by-state"
   },
-  {
-    "id": 3,
-    "title": "By Region",
-    "subtitle": "All DZs listed by USPA region.",
-    "iconName": "map-signs"
-  },
+  // {
+  //   "id": 3,
+  //   "title": "By Region",
+  //   "subtitle": "All DZs listed by USPA region.",
+  //   "iconName": "map-signs"
+  // },
   {
     "id": 4,
     "title": "Aircraft Type",

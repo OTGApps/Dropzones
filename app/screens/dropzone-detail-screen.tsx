@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   cardStyle: {
     borderWidth: 0,
     paddingVertical: spacing[4],
-    marginBottom: spacing[8],
+    marginBottom: spacing[5],
     marginTop: -spacing[8],
     minHeight: window.height - PARALLAX_HEADER_HEIGHT,
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     color: color.text
   } as TextStyle,
   map: {
-    width: window.width,
+    width: '100%',
     height: PARALLAX_HEADER_HEIGHT
   } as ViewStyle,
   noPadding: {
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   } as TextStyle,
   stickySection: {
-    width: 300,
     justifyContent: 'center',
     padding: spacing[3]
   } as ViewStyle,
