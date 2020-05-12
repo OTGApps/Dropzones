@@ -1,15 +1,14 @@
 import * as React from "react"
-import { View, ViewStyle, FlatList } from "react-native"
+import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color } from "../../theme"
+import { color, spacing } from "../../theme"
 import { ListItem } from 'react-native-elements'
 
 const MenuItems = require('./menu-items.json')
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background
 }
 
 export interface WelcomeScreenProps {
@@ -32,12 +31,11 @@ export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props 
   />
 
   return (
-    <View style={FULL}>
-      <FlatList
-        data={MenuItems}
-        keyExtractor={(item, idx) => idx.toString()}
-        renderItem={renderItem}
-      />
-    </View>
+    <FlatList
+      style={FULL}
+      data={MenuItems}
+      keyExtractor={(item, idx) => idx.toString()}
+      renderItem={renderItem}
+    />
   )
 }

@@ -97,8 +97,9 @@ export const RootStoreModel = types.model("RootStore", {
       }
     })
   },
-  dropzoneCountByState (state: string) {
-    return this.filteredDropzones(state, 'state').length
+  // Returns all the dropzones grouped by state so you can count how many are in each.
+  stateCount () {
+    return _.groupBy(self.dropzones, 'state')
   }
 }))
 

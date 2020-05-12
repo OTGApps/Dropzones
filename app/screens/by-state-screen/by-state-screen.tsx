@@ -6,6 +6,7 @@ import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../../theme"
 import { ListItem } from 'react-native-elements'
 import { States } from './states'
+import FastImage from 'react-native-fast-image'
 import _ from 'lodash'
 
 const unitedNationsFlag = require('./flags/united-nations.png')
@@ -26,8 +27,11 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   const { dropzones } = rootStore
   const sortedStates = Object.keys(_.groupBy(dropzones, 'state')).sort()
 
+  // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
+  const stateCount = rootStore.stateCount()
+
   // this line just moves anything that's not a two-letter state to the end
-  // essentially, just moveing the "international" item to the bottom.
+  // essentially, just moving the "international" item to the bottom.
   const dataSource = _.sortBy(sortedStates, (state) => state.length > 2 ? 1 : 0)
 
   const renderItem = ({ item, index }) => {
@@ -36,12 +40,14 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
       <ListItem
         title={(thisState && thisState.fullName) || 'International'}
         leftAvatar={{
+          // @ts-ignore
+          ImageComponent: FastImage,
           title: (thisState && item),
-          source: thisState ? thisState.image : {},
+          source: (thisState ? thisState.image : unitedNationsFlag),
           overlayContainerStyle: { borderWidth: 2 }
         }}
         rightAvatar={{
-          title: rootStore.dropzoneCountByState(item).toString(),
+          title: stateCount[item].length.toString(),
           rounded: true,
           placeholderStyle: {
             backgroundColor: color.primaryLighter
@@ -61,6 +67,9 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   return (
     <FlatList
       style={FULL}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}

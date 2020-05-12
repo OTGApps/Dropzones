@@ -10,7 +10,6 @@ import { ListItem } from 'react-native-elements'
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background
 }
 
 const HEADER_STYLE: ViewStyle = {
