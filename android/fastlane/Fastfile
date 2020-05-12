@@ -16,6 +16,14 @@
 default_platform(:android)
 
 platform :android do
+  lane :build do |options|
+    gradle(task: "clean assembleRelease")
+    gradle(
+      task: "bundle",
+      build_type: "Release"
+    )
+  end
+
   lane :alpha do |options|
     # gradle(task: "clean assembleRelease")
     gradle(
