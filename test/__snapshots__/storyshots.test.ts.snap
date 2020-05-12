@@ -5378,7 +5378,6 @@ exports[`Storyshots TextField Ref Forwarding 1`] = `
               style={
                 Object {
                   "color": "#939AA4",
-                  "fontFamily": "Montserrat",
                   "fontSize": 9,
                 }
               }
@@ -5688,7 +5687,6 @@ exports[`Storyshots TextField Style Overrides 1`] = `
               style={
                 Object {
                   "color": "#939AA4",
-                  "fontFamily": "Montserrat",
                   "fontSize": 9,
                 }
               }
@@ -5819,7 +5817,6 @@ exports[`Storyshots TextField Style Overrides 1`] = `
               style={
                 Object {
                   "color": "#939AA4",
-                  "fontFamily": "Montserrat",
                   "fontSize": 9,
                 }
               }
