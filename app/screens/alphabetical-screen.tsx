@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { View, ViewStyle, SectionList, TextStyle } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
@@ -6,7 +6,7 @@ import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { Text } from "../components"
 import { color, spacing } from "../theme"
 import _ from 'lodash'
-import { ListItem } from 'react-native-elements'
+import { ListItem, SearchBar } from 'react-native-elements'
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -27,8 +27,17 @@ export interface AlphabeticalScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
-export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = props => {
+export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = ({ route, navigation }) => {
   const { dropzones } = useStores()
+  const [search, setSearch] = useState('')
+  const [list, setList] = useState(dropzones)
+
+  useEffect(() => {
+    const filteredData = search ? dropzones.filter(({ searchableText }) => {
+      return searchableText.includes(search.toLowerCase())
+    }) : dropzones
+    setList(filteredData)
+  }, [search])
 
   const HeaderView = ({ section: { title } }) => {
     return (
@@ -39,8 +48,7 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
   }
 
   // groupBy to extract section headers
-  let dataSource = _.groupBy(dropzones, 'nameFirstLetter') // <- This is just the first letter of the name.
-
+  let dataSource = _.groupBy(list, 'nameFirstLetter') // <- This is just the first letter of the name.
   // reduce to generate new array
   dataSource = _.reduce(dataSource, (acc, next, index) => {
     acc.push({
@@ -55,7 +63,7 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
     subtitle={item.website}
     bottomDivider={index < dataSource.length - 1}
     chevron
-    onPress={() => props.navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}
+    onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}
   />
 
   return (
@@ -67,6 +75,14 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
       keyExtractor={(item, idx) => idx.toString()}
       renderSectionHeader={HeaderView}
       renderItem={renderItem}
+      ListHeaderComponent={<SearchBar
+        key='list-search'
+        placeholder="Search Dropzones..."
+        lightTheme
+        value={search}
+        onChangeText={value => setSearch(value)}
+      />}
+
     />
   )
 }
