@@ -4,7 +4,7 @@ import { ViewStyle, Dimensions } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { useStores } from "../models/root-store"
-import { color, spacing } from "../theme"
+import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from 'react-native-elements'
 import _ from 'lodash'
 
@@ -83,8 +83,10 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
       initialRegion={INITIAL_REGION}
       style={ROOT}
       clusterColor={color.primary}
+      clusterFontFamily={typography.primary}
       tracksClusterViewChanges={false}
       spiralEnabled={false}
+      extent={350} // Changing the number changes how close the dropzones have to be to be grouped.
       edgePadding={{
         top: spacing[11],
         left: spacing[11],
@@ -97,19 +99,16 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
       onMapReady={() => {
         console.log('onmapready', mapRef)
       }}
-      extent={350}
       // @ts-ignore
-      onRegionChangeComplete={(region, markers) => {
+      // onRegionChangeComplete={(region, markers) => {
 
-      }}
+      // }}
       onUserLocationChange={(e) => {
         const { coordinate } = e.nativeEvent
         if (!coordinate) return
         const { mapView } = mapRef.current || {}
         mapView.animateCamera({
           center: _.pick(coordinate, ['longitude', 'latitude']),
-          pitch: 2,
-          heading: 20,
           altitude: 10000 * 100,
         }, 4000)
       }}
