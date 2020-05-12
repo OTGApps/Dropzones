@@ -196,7 +196,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
         type={'clear'}
         titleStyle={styles.sectionSubtitleText}
         buttonStyle={styles.noPadding}
-        onPress={openMap}
+        onPress={openWebsite}
       />
     </View>
   )
@@ -235,11 +235,11 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
     })
   }
   const emailButton = (
-    <Button
+    i.email ? <Button
       title={i.email}
       type="outline"
       onPress={handleEmail}
-    />
+    /> : null
   )
 
   return (
@@ -260,24 +260,24 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
           title={i.description}
           titleStyle={styles.descriptionText}
         />}
-        {i.phone && <ListItem
+        {i.phone ? <ListItem
           leftIcon={{ ...iconProps, name: 'phone' }}
           title={i.phone}
           onPress={openPhone}
-        />}
-        {i.location.length > 0 && <ListItem
+        /> : null}
+        {i.location && i.location.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'map' }}
           title={i.location.join('\n')}
           onPress={openMap}
-        />}
-        {i.aircraft.length > 0 && <ListItem
+        /> : null}
+        {i.aircraft && i.aircraft.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'plane' }}
           title={i.aircraft.sort().join('\n')}
-        />}
-        {i.services.length > 0 && <ListItem
+        /> : null}
+        {i.services && i.services.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'bath' }}
           title={i.services.sort().join('\n')}
-        />}
+        /> : null}
       </Card>
     </ParallaxScrollView>
   )
