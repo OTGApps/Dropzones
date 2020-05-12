@@ -4,7 +4,7 @@ import { ViewStyle, Dimensions } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { useStores } from "../models/root-store"
-import { color } from "../theme"
+import { color, spacing } from "../theme"
 import { ListItem, Icon } from 'react-native-elements'
 import _ from 'lodash'
 
@@ -83,11 +83,24 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
       initialRegion={INITIAL_REGION}
       style={ROOT}
       clusterColor={color.primary}
+      tracksClusterViewChanges={false}
+      spiralEnabled={false}
+      edgePadding={{
+        top: spacing[11],
+        left: spacing[11],
+        bottom: spacing[11],
+        right: spacing[11]
+      }}
       // @ts-ignore
-      userLocationPriority='passive' // Android setting
+      userLocationPriority={'passive'} // Android setting
       showsUserLocation={showsUserLocation}
       onMapReady={() => {
         console.log('onmapready', mapRef)
+      }}
+      extent={350}
+      // @ts-ignore
+      onRegionChangeComplete={(region, markers) => {
+
       }}
       onUserLocationChange={(e) => {
         const { coordinate } = e.nativeEvent
