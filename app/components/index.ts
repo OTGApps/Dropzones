@@ -1,5 +1,6 @@
 export * from "./bullet-item/bullet-item"
 export * from "./speed-limit-sign/speed-limit-sign"
+export * from "./dropzone-list-row/dropzone-list-row"
 export * from "./button/button"
 export * from "./checkbox/checkbox"
 export * from "./form-row/form-row"

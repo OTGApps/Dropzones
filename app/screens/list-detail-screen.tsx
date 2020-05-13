@@ -4,7 +4,8 @@ import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import type { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../theme"
-import { SearchBar, ListItem } from 'react-native-elements'
+import { SearchBar } from 'react-native-elements'
+import { DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -31,12 +32,11 @@ export const ListDetailScreen: React.FunctionComponent<ListDetailScreenProps> = 
     setList(filteredData)
   }, [search])
 
-  const renderItem = ({ item, index }) => <ListItem
-    title={item.name}
-    subtitle={item.website}
-    chevron
-    bottomDivider={index < list.length - 1}
-    onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}
+  const renderItem = ({ item, index }) => <DropzoneListRow
+    item={item}
+    index={index}
+    isLast={index < list.length - 1}
+    navigation={navigation}
   />
 
   return (

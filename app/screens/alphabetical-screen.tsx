@@ -3,10 +3,10 @@ import { useStores } from '../models/root-store/root-store-context'
 import { View, ViewStyle, SectionList, TextStyle } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { Text } from "../components"
+import { Text, DropzoneListRow } from "../components"
 import { color, spacing } from "../theme"
 import _ from 'lodash'
-import { ListItem, SearchBar } from 'react-native-elements'
+import { SearchBar } from 'react-native-elements'
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -58,12 +58,11 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
     return acc
   }, [])
 
-  const renderItem = ({ item, index }) => <ListItem
-    title={item.name}
-    subtitle={item.website}
-    bottomDivider={index < dataSource.length - 1}
-    chevron
-    onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}
+  const renderItem = ({ item, index }) => <DropzoneListRow
+    item={item}
+    index={index}
+    isLast={index < dataSource.length - 1}
+    navigation={navigation}
   />
 
   return (
@@ -73,6 +72,7 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
       extraData={dropzones}
       stickySectionHeadersEnabled
       keyExtractor={(item, idx) => idx.toString()}
+      // @ts-ignore
       renderSectionHeader={HeaderView}
       renderItem={renderItem}
       ListHeaderComponent={<SearchBar

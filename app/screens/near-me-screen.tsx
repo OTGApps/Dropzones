@@ -5,7 +5,7 @@ import { ParamListBase } from "@react-navigation/native"
 import type { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../theme"
 import { ListItem } from 'react-native-elements'
-import { SpeedLimitSign } from "../components"
+import { SpeedLimitSign, DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -27,15 +27,14 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
 
   const sortedFromUser = rootStore.sortByDistanceFrom(l)
 
-  const renderItem = ({ item, index }) => <ListItem
-    title={item.name}
-    subtitle={item.website}
+  const renderItem = ({ item, index }) => <DropzoneListRow
+    item={item}
+    index={index}
+    isLast={index < sortedFromUser.length - 1}
+    navigation={navigation}
     rightElement={() => <SpeedLimitSign distanceFromUser={
       parseInt(item.distanceFromUser * 0.621371).toString() || '🤷‍♂️'
     } />}
-    chevron
-    bottomDivider={index < sortedFromUser.length - 1}
-    onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}
   />
 
   return (

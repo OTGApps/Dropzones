@@ -83,6 +83,7 @@ export const RootStoreModel = types.model("RootStore", {
   },
   removeFlag (anchor: number) {
 
+    self.flags.replace(_.filter(self.flags, f => (f !== anchor)))
   }
 })).views(self => ({
   // Gets all the dropzones that have flags
