@@ -28,7 +28,7 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   const sortedStates = Object.keys(_.groupBy(dropzones, 'state')).sort()
 
   // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
-  const stateCount = rootStore.stateCount()
+  const groupByState = rootStore.groupByState()
 
   // this line just moves anything that's not a two-letter state to the end
   // essentially, just moving the "international" item to the bottom.
@@ -47,7 +47,7 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
           overlayContainerStyle: { borderWidth: 2 }
         }}
         rightAvatar={{
-          title: stateCount[item].length.toString(),
+          title: groupByState[item].length.toString(),
           rounded: true,
           placeholderStyle: {
             backgroundColor: color.primaryLighter

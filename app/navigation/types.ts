@@ -8,6 +8,7 @@ export type PrimaryParamList = {
   alphabetical: undefined,
   map: undefined,
   "list-detail": undefined,
+  "near-me": undefined,
   "dropzone-detail": undefined,
   "by-state": undefined,
   "by-aircraft": undefined,

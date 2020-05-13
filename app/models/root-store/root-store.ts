@@ -1,6 +1,7 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
 import _ from 'lodash'
 import ParseAddress from 'parse-address'
+import distanceCalculator from '../../utils/lat-long-to-km'
 
 const dropzoneData = require('./dropzones.json')
 
@@ -43,6 +44,17 @@ export const DropzoneModel = types.model('Dropzone', {
       self.phone,
       self.website,
     ].join(' ').toLowerCase()
+  },
+
+  // Calculates this dz's distance from a location (in km)
+  distanceFrom(location: any) {
+    const distance = distanceCalculator(
+      location.coords.latitude,
+      location.coords.longitude,
+      self.coordinates.latitude,
+      self.coordinates.longitude
+    )
+    return distance
   }
 }))
 
@@ -98,8 +110,18 @@ export const RootStoreModel = types.model("RootStore", {
     })
   },
   // Returns all the dropzones grouped by state so you can count how many are in each.
-  stateCount () {
+  groupByState () {
     return _.groupBy(self.dropzones, 'state')
+  },
+  // Returns all the dropzones grouped by state so you can count how many are in each.
+  sortByDistanceFrom (location) {
+    console.tron.log('sortByDistanceFrom', location)
+    return _.sortBy(_.map(self.dropzones, (dz) => {
+      return {
+        ...dz,
+        distanceFromUser: dz.distanceFrom(location)
+      }
+    }), 'distanceFromUser')
   }
 }))
 

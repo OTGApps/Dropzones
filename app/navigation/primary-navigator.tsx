@@ -9,7 +9,8 @@ import {
   ByTrainingScreen,
 
   DropzoneDetailScreen,
-  ListDetailScreen
+  ListDetailScreen,
+  NearMeScreen,
 } from "../screens"
 import { PrimaryParamList } from "./types"
 import { color } from "../theme"
@@ -45,6 +46,11 @@ export function PrimaryNavigator() {
         name="list-detail"
         options={({ route }) => ({ title: _.get(route, 'params.item', 'Detail') })}
         component={ListDetailScreen}
+      />
+      <Stack.Screen
+        name="near-me"
+        options={({ route }) => ({ title: _.get(route, 'params.item', 'Near Me') })}
+        component={NearMeScreen}
       />
       <Stack.Screen
         name="dropzone-detail"

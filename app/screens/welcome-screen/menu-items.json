@@ -3,7 +3,8 @@
     "id": 0,
     "title": "Near Me",
     "subtitle": "Find the DZs closest to you right now!",
-    "iconName": "map-marker"
+    "iconName": "map-marker",
+    "screen": "near-me"
   },
   {
     "id": 1,

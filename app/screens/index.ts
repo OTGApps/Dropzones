@@ -9,3 +9,4 @@ export * from "./by-training-screen"
 
 export * from "./dropzone-detail-screen"
 export * from "./list-detail-screen"
+export * from "./near-me-screen"

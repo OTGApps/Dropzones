@@ -1,9 +1,10 @@
 import * as React from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle, FlatList, Alert } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../../theme"
 import { ListItem } from 'react-native-elements'
+import Geolocation from '@react-native-community/geolocation'
 
 const MenuItems = require('./menu-items.json')
 
@@ -16,10 +17,31 @@ export interface WelcomeScreenProps {
 }
 
 export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props => {
+  Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: 'whenInUse' })
+
+  const openNearMeScreen = () => {
+    Geolocation.getCurrentPosition(
+      position => {
+        console.tron.log('opening the near me screen.', JSON.stringify(position))
+        props.navigation.navigate('near-me', {
+          location: JSON.stringify(position)
+        })
+      },
+      error => Alert.alert('Error', JSON.stringify(error)),
+      { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
+    )
+  }
+
   const renderItem = ({ item, index }) => <ListItem
     title={item.title}
     subtitle={item.subtitle}
-    onPress={item.screen && (() => props.navigation.navigate(item.screen))}
+    onPress={item.screen && (() => {
+      if (item.screen === 'near-me') {
+        openNearMeScreen()
+      } else {
+        props.navigation.navigate(item.screen)
+      }
+    })}
     disabled={!item.screen}
     chevron={!!item.screen}
     bottomDivider={index < MenuItems.length - 1}
