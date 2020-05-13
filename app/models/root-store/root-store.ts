@@ -1,7 +1,7 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import _ from 'lodash'
 import ParseAddress from 'parse-address'
 import distanceCalculator from '../../utils/lat-long-to-km'
+import _ from 'lodash'
 
 const dropzoneData = require('./dropzones.json')
 
@@ -39,9 +39,7 @@ export const DropzoneModel = types.model('Dropzone', {
   get searchableText () {
     return [
       self.name,
-      self.email,
       self.description,
-      self.phone,
       self.website,
     ].join(' ').toLowerCase()
   },

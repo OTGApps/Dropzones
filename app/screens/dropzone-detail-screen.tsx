@@ -135,16 +135,18 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
   }
 
   const renderBackground = () => {
+    const regionToDisplay = {
+      ...i.coordinates,
+      latitudeDelta: 0.044,
+      longitudeDelta: 0.055,
+    }
     return (
       <View key='background'>
         <MapView
           key='map-view'
           style={styles.map}
-          initialRegion={{
-            ...i.coordinates,
-            latitudeDelta: 0.044,
-            longitudeDelta: 0.055,
-          }}
+          initialRegion={regionToDisplay}
+          region={regionToDisplay} // Initial region doesn't work alone on android.
           mapType={'satellite'}
         >
           <Marker coordinate={i.coordinates} />
