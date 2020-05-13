@@ -1,4 +1,5 @@
-import React, { useEffect } from "react"
+import * as React from "react"
+import { observer } from 'mobx-react-lite'
 import { ListItem } from 'react-native-elements'
 import { Dropzone } from "../../models/root-store"
 import { ParamListBase } from "@react-navigation/native"
@@ -13,7 +14,7 @@ export interface DropzoneListRowProps {
   rightElement?: Record<string, any>
 }
 
-export function DropzoneListRow(props: DropzoneListRowProps) {
+export const DropzoneListRow = observer(function DropzoneListRow(props: DropzoneListRowProps) {
   const rootStore = useStores()
   const { flags } = rootStore
   const { item, navigation, rightElement, isLast } = props
@@ -23,9 +24,6 @@ export function DropzoneListRow(props: DropzoneListRowProps) {
     if (__DEV__) console.tron.log('toggle flag. isFlagged', isFlagged)
     isFlagged ? rootStore.removeFlag(item.anchor) : rootStore.addFlag(item.anchor)
   }
-
-  // useEffect(() => {
-  // }, [flags])
 
   return (
     <ListItem
@@ -44,4 +42,5 @@ export function DropzoneListRow(props: DropzoneListRowProps) {
     />
 
   )
-}
+})
+

@@ -57,16 +57,15 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   const renderItem = ({ item, index }) => {
     const thisState = States[item.toLowerCase()]
     return (
+      // @ts-ignore
       <ListItem
         title={(thisState && thisState.fullName) || 'International'}
         leftAvatar={{
-          // @ts-ignore
           ImageComponent: FastImage,
           title: (thisState && item),
           source: (thisState ? thisState.image : unitedNationsFlag),
-          overlayContainerStyle: { borderWidth: 2 }
+          overlayContainerStyle: { borderWidth: 1 }
         }}
-        // @ts-ignore
         rightElement={() => renderBadgeView(groupByState[item].length)}
         chevron
         bottomDivider={index < dataSource.length - 1}

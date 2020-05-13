@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useStores } from '../models/root-store/root-store-context'
+import { Dropzone } from '../models/root-store/root-store'
 import { View, ViewStyle, SectionList, TextStyle } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
@@ -30,7 +31,7 @@ export interface AlphabeticalScreenProps {
 export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = ({ route, navigation }) => {
   const { dropzones } = useStores()
   const [search, setSearch] = useState('')
-  const [list, setList] = useState(dropzones)
+  const [list, setList] = useState<Dropzone[]>(dropzones)
 
   useEffect(() => {
     const filteredData = search ? dropzones.filter(({ searchableText }) => {
