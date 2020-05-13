@@ -2,6 +2,7 @@ import * as React from "react"
 import { View, ViewStyle, TextStyle } from "react-native"
 import { Text } from 'react-native-elements'
 import { spacing, color } from "../../theme"
+import { SpeedLimitSignProps } from "./speed-limit-sign.props"
 
 const SPEED_LIMIT_SIGN: ViewStyle = {
   flexDirection: 'column-reverse',
@@ -27,10 +28,6 @@ const DISTANCE_TEXT: TextStyle = {
   fontWeight: 'bold',
   margin: 0,
   padding: 0,
-}
-
-export interface SpeedLimitSignProps {
-  distanceFromUser: string
 }
 
 export function SpeedLimitSign(props: SpeedLimitSignProps) {

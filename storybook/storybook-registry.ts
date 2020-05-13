@@ -1,3 +1,4 @@
+require("../app/components/speed-limit-sign/speed-limit-sign.story")
 require("../app/components/text/text.story")
 require("../app/components/button/button.story")
 require("../app/components/form-row/form-row.story")
