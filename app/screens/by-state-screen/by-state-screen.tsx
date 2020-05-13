@@ -8,24 +8,13 @@ import { ListItem, Text } from 'react-native-elements'
 import { States } from './states'
 import FastImage from 'react-native-fast-image'
 import _ from 'lodash'
+import { CountBadge } from "../../components"
 
 const unitedNationsFlag = require('./flags/united-nations.png')
 
 const FULL: ViewStyle = {
   flex: 1,
   backgroundColor: color.background
-}
-
-const BADGE_CONTAINER: ViewStyle = {
-  backgroundColor: color.primaryLighter,
-  borderRadius: spacing[1],
-}
-
-const BADGE_TEST: TextStyle = {
-  fontSize: 10,
-  color: color.lightText,
-  fontWeight: 'bold',
-  margin: spacing[1]
 }
 
 export interface ByStateScreenProps {
@@ -44,16 +33,6 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   // essentially, just moving the "international" item to the bottom.
   const dataSource = _.sortBy(sortedStates, (state) => state.length > 2 ? 1 : 0)
 
-  const renderBadgeView = (count) => {
-    return (
-      <View style={BADGE_CONTAINER}>
-        <Text style={BADGE_TEST}>
-          {count.toString()}
-        </Text>
-      </View>
-    )
-  }
-
   const renderItem = ({ item, index }) => {
     const thisState = States[item.toLowerCase()]
     return (
@@ -66,7 +45,7 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
           source: (thisState ? thisState.image : unitedNationsFlag),
           overlayContainerStyle: { borderWidth: 1 }
         }}
-        rightElement={() => renderBadgeView(groupByState[item].length)}
+        rightElement={() => <CountBadge count={groupByState[item].length} />}
         chevron
         bottomDivider={index < dataSource.length - 1}
         onPress={() => props.navigation.navigate('list-detail', {

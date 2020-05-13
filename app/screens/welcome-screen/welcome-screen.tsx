@@ -1,8 +1,11 @@
 import * as React from "react"
+import { observer } from 'mobx-react-lite'
+import { useStores } from '../../models/root-store/root-store-context'
 import { ViewStyle, FlatList, Alert } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color, spacing } from "../../theme"
+import { color } from "../../theme"
+import { CountBadge } from '../../components'
 import { ListItem } from 'react-native-elements'
 import Geolocation from '@react-native-community/geolocation'
 
@@ -16,8 +19,9 @@ export interface WelcomeScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
-export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props => {
+export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScreenProps) {
   Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: 'whenInUse' })
+  const { flags } = useStores()
 
   const openNearMeScreen = () => {
     Geolocation.getCurrentPosition(
@@ -50,6 +54,7 @@ export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props 
       name: item.iconName,
       type: 'font-awesome'
     }}
+    rightElement={item.screen === 'flagged' && (() => <CountBadge count={flags.length} />)}
   />
 
   return (
@@ -60,4 +65,4 @@ export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props 
       renderItem={renderItem}
     />
   )
-}
+})

@@ -9,6 +9,7 @@ import _ from 'lodash'
 
 export interface DropzoneListRowProps {
   item: Dropzone,
+  index: number,
   navigation: NativeStackNavigationProp<ParamListBase>,
   isLast?: boolean,
   rightElement?: Record<string, any>
@@ -17,7 +18,7 @@ export interface DropzoneListRowProps {
 export const DropzoneListRow = observer(function DropzoneListRow(props: DropzoneListRowProps) {
   const rootStore = useStores()
   const { flags } = rootStore
-  const { item, navigation, rightElement, isLast } = props
+  const { item, navigation, rightElement, isLast, index } = props
   const isFlagged = _.includes(flags, item.anchor)
 
   const toggleFlag = () => {
@@ -27,6 +28,7 @@ export const DropzoneListRow = observer(function DropzoneListRow(props: Dropzone
 
   return (
     <ListItem
+      key={'listItem-' + index}
       title={item.name}
       subtitle={item.website}
       bottomDivider={!isLast}
@@ -40,7 +42,6 @@ export const DropzoneListRow = observer(function DropzoneListRow(props: Dropzone
       }}
       chevron
     />
-
   )
 })
 

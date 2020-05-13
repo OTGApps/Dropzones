@@ -3,13 +3,10 @@ import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color } from "../theme"
-import { ListItem } from 'react-native-elements'
 import { DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background
 }
 
 export interface FlaggedScreenProps {
