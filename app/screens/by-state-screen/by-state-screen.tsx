@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStores } from '../../models/root-store/root-store-context'
-import { View, ViewStyle, FlatList } from "react-native"
+import { View, ViewStyle, TextStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../../theme"
@@ -11,11 +11,21 @@ import _ from 'lodash'
 
 const unitedNationsFlag = require('./flags/united-nations.png')
 
-console.tron.log('states', States)
-
 const FULL: ViewStyle = {
   flex: 1,
   backgroundColor: color.background
+}
+
+const BADGE_CONTAINER: ViewStyle = {
+  backgroundColor: color.primaryLighter,
+  borderRadius: spacing[1],
+}
+
+const BADGE_TEST: TextStyle = {
+  fontSize: 10,
+  color: color.lightText,
+  fontWeight: 'bold',
+  margin: spacing[1]
 }
 
 export interface ByStateScreenProps {
@@ -34,6 +44,16 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
   // essentially, just moving the "international" item to the bottom.
   const dataSource = _.sortBy(sortedStates, (state) => state.length > 2 ? 1 : 0)
 
+  const renderBadgeView = (count) => {
+    return (
+      <View style={BADGE_CONTAINER}>
+        <Text style={BADGE_TEST}>
+          {count.toString()}
+        </Text>
+      </View>
+    )
+  }
+
   const renderItem = ({ item, index }) => {
     const thisState = States[item.toLowerCase()]
     return (
@@ -46,27 +66,8 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
           source: (thisState ? thisState.image : unitedNationsFlag),
           overlayContainerStyle: { borderWidth: 2 }
         }}
-        // rightElement={<Avatar
-        //   key={item + '-avatar'}
-        //   title={groupByState[item].length.toString()}
-        //   rounded
-        //   placeholderStyle={
-        //     { backgroundColor: color.primaryLighter }
-        //   }
-        //   source={{}}
-        // />}
-        rightElement={() => {
-          return (
-            <View
-              style={{
-                backgroundColor: color.primaryLighter,
-                borderRadius: spacing[1],
-              }}
-            >
-              <Text style={{fontSize: 10, color: color.lightText, fontWeight: 'bold', margin: spacing[1]}}>{groupByState[item].length.toString()}</Text>
-            </View>
-          )
-        }}
+        // @ts-ignore
+        rightElement={() => renderBadgeView(groupByState[item].length)}
         chevron
         bottomDivider={index < dataSource.length - 1}
         onPress={() => props.navigation.navigate('list-detail', {
