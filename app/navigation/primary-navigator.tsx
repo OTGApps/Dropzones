@@ -7,6 +7,7 @@ import {
   ByAircraftScreen,
   ByServicesScreen,
   ByTrainingScreen,
+  FlaggedScreen,
 
   DropzoneDetailScreen,
   ListDetailScreen,
@@ -77,6 +78,13 @@ export function PrimaryNavigator() {
           title: 'By Aircraft',
         }}
         component={ByAircraftScreen}
+      />
+      <Stack.Screen
+        name="flagged"
+        options={{
+          title: 'Flagged',
+        }}
+        component={FlaggedScreen}
       />
       <Stack.Screen
         name="by-services"

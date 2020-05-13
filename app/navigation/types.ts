@@ -13,7 +13,8 @@ export type PrimaryParamList = {
   "by-state": undefined,
   "by-aircraft": undefined,
   "by-services": undefined,
-  "by-training": undefined
+  "by-training": undefined,
+  "flagged": undefined,
 }
 
 export type MapParamList = {

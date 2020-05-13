@@ -7,6 +7,7 @@ const dropzoneData = require('./dropzones.json')
 
 export const DropzoneModel = types.model('Dropzone', {
   anchor: types.number,
+  flagged: types.optional(types.boolean, false),
   name: types.string,
   email: types.string,
   description: types.string,
@@ -61,7 +62,8 @@ export const DropzoneModel = types.model('Dropzone', {
  */
 // prettier-ignore
 export const RootStoreModel = types.model("RootStore", {
-  dropzones: types.array(DropzoneModel)
+  dropzones: types.array(DropzoneModel),
+  flags: types.array(types.number)
 }).actions(self => ({
   afterCreate() {
     self.dropzones = dropzoneData.features.map((f: any) => {
@@ -70,11 +72,27 @@ export const RootStoreModel = types.model("RootStore", {
         coordinates: {
           longitude: f.geometry.coordinates[0],
           latitude: f.geometry.coordinates[1]
-        }// as LatLng
+        } // as LatLng
       } as Dropzone
     })
+
+    self.flags.replace([100357])
+  },
+  addFlag (anchor: number) {
+    self.flags.replace([anchor, ...self.flags])
+  },
+  removeFlag (anchor: number) {
+
   }
 })).views(self => ({
+  // Gets all the dropzones that have flags
+  get flaggedDropzones () {
+    if (__DEV__) console.tron.log('flags', self.flags)
+    if (__DEV__) console.tron.log('', _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor)));
+
+    return _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor))
+  },
+
   // Lists all unique aircraft names
   get uniqueAircraft () {
     return _.uniq(_.flatMap(self.dropzones, ({ aircraft }) =>
@@ -128,6 +146,7 @@ export const RootStoreModel = types.model("RootStore", {
  */
 export interface RootStore extends Instance<typeof RootStoreModel> {}
 export interface Dropzone extends Instance<typeof DropzoneModel> {}
+export interface Flag extends Instance<typeof FlagModel> {}
 
 /**
  * The data of a RootStore.
