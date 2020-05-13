@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking } from "react-native"
+import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking, AlertOptions } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../theme"
@@ -9,6 +9,9 @@ import MapView, { Marker } from 'react-native-maps'
 import { Card, Text, ListItem, Button, Icon } from 'react-native-elements'
 import Mailer from 'react-native-mail'
 import openMaps from 'react-native-open-maps'
+import AsyncStorage from '@react-native-community/async-storage'
+import { delay } from "../utils/delay"
+import { Navigation } from 'react-native-navigation'
 
 export interface DropzoneDetailScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
@@ -104,10 +107,34 @@ const styles = StyleSheet.create({
   } as TextStyle
 })
 
+const DISCLAIMER_BYPASS_KEY = '@bypassDisclaimer'
+
 export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenProps> = ({ route, navigation }) => {
   const { item } = route.params
   const i: Dropzone = JSON.parse(item) // un-stringify it from the previous screen.
   const [offset, setOffset] = useState(0)
+
+  const focusListener = navigation.addListener('focus', async (payload) => {
+    // Disclaimer
+    const bypassDisclaimer = await AsyncStorage.getItem(DISCLAIMER_BYPASS_KEY)
+    if (!JSON.parse(bypassDisclaimer)) {
+      await delay(500)
+      Alert.alert(
+        'Disclaimer:',
+        'While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly.\n\nIf you are a DZO please update your information directly with the USPA.',
+        [
+          { text: 'Got it!' },
+          {
+            text: 'Got it & Don\'t show this again!',
+            style: 'cancel',
+            onPress: async () => {
+              await AsyncStorage.setItem(DISCLAIMER_BYPASS_KEY, JSON.stringify(true))
+            }
+          }
+        ]
+      )
+    }
+  })
 
   const openDrivingDirectons = () => {
     openMaps({
@@ -148,7 +175,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
   const renderBackground = () => {
     const regionToDisplay = {
       ...i.coordinates,
-      latitudeDelta: 0.044 *5,
+      latitudeDelta: 0.044,
       longitudeDelta: 0.055,
     }
     return (
@@ -159,6 +186,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
           initialRegion={regionToDisplay}
           region={regionToDisplay} // Initial region doesn't work alone on android.
           mapType={'satellite'}
+          liteMode
         >
           <Marker coordinate={i.coordinates} />
         </MapView>
