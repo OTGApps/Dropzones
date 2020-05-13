@@ -1,10 +1,10 @@
 import * as React from "react"
 import { useStores } from '../../models/root-store/root-store-context'
-import { ViewStyle, FlatList } from "react-native"
+import { View, ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color } from "../../theme"
-import { ListItem } from 'react-native-elements'
+import { color, spacing } from "../../theme"
+import { ListItem, Text } from 'react-native-elements'
 import { States } from './states'
 import FastImage from 'react-native-fast-image'
 import _ from 'lodash'
@@ -46,13 +46,26 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
           source: (thisState ? thisState.image : unitedNationsFlag),
           overlayContainerStyle: { borderWidth: 2 }
         }}
-        rightAvatar={{
-          title: groupByState[item].length.toString(),
-          rounded: true,
-          placeholderStyle: {
-            backgroundColor: color.primaryLighter
-          },
-          source: {} // TODO investigate why Avatar won't render without the source prop for some reason
+        // rightElement={<Avatar
+        //   key={item + '-avatar'}
+        //   title={groupByState[item].length.toString()}
+        //   rounded
+        //   placeholderStyle={
+        //     { backgroundColor: color.primaryLighter }
+        //   }
+        //   source={{}}
+        // />}
+        rightElement={() => {
+          return (
+            <View
+              style={{
+                backgroundColor: color.primaryLighter,
+                borderRadius: spacing[1],
+              }}
+            >
+              <Text style={{fontSize: 10, color: color.lightText, fontWeight: 'bold', margin: spacing[1]}}>{groupByState[item].length.toString()}</Text>
+            </View>
+          )
         }}
         chevron
         bottomDivider={index < dataSource.length - 1}
