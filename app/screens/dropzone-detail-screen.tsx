@@ -8,7 +8,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view'
 import MapView, { Marker } from 'react-native-maps'
 import { Card, Text, ListItem, Button, Icon } from 'react-native-elements'
 import Mailer from 'react-native-mail'
-import { createOpenLink } from 'react-native-open-maps'
+import openMaps from 'react-native-open-maps'
 
 export interface DropzoneDetailScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
@@ -109,6 +109,17 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
   const i: Dropzone = JSON.parse(item) // un-stringify it from the previous screen.
   const [offset, setOffset] = useState(0)
 
+  const openDrivingDirectons = () => {
+    openMaps({
+      ...i.coordinates,
+      query: i.name,
+      zoom: 15,
+      travelType: 'drive',
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      navigate_mode: 'preview',
+    })
+  }
+
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -117,7 +128,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
           type={'font-awesome'}
           size={22}
           color={color.palette.white}
-          onPress={() => Alert.alert('test') }
+          onPress={openDrivingDirectons}
         />
       ),
     })
@@ -137,7 +148,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
   const renderBackground = () => {
     const regionToDisplay = {
       ...i.coordinates,
-      latitudeDelta: 0.044,
+      latitudeDelta: 0.044 *5,
       longitudeDelta: 0.055,
     }
     return (
@@ -178,7 +189,6 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
     }
   }
 
-  const openMap = createOpenLink(i.coordinates)
   const renderForeground = () => (
     <View key='parallax-header' style={styles.parallaxHeader}>
       <Button
@@ -186,7 +196,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
         type={'clear'}
         titleStyle={styles.sectionTitleText}
         buttonStyle={styles.noPadding}
-        onPress={openMap}
+        onPress={openDrivingDirectons}
       />
       <Button
         title={i.website}
@@ -269,7 +279,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
         {i.location && i.location.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'map' }}
           title={i.location.join('\n')}
-          onPress={openMap}
+          onPress={openDrivingDirectons}
         /> : null}
         {i.aircraft && i.aircraft.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'plane' }}
