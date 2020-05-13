@@ -30,14 +30,9 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
   const renderItem = ({ item, index }) => <ListItem
     title={item.name}
     subtitle={item.website}
-    rightAvatar={{
-      renderPlaceholderContent: () => <SpeedLimitSign distanceFromUser={parseInt(item.distanceFromUser).toString() || '🤷‍♂️'} />,
-      rounded: false,
-      placeholderStyle: {
-        backgroundColor: color.primaryLighter
-      },
-      source: {} // TODO investigate why Avatar won't render without the source prop for some reason
-    }}
+    rightElement={() => <SpeedLimitSign distanceFromUser={
+      parseInt(item.distanceFromUser * 0.621371).toString() || '🤷‍♂️'
+    } />}
     chevron
     bottomDivider={index < sortedFromUser.length - 1}
     onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(item) })}

@@ -1,22 +1,32 @@
 import * as React from "react"
-import { View, ViewStyle, ImageStyle, TextStyle } from "react-native"
+import { View, ViewStyle, TextStyle } from "react-native"
 import { Text } from 'react-native-elements'
 import { spacing, color } from "../../theme"
 
 const SPEED_LIMIT_SIGN: ViewStyle = {
-  flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+  flexDirection: 'column-reverse',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderWidth: 2.5,
+  borderColor: color.palette.black,
+  borderRadius: 6,
+  padding: spacing[1] / 2,
 }
 
 const MILES_TEXT: TextStyle = {
-  color: color.palette.white,
+  color: color.palette.black,
   textAlign: 'center',
-  fontSize: 10
+  fontSize: 10,
 }
 
 const DISTANCE_TEXT: TextStyle = {
-  color: color.palette.white,
+  color: color.palette.black,
   textAlign: 'center',
-  fontSize: 22
+  fontSize: 22,
+  lineHeight: 23,
+  fontWeight: 'bold',
+  margin: 0,
+  padding: 0,
 }
 
 export interface SpeedLimitSignProps {
@@ -26,8 +36,10 @@ export interface SpeedLimitSignProps {
 export function SpeedLimitSign(props: SpeedLimitSignProps) {
   return (
     <View style={SPEED_LIMIT_SIGN}>
+      <Text style={DISTANCE_TEXT}>
+        {props.distanceFromUser}
+      </Text>
       <Text style={MILES_TEXT}>MILES</Text>
-      <Text style={DISTANCE_TEXT} adjustsFontSizeToFit allowFontScaling>{parseInt(props.distanceFromUser).toString() || '🤷‍♂️'}</Text>
     </View>
   )
 }

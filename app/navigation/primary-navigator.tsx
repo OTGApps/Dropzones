@@ -49,7 +49,7 @@ export function PrimaryNavigator() {
       />
       <Stack.Screen
         name="near-me"
-        options={({ route }) => ({ title: _.get(route, 'params.item', 'Near Me') })}
+        options={({ route }) => ({ title: _.get(route, 'params.item', 'Dropzones Near Me') })}
         component={NearMeScreen}
       />
       <Stack.Screen
