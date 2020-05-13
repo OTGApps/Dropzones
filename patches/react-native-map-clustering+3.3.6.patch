@@ -13,7 +13,7 @@ index 1e35c99..7f2a453 100644
 @@ -58,6 +59,11 @@ const ClusteredMapView = forwardRef(
      const [clusterChildren, updateClusterChildren] = useState(null);
      const mapRef = useRef();
- 
+
 +
 +    useImperativeHandle(ref, () => ({
 +      mapView: mapRef.current

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking, AlertOptions } from "react-native"
+import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../theme"
@@ -11,7 +11,6 @@ import Mailer from 'react-native-mail'
 import openMaps from 'react-native-open-maps'
 import AsyncStorage from '@react-native-community/async-storage'
 import { delay } from "../utils/delay"
-import { Navigation } from 'react-native-navigation'
 
 export interface DropzoneDetailScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>

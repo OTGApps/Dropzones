@@ -10564,10 +10564,10 @@ react-native-mail@^4.1.0:
   resolved "https://registry.yarnpkg.com/react-native-mail/-/react-native-mail-4.1.0.tgz#2ebe2df2211a84862a3aea77316736189e23435b"
   integrity sha512-3IHQmUQJwFFV7HwDONeIEahhaEvK9u23liqIUQajPy7frk/AoIGhkdKf4FVSTeq+VlUx97qls4uNizP7hBXIIw==
 
-react-native-map-clustering@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/react-native-map-clustering/-/react-native-map-clustering-3.3.5.tgz#bbef87a4957c9d67aae510bcb671bac83cda4e0c"
-  integrity sha512-gxkKIUuqA4B0fGgmKtoWGsHw5OrqCIaf4+7TFwSqrnXMkNmRsz/V+mDNPSR80cXcpQYQ6VCIjesqwas/qoAAPA==
+react-native-map-clustering@^3.3.6:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/react-native-map-clustering/-/react-native-map-clustering-3.3.6.tgz#c4a84a5b542202480a950c1a39393d202b24fc66"
+  integrity sha512-XoMdxTMV0UfgsZ+KIXSV/PRGd+cGRJq7+SRAKzM2vpHx1fPxABEtm0ejd22SV6HwExLxwI+4z1mY0vz696ctXg==
   dependencies:
     "@mapbox/geo-viewport" "^0.4.0"
     supercluster "^7.0.0"

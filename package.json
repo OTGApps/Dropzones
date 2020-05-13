@@ -47,7 +47,7 @@
     "react-native-keychain": "5.0.1",
     "react-native-localize": "^1.0.0",
     "react-native-mail": "^4.1.0",
-    "react-native-map-clustering": "^3.3.5",
+    "react-native-map-clustering": "^3.3.6",
     "react-native-maps": "0.27.1",
     "react-native-open-maps": "^0.3.5",
     "react-native-parallax-scroll-view": "^0.21.3",

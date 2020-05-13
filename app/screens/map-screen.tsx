@@ -84,7 +84,7 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
       style={ROOT}
       clusterColor={color.primary}
       clusterFontFamily={typography.primary}
-      tracksClusterViewChanges={false}
+      tracksViewChanges={false}
       spiralEnabled={false}
       extent={350} // Changing the number changes how close the dropzones have to be to be grouped.
       edgePadding={{
@@ -96,12 +96,12 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
       // @ts-ignore
       userLocationPriority={'passive'} // Android setting
       showsUserLocation={showsUserLocation}
-      onMapReady={() => {
-        console.log('onmapready', mapRef)
-      }}
+      // onMapReady={() => {
+      //   if (__DEV__) console.log('onmapready', mapRef)
+      // }}
       // @ts-ignore
       // onRegionChangeComplete={(region, markers) => {
-
+      //   if (__DEV__) console.tron.log('region', region, markers);
       // }}
       onUserLocationChange={(e) => {
         const { coordinate } = e.nativeEvent
