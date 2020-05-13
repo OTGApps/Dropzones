@@ -15,6 +15,8 @@ export interface ByServicesScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
+const keyExtractor = (item, index) => index.toString()
+
 export const ByServicesScreen: React.FunctionComponent<ByServicesScreenProps> = props => {
   const { uniqueServices } = useStores()
 
@@ -32,8 +34,11 @@ export const ByServicesScreen: React.FunctionComponent<ByServicesScreenProps> = 
     <FlatList
       style={FULL}
       data={uniqueServices}
-      keyExtractor={(item, idx) => idx.toString()}
+      keyExtractor={keyExtractor}
       renderItem={renderItem}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
     />
   )
 }

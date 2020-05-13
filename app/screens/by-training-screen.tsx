@@ -15,6 +15,8 @@ export interface ByTrainingScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
+const keyExtractor = (item, index) => index.toString()
+
 export const ByTrainingScreen: React.FunctionComponent<ByTrainingScreenProps> = props => {
   const { uniqueTraining } = useStores()
 
@@ -32,8 +34,11 @@ export const ByTrainingScreen: React.FunctionComponent<ByTrainingScreenProps> = 
     <FlatList
       style={FULL}
       data={uniqueTraining}
-      keyExtractor={(item, idx) => idx.toString()}
+      keyExtractor={keyExtractor}
       renderItem={renderItem}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
     />
   )
 }

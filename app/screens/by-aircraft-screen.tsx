@@ -15,6 +15,8 @@ export interface ByAircraftScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
+const keyExtractor = (item, index) => index.toString()
+
 export const ByAircraftScreen: React.FunctionComponent<ByAircraftScreenProps> = props => {
   const { uniqueAircraft } = useStores()
 
@@ -32,8 +34,11 @@ export const ByAircraftScreen: React.FunctionComponent<ByAircraftScreenProps> = 
     <FlatList
       style={FULL}
       data={uniqueAircraft}
-      keyExtractor={(item, idx) => idx.toString()}
+      keyExtractor={keyExtractor}
       renderItem={renderItem}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
     />
   )
 }

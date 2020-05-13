@@ -53,6 +53,9 @@ export const ListDetailScreen: React.FunctionComponent<ListDetailScreenProps> = 
         onChangeText={value => setSearch(value)}
       />}
       renderItem={renderItem}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
     />
   )
 }

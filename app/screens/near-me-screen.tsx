@@ -45,6 +45,9 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       renderItem={renderItem}
+      removeClippedSubviews
+      initialNumToRender={5}
+      maxToRenderPerBatch={5}
     />
   )
 }
