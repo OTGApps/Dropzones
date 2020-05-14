@@ -1,8 +1,6 @@
 import * as React from "react"
 import { View, ViewStyle, TextStyle } from 'react-native'
-import { useStores } from '../../models/root-store/root-store-context'
 import { Text } from 'react-native-elements'
-import _ from 'lodash'
 import { color, spacing } from "../../theme"
 
 const BADGE_CONTAINER: ViewStyle = {
@@ -27,9 +25,8 @@ export function CountBadge(props: CountBadgeProps) {
   return (
     <View style={BADGE_CONTAINER}>
       <Text style={BADGE_TEST}>
-        {parseInt(count).toString()}
+        {count.toString()}
       </Text>
     </View>
   )
 }
-

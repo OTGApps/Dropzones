@@ -4,14 +4,12 @@ import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import type { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../theme"
-import { ListItem } from 'react-native-elements'
 import { SpeedLimitSign, DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
   backgroundColor: color.background
 }
-
 
 export interface NearMeScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>

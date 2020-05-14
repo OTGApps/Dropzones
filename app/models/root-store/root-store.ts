@@ -82,14 +82,13 @@ export const RootStoreModel = types.model("RootStore", {
     self.flags.replace([anchor, ...self.flags])
   },
   removeFlag (anchor: number) {
-
     self.flags.replace(_.filter(self.flags, f => (f !== anchor)))
   }
 })).views(self => ({
   // Gets all the dropzones that have flags
   get flaggedDropzones () {
     if (__DEV__) console.tron.log('flags', self.flags)
-    if (__DEV__) console.tron.log('', _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor)));
+    if (__DEV__) console.tron.log('', _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor)))
 
     return _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor))
   },
@@ -132,7 +131,7 @@ export const RootStoreModel = types.model("RootStore", {
   },
   // Returns all the dropzones grouped by state so you can count how many are in each.
   sortByDistanceFrom (location) {
-    console.tron.log('sortByDistanceFrom', location)
+    if (__DEV__) console.tron.log('sortByDistanceFrom', location)
     return _.sortBy(_.map(self.dropzones, (dz) => {
       return {
         ...dz,

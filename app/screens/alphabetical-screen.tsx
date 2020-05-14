@@ -4,10 +4,10 @@ import { Dropzone } from '../models/root-store/root-store'
 import { View, ViewStyle, SectionList, TextStyle } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { Text, DropzoneListRow } from "../components"
+import { DropzoneListRow } from "../components"
 import { color, spacing } from "../theme"
 import _ from 'lodash'
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, Text } from 'react-native-elements'
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -28,7 +28,7 @@ export interface AlphabeticalScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
-export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = ({ route, navigation }) => {
+export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = ({ navigation }) => {
   const { dropzones } = useStores()
   const [search, setSearch] = useState('')
   const [list, setList] = useState<Dropzone[]>(dropzones)

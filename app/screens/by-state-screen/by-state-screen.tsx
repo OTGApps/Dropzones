@@ -1,14 +1,14 @@
 import * as React from "react"
 import { useStores } from '../../models/root-store/root-store-context'
-import { View, ViewStyle, TextStyle, FlatList } from "react-native"
+import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color, spacing } from "../../theme"
-import { ListItem, Text } from 'react-native-elements'
+import { color } from "../../theme"
+import { ListItem } from 'react-native-elements'
 import { States } from './states'
 import FastImage from 'react-native-fast-image'
-import _ from 'lodash'
 import { CountBadge } from "../../components"
+import _ from 'lodash'
 
 const unitedNationsFlag = require('./flags/united-nations.png')
 

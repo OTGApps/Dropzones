@@ -1,5 +1,4 @@
 import { palette } from "./palette"
-import { pickAll } from "ramda"
 
 /**
  * Roles for colors.  Prefer using these over the palette.  It makes it easier

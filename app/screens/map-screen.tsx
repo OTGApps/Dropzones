@@ -38,13 +38,8 @@ const INITIAL_REGION = {
 export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((props) => {
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
-  const [followsUserLocation, setFollowsUserLocation] = useState(false)
+  // const [followsUserLocation, setFollowsUserLocation] = useState(false)
   const mapRef = useRef(null)
-
-  const findUserLocation = () => {
-    console.tron.log('finding user location')
-    setShowsUserLocation(!showsUserLocation)
-  }
 
   useEffect(() => {
     props.navigation.setOptions({
