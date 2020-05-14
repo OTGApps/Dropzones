@@ -106,34 +106,34 @@ const styles = StyleSheet.create({
   } as TextStyle
 })
 
-const DISCLAIMER_BYPASS_KEY = '@bypassDisclaimer'
+const DISCLAIMER_BYPASS_KEY = '@bypassDisclaimer7'
+const showDisclaimerAlert = async () => {
+  const bypassDisclaimer = await AsyncStorage.getItem(DISCLAIMER_BYPASS_KEY)
+  if (!JSON.parse(bypassDisclaimer)) {
+    await delay(500)
+    Alert.alert(
+      'Disclaimer:',
+      'While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly.\n\nIf you are a DZO please update your information directly with the USPA.',
+      [
+        {
+          text: 'Got it!',
+          style: 'cancel',
+        }, {
+          text: 'Don\'t show this again!',
+          style: 'destructive',
+          onPress: async () => {
+            await AsyncStorage.setItem(DISCLAIMER_BYPASS_KEY, JSON.stringify(true))
+          },
+        }
+      ]
+    )
+  }
+}
 
 export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenProps> = ({ route, navigation }) => {
   const { item } = route.params
   const i: Dropzone = JSON.parse(item) // un-stringify it from the previous screen.
   const [offset, setOffset] = useState(0)
-
-  const focusListener = navigation.addListener('focus', async (payload) => {
-    // Disclaimer
-    const bypassDisclaimer = await AsyncStorage.getItem(DISCLAIMER_BYPASS_KEY)
-    if (!JSON.parse(bypassDisclaimer)) {
-      await delay(500)
-      Alert.alert(
-        'Disclaimer:',
-        'While every reasonable effort it made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA.\n\nPlease verify all information with the dropzone directly.\n\nIf you are a DZO please update your information directly with the USPA.',
-        [
-          { text: 'Got it!' },
-          {
-            text: 'Got it & Don\'t show this again!',
-            style: 'cancel',
-            onPress: async () => {
-              await AsyncStorage.setItem(DISCLAIMER_BYPASS_KEY, JSON.stringify(true))
-            }
-          }
-        ]
-      )
-    }
-  })
 
   const openDrivingDirectons = () => {
     openMaps({
@@ -158,6 +158,10 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
         />
       ),
     })
+
+    const focusListener = navigation.addListener('focus', showDisclaimerAlert)
+    // Return the focuslistener so it gets removed and we don't cause a memory leak.
+    return focusListener
   }, [navigation])
 
   // Calculate the background opacity based on their scroll position.

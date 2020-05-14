@@ -26,7 +26,7 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
   const openNearMeScreen = () => {
     Geolocation.getCurrentPosition(
       position => {
-        console.tron.log('opening the near me screen.', JSON.stringify(position))
+        if (__DEV__) console.tron.log('opening the near me screen.', JSON.stringify(position))
         props.navigation.navigate('near-me', {
           location: JSON.stringify(position)
         })
@@ -34,6 +34,15 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
       error => Alert.alert('Error', JSON.stringify(error)),
       { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
     )
+  }
+
+  const rightElement = (item) => {
+    switch (item.screen) {
+      case 'flagged':
+        return (<CountBadge count={flags.length} />)
+      default:
+        return null
+    }
   }
 
   const renderItem = ({ item, index }) => <ListItem
@@ -54,7 +63,7 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
       name: item.iconName,
       type: 'font-awesome'
     }}
-    rightElement={item.screen === 'flagged' && (() => <CountBadge count={flags.length} />)}
+    rightElement={() => rightElement(item)}
   />
 
   return (

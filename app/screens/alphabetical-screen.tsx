@@ -18,7 +18,6 @@ const HEADER_STYLE: ViewStyle = {
   backgroundColor: color.primary
 }
 const HEADER_TEXT_STYLE: TextStyle = {
-  fontSize: 20,
   color: color.palette.white,
   margin: spacing[2],
   fontWeight: 'bold'
