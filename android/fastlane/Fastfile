@@ -16,39 +16,29 @@
 default_platform(:android)
 
 platform :android do
-  lane :build do |options|
-    gradle(task: "clean assembleRelease")
+  desc "Submit a new Beta Build to the Google Play Store"
+  lane :beta do
     gradle(
-      task: "bundle",
+      task: "assemble",
       build_type: "Release"
     )
-  end
-
-  lane :alpha do |options|
-    # gradle(task: "clean assembleRelease")
-    gradle(
-      task: "bundle",
-      build_type: "Release"
-    )
-    upload_to_play_store(track:'alpha')
     # supply(
-    #   track: "alpha",
-    #   apk: options[:apk],
-    #   json_key: "../../ProjectCerts/service-accounts/google-play-service-account.json",
-    #   package_name: options[:package_name],
-    #   skip_upload_metadata: true,
-    #   skip_upload_images: true,
-    #   skip_upload_screenshots: true
+    #   track: "beta",
+    #   apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
     # )
   end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    # gradle(task: "clean bundleRelease")
+  desc "Deploy a new version to the Google Play Store"
+  lane :release do
+    gradle(task: "clean assembleRelease")
     gradle(
-      task: "bundle",
+      task: "assemble",
       build_type: "Release"
     )
-    upload_to_play_store
+    upload_to_play_store(track:'production')
+    supply(
+      track: "production",
+      apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}",
+      json_key: "../../ProjectCerts/service-accounts/google-play-service-account.json",
+    )
   end
 end

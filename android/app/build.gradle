@@ -131,7 +131,7 @@ android {
         applicationId "io.otgapps.dropzones"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
+        versionCode 3
         versionName "3.0.0"
     }
     splits {
@@ -143,14 +143,6 @@ android {
         }
     }
     signingConfigs {
-        debug {
-            if (project.hasProperty('DROPZONES_UPLOAD_STORE_FILE')) {
-                storeFile file('../../../ProjectCerts/certs/' + DROPZONES_UPLOAD_STORE_FILE)
-                storePassword DROPZONES_UPLOAD_STORE_PASSWORD
-                keyAlias DROPZONES_UPLOAD_KEY_ALIAS
-                keyPassword DROPZONES_UPLOAD_KEY_PASSWORD
-            }
-        }
         release {
             if (project.hasProperty('DROPZONES_UPLOAD_STORE_FILE')) {
                 storeFile file('../../../ProjectCerts/certs/' + DROPZONES_UPLOAD_STORE_FILE)
@@ -162,7 +154,7 @@ android {
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
         release {
             signingConfig signingConfigs.release
