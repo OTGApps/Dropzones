@@ -203,6 +203,12 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
+configurations.all {
+     resolutionStrategy {
+       force "com.facebook.soloader:soloader:0.8.2"
+     }
+}
+
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
 
 project.ext.vectoricons = [
