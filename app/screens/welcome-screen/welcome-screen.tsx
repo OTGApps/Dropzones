@@ -1,7 +1,7 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { observer } from 'mobx-react-lite'
 import { useStores } from '../../models/root-store/root-store-context'
-import { ViewStyle, FlatList, Alert } from "react-native"
+import { ViewStyle, FlatList, Alert, ActivityIndicator } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../../theme"
@@ -23,15 +23,25 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
   Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: 'whenInUse' })
   const { flags } = useStores()
 
+  // This boolean state is used when getting a user's location.
+  // It disables all the rows from interaction and shows a loading icon
+  // on the near-me menu item.
+  const [loading, setLoading] = useState(false)
+
   const openNearMeScreen = () => {
+    setLoading(true)
     Geolocation.getCurrentPosition(
       position => {
+        setLoading(false)
         if (__DEV__) console.tron.log('opening the near me screen.', JSON.stringify(position))
         props.navigation.navigate('near-me', {
           location: JSON.stringify(position)
         })
       },
-      error => Alert.alert('Error', JSON.stringify(error)),
+      error => {
+        setLoading(false)
+        Alert.alert('Error', JSON.stringify(error))
+      },
       { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
     )
   }
@@ -45,25 +55,36 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
     }
   }
 
+  const renderChevron = (i) => {
+    if (i.screen === 'near-me' && loading) {
+      return <ActivityIndicator />
+    } else {
+      return !!i.screen // returns true if there's a screen defined in the json file.
+    }
+  }
+
   const renderItem = ({ item, index }) => <ListItem
     title={item.title}
     subtitle={item.subtitle}
     onPress={item.screen && (() => {
-      if (item.screen === 'near-me') {
-        openNearMeScreen()
-      } else {
-        props.navigation.navigate(item.screen)
+      switch (item.screen) {
+        case 'near-me':
+          openNearMeScreen()
+          break
+        default:
+          props.navigation.navigate(item.screen)
+          break
       }
     })}
-    disabled={!item.screen}
-    chevron={!!item.screen}
+    disabled={loading || !item.screen}
+    chevron={renderChevron(item)}
     bottomDivider={index < MenuItems.length - 1}
     leftIcon={{
       color: color.primary,
       name: item.iconName,
       type: 'font-awesome'
     }}
-    rightElement={() => rightElement(item)}
+    rightElement={rightElement(item)}
   />
 
   return (
