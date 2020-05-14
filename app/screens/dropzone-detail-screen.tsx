@@ -182,9 +182,9 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
       longitudeDelta: 0.055,
     }
     return (
-      <View key='background'>
+      <View key={'background'}>
         <MapView
-          key='map-view'
+          key={'map-view'}
           style={styles.map}
           initialRegion={regionToDisplay}
           region={regionToDisplay} // Initial region doesn't work alone on android.
@@ -306,11 +306,13 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
           leftIcon={{ ...iconProps, name: 'phone' }}
           title={i.phone}
           onPress={openPhone}
+          chevron
         /> : null}
         {i.location && i.location.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'map' }}
           title={i.location.join('\n')}
           onPress={openDrivingDirectons}
+          chevron
         /> : null}
         {i.aircraft && i.aircraft.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'plane' }}
