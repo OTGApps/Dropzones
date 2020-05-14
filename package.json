@@ -24,9 +24,8 @@
     "adb": "adb reverse tcp:9090 tcp:9090 && adb reverse tcp:3000 tcp:3000 && adb reverse tcp:9001 tcp:9001 && adb reverse tcp:8081 tcp:8081"
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.10.0",
+    "@react-native-community/async-storage": "^1.10.1",
     "@react-native-community/geolocation": "^2.0.2",
-    "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.3.3",
     "@react-navigation/native": "^5.1.5",
     "apisauce": "1.1.1",
@@ -99,7 +98,7 @@
     "react-powerplug": "1.0.0",
     "react-test-renderer": "16.9.0",
     "rimraf": "3.0.2",
-    "solidarity": "2.3.1",
+    "solidarity": "3.0.0",
     "typescript": "3.8.3"
   },
   "jest": {
