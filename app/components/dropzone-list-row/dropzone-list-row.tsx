@@ -32,7 +32,7 @@ export const DropzoneListRow = observer(function DropzoneListRow(props: Dropzone
       title={item.name}
       subtitle={item.website}
       bottomDivider={!isLast}
-      onPress={() => navigation.navigate('dropzone-detail', { item: JSON.stringify(props.item) })}
+      onPress={() => navigation.navigate('dropzone-detail', { anchor: props.item.anchor })}
       // @ts-ignore
       rightElement={rightElement}
       leftIcon={{

@@ -96,6 +96,9 @@ export const RootNavigator = React.forwardRef<
 >((props, ref) => {
   const linking = {
     prefixes: ['dropzones://'],
+    config: {
+      'dropzone-detail': 'dropzone/:anchor'
+    }
   }
 
   return (

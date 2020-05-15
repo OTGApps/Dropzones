@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useStores } from '../models/root-store/root-store-context'
 import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
@@ -11,6 +12,7 @@ import Mailer from 'react-native-mail'
 import openMaps from 'react-native-open-maps'
 import AsyncStorage from '@react-native-community/async-storage'
 import { delay } from "../utils/delay"
+import _ from 'lodash'
 
 export interface DropzoneDetailScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
@@ -131,8 +133,10 @@ const showDisclaimerAlert = async () => {
 }
 
 export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenProps> = ({ route, navigation }) => {
-  const { item } = route.params
-  const i: Dropzone = JSON.parse(item) // un-stringify it from the previous screen.
+  const { anchor } = route.params
+
+  const { dropzones } = useStores()
+  const i: Dropzone = _.find(dropzones, d => (parseInt(d.anchor) === parseInt(anchor)))
   const [offset, setOffset] = useState(0)
 
   const openDrivingDirectons = () => {
