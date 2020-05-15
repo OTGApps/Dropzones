@@ -7,7 +7,7 @@ import type { RootParamList, MapParamList } from "./types"
 import { PrimaryNavigator } from "./primary-navigator"
 import { MapNavigator } from "./map-navigator"
 import { color } from "../theme"
-import { Icon } from 'react-native-elements'
+import { Icon, Text } from 'react-native-elements'
 import _ from 'lodash'
 
 const Stack = createNativeStackNavigator<RootParamList>()
@@ -94,8 +94,12 @@ export const RootNavigator = React.forwardRef<
   NavigationContainerRef,
   Partial<React.ComponentProps<typeof NavigationContainer>>
 >((props, ref) => {
+  const linking = {
+    prefixes: ['dropzones://'],
+  }
+
   return (
-    <NavigationContainer {...props} ref={ref}>
+    <NavigationContainer {...props} ref={ref} linking={linking} fallback={<Text>Loading...</Text>}>
       <TabStack />
     </NavigationContainer>
   )
