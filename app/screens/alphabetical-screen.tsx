@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { Dropzone } from '../models/root-store/root-store'
-import { View, ViewStyle, SectionList, TextStyle } from "react-native"
+import { View, ViewStyle, TextStyle, SectionList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { DropzoneListRow } from "../components"
 import { color, spacing } from "../theme"
 import _ from 'lodash'
 import { SearchBar, Text } from 'react-native-elements'
+// import SectionList from 'react-native-tabs-section-list'
+// import sectionListGetItemLayout from 'react-native-section-list-get-item-layout'
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -65,13 +67,40 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
     navigation={navigation}
   />
 
+  // const getItemLayout = sectionListGetItemLayout({
+  //   // The height of the row with rowData at the given sectionIndex and rowIndex
+  //   getItemHeight: (rowData, sectionIndex, rowIndex) => 67,
+
+  //   // These three properties are optional
+  //   getSectionHeaderHeight: () => 33, // The height of your section headers
+  //   getSectionFooterHeight: () => 0, // The height of your section footers
+  // })
+
   return (
     <SectionList
       style={FULL}
+      // getItemLayout={getItemLayout}
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled
-      keyExtractor={(item, idx) => idx.toString()}
+      // onScrollToIndexFailed={() => { }}
+      keyExtractor={(item) => item}
+      // renderTab={({ title, isActive }) => (
+      //   <View style={{ backgroundColor: isActive ? color.primaryLighter : color.background }}>
+      //     <Text
+      //       style={[
+      //         {
+      //           padding: spacing[3],
+      //           color: color.dim,
+      //           fontSize: 18,
+      //         },
+      //         { color: isActive ? color.palette.white : '#9e9e9e' }
+      //       ]}
+      //     >
+      //       {title}
+      //     </Text>
+      //   </View>
+      // )}
       // @ts-ignore
       renderSectionHeader={HeaderView}
       renderItem={renderItem}
