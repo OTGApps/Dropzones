@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react"
+import { observer } from 'mobx-react-lite'
 import { useStores } from '../models/root-store/root-store-context'
-import { View, ViewStyle, TextStyle, StyleSheet, Dimensions, Platform, Alert, Linking } from "react-native"
+import {
+  View,
+  ViewStyle,
+  TextStyle,
+  StyleSheet,
+  Dimensions,
+  Platform,
+  Alert,
+  Linking,
+  TouchableHighlight,
+} from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../theme"
 import { Dropzone } from "../models/root-store"
 import ParallaxScrollView from 'react-native-parallax-scroll-view'
 import MapView, { Marker } from 'react-native-maps'
-import { Card, Text, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, Text, ListItem, Button, Icon, Avatar } from 'react-native-elements'
 import Mailer from 'react-native-mail'
 import openMaps from 'react-native-open-maps'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -15,7 +26,8 @@ import { delay } from "../utils/delay"
 import _ from 'lodash'
 
 export interface DropzoneDetailScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
+  navigation: NativeStackNavigationProp<ParamListBase>,
+  route: any // todo - what type is this?
 }
 
 const window = Dimensions.get('window')
@@ -64,6 +76,11 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     color: color.text
   } as TextStyle,
+  iconContainer: {
+    flex: 1,
+    padding: 0,
+    marginHorizontal: spacing[4],
+  } as ViewStyle,
   map: {
     width: '100%',
     height: PARALLAX_HEADER_HEIGHT
@@ -131,12 +148,19 @@ const showDisclaimerAlert = async () => {
     )
   }
 }
-
-export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenProps> = ({ route, navigation }) => {
+export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props: DropzoneDetailScreenProps) {
+  const { route, navigation } = props
   const { anchor } = route.params
 
-  const { dropzones } = useStores()
-  const i: Dropzone = _.find(dropzones, d => (parseInt(d.anchor) === parseInt(anchor)))
+  const rootStore = useStores()
+  const { dropzones, flags } = rootStore
+
+  const i: Dropzone = _.find(dropzones, d => {
+    return (parseInt(d.anchor) === anchor)
+  })
+  // TODO - what if the DZ isn't in the database. How did the user get here?
+  // maybe from a tyop'd app url?
+
   const [offset, setOffset] = useState(0)
 
   const openDrivingDirectons = () => {
@@ -166,7 +190,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
     const focusListener = navigation.addListener('focus', showDisclaimerAlert)
     // Return the focuslistener so it gets removed and we don't cause a memory leak.
     return focusListener
-  }, [navigation])
+  }, [navigation, flags])
 
   // Calculate the background opacity based on their scroll position.
   let backgroundOpacity = BACKGROUND_OPACITY
@@ -224,6 +248,12 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
     }
   }
 
+  const isFlagged = _.includes(flags, anchor)
+  const toggleFlag = () => {
+    if (__DEV__) console.tron.log('toggle flag. isFlagged', isFlagged)
+    isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
+  }
+
   const renderForeground = () => (
     <View key='parallax-header' style={styles.parallaxHeader}>
       <Button
@@ -244,6 +274,18 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
         buttonStyle={styles.noPadding}
         onPress={openWebsite}
       />
+      <View >
+        <Avatar
+          containerStyle={styles.iconContainer}
+          icon={{
+            type: 'font-awesome',
+            size: 35,
+            color: color.palette.white,
+            name: isFlagged ? 'flag' : 'flag-o',
+          }}
+          onPress={toggleFlag}
+        />
+      </View>
     </View>
   )
 
@@ -281,14 +323,15 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
     })
   }
   const emailButton = (
-    i.email ? <Button
+    <Button
       title={i.email}
       type="outline"
       onPress={handleEmail}
-    /> : null
+    />
   )
 
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <ParallaxScrollView
       onScroll={onScroll}
       backgroundColor={color.primary}
@@ -301,7 +344,7 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
       renderStickyHeader={renderStickyHeader}
       overScrollMode={'always'}
     >
-      <Card title={emailButton} containerStyle={styles.cardStyle}>
+      <Card title={i.email ? emailButton : null} containerStyle={styles.cardStyle}>
         {i.description && <ListItem
           title={i.description}
           titleStyle={styles.descriptionText}
@@ -329,4 +372,4 @@ export const DropzoneDetailScreen: React.FunctionComponent<DropzoneDetailScreenP
       </Card>
     </ParallaxScrollView>
   )
-}
+})
