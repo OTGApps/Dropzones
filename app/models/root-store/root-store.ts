@@ -76,7 +76,8 @@ export const RootStoreModel = types.model("RootStore", {
       } as Dropzone
     })
 
-    self.flags.replace([100357])
+    // Uncomment this to reset the flag database
+    // self.flags.replace([100357])
   },
   addFlag (anchor: number) {
     self.flags.replace([anchor, ...self.flags])
