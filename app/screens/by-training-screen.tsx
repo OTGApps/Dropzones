@@ -17,16 +17,24 @@ export interface ByTrainingScreenProps {
 
 const keyExtractor = (item, index) => index.toString()
 
+const TRAINING_TITLES = {
+  iad: "Instructor Assisted Deployment",
+  aff: "Assisted Free Fall",
+  sl: "Static Line",
+  tandem: "Tandem"
+}
+
 export const ByTrainingScreen: React.FunctionComponent<ByTrainingScreenProps> = props => {
   const { uniqueTraining } = useStores()
 
   const renderItem = ({ item, index }) => <ListItem
-    title={item}
+    title={TRAINING_TITLES[item.toLowerCase()]}
     chevron
     bottomDivider={index < uniqueTraining.length - 1}
     onPress={() => props.navigation.navigate('list-detail', {
       item,
-      itemType: 'training'
+      itemType: 'training',
+      title: TRAINING_TITLES[item.toLowerCase()]
     })}
   />
 

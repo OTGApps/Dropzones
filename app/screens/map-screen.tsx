@@ -66,7 +66,8 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
           title={d.name}
           containerStyle={NO_MARGIN}
           onPress={() => props.navigation.navigate('dropzone-detail', {
-            anchor: d.anchor
+            anchor: d.anchor,
+            title: d.name,
           })}
         />
       </Callout>

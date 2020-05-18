@@ -30,7 +30,7 @@ export function MapNavigator() {
       />
       <Stack.Screen
         name="dropzone-detail"
-        options={({ route }) => ({ title: _.get(route, 'params.item.name', 'Dropzone Detail') })}
+        options={({ route }) => ({ title: _.get(route, 'params.title', 'Dropzone Detail') })}
         component={DropzoneDetailScreen}
       />
     </Stack.Navigator>

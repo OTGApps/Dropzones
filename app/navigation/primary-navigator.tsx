@@ -45,7 +45,7 @@ export function PrimaryNavigator() {
       />
       <Stack.Screen
         name="list-detail"
-        options={({ route }) => ({ title: _.get(route, 'params.item', 'Detail') })}
+        options={({ route }) => ({ title: _.get(route, 'params.title', 'Detail') })}
         component={ListDetailScreen}
       />
       <Stack.Screen
@@ -55,7 +55,7 @@ export function PrimaryNavigator() {
       />
       <Stack.Screen
         name="dropzone-detail"
-        options={({ route }) => ({ title: _.get(route, 'params.item.name', 'Dropzone Detail') })}
+        options={({ route }) => ({ title: _.get(route, 'params.title', 'Dropzone Detail') })}
         component={DropzoneDetailScreen}
       />
       <Stack.Screen

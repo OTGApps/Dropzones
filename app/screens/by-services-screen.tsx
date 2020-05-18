@@ -26,7 +26,8 @@ export const ByServicesScreen: React.FunctionComponent<ByServicesScreenProps> = 
     bottomDivider={index < uniqueServices.length - 1}
     onPress={() => props.navigation.navigate('list-detail', {
       item,
-      itemType: 'services'
+      itemType: 'services',
+      title: item
     })}
   />
 
