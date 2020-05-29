@@ -19,5 +19,6 @@ export type PrimaryParamList = {
 
 export type MapParamList = {
   map: undefined,
+  "dropzones": undefined
   "dropzone-detail": undefined
 }

@@ -9991,6 +9991,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-config@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.2.0.tgz#3a2ca827017cde50c0dcf3af788f400e5758af61"
+  integrity sha512-14grfsvJp1JI8bR4k15w5UCTcOKO/mUTXKvxJkjLSmWZL0Oq4HB0YLXp2K33dTo6wv1qId+kAQM3eQECeZWvFA==
+
 react-native-elements@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-2.0.0.tgz#eebe36c3250808ebd4a7e9dcf97a666fb7a20930"

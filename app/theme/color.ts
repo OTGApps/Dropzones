@@ -31,7 +31,7 @@ export const color = {
   /**
    * The main tinting color, but darker.
    */
-  primaryDarker: palette.orangeDarker,
+  primaryDarker: palette.blueDarker,
   primaryLighter: palette.blueLighter,
   /**
    * A subtle color used for borders and lines.
