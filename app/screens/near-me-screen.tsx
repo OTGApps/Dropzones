@@ -43,8 +43,8 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
       data={sortedFromUser}
       renderItem={renderItem}
       removeClippedSubviews
-      initialNumToRender={5}
-      maxToRenderPerBatch={5}
+      // initialNumToRender={5}
+      // maxToRenderPerBatch={5}
     />
   )
 }

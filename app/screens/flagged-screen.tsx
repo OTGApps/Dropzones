@@ -32,8 +32,8 @@ export const FlaggedScreen: React.FunctionComponent<FlaggedScreenProps> = ({ nav
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       removeClippedSubviews
-      initialNumToRender={5}
-      maxToRenderPerBatch={5}
+      // initialNumToRender={5}
+      // maxToRenderPerBatch={5}
     />
   )
 }

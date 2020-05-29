@@ -77,7 +77,7 @@ export const RootStoreModel = types.model("RootStore", {
     })
 
     // Uncomment this to reset the flag database
-    // self.flags.replace([100357])
+    // self.flags.replace([])
   },
   addFlag (anchor: number) {
     self.flags.replace([anchor, ...self.flags])

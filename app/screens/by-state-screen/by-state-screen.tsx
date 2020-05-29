@@ -60,11 +60,11 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
     <FlatList
       style={FULL}
       removeClippedSubviews
-      initialNumToRender={5}
-      maxToRenderPerBatch={5}
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
+      // initialNumToRender={5}
+      // maxToRenderPerBatch={5}
     />
   )
 }
