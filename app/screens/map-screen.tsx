@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, Dimensions } from "react-native"
+import { ViewStyle, Dimensions, Platform } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { useStores } from "../models/root-store"
@@ -20,8 +20,8 @@ const ROOT: ViewStyle = {
   backgroundColor: color.background,
 }
 
-const NO_MARGIN: ViewStyle = {
-  padding: 0
+const NO_PADDING_IOS: ViewStyle = {
+  padding: 0,
 }
 
 const window = Dimensions.get('window')
@@ -55,20 +55,24 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
     })
   }, [props.navigation, showsUserLocation, setShowsUserLocation])
 
+  const goToDetail = (dropzone) => {
+    props.navigation.navigate('dropzone-detail', {
+      anchor: dropzone.anchor,
+      title: dropzone.name,
+    })
+  }
+
   const markersArray = dropzones.map((d) => (
     <Marker
       key={d.anchor.toString()}
       coordinate={d.coordinates as LatLng}
     >
-      <Callout>
+      <Callout onPress={() => goToDetail(d)}>
         <ListItem
           chevron
           title={d.name}
-          containerStyle={NO_MARGIN}
-          onPress={() => props.navigation.navigate('dropzone-detail', {
-            anchor: d.anchor,
-            title: d.name,
-          })}
+          containerStyle={Platform.OS === 'ios' ? NO_PADDING_IOS : {}}
+          onPress={() => goToDetail(d)}
         />
       </Callout>
     </Marker>))

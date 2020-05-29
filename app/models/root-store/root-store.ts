@@ -6,7 +6,7 @@ import _ from 'lodash'
 const dropzoneData = require('./dropzones.json')
 
 export const DropzoneModel = types.model('Dropzone', {
-  anchor: types.number,
+  anchor: types.identifier,
   flagged: types.optional(types.boolean, false),
   name: types.string,
   email: types.string,
@@ -69,6 +69,7 @@ export const RootStoreModel = types.model("RootStore", {
     self.dropzones = dropzoneData.features.map((f: any) => {
       return {
         ...f.properties,
+        anchor: f.properties.anchor.toString(),
         coordinates: {
           longitude: f.geometry.coordinates[0],
           latitude: f.geometry.coordinates[1]

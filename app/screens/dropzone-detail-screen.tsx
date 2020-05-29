@@ -10,7 +10,6 @@ import {
   Platform,
   Alert,
   Linking,
-  TouchableHighlight,
 } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "react-native-screens/native-stack"
@@ -125,7 +124,7 @@ const styles = StyleSheet.create({
   } as TextStyle
 })
 
-const DISCLAIMER_BYPASS_KEY = '@bypassDisclaimer7'
+const DISCLAIMER_BYPASS_KEY = '@bypassDisclaimer'
 const showDisclaimerAlert = async () => {
   const bypassDisclaimer = await AsyncStorage.getItem(DISCLAIMER_BYPASS_KEY)
   if (!JSON.parse(bypassDisclaimer)) {
@@ -156,7 +155,7 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
   const { dropzones, flags } = rootStore
 
   const i: Dropzone = _.find(dropzones, d => {
-    return (parseInt(d.anchor) === anchor)
+    return (parseInt(d.anchor) === parseInt(anchor))
   })
   // TODO - what if the DZ isn't in the database. How did the user get here?
   // maybe from a tyop'd app url?
