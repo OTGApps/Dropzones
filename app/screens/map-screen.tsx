@@ -1,19 +1,14 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { FunctionComponent as Component, useState, useRef, useEffect } from "react"
+import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { ViewStyle, Dimensions, Platform } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { useStores } from "../models/root-store"
+import { useStores } from '../models/root-store/root-store-context'
 import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from 'react-native-elements'
 import _ from 'lodash'
 
 import MapView from "react-native-map-clustering"
 import { Marker, Callout, LatLng } from "react-native-maps"
-
-export interface MapScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
 
 const ROOT: ViewStyle = {
   flex: 1,
@@ -35,14 +30,15 @@ const INITIAL_REGION = {
   longitudeDelta: LONGITUDE_DELTA,
 }
 
-export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((props) => {
+export const MapScreen: Component = observer(function MapScreen() {
+  const navigation = useNavigation()
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   // const [followsUserLocation, setFollowsUserLocation] = useState(false)
   const mapRef = useRef(null)
 
   useEffect(() => {
-    props.navigation.setOptions({
+    navigation.setOptions({
       headerRight: () => (
         <Icon
           name={'map-pin'}
@@ -53,10 +49,10 @@ export const MapScreen: React.FunctionComponent<MapScreenProps> = observer((prop
         />
       ),
     })
-  }, [props.navigation, showsUserLocation, setShowsUserLocation])
+  }, [navigation, showsUserLocation, setShowsUserLocation])
 
   const goToDetail = (dropzone) => {
-    props.navigation.navigate('dropzone-detail', {
+    navigation.navigate('dropzone-detail', {
       anchor: dropzone.anchor,
       title: dropzone.name,
     })

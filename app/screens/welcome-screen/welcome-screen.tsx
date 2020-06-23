@@ -1,9 +1,8 @@
-import React, { useState } from "react"
-import { observer } from 'mobx-react-lite'
+import React, { FunctionComponent as Component, useState } from "react"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { useStores } from '../../models/root-store/root-store-context'
 import { ViewStyle, FlatList, Alert, ActivityIndicator } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color } from "../../theme"
 import { CountBadge } from '../../components'
 import { ListItem } from 'react-native-elements'
@@ -15,13 +14,11 @@ const FULL: ViewStyle = {
   flex: 1,
 }
 
-export interface WelcomeScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
-export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScreenProps) {
-  Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: 'whenInUse' })
+export const WelcomeScreen: Component = observer(function WelcomeScreen() {
+  const navigation = useNavigation()
   const { flags } = useStores()
+
+  Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: 'whenInUse' })
 
   // This boolean state is used when getting a user's location.
   // It disables all the rows from interaction and shows a loading icon
@@ -34,7 +31,7 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
       position => {
         setLoading(false)
         if (__DEV__) console.tron.log('opening the near me screen.', JSON.stringify(position))
-        props.navigation.navigate('near-me', {
+        navigation.navigate('near-me', {
           location: JSON.stringify(position)
         })
       },
@@ -72,7 +69,7 @@ export const WelcomeScreen = observer(function WelcomeScreen(props: WelcomeScree
           openNearMeScreen()
           break
         default:
-          props.navigation.navigate(item.screen)
+          navigation.navigate(item.screen)
           break
       }
     })}
