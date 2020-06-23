@@ -1,8 +1,8 @@
-import * as React from "react"
+import React, { FunctionComponent as Component } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { color } from "../theme"
 import { ListItem } from 'react-native-elements'
 
@@ -11,20 +11,17 @@ const FULL: ViewStyle = {
   backgroundColor: color.background
 }
 
-export interface ByAircraftScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
 const keyExtractor = (item, index) => index.toString()
 
-export const ByAircraftScreen: React.FunctionComponent<ByAircraftScreenProps> = props => {
+export const ByAircraftScreen: Component = observer(function ByAircraftScreen() {
+  const navigation = useNavigation()
   const { uniqueAircraft } = useStores()
 
   const renderItem = ({ item, index }) => <ListItem
     title={item}
     chevron
     bottomDivider={index < uniqueAircraft.length - 1}
-    onPress={() => props.navigation.navigate('list-detail', {
+    onPress={() => navigation.navigate('list-detail', {
       item,
       itemType: 'aircraft'
     })}
@@ -41,4 +38,4 @@ export const ByAircraftScreen: React.FunctionComponent<ByAircraftScreenProps> = 
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"
-import { observer } from 'mobx-react-lite'
+import React, { FunctionComponent as Component, useState, useEffect } from "react"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { useStores } from '../models/root-store/root-store-context'
 import {
   View,
@@ -11,10 +12,8 @@ import {
   Alert,
   Linking,
 } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { color, spacing } from "../theme"
-import { Dropzone } from "../models/root-store"
+import { Dropzone } from "../models/"
 import ParallaxScrollView from 'react-native-parallax-scroll-view'
 import MapView, { Marker } from 'react-native-maps'
 import { Card, Text, ListItem, Button, Icon, Avatar } from 'react-native-elements'
@@ -23,11 +22,6 @@ import openMaps from 'react-native-open-maps'
 import AsyncStorage from '@react-native-community/async-storage'
 import { delay } from "../utils/delay"
 import _ from 'lodash'
-
-export interface DropzoneDetailScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>,
-  route: any // todo - what type is this?
-}
 
 const window = Dimensions.get('window')
 const PARALLAX_HEADER_HEIGHT = 300
@@ -147,15 +141,21 @@ const showDisclaimerAlert = async () => {
     )
   }
 }
-export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props: DropzoneDetailScreenProps) {
-  const { route, navigation } = props
-  const { anchor } = route.params
+
+export interface DropzoneDetailScreenProps {
+  route: any
+}
+
+export const DropzoneDetailScreen: Component = observer(function DropzoneDetailScreen(props) {
+  const navigation = useNavigation()
+  const { route } = props as DropzoneDetailScreenProps
+  const anchor = parseInt(route.params.anchor)
 
   const rootStore = useStores()
   const { dropzones, flags } = rootStore
 
-  const i: Dropzone = _.find(dropzones, d => {
-    return (parseInt(d.anchor) === parseInt(anchor))
+  const selectedDZ: Dropzone = _.find(dropzones, d => {
+    return (parseInt(d.anchor) === anchor)
   })
   // TODO - what if the DZ isn't in the database. How did the user get here?
   // maybe from a tyop'd app url?
@@ -164,8 +164,8 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
 
   const openDrivingDirectons = () => {
     openMaps({
-      ...i.coordinates,
-      query: i.name,
+      ...selectedDZ.coordinates,
+      query: selectedDZ.name,
       zoom: 15,
       travelType: 'drive',
       // eslint-disable-next-line @typescript-eslint/camelcase
@@ -203,8 +203,9 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
   }
 
   const renderBackground = () => {
+    const { coordinates } = selectedDZ
     const regionToDisplay = {
-      ...i.coordinates,
+      ...coordinates,
       latitudeDelta: 0.044,
       longitudeDelta: 0.055,
     }
@@ -218,7 +219,7 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
           mapType={'satellite'}
           liteMode
         >
-          <Marker coordinate={i.coordinates} />
+          <Marker coordinate={coordinates} />
         </MapView>
         <View style={[styles.background, { opacity: backgroundOpacity }]}/>
       </View>
@@ -226,24 +227,26 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
   }
 
   const openWebsite = async () => {
-    const supported = await Linking.canOpenURL(i.website)
+    const { website } = selectedDZ
+    const supported = await Linking.canOpenURL(website)
     if (supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
       // by some browser in the mobile
-      await Linking.openURL(i.website)
+      await Linking.openURL(website)
     } else {
-      Alert.alert(`Don't know how to open this URL: ${i.website}`)
+      Alert.alert(`Don't know how to open this URL: ${website}`)
     }
   }
 
   const openPhone = async () => {
-    const supported = await Linking.canOpenURL(i.phone)
-    if (i.phone && supported) {
+    const { phone } = selectedDZ
+    const supported = await Linking.canOpenURL(phone)
+    if (phone && supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
       // by some browser in the mobile
-      await Linking.openURL(i.phone)
+      await Linking.openURL(phone)
     } else {
-      Alert.alert(`Don't know how to open this URL: ${i.phone}`)
+      Alert.alert(`Don't know how to open this URL: ${phone}`)
     }
   }
 
@@ -256,14 +259,14 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
   const renderForeground = () => (
     <View key='parallax-header' style={styles.parallaxHeader}>
       <Button
-        title={i.name}
+        title={selectedDZ.name}
         type={'clear'}
         titleStyle={styles.sectionTitleText}
         buttonStyle={styles.noPadding}
         onPress={openDrivingDirectons}
       />
       <Button
-        title={i.website}
+        title={selectedDZ.website}
         titleProps={{
           numberOfLines: 1,
           adjustsFontSizeToFit: true
@@ -290,7 +293,7 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
 
   const renderStickyHeader = () => (
     <View key="sticky-header" style={styles.stickySection}>
-      <Text style={styles.stickySectionText}>{i.name}</Text>
+      <Text style={styles.stickySectionText}>{selectedDZ.name}</Text>
     </View>
   )
 
@@ -307,8 +310,8 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
 
   const handleEmail = () => {
     Mailer.mail({
-      subject: 'Question for ' + i.name,
-      recipients: [i.email],
+      subject: 'Question for ' + selectedDZ.name,
+      recipients: [selectedDZ.email],
       // body: '<b>A Bold Body</b>',
       // isHTML: true,
     }, (error, event) => {
@@ -323,7 +326,7 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
   }
   const emailButton = (
     <Button
-      title={i.email}
+      title={selectedDZ.email}
       type="outline"
       onPress={handleEmail}
     />
@@ -343,30 +346,30 @@ export const DropzoneDetailScreen = observer(function DropzoneDetailScreen(props
       renderStickyHeader={renderStickyHeader}
       overScrollMode={'always'}
     >
-      <Card title={i.email ? emailButton : null} containerStyle={styles.cardStyle}>
-        {i.description && <ListItem
-          title={i.description}
+      <Card title={selectedDZ.email ? emailButton : null} containerStyle={styles.cardStyle}>
+        {selectedDZ.description && <ListItem
+          title={selectedDZ.description}
           titleStyle={styles.descriptionText}
         />}
-        {i.phone ? <ListItem
+        {selectedDZ.phone ? <ListItem
           leftIcon={{ ...iconProps, name: 'phone' }}
-          title={i.phone}
+          title={selectedDZ.phone}
           onPress={openPhone}
           chevron
         /> : null}
-        {i.location && i.location.length > 0 ? <ListItem
+        {selectedDZ.location && selectedDZ.location.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'map' }}
-          title={i.location.join('\n')}
+          title={selectedDZ.location.join('\n')}
           onPress={openDrivingDirectons}
           chevron
         /> : null}
-        {i.aircraft && i.aircraft.length > 0 ? <ListItem
+        {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'plane' }}
-          title={i.aircraft.sort().join('\n')}
+          title={selectedDZ.aircraft.sort().join('\n')}
         /> : null}
-        {i.services && i.services.length > 0 ? <ListItem
+        {selectedDZ.services && selectedDZ.services.length > 0 ? <ListItem
           leftIcon={{ ...iconProps, name: 'bath' }}
-          title={i.services.sort().join('\n')}
+          title={selectedDZ.services.sort().join('\n')}
         /> : null}
       </Card>
     </ParallaxScrollView>

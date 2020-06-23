@@ -1,8 +1,8 @@
-import * as React from "react"
+import React, { FunctionComponent as Component } from "react"
 import { useStores } from '../../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { color } from "../../theme"
 import { ListItem } from 'react-native-elements'
 import { States } from './states'
@@ -17,11 +17,8 @@ const FULL: ViewStyle = {
   backgroundColor: color.background
 }
 
-export interface ByStateScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
-export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props => {
+export const ByStateScreen: Component = observer(function ByStateScreen() {
+  const navigation = useNavigation()
   const rootStore = useStores()
   const { dropzones } = rootStore
   const sortedStates = Object.keys(_.groupBy(dropzones, 'state')).sort()
@@ -48,7 +45,7 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
         rightElement={() => <CountBadge count={groupByState[item].length} />}
         chevron
         bottomDivider={index < dataSource.length - 1}
-        onPress={() => props.navigation.navigate('list-detail', {
+        onPress={() => navigation.navigate('list-detail', {
           item,
           itemType: 'state'
         })}
@@ -67,4 +64,4 @@ export const ByStateScreen: React.FunctionComponent<ByStateScreenProps> = props 
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

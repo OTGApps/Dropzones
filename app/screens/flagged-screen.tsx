@@ -1,28 +1,22 @@
-import * as React from "react"
+import React, { FunctionComponent as Component } from "react"
+import { observer } from "mobx-react-lite"
 import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
 }
 
-export interface FlaggedScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
 const keyExtractor = (item, index) => index.toString()
 
-export const FlaggedScreen: React.FunctionComponent<FlaggedScreenProps> = ({ navigation }) => {
+export const FlaggedScreen: Component = observer(function FlaggedScreen() {
   const { flaggedDropzones } = useStores()
 
   const renderItem = ({ item, index }) => <DropzoneListRow
     item={item}
     index={index}
     isLast={index < flaggedDropzones.length - 1}
-    navigation={navigation}
   />
 
   return (
@@ -36,4 +30,4 @@ export const FlaggedScreen: React.FunctionComponent<FlaggedScreenProps> = ({ nav
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

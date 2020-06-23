@@ -1,29 +1,29 @@
-import * as React from "react"
-import { observer } from 'mobx-react-lite'
+import React, { FunctionComponent as Component } from "react"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
+import { Dropzone } from "../../models"
 import { ListItem } from 'react-native-elements'
-import { Dropzone } from "../../models/root-store"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { useStores } from '../../models/root-store/root-store-context'
 import _ from 'lodash'
 
 export interface DropzoneListRowProps {
   item: Dropzone,
   index: number,
-  navigation: NativeStackNavigationProp<ParamListBase>,
   isLast?: boolean,
   rightElement?: Record<string, any>
 }
 
-export const DropzoneListRow = observer(function DropzoneListRow(props: DropzoneListRowProps) {
+export const DropzoneListRow: Component<DropzoneListRowProps> = observer(props => {
+  const navigation = useNavigation()
   const rootStore = useStores()
   const { flags } = rootStore
-  const { item, navigation, rightElement, isLast, index } = props
+  const { item, rightElement, isLast, index } = props
   const isFlagged = _.includes(flags, item.anchor)
+  const anchor = parseInt(item.anchor)
 
   const toggleFlag = () => {
     if (__DEV__) console.tron.log('toggle flag. isFlagged', isFlagged)
-    isFlagged ? rootStore.removeFlag(item.anchor) : rootStore.addFlag(item.anchor)
+    isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
   }
 
   return (

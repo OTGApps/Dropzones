@@ -1,8 +1,8 @@
-import * as React from "react"
+import React, { FunctionComponent as Component } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { color } from "../theme"
 import { ListItem } from 'react-native-elements'
 
@@ -11,20 +11,17 @@ const FULL: ViewStyle = {
   backgroundColor: color.background
 }
 
-export interface ByServicesScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
 const keyExtractor = (item, index) => index.toString()
 
-export const ByServicesScreen: React.FunctionComponent<ByServicesScreenProps> = props => {
+export const ByServicesScreen: Component = observer(function ByServicesScreen() {
+  const navigation = useNavigation()
   const { uniqueServices } = useStores()
 
   const renderItem = ({ item, index }) => <ListItem
     title={item}
     chevron
     bottomDivider={index < uniqueServices.length - 1}
-    onPress={() => props.navigation.navigate('list-detail', {
+    onPress={() => navigation.navigate('list-detail', {
       item,
       itemType: 'services',
       title: item
@@ -42,4 +39,4 @@ export const ByServicesScreen: React.FunctionComponent<ByServicesScreenProps> = 
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

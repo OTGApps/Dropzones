@@ -191,7 +191,7 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
-  - react-native-config (1.2.0):
+  - react-native-config (1.2.1):
     - React
   - react-native-geolocation (2.0.2):
     - React
@@ -402,7 +402,7 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-config: 1ad4712773ff7e867b261be0aab293921d4498f9
+  react-native-config: ae9ef3bdbf539f2d14ebaf4ebeba508f766e066a
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c

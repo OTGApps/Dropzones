@@ -1,8 +1,7 @@
-import * as React from "react"
+import React, { FunctionComponent as Component } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import type { NativeStackNavigationProp } from "react-native-screens/native-stack"
+import { observer } from "mobx-react-lite"
 import { color } from "../theme"
 import { SpeedLimitSign, DropzoneListRow } from "../components"
 
@@ -12,14 +11,13 @@ const FULL: ViewStyle = {
 }
 
 export interface NearMeScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
   route: any
 }
 const keyExtractor = (item, index) => index.toString()
 
-export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route, navigation }) => {
+export const NearMeScreen: Component = observer(function NearMeScreen(props) {
   const rootStore = useStores()
-
+  const { route } = props as NearMeScreenProps
   const { location } = route.params // Get the location that was passed by the previous screen.
   const l: any = JSON.parse(location) // un-stringify it from the previous screen.
 
@@ -29,9 +27,8 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
     item={item}
     index={index}
     isLast={index < sortedFromUser.length - 1}
-    navigation={navigation}
     rightElement={() => <SpeedLimitSign distanceFromUser={
-      parseInt(item.distanceFromUser * 0.621371).toString() || '🤷‍♂️'
+      (parseInt(item.distanceFromUser) * 0.621371).toString()
     } />}
   />
 
@@ -47,4 +44,4 @@ export const NearMeScreen: React.FunctionComponent<NearMeScreenProps> = ({ route
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

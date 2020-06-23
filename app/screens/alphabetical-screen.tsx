@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useStores } from '../models/root-store/root-store-context'
+import { observer } from "mobx-react-lite"
 import { Dropzone } from '../models/root-store/root-store'
 import { View, ViewStyle, TextStyle, SectionList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 import { DropzoneListRow } from "../components"
 import { color, spacing } from "../theme"
 import _ from 'lodash'
 import { SearchBar, Text } from 'react-native-elements'
-// import SectionList from 'react-native-tabs-section-list'
-// import sectionListGetItemLayout from 'react-native-section-list-get-item-layout'
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -25,11 +22,7 @@ const HEADER_TEXT_STYLE: TextStyle = {
   fontWeight: 'bold'
 }
 
-export interface AlphabeticalScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
-}
-
-export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps> = ({ navigation }) => {
+export const AlphabeticalScreen: Component = observer(function AlphabeticalScreen() {
   const { dropzones } = useStores()
   const [search, setSearch] = useState('')
   const [list, setList] = useState<Dropzone[]>(dropzones)
@@ -64,7 +57,6 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
     item={item}
     index={index}
     isLast={index < dataSource.length - 1}
-    navigation={navigation}
   />
 
   // const getItemLayout = sectionListGetItemLayout({
@@ -114,4 +106,4 @@ export const AlphabeticalScreen: React.FunctionComponent<AlphabeticalScreenProps
 
     />
   )
-}
+})

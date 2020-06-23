@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { FunctionComponent as Component, useEffect, useState } from "react"
 import { useStores } from '../models/root-store/root-store-context'
 import { ViewStyle, FlatList } from "react-native"
-import { ParamListBase } from "@react-navigation/native"
-import type { NativeStackNavigationProp } from "react-native-screens/native-stack"
+import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
 import { color } from "../theme"
 import { SearchBar } from 'react-native-elements'
 import { DropzoneListRow } from "../components"
@@ -13,13 +13,14 @@ const FULL: ViewStyle = {
 }
 
 export interface ListDetailScreenProps {
-  navigation: NativeStackNavigationProp<ParamListBase>
   route: any
 }
 const keyExtractor = (item, index) => index.toString()
 
-export const ListDetailScreen: React.FunctionComponent<ListDetailScreenProps> = ({ route, navigation }) => {
+export const ListDetailScreen: Component = observer(function ListDetailScreen(props) {
+  const navigation = useNavigation()
   const rootStore = useStores()
+  const { route } = props as ListDetailScreenProps
   const { item, itemType } = route.params
   const dropzones = rootStore.filteredDropzones(item, itemType)
   const [search, setSearch] = useState('')
@@ -36,7 +37,6 @@ export const ListDetailScreen: React.FunctionComponent<ListDetailScreenProps> = 
     item={item}
     index={index}
     isLast={index < list.length - 1}
-    navigation={navigation}
   />
 
   return (
@@ -58,4 +58,4 @@ export const ListDetailScreen: React.FunctionComponent<ListDetailScreenProps> = 
       // maxToRenderPerBatch={5}
     />
   )
-}
+})

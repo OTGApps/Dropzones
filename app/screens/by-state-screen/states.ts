@@ -93,7 +93,6 @@ export const States = {
   },
   ms: {
     fullName: 'Mississippi',
-    image: require('./flags/mississippi.png')
   },
   mo: {
     fullName: 'Missouri',

@@ -33,9 +33,7 @@ const DISTANCE_TEXT: TextStyle = {
 export function SpeedLimitSign(props: SpeedLimitSignProps) {
   return (
     <View style={SPEED_LIMIT_SIGN}>
-      <Text style={DISTANCE_TEXT}>
-        {props.distanceFromUser}
-      </Text>
+      <Text style={DISTANCE_TEXT}>{parseInt(props.distanceFromUser).toString()}</Text>
       <Text style={MILES_TEXT}>MILES</Text>
     </View>
   )
