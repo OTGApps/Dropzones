@@ -14,7 +14,7 @@ import "./i18n"
 import "./utils/ignore-warnings"
 import React, { useState, useEffect, useRef, FunctionComponent as Component } from "react"
 import { NavigationContainerRef } from "@react-navigation/native"
-import { SafeAreaProvider, initialWindowSafeAreaInsets } from "react-native-safe-area-context"
+import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"
 import * as storage from "./utils/storage"
 
 import { ThemeProvider } from 'react-native-elements'
@@ -66,7 +66,7 @@ const App: Component<{}> = () => {
   // otherwise, we're ready to render the app
   return (
     <RootStoreProvider value={rootStore}>
-      <SafeAreaProvider initialSafeAreaInsets={initialWindowSafeAreaInsets}>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <ThemeProvider>
           <RootNavigator
             ref={navigationRef}
