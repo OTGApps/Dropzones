@@ -1,20 +1,23 @@
+import React from "react"
+import { NavigationContainer, NavigationContainerRef } from "@react-navigation/native"
+
+import { createNativeStackNavigator } from "react-native-screens/native-stack"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { PrimaryNavigator } from "./primary-navigator"
+import { MapNavigator, MapParamList } from "./map-navigator"
+import { color } from "../theme"
+import { Icon, Text } from "react-native-elements"
+import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from "@gorhom/animated-tabbar"
+import { palette } from "../theme/palette"
+import Animated from "react-native-reanimated"
+import _ from "lodash"
+
 /**
  * The root navigator is used to switch between major navigation flows of your app.
  * Generally speaking, it will contain an auth flow (registration, login, forgot password)
  * and a "main" flow (which is contained in your PrimaryNavigator) which the user
  * will use once logged in.
  */
-
-import React from "react"
-import { NavigationContainer, NavigationContainerRef } from "@react-navigation/native"
-
-import { createNativeStackNavigator } from "react-native-screens/native-stack"
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { PrimaryNavigator } from "./primary-navigator"
-import { MapNavigator } from "./map-navigator"
-import { color } from "../theme"
-import { Icon, Text } from 'react-native-elements'
-import _ from 'lodash'
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -27,12 +30,12 @@ import _ from 'lodash'
  *   https://reactnavigation.org/docs/typescript#type-checking-the-navigator
  */
 export type RootParamList = {
-  primaryStack: undefined,
+  primaryStack: undefined
   mapStack: undefined
 }
 
 const Stack = createNativeStackNavigator<RootParamList>()
-const Tab = createBottomTabNavigator<MapNavigator.MapParamList>()
+const Tab = createBottomTabNavigator<MapParamList>()
 
 const PrimaryStack = () => {
   return (
@@ -74,39 +77,56 @@ const MapStack = () => {
   )
 }
 
+const AnimatedIcon = Animated.createAnimatedComponent(Icon)
+const tabs: TabsConfig<BubbleTabBarItemConfig> = {
+  Dropzones: {
+    labelStyle: {
+      color: color.primary,
+    },
+    icon: {
+      component: ({ color, size }) => (
+        <AnimatedIcon name={"plane"} size={size} type="font-awesome" color={palette.blue} />
+      ),
+      activeColor: color.primary,
+      inactiveColor: color.primaryLighter,
+    },
+    background: {
+      activeColor: palette.white,
+      inactiveColor: palette.white,
+    },
+  },
+  Map: {
+    labelStyle: {
+      color: color.primary,
+    },
+    icon: {
+      component: ({ color, size }) => (
+        <AnimatedIcon name={"map"} size={size} type="font-awesome" color={palette.blue} />
+      ),
+      activeColor: color.primary,
+      inactiveColor: palette.white,
+    },
+    background: {
+      activeColor: palette.white,
+      inactiveColor: palette.white,
+    },
+  },
+}
+
+const tabBarOptions = {
+  style: {
+    backgroundColor: color.primary,
+  },
+}
+
 const TabStack = () => {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarLabel: _.startCase(route.name),
-        tabBarIcon: ({ focused, size }) => {
-          let iconName = 'plane'
-          switch (route.name) {
-            // Add more here if you ever add more tabs. 🤷‍♂️
-            case 'map':
-              iconName = route.name.toLowerCase()
-              break
-            default:
-              break
-          }
-          return (
-            <Icon
-              name={iconName}
-              size={size}
-              color={focused ? color.primary : color.palette.lighterGrey}
-              type='font-awesome'
-            />
-          )
-        },
-      })}
-
-      tabBarOptions={{
-        activeTintColor: color.primary,
-        inactiveTintColor: color.palette.lighterGrey,
-      }}
+      tabBarOptions={tabBarOptions}
+      tabBar={props => <AnimatedTabBar tabs={tabs} {...props} />}
     >
-      <Tab.Screen name="dropzones" component={PrimaryStack} />
-      <Tab.Screen name="map" component={MapStack} />
+      <Tab.Screen name="Dropzones" component={PrimaryStack} />
+      <Tab.Screen name="Map" component={MapStack} />
     </Tab.Navigator>
   )
 }
@@ -116,10 +136,10 @@ export const RootNavigator = React.forwardRef<
   Partial<React.ComponentProps<typeof NavigationContainer>>
 >((props, ref) => {
   const linking = {
-    prefixes: ['dropzones://'],
+    prefixes: ["dropzones://"],
     config: {
-      'dropzone-detail': 'dropzone/:anchor'
-    }
+      "dropzone-detail": "dropzone/:anchor",
+    },
   }
 
   return (
