@@ -345,7 +345,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
         {selectedDZ.email && (
           <Button title={selectedDZ.email} type="outline" onPress={handleEmail} />
         )}
-        {selectedDZ.description && (
+        {selectedDZ.description.length > 0 && (
           <ListItem>
             <ListItem.Content>
               <ListItem.Title style={styles.descriptionText}>
@@ -354,7 +354,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
             </ListItem.Content>
           </ListItem>
         )}
-        {selectedDZ.phone ? (
+        {selectedDZ.phone && (
           <ListItem onPress={openPhone}>
             <Icon name="phone" {...iconProps} />
             <ListItem.Content>
@@ -362,8 +362,8 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
             </ListItem.Content>
             <ListItem.Chevron type="font-awesome" name="chevron-right" />
           </ListItem>
-        ) : null}
-        {selectedDZ.location && selectedDZ.location.length > 0 ? (
+        )}
+        {selectedDZ.location && selectedDZ.location.length > 0 && (
           <ListItem onPress={openDrivingDirectons}>
             <Icon name="map" {...iconProps} />
             <ListItem.Content>
@@ -371,23 +371,23 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
             </ListItem.Content>
             <ListItem.Chevron type="font-awesome" name="chevron-right" />
           </ListItem>
-        ) : null}
-        {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 ? (
+        )}
+        {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
           <ListItem>
             <Icon name="plane" {...iconProps} />
             <ListItem.Content>
               <ListItem.Title>{selectedDZ.aircraft.sort().join("\n")}</ListItem.Title>
             </ListItem.Content>
           </ListItem>
-        ) : null}
-        {selectedDZ.services && selectedDZ.services.length > 0 ? (
+        )}
+        {selectedDZ.services && selectedDZ.services.length > 0 && (
           <ListItem>
             <Icon name="bath" {...iconProps} />
             <ListItem.Content>
               <ListItem.Title>{selectedDZ.services.sort().join("\n")}</ListItem.Title>
             </ListItem.Content>
           </ListItem>
-        ) : null}
+        )}
       </Card>
     </ParallaxScrollView>
   )

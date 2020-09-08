@@ -11,7 +11,7 @@ export const DropzoneModel = types
     flagged: types.optional(types.boolean, false),
     name: types.string,
     email: types.string,
-    description: types.string,
+    description: types.optional(types.string, ""),
     phone: types.optional(types.string, ""),
     website: types.optional(types.string, ""),
     aircraft: types.optional(types.array(types.string), []),
