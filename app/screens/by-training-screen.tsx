@@ -1,14 +1,14 @@
 import React, { FunctionComponent as Component } from "react"
-import { useStores } from '../models/root-store/root-store-context'
+import { useStores } from "../models/root-store/root-store-context"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { color } from "../theme"
-import { ListItem } from 'react-native-elements'
+import { ListItem } from "react-native-elements"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background
+  backgroundColor: color.background,
 }
 
 const keyExtractor = (item, index) => index.toString()
@@ -17,23 +17,31 @@ const TRAINING_TITLES = {
   iad: "Instructor Assisted Deployment",
   aff: "Assisted Free Fall",
   sl: "Static Line",
-  tandem: "Tandem"
+  tandem: "Tandem",
 }
 
 export const ByTrainingScreen: Component = observer(function ByTrainingScreen() {
   const navigation = useNavigation()
   const { uniqueTraining } = useStores()
 
-  const renderItem = ({ item, index }) => <ListItem
-    title={TRAINING_TITLES[item.toLowerCase()]}
-    chevron
-    bottomDivider={index < uniqueTraining.length - 1}
-    onPress={() => navigation.navigate('list-detail', {
-      item,
-      itemType: 'training',
-      title: TRAINING_TITLES[item.toLowerCase()]
-    })}
-  />
+  const renderItem = ({ item }) => (
+    <ListItem
+      bottomDivider
+      onPress={() =>
+        navigation.navigate("list-detail", {
+          item,
+          itemType: "training",
+          title: TRAINING_TITLES[item.toLowerCase()],
+        })
+      }
+    >
+      <ListItem.Content>
+        <ListItem.Title>{TRAINING_TITLES[item.toLowerCase()]}</ListItem.Title>
+        <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
+      </ListItem.Content>
+      <ListItem.Chevron type="font-awesome" name="chevron-right" />
+    </ListItem>
+  )
 
   return (
     <FlatList

@@ -1,5 +1,5 @@
 import React, { FunctionComponent as Component } from "react"
-import { useStores } from '../models/root-store/root-store-context'
+import { useStores } from "../models/root-store/root-store-context"
 import { ViewStyle, FlatList } from "react-native"
 import { observer } from "mobx-react-lite"
 import { color } from "../theme"
@@ -7,7 +7,7 @@ import { SpeedLimitSign, DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background
+  backgroundColor: color.background,
 }
 
 export interface NearMeScreenProps {
@@ -23,18 +23,21 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
 
   const sortedFromUser = rootStore.sortByDistanceFrom(l)
 
-  const renderItem = ({ item, index }) => <DropzoneListRow
-    item={item}
-    index={index}
-    isLast={index < sortedFromUser.length - 1}
-    rightElement={() => <SpeedLimitSign distanceFromUser={
-      (parseInt(item.distanceFromUser) * 0.621371).toString()
-    } />}
-  />
+  const renderItem = ({ item, index }) => (
+    <DropzoneListRow
+      item={item}
+      index={index}
+      rightElement={
+        <SpeedLimitSign
+          distanceFromUser={(parseInt(item.distanceFromUser) * 0.621371).toString()}
+        />
+      }
+    />
+  )
 
   return (
     <FlatList
-      key='list'
+      key="list"
       style={FULL}
       keyExtractor={keyExtractor}
       data={sortedFromUser}

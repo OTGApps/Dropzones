@@ -1,6 +1,6 @@
 import React, { FunctionComponent as Component } from "react"
 import { observer } from "mobx-react-lite"
-import { useStores } from '../models/root-store/root-store-context'
+import { useStores } from "../models/root-store/root-store-context"
 import { ViewStyle, FlatList } from "react-native"
 import { DropzoneListRow } from "../components"
 
@@ -13,11 +13,7 @@ const keyExtractor = (item, index) => index.toString()
 export const FlaggedScreen: Component = observer(function FlaggedScreen() {
   const { flaggedDropzones } = useStores()
 
-  const renderItem = ({ item, index }) => <DropzoneListRow
-    item={item}
-    index={index}
-    isLast={index < flaggedDropzones.length - 1}
-  />
+  const renderItem = ({ item, index }) => <DropzoneListRow item={item} index={index} />
 
   return (
     <FlatList

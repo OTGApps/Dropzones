@@ -1,4 +1,4 @@
- /**
+/**
  * Welcome to the main entry point of the app. In this file, we'll
  * be kicking off our app or storybook.
  *
@@ -16,9 +16,7 @@ import React, { useState, useEffect, useRef, FunctionComponent as Component } fr
 import { NavigationContainerRef } from "@react-navigation/native"
 import { SafeAreaProvider, initialWindowMetrics } from "react-native-safe-area-context"
 import * as storage from "./utils/storage"
-
-import { ThemeProvider } from 'react-native-elements'
-
+import { ThemeProvider } from "react-native-elements"
 import {
   useBackButtonHandler,
   RootNavigator,
