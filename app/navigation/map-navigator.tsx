@@ -10,7 +10,7 @@ import React from "react"
 import { createNativeStackNavigator } from "react-native-screens/native-stack"
 import { MapScreen, DropzoneDetailScreen } from "../screens"
 import { color } from "../theme"
-import _ from 'lodash'
+import _ from "lodash"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -25,8 +25,8 @@ import _ from 'lodash'
  *   https://reactnavigation.org/docs/typescript#type-checking-the-navigator
  */
 export type MapParamList = {
-  map: undefined,
-  "dropzones": undefined
+  map: undefined
+  dropzones: undefined
   "dropzone-detail": undefined
 }
 
@@ -43,18 +43,14 @@ export function MapNavigator() {
         },
         headerTintColor: color.palette.white,
         headerTitleStyle: {
-          fontWeight: 'bold'
+          fontWeight: "bold",
         },
       }}
     >
-      <Stack.Screen
-        name="map"
-        options={{ title: 'Dropzone Map' }}
-        component={MapScreen}
-      />
+      <Stack.Screen name="map" options={{ title: "Dropzone Map" }} component={MapScreen} />
       <Stack.Screen
         name="dropzone-detail"
-        options={({ route }) => ({ title: _.get(route, 'params.title', 'Dropzone Detail') })}
+        options={({ route }) => ({ title: _.get(route, "params.title", "Dropzone Detail") })}
         component={DropzoneDetailScreen}
       />
     </Stack.Navigator>

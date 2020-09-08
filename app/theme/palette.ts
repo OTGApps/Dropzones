@@ -11,6 +11,5 @@ export const palette = {
   angry: "#872F00",
   blue: "#062d58", // rgb(6, 45,88)
   blueLighter: "#205086",
-  blueDarker: "#011224"
-
+  blueDarker: "#011224",
 }

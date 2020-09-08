@@ -37,7 +37,6 @@ export const ByTrainingScreen: Component = observer(function ByTrainingScreen() 
     >
       <ListItem.Content>
         <ListItem.Title>{TRAINING_TITLES[item.toLowerCase()]}</ListItem.Title>
-        <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
       </ListItem.Content>
       <ListItem.Chevron type="font-awesome" name="chevron-right" />
     </ListItem>

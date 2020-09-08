@@ -44,6 +44,8 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
         }
       >
         <Avatar
+          rounded
+          key={`state-image-${index}`}
           ImageComponent={FastImage}
           title={thisState && item}
           source={thisState ? thisState.image : unitedNationsFlag}
@@ -51,10 +53,9 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
         />
         <ListItem.Content>
           <ListItem.Title>{(thisState && thisState.fullName) || "International"}</ListItem.Title>
-          <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
         </ListItem.Content>
-        <ListItem.Chevron type="font-awesome" name="chevron-right" />
         <CountBadge count={groupByState[item].length} />
+        <ListItem.Chevron type="font-awesome" name="chevron-right" />
       </ListItem>
     )
   }
