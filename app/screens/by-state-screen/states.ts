@@ -206,4 +206,8 @@ export const States = {
     fullName: "US Virgin Islands",
     image: require("./flags/us-virgin-islands.png"),
   },
+  international: {
+    fullName: "International",
+    image: require("./flags/united-nations.png"),
+  },
 }

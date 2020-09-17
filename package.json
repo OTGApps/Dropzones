@@ -48,7 +48,7 @@
     "react-native-localize": "^1.0.0",
     "react-native-mail": "^4.1.0",
     "react-native-map-clustering": "^3.3.9",
-    "react-native-maps": "0.27.1",
+    "react-native-maps": "^0.27.1",
     "react-native-open-maps": "^0.3.5",
     "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-reanimated": "^1.10.1",
@@ -59,7 +59,6 @@
     "react-native-vector-icons": "^7.0.0",
     "reactotron-mst": "^3.1.1",
     "reactotron-react-native": "^5.0.0",
-    "recyclerlistview": "^3.0.0",
     "validate.js": "0.13.1"
   },
   "devDependencies": {
@@ -74,7 +73,7 @@
     "@types/ramda": "0.26.44",
     "@types/react": "16.9.23",
     "@types/react-native": "0.61.23",
-    "@types/react-native-maps": "0.24.0",
+    "@types/react-native-maps": "0.27.1",
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",

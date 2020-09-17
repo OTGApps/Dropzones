@@ -32,7 +32,7 @@ export const DropzoneModel = types
     // Parses the location array and if it's in a state, figure it out!
     get state() {
       const parsed = ParseAddress.parseLocation(self.location.join(","))
-      if (parsed && parsed.state) {
+      if (parsed && parsed.state && parsed.zip && parsed.zip !== "66798") {
         return parsed.state.toUpperCase()
       }
       return "International"

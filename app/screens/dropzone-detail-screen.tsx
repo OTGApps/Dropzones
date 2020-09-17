@@ -16,7 +16,7 @@ import { color, spacing } from "../theme"
 import { Dropzone } from "../models/"
 import ParallaxScrollView from "react-native-parallax-scroll-view"
 import MapView, { Marker } from "react-native-maps"
-import { Card, Text, ListItem, Button, Icon, Avatar } from "react-native-elements"
+import { Card, ListItem, Button, Icon, Avatar } from "react-native-elements"
 import Mailer from "react-native-mail"
 import openMaps from "react-native-open-maps"
 import AsyncStorage from "@react-native-community/async-storage"
@@ -103,18 +103,6 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     fontWeight: "bold",
     textAlign: "right",
-  } as TextStyle,
-  stickySection: {
-    justifyContent: "center",
-    padding: spacing[3],
-  } as ViewStyle,
-  stickySectionText: {
-    color: color.lightText,
-    fontSize: 20,
-    margin: 0,
-    padding: 0,
-    fontWeight: "bold",
-    letterSpacing: 1.15,
   } as TextStyle,
 })
 
@@ -293,12 +281,6 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     </View>
   )
 
-  const renderStickyHeader = () => (
-    <View key="sticky-header" style={styles.stickySection}>
-      <Text style={styles.stickySectionText}>{selectedDZ.name}</Text>
-    </View>
-  )
-
   const onScroll = e => {
     setOffset(e.nativeEvent.contentOffset.y)
   }
@@ -338,12 +320,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       fadeOutForeground
       renderBackground={renderBackground}
       renderForeground={renderForeground}
-      renderStickyHeader={renderStickyHeader}
       overScrollMode={"always"}
     >
       <Card containerStyle={styles.cardStyle}>
         {selectedDZ.email && (
-          <Button title={selectedDZ.email} type="outline" onPress={handleEmail} />
+          <Button title={selectedDZ.email.toLowerCase()} type="outline" onPress={handleEmail} />
         )}
         {selectedDZ.description.length > 0 && (
           <ListItem>

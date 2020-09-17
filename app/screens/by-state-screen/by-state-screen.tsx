@@ -40,19 +40,22 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
           navigation.navigate("list-detail", {
             item,
             itemType: "state",
+            title: States[item.toLowerCase()].fullName,
           })
         }
       >
-        <Avatar
-          rounded
-          key={`state-image-${index}`}
-          ImageComponent={FastImage}
-          title={thisState && item}
-          source={thisState ? thisState.image : unitedNationsFlag}
-          overlayContainerStyle={{ borderWidth: 1 }}
-        />
+        {thisState && (
+          <Avatar
+            rounded
+            key={`state-image-${index}`}
+            ImageComponent={FastImage}
+            title={item}
+            source={thisState.image}
+            overlayContainerStyle={{ borderWidth: 1 }}
+          />
+        )}
         <ListItem.Content>
-          <ListItem.Title>{(thisState && thisState.fullName) || "International"}</ListItem.Title>
+          <ListItem.Title>{thisState && thisState.fullName}</ListItem.Title>
         </ListItem.Content>
         <CountBadge count={groupByState[item].length} />
         <ListItem.Chevron type="font-awesome" name="chevron-right" />

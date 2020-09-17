@@ -131,6 +131,42 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "2 Cessna 210s"
+        ],
+        "anchor": 100502,
+        "description": "Friendly first timers and experienced jumpers welcome!  2 hrs north of Philly/2 hrs west of NYC.    Open weekends year round, and Friday after work  May thru October.  Operated by Guinness Record Holder '92-present. VR Canopy flight available for all ages.",
+        "email": "info@paskydive.com",
+        "location": [
+          "5159 Old Airport Rd",
+          "Hazle Township PA 18202-3238 US",
+          "90 miles W of New York City",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Above The Poconos Skydivers / NEPA Ripcords, Inc.",
+        "phone": "(570) 450-7211",
+        "services": [
+          "Videographers",
+          "Packers"
+        ],
+        "training": [
+          "IAD",
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://paskydive.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.9948889,
+          40.9867778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "3 Let L-410 Turbolets",
           "1 Mi-8 Helicopter"
         ],
@@ -290,6 +326,41 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 270283,
+        "description": "Open on weekends from beginning of April to October.  Weekdays are by appointment.  From Anchorage take Glenn Highway north; take Palmer exit to Inner Springer Loop after fairgrounds to Palmer Municipal Airport.  Camping and RV spots are available next to airport. Cessna 206 drop zone.",
+        "email": "jump@alaskaskydivecenter.com",
+        "location": [
+          "Palmer Municipal Airport",
+          "Palmer AK 99645 US",
+          "43 miles N of Anchorage",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Alaska Skydive Center",
+        "phone": "(907) 715-4300",
+        "services": [
+
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://www.alaskaskydivecenter.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -149.0886,
+          61.595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "2 Cessna 206s"
         ],
         "anchor": 100604,
@@ -322,6 +393,40 @@
         "coordinates": [
           -80.5553478,
           40.9006164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 301821,
+        "description": "Jump the Big Island!  Open 7 days a week, mornings and some afternoons.  Reservations are required.  Located at the  northern tip of Hawaii Island at Upolu Airport.  Beautiful flights on the climb up, and a flat grassy landing.",
+        "email": "fly@bigairtours.com",
+        "location": [
+          "Upolu Point Rd",
+          "Hawi HI 96719 US",
+          "45 miles N of Kailua-Kona",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Big Island Gravity, LLC",
+        "phone": "(808) 937-9258",
+        "services": [
+          "Packers",
+          "Videographers"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydivebig.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -155.8599444,
+          20.2651944
         ]
       }
     },
@@ -531,6 +636,95 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Pac 750XL"
+        ],
+        "anchor": 257523,
+        "description": "The most scenic drop zone in the southeast.  Serving Atlanta, Huntsville, Nashville, Knoxville and everywhere in between!  Open 7 days a week, Mar-Dec; weekends only Jan and Feb.  Minutes off I24, 30 minutes from downtown Chattanooga.",
+        "email": "855projump@gmail.com",
+        "location": [
+          "300 Airport Rd",
+          "Jasper TN 37347-6294 US",
+          "20 miles W of Chattanooga",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Chattanooga Skydiving Company",
+        "phone": "(702) 280-5656",
+        "services": [
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Team Rooms",
+          "Internet Access",
+          "Videographers",
+          "Rigger Service",
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Packers",
+          "Load Organizers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.chattanoogaskydivingcompany.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.5853056,
+          35.0606667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Super Twin Otter",
+          "1 Cessna 208 Super Caravan"
+        ],
+        "anchor": 100856,
+        "description": "Beautiful facilities, plenty of fun events and great aircraft!",
+        "email": "uspa@skydivecsc.com",
+        "location": [
+          "1207 W Gurler Rd",
+          "Rochelle IL 61068-9501 US",
+          "70 miles W of Chicago",
+          "2 mile to nearest hotel"
+        ],
+        "name": "Chicagoland Skydiving Center",
+        "phone": "(815) 561-3663",
+        "services": [
+          "Team Rooms",
+          "Full-Service Restaurant",
+          "Equipment Rental/Sales",
+          "Bathhouse/Hot Showers",
+          "Packers",
+          "Rigger Service",
+          "Load Organizers",
+          "Internet Access",
+          "Videographers",
+          "Bunkhouse w/ Beds",
+          "RV Space w/ Electricity",
+          "Camping Area"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.perfectlygoodairplane.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.07829,
+          41.8930014
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Pilatus Porter PC-6 B2/H4"
         ],
         "anchor": 301806,
@@ -563,6 +757,215 @@
         "coordinates": [
           111.602404,
           22.712035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Kodiak"
+        ],
+        "anchor": 269032,
+        "description": "Open Friday-Tuesday.  Take 480E to 422E.  Go south on Rt 88 for 1.5 miles.  Then go straight onto Grove Rd for 1 mile.",
+        "email": "jump@clevelandskydivingcenter.com",
+        "location": [
+          "15199 Grove Rd",
+          "Garrettsville OH 44231-9541 US",
+          "30 miles SE of Cleveland",
+          "20 miles to nearest hotel"
+        ],
+        "name": "Cleveland Skydiving Center",
+        "phone": "(330) 977-7510",
+        "services": [
+          "Team Rooms",
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Internet Access",
+          "Load Organizers",
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Bunkhouse w/ Beds",
+          "Full-Service Restaurant",
+          "Videographers",
+          "Rigger Service",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://clevelandskydivingcenter.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.0995414,
+          41.3511658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 343940,
+        "description": "Open Saturday, Sunday and other days if needed. Coming from Baton Rouge - take I 10/12 East to airport Rd, Slidell, Louisana. Floow signs on airport. Coming from the East (Mississippi)  - take I10-12 West to Airport Rd, Slidell, LA. Follow signs on airport. Coaching available in formation skydiving, style and accuracy.",
+        "email": "tasiegrist@yahoo.com",
+        "location": [
+          "62512 Airport Rd Bldg Hangar",
+          "Slidell LA 70460-5282 US",
+          "4.6 miles W of Slidell",
+          "to nearest hotel"
+        ],
+        "name": "Cloud Chasers",
+        "phone": "985-507-8573",
+        "services": [
+          "Packers",
+          "Load Organizers",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Internet Access",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://cloudchasers-skydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.815504,
+          30.347097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 King Air A90"
+        ],
+        "anchor": 347372,
+        "description": "Open year round, checkout our website for calendar of events and winter availability. 38 miles southwest of Colorado Springs. Organizers, packers and rigging services available. Large open landing area. Fantastic views of 3 different mountain ranges. Hotels, restaurants and adventure near by.",
+        "email": "manager@coloradomountainskydive.com",
+        "location": [
+          "60298 US 50",
+          "Penrose Colorado 81240 us",
+          "16 miles W of Canon City",
+          "16 miles to nearest hotel"
+        ],
+        "name": "Colorado Mountain Skydive",
+        "phone": "719-285-4050",
+        "services": [
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Load Organizers",
+          "Videographers",
+          "Internet Access",
+          "Packers",
+          "Team Rooms"
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://www.coloradomountainskydive.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1087,
+          38.429729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 208 Caravan",
+          "1 Cessna 182"
+        ],
+        "anchor": 100483,
+        "description": "One of New England's premier skydiving centers.  Open Saturday and Sunday, year-round. Freeflying, RW, CRW, and accuracy.  Covered packing areas, bonfire pit and great skydiving!  Check out our website for featured events.  Come learn, fun jump or take a tandem at CPI.  Home of Champions.",
+        "email": "cpi@skydivect.com",
+        "location": [
+          "360 Somers Rd",
+          "Ellington CT 06029-2628 US",
+          "12 miles NE of Hartford",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Connecticut Parachutists, Inc.",
+        "phone": "(860) 871-0021",
+        "services": [
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Packers",
+          "Videographers",
+          "Load Organizers",
+          "Internet Access",
+          "Rigger Service"
+        ],
+        "training": [
+          "IAD",
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivect.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.4571111,
+          41.9254167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 350014,
+        "description": "Open Wednesday thru Sunday year around. Take Hwy 70 E into Beaufort, NC. You will make a right turn into the airport. Tandems, AFF and Coaching available.",
+        "email": "jump@crystalcoastskydiving.com",
+        "location": [
+          "150 Airport Rd",
+          "Beaufort NC 28516-9751 US",
+          "1 mile N of Beaufort",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Crystal Coast Skydiving",
+        "phone": "252-528-6281",
+        "services": [
+          "Team Rooms",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Videographers",
+          "Internet Access",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://crystalcoastskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.655726,
+          34.735441
         ]
       }
     },
@@ -687,6 +1090,48 @@
         "coordinates": [
           78.178296,
           15.713096
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Super Cessna 182"
+        ],
+        "anchor": 128994,
+        "description": "DZONE Skydiving - Feel the Freedom\nFun, Safe and Professional! With 150 Acre Private Skydiving Airport and green grass landing area.",
+        "email": "info@boise.dzoneskydiving.com",
+        "location": [
+          "24005 N Can Ada Rd",
+          "Star ID 83669-5020 US",
+          "15 miles W of Boise",
+          "5 miles to nearest hotel"
+        ],
+        "name": "DZONE Skydiving-Boise",
+        "phone": "(208) 455-0000",
+        "services": [
+          "RV Space w/ Electricity",
+          "Equipment Rental/Sales",
+          "Videographers",
+          "Internet Access",
+          "Rigger Service",
+          "Bathhouse/Hot Showers",
+          "Camping Area",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://www.boise.dzoneskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.5229092,
+          43.7287733
         ]
       }
     },
@@ -941,6 +1386,40 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+
+        ],
+        "anchor": 324691,
+        "description": "Jibbber jabber Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare libero erat, sed ornare mi ultricies eget. Nullam ornare sit amet justo sed bibendum. Praesent eget tellus finibus, facilisis urna vitae, sagittis augue. Quisque semper euismod leo vel egestas. In nec porttitor mi. Nulla euismod faucibus pretium. Mauris sagittis velit a metus pharetra, in eleifend enim suscipit. Etiam sapien diam, tempus ac magna elementum, tristique pellentesque augue. Vestibulum a tortor finibus, consectetur ipsum nec, fringilla ex. Sed finibus nisi eget sem dignissim euismod. Suspendisse potenti. Donec rutrum consectetur faucibus. Ut eu sollicitudin neque. Quisque vitae felis et eros gravida imperdiet.",
+        "email": "sseidel@uspa.org",
+        "location": [
+          "647 Welsh Dr",
+          "Poboc Safugisuftgweiuty ",
+          "Ruther Glen VA 22546-1157 US",
+          "5 mileS SW of DEFINOIS",
+          "ACME HOTEL to nearest hotel"
+        ],
+        "name": "Dummy Group Member Test Account with a long name, Inc.",
+        "phone": "123-456-7890",
+        "services": [
+
+        ],
+        "training": [
+
+        ],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.52,
+          38.27
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Quest Kodiak"
         ],
         "anchor": 119620,
@@ -976,6 +1455,46 @@
         "coordinates": [
           7.092901,
           46.594703
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 100802,
+        "description": "A small and friendly drop zone located 15 miles from Eugene, Oregon off Interstate 5.  We specialize in first-time skydivers, but will accommodate fun jumpers. When they are fun. Experienced jumpers should call for more information prior to arrival.",
+        "email": "info@eugeneskydivers.com",
+        "location": [
+          "83505 Melton Rd",
+          "Creswell OR 97426-9423 US",
+          "10 miles S of Eugene",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Eugene Skydivers",
+        "phone": "541-895-3029",
+        "services": [
+          "Load Organizers",
+          "Packers",
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem",
+          "SL"
+        ],
+        "website": "http://www.eugeneskydivers.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.0066667,
+          43.93075
         ]
       }
     },
@@ -1031,6 +1550,45 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 206",
+          "1 King Air"
+        ],
+        "anchor": 301763,
+        "description": "Open Tues-Sun from March to Nov.  Located 10 minutes north of the Kansas Speedway off of I-435 and Hwy 45; exit 22.  Coaching available in formation skydiving and accuracy.  AFF training Tandem skydiving & Wingsuit training.",
+        "email": "falconskydiving@gmail.com",
+        "location": [
+          "7620 NW River Rd",
+          "Kansas City MO 64152-5227 US",
+          "15 miles NW of Kansas City, MO",
+          "10 miles to nearest hotel"
+        ],
+        "name": "Falcon Skydiving",
+        "phone": "(913) 205-1224",
+        "services": [
+          "Videographers",
+          "Load Organizers",
+          "Rigger Service",
+          "Packers",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.falconskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.800752,
+          39.231256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 182"
         ],
         "anchor": 322541,
@@ -1061,6 +1619,92 @@
         "coordinates": [
           -93.349496,
           37.598211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 100492,
+        "description": "Frontier Skydivers, one of Western New York's oldest sport parachute clubs, is located in Newfane, NY. The dropzone is located 15 miles from Niagara Falls, 20 miles from Buffalo and St. Catherines and 50 miles from Rochester. Also within driving distance of Toronto, Hamilton and Erie, PA.",
+        "email": "manifest@frontierskydivers.com",
+        "location": [
+          "3316 Beebe Rd",
+          "Newfane NY 14108-9657 US",
+          "15 miles NE of Niagara Falls",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Frontier Skydivers",
+        "phone": "(716) 751-6170",
+        "services": [
+          "Internet Access",
+          "Camping Area",
+          "Load Organizers",
+          "RV Space w/ Electricity",
+          "Videographers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.frontierskydivers.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.7678136,
+          43.2667228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 Beech 99"
+        ],
+        "anchor": 267220,
+        "description": "Fast climbing Supervan 900 operating year round. Completely carpeted packing area. Formation load organizing available. A family oriented and friendly dropzone. From Kansas City take HWY 7 Southeast, just past Clinton, MO.",
+        "email": "skydiving@GliderSports.com",
+        "location": [
+          "400 E Highway 7",
+          "Clinton MO 64735-9506 US",
+          "80 miles SE of Kansas City",
+          "3 miles to nearest hotel"
+        ],
+        "name": "GliderSports Skydiving",
+        "phone": "855-435-9669",
+        "services": [
+          "Full-Service Restaurant",
+          "Swoop pond",
+          "Team Rooms",
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Load Organizers",
+          "Internet Access",
+          "RV Space w/ Electricity",
+          "Packers",
+          "Camping Area",
+          "Videographers",
+          "Bunkhouse w/ Beds",
+          "Bathhouse/Hot Showers"
+        ],
+        "training": [
+          "IAD",
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.GliderSports.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          93.7,
+          38.3651
         ]
       }
     },
@@ -1216,6 +1860,47 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 350596,
+        "description": "Gravity Storm Skydiving is now open in beautiful Woodville, TX. We are located at the Tyler County Airport, just off HWY 190. We have air-conditioned packing and loading area, break room, bunk room and showers and camp grounds. A covered spectator deck and RV slots will be completed soon. Take a skydive vacation - we are right next door to the famous Pickett House ans just minutes from Lake Tejas and the Alabama-Couchatta Casino!",
+        "email": "gravitystormskydiving@gmail.com",
+        "location": [
+          "338 County Road 2025",
+          "Woodville TX 75979 US",
+          "90 miles SW of Houston",
+          "3 miles to nearest hotel"
+        ],
+        "name": "Gravity Storm Skydiving",
+        "phone": "409-200-4363",
+        "services": [
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Team Rooms",
+          "Bunkhouse w/ Beds",
+          "RV Space w/ Electricity",
+          "Equipment Rental/Sales",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://gravitystormskydiving.net"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -94.437,
+          30.7699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 172",
           "1 Cessna 182",
           "1 Cessna 206"
@@ -1269,7 +1954,7 @@
           "20 miles to nearest hotel"
         ],
         "name": "Illinois Valley Parachute Club",
-        "phone": "(309) 392-2751",
+        "phone": "309-270-5610",
         "services": [
 
         ],
@@ -1461,6 +2146,47 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 208"
+        ],
+        "anchor": 301825,
+        "description": "We are a new Georgia based DZ catering to both tandems and fun-jumpers.  We offer full rigging services, showers and gear sales.  We have experienced staff.  Coaching available for AFF and tandem skydiving.",
+        "email": "jumpgeorgiaskydiving@gmail.com",
+        "location": [
+          "538 Beacon Rd",
+          "Sylvania GA 30467-8810 US",
+          "42 miles NW of Savannah",
+          "8 miles to nearest hotel"
+        ],
+        "name": "Jump Georgia Skydiving",
+        "phone": "(888) 313-5867",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Rigger Service",
+          "Camping Area",
+          "Internet Access",
+          "Packers",
+          "Equipment Rental/Sales",
+          "Load Organizers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.jumpgeorgia.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.592373,
+          32.649714
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "2 Cessna 182s"
         ],
         "anchor": 301770,
@@ -1495,6 +2221,81 @@
         "coordinates": [
           -82.8109908,
           36.1960129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Grand Caravan"
+        ],
+        "anchor": 100475,
+        "description": "One of New England's premier skydiving centers.  Centrally located to Boston, Hartford, New Hampshire, Vermont and Rhode Island.  Professional, safety-conscious staff.  Open Thursday-Sunday and holidays (April through November).  All levels of student and experienced jumpers are welcome.  Weekly AFF camp offered  Indoor and shaded packing areas.  Rt 2 west, exit 16.  State-of-the-art hangar, offices lounge and much more.  Nightly bonfire!",
+        "email": "info@jumptown.com",
+        "location": [
+          "31 C St",
+          "Orange MA 01364-2047 US",
+          "75 miles W of Boston",
+          "3 miles to nearest hotel"
+        ],
+        "name": "Jumptown/MSPC, Inc.",
+        "phone": "(978) 544-5321",
+        "services": [
+          "Rigger Service",
+          "Team Rooms",
+          "Packers",
+          "Internet Access",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Load Organizers",
+          "Bunkhouse w/ Beds"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.jumptown.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.2886103,
+          42.5701264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 100677,
+        "description": "Located near the great college town of Manhattan, KSUPC is one of the oldest collegiate parachute clubs in existence. Open weekends and some weekdays all year long. First-jump courses are scheduled regularly, and visitors are welcome. Carpeted packing.",
+        "email": "info@skydivekstate.com",
+        "location": [
+          "2933 Airport Blvd",
+          "Abilene KS 67410 US",
+          "20 miles E of Salina",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Kansas State University Parachute Club",
+        "phone": "(785) 655-0066",
+        "services": [
+
+        ],
+        "training": [
+          "SL",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveksstate.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.2658539,
+          38.9040558
         ]
       }
     },
@@ -1629,6 +2430,46 @@
         "coordinates": [
           48.30973864,
           28.6025522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 100683,
+        "description": "From Weeping Water, we are located one mile east of the end of Eldora Ave. Open weekends year-round and Wednesdays during Daylight Savings Time. We have an air conditioned and heated packing area. True club atmosphere.",
+        "email": "president@skydivelspc.com",
+        "location": [
+          "12617 Weeping Water Rd",
+          "Weeping Water NE 68463-2233 US",
+          "40 miles SW of Omaha",
+          "15 miles to nearest hotel"
+        ],
+        "name": "Lincoln Sport Parachute Club",
+        "phone": "(402) 267-9933",
+        "services": [
+          "Load Organizers",
+          "Rigger Service",
+          "Camping Area",
+          "Packers",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Bathhouse/Hot Showers"
+        ],
+        "training": [
+          "SL",
+          "Tandem"
+        ],
+        "website": "http://www.skydivelspc.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.11001,
+          40.8675006
         ]
       }
     },
@@ -1817,6 +2658,47 @@
         "aircraft": [
           "1 Cessna 182"
         ],
+        "anchor": 248343,
+        "description": "Meadow Peak Skydiving opened in 2011.  We have gradually expanded to include a new hanger, shower house and manifest building.  We host the annual Lost Prairie Boogie in August.  This year, we are offering tandem jumps and student training throughout the jumping season.",
+        "email": "mpskydiving@gmail.com",
+        "location": [
+          "10260 Lost Prairie Rd",
+          "Marion MT 59925 US",
+          "39 miles W of Kalispell",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Meadow Peak Skydiving",
+        "phone": "(406) 858-2330",
+        "services": [
+          "Rigger Service",
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Internet Access",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Load Organizers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.meadowpeakskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.852939,
+          48.098079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
         "anchor": 221435,
         "description": "Located at the Miami Executive Airport, Miami Skydiving Center is the closest skydiving center to Miami.  Only a short drive from South beach, Miami Skydiving Center offers amazing views of the Miami skyline, Biscayne Bay, the Florida Keys, and much more on every jump.  Miami Skydiving Center specializes in tandem skydiving for first time jumpers.",
         "email": "info@miamiskydivingcenter.com",
@@ -1889,6 +2771,173 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 208 Caravan Blackhawk"
+        ],
+        "anchor": 178560,
+        "description": "A small, casual DZ with a country atmosphere and nice turbine aircraft. Only a few miles from metro Detroit. Located just southeast of Romeo, Michigan, on the Kunstman Airfield at 29 Mile and Kunstman Rd. USPA membership required. Check website for hours and special events.",
+        "email": "skydive@midwestfreefall.com",
+        "location": [
+          "18780 29 Mile Rd",
+          "Ray MI 48096-3050 US",
+          "20 miles NE of Detroit",
+          "7 miles to nearest hotel"
+        ],
+        "name": "Midwest Freefall Sport Parachute Club, Inc.",
+        "phone": "(586) 752-5867",
+        "services": [
+          "Load Organizers",
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "Rigger Service",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Camping Area",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.midwestfreefall.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.9424858,
+          42.7587347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206",
+          "1 Super Twin Otter",
+          "2 King Airs"
+        ],
+        "anchor": 112530,
+        "description": "A large skydiving facility in Colorado.  RW, freefly and wingsuit organizing and Flight-1 canopy courses.  Open weekends year-round--5 days a week Spring-Fall.  Situated in the Denver Metro Area with multiple hotel and restaurant options nearby.",
+        "email": "info@milehiskydiving.com",
+        "location": [
+          "229 Airport Rd Hngr 34G",
+          "Longmont CO 80503-9601 US",
+          "25 miles NW of Denver",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Mile-Hi Skydiving Center, Inc.",
+        "phone": "(303) 702-9911",
+        "services": [
+          "Team Rooms",
+          "Swoop pond",
+          "Equipment Rental/Sales",
+          "Videographers",
+          "Bathhouse/Hot Showers",
+          "Rigger Service",
+          "Packers",
+          "Load Organizers",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.milehiskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.1637319,
+          40.1642958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 King Air"
+        ],
+        "anchor": 301769,
+        "description": "Open weekends, Apr-Dec.  Located just 1 hr from Nashville & Ft. Campbell, KY.  Big DZ with small DZ feel.  New, 1st class, 10000 sq ft facility with indoor packing, creeping space, Pro Shop & TV's for video review.  Large landing area, & amazing views!",
+        "email": "musiccityskydiving@gmail.com",
+        "location": [
+          "1005 Airport Rd",
+          "Waverly TN 37185-3049 US",
+          "60 miles W of Nashville",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Music City Skydiving",
+        "phone": "(931) 299-7137",
+        "services": [
+          "Team Rooms",
+          "Videographers",
+          "Load Organizers",
+          "Bunkhouse w/ Beds",
+          "Bathhouse/Hot Showers",
+          "Internet Access",
+          "Camping Area",
+          "Packers",
+          "Rigger Service",
+          "Equipment Rental/Sales"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.musiccityskydive.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.7415797,
+          36.1118592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 241040,
+        "description": "Club style DZ operating most weekends and weekdays by appointment; check our website or call for latest information. Take the ferry from Aransas Pass to Port Aransas via hwy 361; Mustang Beach Airport is on the south edge of town.",
+        "email": "reservations@skydivesouthtexas.com",
+        "location": [
+          "139 Piper Blvd",
+          "Port Aransas TX 78373-4902 US",
+          "20 miles E of Corpus Christi",
+          "0.1 mile to nearest hotel"
+        ],
+        "name": "Mustang Island Skydiving / Skydive South Texas",
+        "phone": "(361) 945-5867",
+        "services": [
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Packers",
+          "Camping Area",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://skydivesouthtexas.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.08875,
+          27.8118333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 205",
           "1 Piper Navajo PA31"
         ],
@@ -1921,6 +2970,110 @@
         "coordinates": [
           -79.326839,
           42.977526
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 230313,
+        "description": "Open seven days a week.  Convenient to Charlottesville, Roanoke, and Farmville.",
+        "email": "nolimitsskydiving@gmail.com",
+        "location": [
+          "634 Airport Rd",
+          "Victoria VA 23974-2539 US",
+          "45 miles S of Charlottesville",
+          "2 miles to nearest hotel"
+        ],
+        "name": "No Limits Skydiving - Victoria",
+        "phone": "(866) 553-2915",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.nolimitsskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.180724,
+          36.959115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 254879,
+        "description": "Open 7 days a week all year.  Convenient to Richmond, northern VA and Virginia Beach area.",
+        "email": "aerialadv@aol.com",
+        "location": [
+          "1000 Airport Rd",
+          "Mattaponi VA 23110-2103 US",
+          "35 miles E of Richmond",
+          "2 miles to nearest hotel"
+        ],
+        "name": "No Limits Skydiving - West Point",
+        "phone": "866-553-2915",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.nolimitsskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.76275,
+          37.5213333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 228310,
+        "description": "Located in California Wine Country at Colverdale Airport.  Views of the Alexander Valley, Pacific Ocean and Mount Shasta from 13000 feet.  See www.norcalskydiving.com for reservations and directions.",
+        "email": "info@norcalskydiving.com",
+        "location": [
+          "220A Airport Rd",
+          "Cloverdale CA 95425-9710 US",
+          "80 miles N of San Francisco",
+          "4 miles to nearest hotel"
+        ],
+        "name": "NorCal Skydiving",
+        "phone": "(888) 667-2259",
+        "services": [
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Videographers",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.norcalskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.9924166,
+          38.7759715
         ]
       }
     },
@@ -2057,6 +3210,43 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 208"
+        ],
+        "anchor": 326996,
+        "description": "Open four days a week Friday-Monday, take I-76 Northwest 1 hour from Denver. Skydiver owned and operated. we take pride in our safety and are dedicated to increasing our skydivers skills and awareness.",
+        "email": "admin@skydiveorangeskies.com",
+        "location": [
+          "6029 Newland St",
+          "Arvada CO 80003-4962 US",
+          "80 miles NE of Denver",
+          "1.5 miles to nearest hotel"
+        ],
+        "name": "Orange Skies Free Fall Center",
+        "phone": "720-880-8930",
+        "services": [
+          "Load Organizers",
+          "Packers",
+          "Team Rooms",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveorangeskies.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -103.80193,
+          40.335884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Beech King Air"
         ],
         "anchor": 259311,
@@ -2088,6 +3278,78 @@
         "coordinates": [
           -103.665954,
           39.258976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 201619,
+        "description": "Open seven days a week year-round. We are mostly a tandem drop zone. We have RVT video technology and scenic flights over the ocean before every jump.  Located just 20 minutes from downtown San Diego.",
+        "email": "pcskydiving@hotmail.com",
+        "location": [
+          "6810 Curran St",
+          "San Diego CA 92154-5710 US",
+          "15 miles S of San Diego",
+          "7 miles to nearest hotel"
+        ],
+        "name": "Pacific Coast Skydiving",
+        "phone": "(619) 661-0194",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.pacificcoastskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.993182,
+          35.949453
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206",
+          "1 Pac 750"
+        ],
+        "anchor": 301747,
+        "description": "PNW Skydiving Center is located in the heart of Willamette Valley, just 30 min south of Portland, in the small hamlet of Mulino.  Winter (Oct 15-Mar 1): 10am-Sunset Sat & Sun. Spring (Mar 1-May 1): 10am-Sunset Fri-Mon.  Summer (May 1-Oct 15): 9am-Sunset 7 days/wk.",
+        "email": "pnwskydiving@gmail.com",
+        "location": [
+          "26750 S Airport Rd",
+          "Mulino OR 97042-9605 US",
+          "20 miles S of Portland",
+          "6 miles to nearest hotel"
+        ],
+        "name": "Pacific Northwest Skydiving Center",
+        "phone": "844-USKYDIVE (844-875-9348)",
+        "services": [
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "Packers",
+          "Videographers",
+          "Rigger Service"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.pnwskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.590084,
+          45.216325
         ]
       }
     },
@@ -2519,6 +3781,77 @@
         "aircraft": [
           "1 Cessna 182"
         ],
+        "anchor": 212405,
+        "description": "Open seven days a week year round. From Phoenix, take I-10 south to exit 185 (Pinal Ave); turn right onto Pinal Ave and then left to the drop zone.  From Tucson, take I-10 north to exit 185 (Pinal Ave); then turn left onto Pinal Ave and then let to the drop zone.",
+        "email": "phoenixskydivecenter@gmail.com",
+        "location": [
+          "3860 N Pinal Ave",
+          "Casa Grande AZ 85122-9003 US",
+          "30 S of Phoenix",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Phoenix Skydive Center",
+        "phone": "520-840-9095",
+        "services": [
+          "Rigger Service",
+          "Internet Access"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.phoenixskydivecenter.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.7668333,
+          32.9548889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 King Air 90"
+        ],
+        "anchor": 249639,
+        "description": "Open 7 days a week during the summer! rapidly growing mid-size drop zone specializing in AFF and Tandem skydiving. Come for the skydives, stay for the family vibe.",
+        "email": "piedmontskydiving@gmail.com",
+        "location": [
+          "500 Airport Rd",
+          "Salisbury NC 28147-8904 US",
+          "35 miles N of Charlotte",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Piedmont Skydiving, LLC",
+        "phone": "(704) 603-7920",
+        "services": [
+          "Equipment Rental/Sales",
+          "Packers",
+          "Rigger Service"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.piedmontskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.51749,
+          35.648312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
         "anchor": 335951,
         "description": "Rattlesnake Mountain Skydiving is centrally located in Prosser, Washington. We are surrounded by wine country from Walla Walla, Tri-Cities, Yakima and Ellensburg. Take exit 82, \"Wine Country Road\" from Interstate 82. Open Friday, Saturday and Sunday and most holidays.",
         "email": "jon@rattlesnakemountainskydiving.com",
@@ -2795,6 +4128,40 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 205432,
+        "description": "Specializing in first-time jumpers.  Sin City Skydiving is the best value in the Las Vegas area.",
+        "email": "jump@sincityskydiving.com",
+        "location": [
+          "23600 S Las Vegas Blvd",
+          "Jean NV 89019-1606 US",
+          "20 miles S of Las Vegas",
+          "1/2 mile to nearest hotel"
+        ],
+        "name": "Sin City Skydiving",
+        "phone": "(702) 300-8508",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.sincityskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.32982,
+          35.77194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "2 Cessna 208 Caravans",
           "3 Cessna 208 Caravan Blackhawks"
         ],
@@ -2913,6 +4280,94 @@
         "coordinates": [
           34.724255,
           31.286692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 208"
+        ],
+        "anchor": 100824,
+        "description": "Open year round only 75 miles west of New York City. Located near the beautiful Pocono Mountains with views of the Manhattan Skyline and the Delaware water gap. Facilities include 9,000 square foot heated hangar, indoor and outdoor covered packing, professional packers, indoor bathroom and shower facilities, the World's Fastest Grand Caravan and turbine aircraft to 13,500ft. RW and Advanced Freefly (AFP) coaching available. Organizing every weekend. Team rates available.",
+        "email": "teresa@skysthelimit.net",
+        "location": [
+          "124 Airstrip Rd",
+          "East Stroudsburg PA 18301-8578 US",
+          "75 miles W of New York City",
+          "0.1 mile to nearest hotel"
+        ],
+        "name": "Sky's The Limit",
+        "phone": "(800)335-JUMP",
+        "services": [
+          "Team Rooms",
+          "Camping Area",
+          "Full-Service Restaurant",
+          "Bunkhouse w/ Beds",
+          "Videographers",
+          "Packers",
+          "Rigger Service",
+          "Bathhouse/Hot Showers",
+          "Internet Access",
+          "RV Space w/ Electricity",
+          "Load Organizers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skysthelimit.net"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1606789,
+          41.0358717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 208 Caravan"
+        ],
+        "anchor": 100791,
+        "description": "Premier drop zone facility in Northern California between Sacramento and Bay Area. Fast, clean aircraft. Coaching and load organizing in all disciplines. High altitude and specialty jumps. Rigging loft and pro shop (Action Air Parachutes). Camping and showers available. Open Thursday and Sunday.",
+        "email": "skydancemanifest@gmail.com",
+        "location": [
+          "24390 Aviation Ave",
+          "Davis CA 95616-9408 US",
+          "20 miles SW of Sacramento",
+          "6 miles to nearest hotel"
+        ],
+        "name": "SkyDance SkyDiving",
+        "phone": "530-753-2651",
+        "services": [
+          "Team Rooms",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Packers",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Full-Service Restaurant",
+          "Load Organizers",
+          "Rigger Service",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydanceskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.8569444,
+          38.5793889
         ]
       }
     },
@@ -3129,6 +4584,49 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 206"
+        ],
+        "anchor": 182532,
+        "description": "Open six days a week, year around. 20 miles north of Tulsa. 918-396-PULL.  skydiveairtight.com  Skydive Tulsa.com",
+        "email": "info@skydiveairtight.com",
+        "location": [
+          "1651 S Lombard Ln",
+          "Skiatook OK 74070-1759 US",
+          "20 miles N of Tulsa",
+          "5 mile to nearest hotel"
+        ],
+        "name": "Skydive Airtight",
+        "phone": "(918) 396-PULL",
+        "services": [
+          "Load Organizers",
+          "Team Rooms",
+          "Videographers",
+          "Bathhouse/Hot Showers",
+          "Rigger Service",
+          "Packers",
+          "Equipment Rental/Sales",
+          "Internet Access"
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveairtight.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -96.0109556,
+          36.3551056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Pac 750"
         ],
         "anchor": 161400,
@@ -3253,6 +4751,39 @@
         "coordinates": [
           -85.8237484,
           42.5304676
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 245007,
+        "description": "Open seven days a week, year round.  Take I-95 North or South to A1A (State Rd 200), exit 373.  Head East on A1A, then turn right on Bailey Road.",
+        "email": "skydiveamelia@gmail.com",
+        "location": [
+          "3243 Bailey Rd",
+          "Fernandina Beach FL 32034-9222 US",
+          "40 miles S of Jacksonville",
+          "15 mile to nearest hotel"
+        ],
+        "name": "Skydive Amelia Island",
+        "phone": "(904) 718-4648",
+        "services": [
+          "Internet Access"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydiveameliaisland.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.4611,
+          30.6119
         ]
       }
     },
@@ -3530,6 +5061,39 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 251759,
+        "description": "Located just 30 miles from downtown Baltimore, 60 miles from Washington, D.C.  and Philadelphia. We specialize in Tandem skydiving.",
+        "email": "skydivemaryland@gmail.com",
+        "location": [
+          "3536 Aldino Rd Ste A",
+          "Churchville MD 21028-1925 US",
+          "30 miles N of Baltimore",
+          "3 miles to nearest hotel"
+        ],
+        "name": "Skydive Baltimore",
+        "phone": "(410) 734-4888",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydivebaltimore.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2024028,
+          39.5668378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Pac- 750"
         ],
         "anchor": 347813,
@@ -3736,6 +5300,45 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 208"
+        ],
+        "anchor": 301745,
+        "description": "Open five days a week, all year round.  Located on our own private airstrip that is only one hour east of the San Francisco Bay area.  Air conditioned packing area.  Excellent coaching staff!!",
+        "email": "info@skydivecal.com",
+        "location": [
+          "25001 Kasson Rd",
+          "Tracy CA 95304-9565 US",
+          "50 miles E of San Francisco",
+          "3 miles to nearest hotel"
+        ],
+        "name": "Skydive California",
+        "phone": "(209) 835-7474",
+        "services": [
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Rigger Service",
+          "Internet Access",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivecal.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.335233,
+          37.731247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 182",
           "1 Super Twin Otter",
           "1 King Air"
@@ -3772,6 +5375,40 @@
         "coordinates": [
           -81.1957778,
           34.7893333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 337776,
+        "description": "",
+        "email": "skydivecastroville@gmail.com",
+        "location": [
+          "10527 Airport Rd",
+          "Castroville TX 78009-5300 US",
+          "15 miles SW of San Antonio",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive Castroville",
+        "phone": "830-444-5003",
+        "services": [
+          "Internet Access"
+        ],
+        "training": [
+          "Tandem",
+          "IAD"
+        ],
+        "website": "http://skydivecastroville.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.8511,
+          29.3421
         ]
       }
     },
@@ -3842,6 +5479,124 @@
         "coordinates": [
           -81.1173011,
           35.5743003
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 179778,
+        "description": "Jump in beautiful Northern Michigan at the Charlevoix Municipal Airport. Enjoy amazing views of Grand Traverse Bay, the Beaver Island Archipelago, Little traverse Bay ans entire tip of the Mitt from as high as two miles above the ground. We specialize in first time tandems jumpers but experienced jumpers are also welcome with advance notice.",
+        "email": "info@skydiveharborsprings.com",
+        "location": [
+          "8380 M-119",
+          "Harbor Springs MI 49740 US",
+          "37 miles N of Traverse City",
+          "1/4 mile to nearest hotel"
+        ],
+        "name": "Skydive Charlevoix",
+        "phone": "(231) 242-8822",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.SkydiveCharlevoix.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -85.277467,
+          45.303267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 269042,
+        "description": "We are open May-Sept 5 days a week, closed Tuesday & Wednesday. During the Fall and Spring we are open weekends. Our facilities consist of snack bar, refreshments, indoor packing area and outdoor lawn. We are a C182 dropzone with occasional helicopter and turbine aircraft. We specialize in first time tandem skydives and advanced flying skills. We have on sight Instructor Examiner for Tandem rating, Coach rating, and Static Line rating. Current USPA membership required.",
+        "email": "info@skydivechelan.com",
+        "location": [
+          "201 Airport Way",
+          "Chelan WA 98816-9145 US",
+          "40 miles N of Wenatchee",
+          "3 miles to nearest hotel"
+        ],
+        "name": "Skydive Chelan",
+        "phone": "(509) 881-0687",
+        "services": [
+          "Bunkhouse w/ Beds",
+          "RV Space w/ Electricity",
+          "Bathhouse/Hot Showers",
+          "Packers",
+          "Full-Service Restaurant",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Rigger Service",
+          "Load Organizers",
+          "Videographers"
+        ],
+        "training": [
+          "SL",
+          "Tandem"
+        ],
+        "website": "http://www.skydivechelan.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          119.945814,
+          47.86264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+
+        ],
+        "anchor": 351047,
+        "description": "Veteran owned and operated center. Conveniently located near the Baltimore/Washington Metro Area. We offered Tandem and AFF. Experienced jumpers are welcome.",
+        "email": "info@skydivechesapeake.com",
+        "location": [
+          "24030 Race Track Rd",
+          "Ridgely MD 21660-1624 US",
+          "70 miles E of Baltimore",
+          "19 miles to nearest hotel"
+        ],
+        "name": "Skydive Chesapeake",
+        "phone": "443-523-4162",
+        "services": [
+          "Full-Service Restaurant",
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Load Organizers",
+          "Videographers",
+          "Internet Access",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivechesapeake.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.870831,
+          38.969036
         ]
       }
     },
@@ -3941,7 +5696,7 @@
       "properties": {
         "aircraft": [
           "2 Cessna 182s",
-          "2 Super  Otters"
+          "2 Super Twin Otters"
         ],
         "anchor": 105454,
         "description": "Florida's Skydiving Resort.  Full amenities year round for your vacation and training.  Food, laundry, camping, 12v slots and trailers for rent, rigging, gear sales, rating school, bar, fire pit, swoop pond, internet access, fire pit and more.",
@@ -4512,6 +6267,95 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 206"
+        ],
+        "anchor": 228388,
+        "description": "Private 84-acre airpark, full-time commercial drop zone.  Closest jump center to Knoxville, Pigeon Forge, Gatlinburg, and Smoky Mountains National Park.  USPA designated training center for Tandem, AFF and Static Line.  Shower facilities, camping on DZ, RV sites with water & electricity and tent camping.",
+        "email": "setmanifest@gmail.com",
+        "location": [
+          "1542 W Dumplin Valley Rd",
+          "Dandridge TN 37725-5615 US",
+          "22 miles E of Knoxville",
+          "4 to nearest hotel"
+        ],
+        "name": "Skydive East Tennessee",
+        "phone": "(865) 223-5155",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Videographers",
+          "Rigger Service",
+          "RV Space w/ Electricity",
+          "Load Organizers",
+          "Internet Access",
+          "Packers"
+        ],
+        "training": [
+          "SL",
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydiveET.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.5465,
+          36.0125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 208 Caravans",
+          "1 Super Twin Otter"
+        ],
+        "anchor": 101344,
+        "description": "Open year round! One hour from San Diego and Los Angeles.  Nestled in the scenic recreational valley of Lake Elsinore, CA.  Beautiful lake and ocean views nestled in the surrounding San Bernadino and Ortega Mountains. FS, FF and WS organizing and coaching available.  Covered packing and creeping areas.  Known as one of the worlds friendliest drop-zone.  Please feel free to contact us so that we can assist you in planning your stay.",
+        "email": "skydive@skydiveelsinore.com",
+        "location": [
+          "20701 Cereal St",
+          "Lake Elsinore CA 92530-9650 US",
+          "75 miles SE of Los Angeles",
+          "2 mile to nearest hotel"
+        ],
+        "name": "Skydive Elsinore",
+        "phone": "(951) 245-9939",
+        "services": [
+          "Team Rooms",
+          "Packers",
+          "Internet Access",
+          "Videographers",
+          "Bunkhouse w/ Beds",
+          "Equipment Rental/Sales",
+          "Load Organizers",
+          "Bathhouse/Hot Showers",
+          "Camping Area",
+          "Rigger Service",
+          "RV Space w/ Electricity"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveelsinore.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.3017044,
+          33.6300225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Beech 99",
           "1 Super Twin Otter",
           "1 Pilatus Porter PC-6 B2/H4"
@@ -4990,6 +6834,48 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Pilatus Pc 6"
+        ],
+        "anchor": 351479,
+        "description": "Skydive Great Wall drop zone located in Zhangjiokou, Hebei, China. Open 7 days a week from March to December. The height is 1300 feet. There is a huge area for landing. You can enjoy the Tandem experience and also, can take a AFF course and do fun jumps as well.",
+        "email": "zhangjm@pandaskydive.com",
+        "location": [
+          "ChiCheng COunty,",
+          "Zhangjiakou City Hebei 075599 China",
+          "80 km W of Zhangjiakou",
+          "3 km to nearest hotel"
+        ],
+        "name": "Skydive Great Wall",
+        "phone": "86015695717642",
+        "services": [
+          "Full-Service Restaurant",
+          "Bunkhouse w/ Beds",
+          "RV Space w/ Electricity",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Packers",
+          "Camping Area",
+          "Rigger Service",
+          "Team Rooms"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.pandaskydive.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.056786,
+          40.699585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 182",
           "1 Cessna 206"
         ],
@@ -5023,6 +6909,47 @@
         "coordinates": [
           123.78784,
           11.15774
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Pac 750XL"
+        ],
+        "anchor": 100834,
+        "description": "Full-service sport friendly DZ, turbine aircraft, Canopy, Belly, Freefly Coach, Student AFF and Tandem jumps. 45 miles south of San Jose, closest DZ to Silicon Valley and south SF bay area. Office open seven days a week, jumps Fri to Mon year-round.",
+        "email": "info@skydivehollister.com",
+        "location": [
+          "234 Skylane Dr # B",
+          "Hollister CA 95023-2524 US",
+          "45 miles S of San Jose",
+          "1/2 mile to nearest hotel"
+        ],
+        "name": "Skydive Hollister",
+        "phone": "831-318-1747",
+        "services": [
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Packers",
+          "Videographers",
+          "Load Organizers",
+          "RV Space w/ Electricity",
+          "Internet Access",
+          "Full-Service Restaurant"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.1800funjump.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.4102706,
+          36.8933453
         ]
       }
     },
@@ -5320,6 +7247,81 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 206",
+          "1 Pac 750XL"
+        ],
+        "anchor": 100771,
+        "description": "Welcome to Las Vegas' premier student skydiving center specializing in student tandem training.  We fly a  P-750 XSTOL, utilize the newest state-of-the-art equipment, and offer complimentary transportation from the Las Vegas Strip in our passenger vans.  Enjoy spectacular views of Hoover Dam and Lake Mead as your friends and family watch you land right next to our facility.  Your experience at Skydive Las Vegas will be second-to-none!  Open 7 days a week 365 days a year.  Visit us on Facebook at www.facebook.com/skydivelasvegas",
+        "email": "jump@skydivelasvegas.com",
+        "location": [
+          "1401 Airport Rd",
+          "Boulder City NV 89005-3675 US",
+          "20 miles SE of Las Vegas",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Las Vegas",
+        "phone": "(702) SKY-DIVE",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydivelasvegas.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.857854,
+          35.949427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Antonov 2",
+          "1 Cessna 182"
+        ],
+        "anchor": 301778,
+        "description": "DZ is open weekends during the summer.",
+        "email": "valde@skydive.lv",
+        "location": [
+          "Limbazu pagasts",
+          "Limbazi - Latvia",
+          "90 km NE of Riga",
+          "10 km to nearest hotel"
+        ],
+        "name": "Skydive Latvia",
+        "phone": "371-20164579",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Internet Access",
+          "Load Organizers",
+          "Packers",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydive.lv"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.671044,
+          57.485497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "2 Cessna 182s"
         ],
         "anchor": 268284,
@@ -5439,6 +7441,122 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "2 Piper Navajo PA31s"
+        ],
+        "anchor": 334209,
+        "description": "Open year round on weekends. Climate controlled facility, three separate classrooms, video debrief stations, full rigger loft, twin engine aircraft offering tandems and video. Building completely renovated in 2018. From Tucson take I-10 North for 14 miles to exit 242 toward Marana Regional Airport.",
+        "email": "pat@skydivemarana.com",
+        "location": [
+          "11700 W Avra Valley Rd Unit 88",
+          "Marana AZ 85653-9625 US",
+          "18 miles of Tucson",
+          "7 to nearest hotel"
+        ],
+        "name": "Skydive Marana",
+        "phone": "5206824441",
+        "services": [
+          "Rigger Service",
+          "Internet Access",
+          "Team Rooms",
+          "Videographers",
+          "Packers"
+        ],
+        "training": [
+
+        ],
+        "website": "http://www.skydivemarna.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.220379,
+          32.410721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 183847,
+        "description": "Located one hour northeast on I-15 from Las Vegas and 1/2 hour south from St. George, Utah. Caravan all winter. Indoor packing area. Open all weekends.  Weedays by appointment.  Freefly, Wingsuit or RW, all welcome. If you want to fun jump near Las Vegas, this is the place to be.",
+        "email": "skydive@skydivemesquite.com",
+        "location": [
+          "1200 Kitty Hawk Dr Ste 105",
+          "Mesquite NV 89027-3220 US",
+          "77 miles N of Las Vegas",
+          "1/2 mile to nearest hotel"
+        ],
+        "name": "Skydive Mesquite",
+        "phone": "(877) 2GO-JUMP",
+        "services": [
+          "Rigger Service",
+          "Videographers",
+          "Packers",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Load Organizers"
+        ],
+        "training": [
+          "IAD",
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivemesquite.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.0558889,
+          36.8331389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Pac 750"
+        ],
+        "anchor": 138230,
+        "description": "Welcome to Skydive Miami. We are one of the closest full-service DZs to Miami, South Beach and Ft. Lauderdale. We offer great rates, so come jump with us out of our 15-place Turbine PAC 750  and enjoy our modern indoor air-conditioned facilities for a fantastic holiday. We look forward to seeing you at Skydive Miami.",
+        "email": "skydivemiami@gmail.com",
+        "location": [
+          "28730 SW 217th Ave",
+          "Homestead FL 33030-7611 US",
+          "20 miles SW of Miami",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive Miami",
+        "phone": "(305) 759-3483",
+        "services": [
+          "Packers",
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Internet Access",
+          "Load Organizers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivemiami.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.5542449,
+          25.4992303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Super Twin Otter"
         ],
         "anchor": 192783,
@@ -5475,6 +7593,46 @@
         "coordinates": [
           -89.9589722,
           42.70325
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 Pac 750"
+        ],
+        "anchor": 100639,
+        "description": "Open Tuesday through Sunday and located just 40 minutes from Milwaukee. Right off I-43 at the East Troy Municipal airport. AFF and Tandem instructions available. Rental gear available for licensed skydivers.",
+        "email": "jump@skydivemilwaukee.com",
+        "location": [
+          "W1341 County Road L",
+          "East Troy WI 53120-2128 US",
+          "20 miles SW of Milwaukee",
+          "1 miles to nearest hotel"
+        ],
+        "name": "Skydive Milwaukee/Sky Knights Sport Parachute Club",
+        "phone": "(800) 38-CHUTE",
+        "services": [
+          "Rigger Service",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Load Organizers",
+          "Packers",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivemilwaukee.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -88.3726111,
+          42.7971667
         ]
       }
     },
@@ -5568,6 +7726,44 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 King Air 200"
+        ],
+        "anchor": 118530,
+        "description": "High skydive from 18,000 feet every day, year around. Most spectacular ocean views. Fun-jumpers welcome. Please call or text and we're here to help you get into the sky.",
+        "email": "office@skydivemontereybay.com",
+        "location": [
+          "721 Neeson Rd",
+          "Marina CA 93933-5108 US",
+          "50 miles S of San Jose",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Monterey Bay",
+        "phone": "(831) 384-3483",
+        "services": [
+          "Equipment Rental/Sales",
+          "Packers",
+          "Rigger Service",
+          "Internet Access",
+          "Videographers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivemontereybay.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.7616667,
+          36.6815278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "4 Cessna 182s",
           "2 King Air 90s"
         ],
@@ -5643,6 +7839,53 @@
         "coordinates": [
           -79.918,
           39.648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206",
+          "1 Twin Otter"
+        ],
+        "anchor": 100478,
+        "description": "Open seven days a week from April to November.  Flying a Super Otter, Cessna 206 and Cessna 182.  On-site camping, private airport, bunkhouses, showers/bathrooms, covered packing, video rooms and on-site restaurant.  Offering tandem and AFF training as well as FF and RW organizing.  The only swoop pond in New England!",
+        "email": "info@skydivenewengland.com",
+        "location": [
+          "40 Skydive Ln",
+          "Lebanon ME 04027-4359 US",
+          "65 miles N of Boston",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive New England",
+        "phone": "(207) 339-1520",
+        "services": [
+          "Team Rooms",
+          "RV Space w/ Electricity",
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Videographers",
+          "Load Organizers",
+          "Packers",
+          "Bathhouse/Hot Showers",
+          "Internet Access",
+          "Full-Service Restaurant",
+          "Bunkhouse w/ Beds",
+          "Camping Area",
+          "Swoop pond"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivenewengland.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.9292286,
+          43.3750814
         ]
       }
     },
@@ -5731,6 +7974,43 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 239916,
+        "description": "Skydive Northstar is a part-time seasonal drop zone. Hours of operation are primarily weekends (Saturday and Sunday) and weekdays vary (check website and Facebook page for details). SMS offers USPA licensing packages (IAD) , tandem, coaching and welcomes licensed skydivers. Located off HWY 14 (approx. 60 miles SW of the Twin Cities.",
+        "email": "info@skydivenorthstar.com",
+        "location": [
+          "35493 110th St",
+          "Waseca MN 56093-4520 US",
+          "60 miles SW of Twin Cities",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Skydive Northstar",
+        "phone": "507-461-5838",
+        "services": [
+          "Internet Access",
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "IAD"
+        ],
+        "website": "http://www.skydivenorthstar.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.5529436,
+          44.0734639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 208 Supervan"
         ],
         "anchor": 151840,
@@ -5809,6 +8089,39 @@
         "aircraft": [
           "2 Cessna 182s"
         ],
+        "anchor": 101347,
+        "description": "Skydive Ocean City is a beach front skydiving center serving metro DC, Baltimore and all of Delmarva.  We provide tandem first jump and tandem progression training only.",
+        "email": "jump@skydiveoc.com",
+        "location": [
+          "12724 Airport Rd",
+          "Berlin MD 21811-2420 US",
+          "1 mile SW of Ocean City",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Skydive Ocean City",
+        "phone": "(410) 213-1319",
+        "services": [
+          "Internet Access"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydiveoceancity.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1239722,
+          38.3104444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
         "anchor": 206687,
         "description": "We provide Professional Tandem & sport Skydiving to Omaha, Lincoln Kearney, North Platte, Grand Island and all other Cities in Nebraska and all surrounding states.",
         "email": "skydiveatlas@gmail.com",
@@ -5843,6 +8156,49 @@
         "coordinates": [
           -96.6298611,
           41.6103333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Super Twin Otter",
+          "1 Cessna Carvan"
+        ],
+        "anchor": 100515,
+        "description": "We take fun seriously! Huge, padded indoor packing area. Club atmosphere with an excellent and friendly instructional staff. Open weekends with weekday jumps May-October. AAD's are required. Students, RW, freeflyers, and canopy pilots are all invited to jump all day and camp out with us.",
+        "email": "operations@skydiveorange.com",
+        "location": [
+          "11339 Bloomsbury Rd",
+          "Orange VA 22960-4442 US",
+          "80 miles SW of Washington DC",
+          "3.5 miles to nearest hotel"
+        ],
+        "name": "Skydive Orange, Inc.",
+        "phone": "703-759-3483",
+        "services": [
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "RV Space w/ Electricity",
+          "Internet Access",
+          "Packers",
+          "Rigger Service",
+          "Load Organizers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveorange.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.045556,
+          38.247222
         ]
       }
     },
@@ -5886,6 +8242,48 @@
         "coordinates": [
           -122.6175886,
           45.1462331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 120052,
+        "description": "Skydive Palatka is near the St. John's River.  We have new facilities including a training room and a large covered packing area.  November activities include the annual Hog Flop Boogie.",
+        "email": "info@skydivepalatka.com",
+        "location": [
+          "4015 Reid St",
+          "Palatka FL 32177-2529 US",
+          "40 miles S of Jacksonville",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Skydive Palatka",
+        "phone": "(386) 328-0606",
+        "services": [
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Videographers",
+          "Bathhouse/Hot Showers",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "SL",
+          "Tandem"
+        ],
+        "website": "http://www.skydivepalatka.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.6895031,
+          29.6583825
         ]
       }
     },
@@ -6007,6 +8405,144 @@
         "coordinates": [
           -79.189197,
           35.018664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 King Air",
+          "1 Cessna 206"
+        ],
+        "anchor": 108581,
+        "description": "Open 7 days a week. King Air to 13500 AGL & Cessna 182 to 10500 AGL.  50 miles from downtown Pittsburgh. 4500 ft paved runway.  Tandem & AFF first jump training. Exit 113 off I-79; take 208 W 1 mile; make right at Old Ash Rd--DZ is 1/2 mile on right.",
+        "email": "jump@skydivePA.com",
+        "location": [
+          "496 Old Ash Rd",
+          "Mercer PA 16137-4044 US",
+          "50 miles N of Pittsburgh",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Pennsylvania",
+        "phone": "(800) 909-JUMP",
+        "services": [
+          "Full-Service Restaurant",
+          "Team Rooms",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Camping Area",
+          "Rigger Service",
+          "Videographers",
+          "Packers",
+          "Bathhouse/Hot Showers",
+          "Load Organizers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivePA.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.16775,
+          41.1460278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "5 Skyvans",
+          "3 Super Twin Otters",
+          "1 DC-9"
+        ],
+        "anchor": 100778,
+        "description": "Club Med of Skydiving! Wind tunnel on-site. Open 365 days a year. Free load organizing for all disciplines on weekends. Facilities include: fully equipped house, bar, and video rooms. Indoor Skydiving Center, Square One and full rigging services on DZ. 1.5 hour drive to LAX airport; beaches, mountains, amusement parks and Hollywood. A true family vacation combination!",
+        "email": "manifest@skydiveperris.com",
+        "location": [
+          "2091 Goetz Rd",
+          "Perris CA 92570-9315 US",
+          "90 miles E of Los Angeles",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Perris",
+        "phone": "(951) 657-3904",
+        "services": [
+          "Team Rooms",
+          "Swimming Pool",
+          "Load Organizers",
+          "Bunkhouse w/ Beds",
+          "Full-Service Restaurant",
+          "RV Space w/ Electricity",
+          "Internet Access",
+          "Camping Area",
+          "Rigger Service",
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydiveperris.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.219,
+          33.7646389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s",
+          "2 Cessna 206s",
+          "1 Pac 750 Xl"
+        ],
+        "anchor": 247178,
+        "description": "Skydive Phoenix is located just 12 miles south of downtown Phoenix.  Open 7 days a week year round.  We pride ourselves in making your experience safe, fun, and memorable.  We welcome all levels of jumpers, from first-timers to the experienced.  We offer multiple disciplines  of instruction, specializing in tandem student training and AFF/ASP.",
+        "email": "skydivephoenix@gmail.com",
+        "location": [
+          "56580 W Dasher Dr",
+          "Maricopa AZ 85139-2670 US",
+          "12 miles S of Phoenix",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive Phoenix",
+        "phone": "(480) 557-5867",
+        "services": [
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Videographers",
+          "Packers",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Bunkhouse w/ Beds",
+          "Bathhouse/Hot Showers",
+          "Internet Access"
+        ],
+        "training": [
+          "Tandem",
+          "SL",
+          "AFF"
+        ],
+        "website": "http://www.skydivephoenix.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.1638889,
+          33.0638889
         ]
       }
     },
@@ -6189,6 +8725,39 @@
         "coordinates": [
           51.362342,
           25.701531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 338241,
+        "description": "Our drop zone is close to St. Louis at only 37 miles from downtown. We are a tandem only drop zone.",
+        "email": "jake@skydivingstl.com",
+        "location": [
+          "900 Airport Rd",
+          "Festus MO 63028-4126 US",
+          "36 miles S of St. Louis",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive STL",
+        "phone": "850-543-8756",
+        "services": [
+          "Full-Service Restaurant"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://skydivingstl.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.386062,
+          38.19537
         ]
       }
     },
@@ -6525,6 +9094,48 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 182"
+        ],
+        "anchor": 338961,
+        "description": "Open 7 days a week, spring through fall, by appointment located 5 miles from 16 off I-87 in the center of a beautiful Golf Course. Convenient to the Adirondack Mountains, lake Georges and Saratoga Raceway and Casino.",
+        "email": "skydivesaratoga2017@gmail.com",
+        "location": [
+          "288 Brownville Rd",
+          "Gansevoort NY 12831-2150 US",
+          "8 miles N of Saratoga Springs",
+          "9 miles to nearest hotel"
+        ],
+        "name": "Skydive Saratoga",
+        "phone": "518-895-8140",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Full-Service Restaurant",
+          "Camping Area",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Load Organizers",
+          "Videographers",
+          "Packers",
+          "Internet Access"
+        ],
+        "training": [
+
+        ],
+        "website": "http://skydivesaratoga.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.6331722,
+          43.1834072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Pilatus Porter PC-6 B2/H4"
         ],
         "anchor": 237463,
@@ -6737,6 +9348,43 @@
         "coordinates": [
           35.046947,
           32.811501
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 324007,
+        "description": "Open Saturday and Sunday.  75 miles SW of Washington D.C.  Rt 66 West to Rt 81 South to 211 West",
+        "email": "info@skydiveshenandoah.com",
+        "location": [
+          "57 River Rd",
+          "New Market VA 22844-2080 US",
+          "75 miles SW of Washington DC",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Skydive Shenandoah",
+        "phone": "540-740-9312",
+        "services": [
+          "Camping Area",
+          "Rigger Service",
+          "Internet Access",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveshenandoah.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.7091,
+          38.6558
         ]
       }
     },
@@ -7348,6 +9996,50 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 208 Caravan"
+        ],
+        "anchor": 187112,
+        "description": "Open Friday, Saturday and Sunday.  90 minutes north of L.A.  Freefly and RW coaching available!",
+        "email": "info@skydivetaft.com",
+        "location": [
+          "500 Airport Rd",
+          "Taft CA 93268-3017 US",
+          "90 miles N of Los Angeles",
+          "1/8 mile to nearest hotel"
+        ],
+        "name": "Skydive Taft",
+        "phone": "(661) 765-5867",
+        "services": [
+          "Bunkhouse w/ Beds",
+          "Internet Access",
+          "Equipment Rental/Sales",
+          "Packers",
+          "Rigger Service",
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Bathhouse/Hot Showers",
+          "Load Organizers",
+          "Videographers",
+          "Swimming Pool"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivetaft.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.4382222,
+          35.1417222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 208 Caravan",
           "1 Pilatus Porter PC-6 B2/H4"
         ],
@@ -7383,6 +10075,49 @@
         "coordinates": [
           -8.8275,
           30.5001667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 King Air"
+        ],
+        "anchor": 100622,
+        "description": "A long time running drop zone in Michigan.  Highly experienced staff.  RW and freefly organizers here every weekend helping to make your experience as good as it gets! 14000ft in about 7 min in our King Air! Located in Napoleon, between Jackson & Ann Arbor.",
+        "email": "info@skydivetecumseh.com",
+        "location": [
+          "8607 Cady Rd",
+          "Jackson MI 49201-8529 US",
+          "10 miles SE of Jackson",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive Tecumseh",
+        "phone": "(517) 423-7720",
+        "services": [
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "RV Space w/ Electricity",
+          "Videographers",
+          "Bathhouse/Hot Showers",
+          "Camping Area",
+          "Load Organizers",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "IAD",
+          "AFF"
+        ],
+        "website": "http://www.skydivetecumseh.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.26,
+          42.17
         ]
       }
     },
@@ -7430,6 +10165,46 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Twin Otter"
+        ],
+        "anchor": 301716,
+        "description": "Our drop zone is close to Nashville.  Open Thursday through Monday year round.  Twin Otter. Minutes from restaurants and hotels.",
+        "email": "leslie@skydivetn.com",
+        "location": [
+          "807 William Northern Blvd",
+          "Tullahoma TN 37388-4734 US",
+          "1 mile W of Tullahoma",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Tennessee",
+        "phone": "(931) 455-4574",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Equipment Rental/Sales",
+          "Load Organizers",
+          "Rigger Service",
+          "Internet Access",
+          "Videographers",
+          "Packers"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivetn.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.2466896,
+          35.3800163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Pac 750"
         ],
         "anchor": 336767,
@@ -7463,6 +10238,44 @@
         "coordinates": [
           101.630516,
           12.710286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206"
+        ],
+        "anchor": 338705,
+        "description": "Skydive the Falls offers close aerial views of Niagara Falls along with a skydive. Conveniently located 20 miles from Buffalo,NY. Open seven days a week, More information available at www.skydivethefalls.com.",
+        "email": "info@skydivethefalls.com",
+        "location": [
+          "1698 Braley Rd",
+          "Youngstown NY 14174-9733 US",
+          "10 miles N of Niagara Falls",
+          "2 miles to nearest hotel"
+        ],
+        "name": "Skydive The Falls",
+        "phone": "716-783-1100",
+        "services": [
+          "Camping Area",
+          "Internet Access",
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivethefalls.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.9653194444,
+          43.2611638889
         ]
       }
     },
@@ -7542,6 +10355,42 @@
         "coordinates": [
           -87.536697,
           30.426201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Super Twin Otters",
+          "1 Pilatus Porter PC-6 B2/H4"
+        ],
+        "anchor": 150777,
+        "description": "Open seven days a week, April-October. Open weekends March, November, December. Fly the Fantasy! Shawanga!",
+        "email": "skydivetheranch@gmail.com",
+        "location": [
+          "45 Sand Hill Rd",
+          "Gardiner NY 12525-5623 US",
+          "70 miles N of New York City",
+          "7 miles to nearest hotel"
+        ],
+        "name": "Skydive The Ranch",
+        "phone": "(845) 255-4033",
+        "services": [
+
+        ],
+        "training": [
+          "AFF",
+          "Tandem",
+          "IAD"
+        ],
+        "website": "http://www.skydivetheranch.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.150233,
+          41.674253
         ]
       }
     },
@@ -7636,6 +10485,47 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "1 Cessna 182"
+        ],
+        "anchor": 119092,
+        "description": "Friendly drop zone located between Portland, Oregon and Olympia, Wash.  View of Mt. St. Helens and Cascade mountain range. Open year-round. AFF and Coach Examiner on site.  All jumpers welcome!",
+        "email": "h_whittaker@hotmail.com",
+        "location": [
+          "Hangar 3 Old Jackson Hwy",
+          "Toledo WA 98591 US",
+          "60 miles N of Portland",
+          "13 miles to nearest hotel"
+        ],
+        "name": "Skydive Toledo",
+        "phone": "(360) 864-2230",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Bunkhouse w/ Beds",
+          "Camping Area",
+          "RV Space w/ Electricity",
+          "Internet Access",
+          "Rigger Service",
+          "Equipment Rental/Sales",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivetoledo.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.8064789,
+          46.4771675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "2 Cessna 182s"
         ],
         "anchor": 270911,
@@ -7678,6 +10568,39 @@
         "coordinates": [
           23.931944,
           46.481111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna Turbo 206"
+        ],
+        "anchor": 301804,
+        "description": "Open 7 days/wk by appointment for tandem skydiving, May to Oct. Experienced skydivers must have a minimum USPA D-license. Located at Truckee Tahoe Airport, take 1-80 W from Reno, 1-80 E from Sacramento. Exit 188, CA-89/CA-267 towards Lake Tahoe.",
+        "email": "skydive@skydivetruckeetahoe.com",
+        "location": [
+          "13184 Sailplane Way",
+          "Truckee CA 96161 US",
+          "30 NE of Reno",
+          "2 to nearest hotel"
+        ],
+        "name": "Skydive Truckee Tahoe",
+        "phone": "(530) 562-7530",
+        "services": [
+
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": "http://www.skydivetrukeetahoe.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.139562,
+          39.320042
         ]
       }
     },
@@ -7762,6 +10685,47 @@
         "coordinates": [
           -45.183,
           -23.0914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 182",
+          "1 Cessna 208"
+        ],
+        "anchor": 150778,
+        "description": "Salt Lake City's skydiving center! Large hanger with padded packing areas, gear store and rigging services. Our large landing area vast surrounding fields makes us a safe drop zone. 13,000' AGL in under 13 mins with our Supervan.",
+        "email": "fly@skydiveutah.com",
+        "location": [
+          "4647 Airport Rd",
+          "Erda UT 84074-9337 US",
+          "30 miles W of Salt Lake City",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Skydive Utah",
+        "phone": "(435) 833-9999",
+        "services": [
+          "Internet Access",
+          "Camping Area",
+          "Videographers",
+          "Equipment Rental/Sales",
+          "Rigger Service",
+          "Load Organizers",
+          "Packers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydiveutah.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.3507778,
+          40.612556
         ]
       }
     },
@@ -8021,6 +10985,43 @@
         "coordinates": [
           -118.2902798,
           47.160556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Pac 750XL"
+        ],
+        "anchor": 247620,
+        "description": "Skydive Windy City is located close to Chicago.  Located in NW Indiana, we offer amazing views of Lake Michigan and downtown Chicago.  Jump altitiude is 10,000' (AGL).  We are located at the Michigan City Municipal Airport (MGC), less than a 1 hour drive from downtown Chicago or the South Suburbs.  We offer tandem jumping, solo training and experienced (licensed) jumping.",
+        "email": "info@skydivewindycitychicago.com",
+        "location": [
+          "1300 S Indiana Highway 212",
+          "Michigan City IN 46360-3186 US",
+          "52 miles E of Chicago",
+          "1 mile to nearest hotel"
+        ],
+        "name": "Skydive Windy City-Chicago",
+        "phone": "(219) 210-3338",
+        "services": [
+          "Packers",
+          "Internet Access",
+          "Rigger Service",
+          "Equipment Rental/Sales"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.skydivewindycitychicago.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.822566,
+          41.70512
         ]
       }
     },
@@ -8491,6 +11492,84 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+
+        ],
+        "anchor": 350154,
+        "description": "Open year around. There is a high speed train from either Haikou or Sanya. A beach tandem operation in Asia, outside Camera available.",
+        "email": "wefly17@gmail.com",
+        "location": [
+          "Zhong Yuan Zhen, BO AO Ji CHang",
+          "BO AO Tiao San Zhong Xin ",
+          "Hainan Sheng, Qiona Hai Shi 571400 China",
+          "100 km NE of Sanya",
+          "1 km to nearest hotel"
+        ],
+        "name": "The Beach Skydive Company",
+        "phone": "86 18420456504",
+        "services": [
+          "Packers",
+          "Internet Access",
+          "Videographers"
+        ],
+        "training": [
+          "Tandem"
+        ],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.4626748,
+          19.1402401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 206688,
+        "description": "Currently, open every weekend.  Will open during the week if you have 4 jumpers willing to commit to 8 jumps or more.  From Savannah(I95), take 16 West to exit 127.  At exit 127, go NW on State Rd 67 for 10.8 miles.  Turn right on US 301 bypass for 4.5 miles.  Turn right onto Airport Blvd.  In 1/2 mile, turn right onto Airport Dr.  We are in the large hangar on your left.  Blue hangar with large The Jumping Place sign.  Large hangar with 900 acres to land on! Call 912-322-7282 for the Gate Access Code.",
+        "email": "thejumpingplace@gmail.com",
+        "location": [
+          "127 Airport Dr",
+          "Statesboro GA 30461-7565 US",
+          "35 miles W of Savannah International Airport",
+          "5 miles to nearest hotel"
+        ],
+        "name": "The Jumping Place",
+        "phone": "(912) 322-7282",
+        "services": [
+          "Bathhouse/Hot Showers",
+          "Videographers",
+          "Rigger Service",
+          "Packers",
+          "Internet Access",
+          "Load Organizers",
+          "Equipment Rental/Sales"
+        ],
+        "training": [
+          "AFF",
+          "IAD",
+          "SL",
+          "Tandem"
+        ],
+        "website": "http://www.thejumpingplace.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.7369444,
+          32.48275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "1 Cessna 172"
         ],
         "anchor": 301677,
@@ -8607,6 +11686,47 @@
         "coordinates": [
           139.520933,
           35.977351
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 208"
+        ],
+        "anchor": 231186,
+        "description": "Open Friday through Sunday year round. Fast place; 20 minutes to altitude, large landing area with separate high performance area.  RW and FF load organizers/coaches/videographers.  Indoor packing with carpeted mats for comfort.  Upstairs classrooms for professional training environment and a rigging loft with a rigger on site.  20 minute drive north of Raleigh.",
+        "email": "manager@triangleskydiving.com",
+        "location": [
+          "480 Airport Rd Ste 200",
+          "Louisburg NC 27549-6806 US",
+          "25 NE of Raleigh",
+          "5 miles to nearest hotel"
+        ],
+        "name": "Triangle Skydiving Center",
+        "phone": "(919) 497-5867",
+        "services": [
+          "Videographers",
+          "Team Rooms",
+          "Rigger Service",
+          "Load Organizers",
+          "Packers",
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "Bathhouse/Hot Showers"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.triangleskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.33025,
+          36.0233611
         ]
       }
     },
@@ -8767,6 +11887,44 @@
       "type": "Feature",
       "properties": {
         "aircraft": [
+          "2 Cessna 182s"
+        ],
+        "anchor": 234681,
+        "description": "WNYSkydiving is located northeast of Buffalo, NY.  We offer Tandem and AFF as well as fun jumping--7 days per week.  Please check www.WNYSkydiving.com for further details.",
+        "email": "tim@timuuu.com",
+        "location": [
+          "4906 Pine Hill Rd",
+          "Albion NY 14411-9241 US",
+          "54 miles NE of Buffalo",
+          "5 miles to nearest hotel"
+        ],
+        "name": "WNYSkydiving",
+        "phone": "(716) 597-7393",
+        "services": [
+          "Packers",
+          "Internet Access",
+          "Camping Area",
+          "Rigger Service",
+          "Equipment Rental/Sales"
+        ],
+        "training": [
+          "AFF",
+          "Tandem"
+        ],
+        "website": "http://www.wnyskydiving.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.2746325,
+          43.1735308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
           "6 Cessna Caravans"
         ],
         "anchor": 340768,
@@ -8807,6 +11965,98 @@
         "coordinates": [
           47.6898,
           23.2964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Super King Air B90",
+          "1 Hiller Uh-12c Helo",
+          "1 Pitts S-2b Biplane"
+        ],
+        "anchor": 216257,
+        "description": "Entire DZ facility Air-Conditioned, including packing area and bathrooms. Free camping & bunking, hot showers, RV hookups and pool. FAI/IPC swoop pond, 80' x 300'. FREE Coaches for all AFF Graduates until \"A\" License! Super King Air, 14,500', HALO Oxygen jumps 23,000 & 28,000. Helicopter, inverted Bi-Plane jumps.",
+        "email": "michaelmullins@skydivekingair.com",
+        "location": [
+          "985 Laverne Davis Rd",
+          "Whiteville TN 38075-8107 US",
+          "29 E of Memphis",
+          "12 to nearest hotel"
+        ],
+        "name": "West Tennessee Skydiving",
+        "phone": "(901) 759-3483",
+        "services": [
+          "RV Space w/ Electricity",
+          "Camping Area",
+          "Rigger Service",
+          "Bunkhouse w/ Beds",
+          "Bathhouse/Hot Showers",
+          "Swimming Pool",
+          "Equipment Rental/Sales",
+          "Load Organizers",
+          "Swoop pond",
+          "Videographers",
+          "Internet Access",
+          "Packers",
+          "Team Rooms"
+        ],
+        "training": [
+          "Tandem",
+          "AFF"
+        ],
+        "website": "http://www.skydivekingair.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.1888889,
+          35.223738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [
+          "1 Cessna 206",
+          "1 Cessna 182"
+        ],
+        "anchor": 238789,
+        "description": "",
+        "email": "wv.skydivers@gmail.com",
+        "location": [
+          "138 Kyle Lane",
+          "Huntington WV 25537 US",
+          "6 miles NE of Huntington",
+          "6 miles to nearest hotel"
+        ],
+        "name": "West Virginia Skydivers Inc",
+        "phone": "(304) 733-1240",
+        "services": [
+          "Load Organizers",
+          "Packers",
+          "Bathhouse/Hot Showers",
+          "RV Space w/ Electricity",
+          "Videographers",
+          "Camping Area",
+          "Equipment Rental/Sales",
+          "Internet Access",
+          "Full-Service Restaurant",
+          "Rigger Service"
+        ],
+        "training": [
+          "IAD",
+          "Tandem"
+        ],
+        "website": "http://www.skydivewv.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.31376,
+          38.4570289
         ]
       }
     },

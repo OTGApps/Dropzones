@@ -24,6 +24,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
         navigation.navigate("list-detail", {
           item,
           itemType: "aircraft",
+          title: item,
         })
       }
     >
