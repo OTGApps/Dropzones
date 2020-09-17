@@ -63,7 +63,11 @@ export const MapScreen: Component = observer(function MapScreen() {
   }
 
   const markersArray = dropzones.map(d => (
-    <Marker key={d.anchor.toString()} coordinate={d.coordinates as LatLng}>
+    <Marker
+      key={d.anchor.toString() + "_" + Date.now()}
+      coordinate={d.coordinates as LatLng}
+      pointerEvents="auto"
+    >
       <Callout onPress={() => goToDetail(d)}>
         <ListItem
           containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}

@@ -85,6 +85,9 @@ export const RootStoreModel = types.model("RootStore", {
   //   self.flags.replace(_.filter(self.flags, f => (f !== anchor)))
   // }
 })).views(self => ({
+  dropzoneById(anchor) {
+    return _.find(self.dropzones, d => (parseInt(d.anchor) === parseInt(anchor)))
+  },
   // Gets all the dropzones that have flags
   // get flaggedDropzones () {
   //   if (__DEV__) console.tron.log('flags', self.flags)

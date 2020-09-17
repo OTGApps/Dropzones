@@ -141,12 +141,8 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const anchor = parseInt(route.params.anchor)
 
   const rootStore = useStores()
-  const { dropzones } = rootStore
-  // const { dropzones, flags } = rootStore
+  const selectedDZ = rootStore.dropzoneById(anchor)
 
-  const selectedDZ: Dropzone = _.find(dropzones, d => {
-    return parseInt(d.anchor) === anchor
-  })
   // TODO - what if the DZ isn't in the database. How did the user get here?
   // maybe from a tyop'd app url?
 
@@ -197,8 +193,8 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     const { coordinates } = selectedDZ
     const regionToDisplay = {
       ...coordinates,
-      latitudeDelta: 0.044,
-      longitudeDelta: 0.055,
+      latitudeDelta: Platform.select({ ios: 0.044, android: 0.005 }),
+      longitudeDelta: Platform.select({ ios: 0.055, android: 0.015 }),
     }
     return (
       <View key={"background"}>
@@ -208,7 +204,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           initialRegion={regionToDisplay}
           region={regionToDisplay} // Initial region doesn't work alone on android.
           mapType={"satellite"}
-          liteMode
+          // liteMode
         >
           <Marker coordinate={coordinates} />
         </MapView>
