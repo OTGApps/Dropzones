@@ -1,7 +1,7 @@
 import React, { FunctionComponent as Component, useState, useRef, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, Dimensions, Platform } from "react-native"
+import { ViewStyle, Dimensions, Platform, TouchableOpacity, View } from "react-native"
 import { useStores } from "../models/root-store/root-store-context"
 import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from "react-native-elements"
@@ -34,22 +34,26 @@ export const MapScreen: Component = observer(function MapScreen() {
   const navigation = useNavigation()
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
-  // const [followsUserLocation, setFollowsUserLocation] = useState(false)
+  const [initialZoomDone, setInitialZoomDone] = useState(false)
   const mapRef = useRef(null)
 
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
         <Icon
-          name={"map-pin"}
+          name={"location-arrow"}
           type={"font-awesome"}
           size={22}
-          color={color.palette.white}
+          color={showsUserLocation ? color.palette.white : color.palette.transparentWhite}
           onPress={() => setShowsUserLocation(!showsUserLocation)}
         />
       ),
     })
-  }, [navigation, showsUserLocation, setShowsUserLocation])
+
+    if (showsUserLocation === false) {
+      setInitialZoomDone(false)
+    }
+  }, [navigation, showsUserLocation])
 
   const goToDetail = dropzone => {
     navigation.navigate("dropzone-detail", {
@@ -83,7 +87,7 @@ export const MapScreen: Component = observer(function MapScreen() {
       clusterFontFamily={typography.primary}
       tracksViewChanges={false}
       spiralEnabled={false}
-      extent={350} // Changing the number changes how close the dropzones have to be to be grouped.
+      animationEnabled
       edgePadding={{
         top: spacing[11],
         left: spacing[11],
@@ -93,24 +97,22 @@ export const MapScreen: Component = observer(function MapScreen() {
       // @ts-ignore
       userLocationPriority={"passive"} // Android setting
       showsUserLocation={showsUserLocation}
-      // onMapReady={() => {
-      //   if (__DEV__) console.log('onmapready', mapRef)
-      // }}
-      // @ts-ignore
-      // onRegionChangeComplete={(region, markers) => {
-      //   if (__DEV__) console.tron.log('region', region, markers);
-      // }}
+      followsUserLocation={false}
       onUserLocationChange={e => {
-        const { coordinate } = e.nativeEvent
-        if (!coordinate) return
-        const { mapView } = mapRef.current || {}
-        mapView.animateCamera(
-          {
-            center: _.pick(coordinate, ["longitude", "latitude"]),
-            altitude: 10000 * 100,
-          },
-          4000,
-        )
+        if (!initialZoomDone) {
+          const { coordinate } = e.nativeEvent
+          if (!coordinate) return
+          const { mapView } = mapRef.current || {}
+          const region = {
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude,
+            latitudeDelta: 5,
+            longitudeDelta: 5,
+          }
+
+          mapView.animateToRegion(region, 500)
+          setInitialZoomDone(true)
+        }
       }}
     >
       {markersArray}

@@ -1,6 +1,7 @@
 export const palette = {
   black: "#000000",
   white: "#ffffff",
+  transparentWhite: "#ffffff88",
   offWhite: "#e6e6e6",
   orange: "#CE5F23",
   orangeDarker: "#A7430D",

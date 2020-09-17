@@ -42,8 +42,6 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       removeClippedSubviews
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })

@@ -43,8 +43,6 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
       data={sortedFromUser}
       renderItem={renderItem}
       removeClippedSubviews
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })

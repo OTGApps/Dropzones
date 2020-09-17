@@ -10,8 +10,6 @@ import FastImage from "react-native-fast-image"
 import { CountBadge } from "../../components"
 import _ from "lodash"
 
-const unitedNationsFlag = require("./flags/united-nations.png")
-
 const FULL: ViewStyle = {
   flex: 1,
   backgroundColor: color.background,
@@ -70,8 +68,6 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })

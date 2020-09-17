@@ -42,8 +42,6 @@ export const ByServicesScreen: Component = observer(function ByServicesScreen() 
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       removeClippedSubviews
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })

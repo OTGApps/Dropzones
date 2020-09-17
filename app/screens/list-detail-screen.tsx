@@ -54,8 +54,6 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
       }
       renderItem={renderItem}
       removeClippedSubviews
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })

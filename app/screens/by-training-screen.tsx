@@ -49,8 +49,6 @@ export const ByTrainingScreen: Component = observer(function ByTrainingScreen() 
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       removeClippedSubviews
-      // initialNumToRender={5}
-      // maxToRenderPerBatch={5}
     />
   )
 })
