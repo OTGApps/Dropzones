@@ -73,7 +73,7 @@
     "@types/ramda": "0.26.44",
     "@types/react": "16.9.23",
     "@types/react-native": "0.61.23",
-    "@types/react-native-maps": "0.27.1",
+    "@types/react-native-maps": "0.24.0",
     "@types/react-test-renderer": "16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",

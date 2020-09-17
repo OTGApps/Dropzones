@@ -2225,7 +2225,7 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-native-maps@0.27.1":
+"@types/react-native-maps@0.24.0":
   version "0.24.0"
   resolved "https://registry.yarnpkg.com/@types/react-native-maps/-/react-native-maps-0.24.0.tgz#20ce7f8971cb34e788f5d8998ae9ed01e524028d"
   integrity sha512-72JK63rvQ2+KOskjVFROR29JPFGPG7buWw4mNbqLtfq81DIBpFFLVjytGC3YYVbbYF/s/P7CohrLhEwUZsuDhQ==
