@@ -61,7 +61,7 @@ export const DropzoneModel = types
 // prettier-ignore
 export const RootStoreModel = types.model("RootStore", {
   dropzones: types.array(DropzoneModel),
-  flags: types.array(types.number)
+  // flags: types.array(types.number)
 }).actions(self => ({
   afterCreate() {
     self.dropzones = dropzoneData.features.map((f: any) => {
@@ -78,20 +78,20 @@ export const RootStoreModel = types.model("RootStore", {
     // Uncomment this to reset the flag database
     // self.flags.replace([])
   },
-  addFlag (anchor: number) {
-    self.flags.replace([anchor, ...self.flags])
-  },
-  removeFlag (anchor: number) {
-    self.flags.replace(_.filter(self.flags, f => (f !== anchor)))
-  }
+  // addFlag (anchor: number) {
+  //   self.flags.replace([anchor, ...self.flags])
+  // },
+  // removeFlag (anchor: number) {
+  //   self.flags.replace(_.filter(self.flags, f => (f !== anchor)))
+  // }
 })).views(self => ({
   // Gets all the dropzones that have flags
-  get flaggedDropzones () {
-    if (__DEV__) console.tron.log('flags', self.flags)
-    if (__DEV__) console.tron.log('', _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor)))
+  // get flaggedDropzones () {
+  //   if (__DEV__) console.tron.log('flags', self.flags)
+  //   if (__DEV__) console.tron.log('', _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor)))
 
-    return _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor))
-  },
+  //   return _.filter(self.dropzones, (d) => _.includes(self.flags, d.anchor))
+  // },
 
   // Lists all unique aircraft names
   get uniqueAircraft () {

@@ -141,7 +141,8 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const anchor = parseInt(route.params.anchor)
 
   const rootStore = useStores()
-  const { dropzones, flags } = rootStore
+  const { dropzones } = rootStore
+  // const { dropzones, flags } = rootStore
 
   const selectedDZ: Dropzone = _.find(dropzones, d => {
     return parseInt(d.anchor) === anchor
@@ -178,7 +179,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     const focusListener = navigation.addListener("focus", showDisclaimerAlert)
     // Return the focuslistener so it gets removed and we don't cause a memory leak.
     return focusListener
-  }, [navigation, flags])
+  }, [navigation])
 
   // Calculate the background opacity based on their scroll position.
   let backgroundOpacity = BACKGROUND_OPACITY
@@ -240,11 +241,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     }
   }
 
-  const isFlagged = _.includes(flags, anchor)
-  const toggleFlag = () => {
-    if (__DEV__) console.tron.log("toggle flag. isFlagged", isFlagged)
-    isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
-  }
+  // const isFlagged = _.includes(flags, anchor)
+  // const toggleFlag = () => {
+  //   if (__DEV__) console.tron.log("toggle flag. isFlagged", isFlagged)
+  //   isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
+  // }
 
   const renderForeground = () => (
     <View key="parallax-header" style={styles.parallaxHeader}>
@@ -266,7 +267,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
         buttonStyle={styles.noPadding}
         onPress={openWebsite}
       />
-      <View>
+      {/* <View>
         <Avatar
           containerStyle={styles.iconContainer}
           icon={{
@@ -277,7 +278,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           }}
           onPress={toggleFlag}
         />
-      </View>
+      </View> */}
     </View>
   )
 

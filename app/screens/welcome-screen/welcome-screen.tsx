@@ -45,18 +45,10 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
 
   const rightElement = item => {
     switch (item.screen) {
-      case "flagged":
-        return <CountBadge count={flags.length} />
+      // case "flagged":
+      //   return <CountBadge count={flags.length} />
       default:
         return null
-    }
-  }
-
-  const renderChevron = i => {
-    if (i.screen === "near-me" && loading) {
-      return <ActivityIndicator />
-    } else {
-      return !!i.screen // returns true if there's a screen defined in the json file.
     }
   }
 

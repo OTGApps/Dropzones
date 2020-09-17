@@ -1,5 +1,4 @@
-[
-  {
+[{
     "id": 0,
     "title": "Near Me",
     "subtitle": "Find the DZs closest to you right now!",
@@ -46,12 +45,5 @@
     "subtitle": "Too cool for AFF and want to try static line?",
     "iconName": "cubes",
     "screen": "by-training"
-  },
-  {
-    "id": 7,
-    "title": "Flagged",
-    "subtitle": "Your flagged DZs",
-    "iconName": "flag",
-    "screen": "flagged"
   }
 ]

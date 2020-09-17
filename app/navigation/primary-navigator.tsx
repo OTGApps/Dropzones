@@ -14,7 +14,7 @@ import {
   ByAircraftScreen,
   ByServicesScreen,
   ByTrainingScreen,
-  FlaggedScreen,
+  // FlaggedScreen,
   DropzoneDetailScreen,
   ListDetailScreen,
   NearMeScreen,
@@ -33,7 +33,7 @@ export type PrimaryParamList = {
   "by-aircraft": undefined
   "by-services": undefined
   "by-training": undefined
-  flagged: undefined
+  // flagged: undefined
 }
 
 const Stack = createNativeStackNavigator<PrimaryParamList>()
@@ -98,13 +98,13 @@ export function PrimaryNavigator() {
         }}
         component={ByAircraftScreen}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="flagged"
         options={{
           title: "Flagged",
         }}
         component={FlaggedScreen}
-      />
+      /> */}
       <Stack.Screen
         name="by-services"
         options={{
