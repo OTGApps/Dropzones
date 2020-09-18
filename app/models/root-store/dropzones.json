@@ -1,7 +1,6 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
+  "features": [{
       "type": "Feature",
       "properties": {
         "aircraft": [
@@ -511,47 +510,6 @@
         "coordinates": [
           -71.4913814,
           41.9207633
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "aircraft": [
-          "1 Casa 212"
-        ],
-        "anchor": 344118,
-        "description": "IDIS offers 3 training hangars in Hearne, TX. Each hangar is 3150 ft, 2 with 2,230 ft and 2 with padded pack space and a double locked climate controlled gear loft or reception area. Each hangar also includes 2 debriefing stations with high definition TV's, tables, chairs, a refrigerator, coffee maker and microwave. On airport DZ's are within walking distance of all 3 hangars to simplify and streamline training efficiency, in addition to several off-airport DZ's in the surrounding area. Hearne Municipal Airport is also conveniently located within 10 minutes of commercial lodging and dining.",
-        "email": "info@idis-corp.com",
-        "location": [
-          "Crennan Lane",
-          "Hearne TX 77859 US",
-          "22 miles NW of Bryan",
-          "1.6 miles to nearest hotel"
-        ],
-        "name": "Brown DZ",
-        "phone": "877-800-8307",
-        "services": [
-          "Bathhouse/Hot Showers",
-          "Equipment Rental/Sales",
-          "Load Organizers",
-          "Internet Access",
-          "Camping Area",
-          "Packers",
-          "Rigger Service",
-          "RV Space w/ Electricity"
-        ],
-        "training": [
-          "AFF",
-          "Tandem"
-        ],
-        "website": "http://www.idis-corp.com"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -96.614779,
-          30.867507
         ]
       }
     },
