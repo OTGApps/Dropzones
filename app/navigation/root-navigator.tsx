@@ -7,11 +7,12 @@ import { PrimaryNavigator } from "./primary-navigator"
 import { MapNavigator, MapParamList } from "./map-navigator"
 import { color } from "../theme"
 import { Icon, Text } from "react-native-elements"
-import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from "@gorhom/animated-tabbar"
+import AnimatedTabBar from "@gorhom/animated-tabbar"
 import { palette } from "../theme/palette"
 import Animated from "react-native-reanimated"
 import _ from "lodash"
 import { AboutScreen } from "../screens"
+import { StatusBar } from "react-native"
 
 /**
  * The root navigator is used to switch between major navigation flows of your app.
@@ -81,8 +82,9 @@ const MapStack = () => {
 }
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
-const tabs: TabsConfig<BubbleTabBarItemConfig> = {
+const tabs = {
   dropzones: {
+    title: "Dropzones",
     labelStyle: {
       color: color.primary,
     },
@@ -99,6 +101,7 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
     },
   },
   map: {
+    title: "Map",
     labelStyle: {
       color: color.primary,
     },
@@ -147,6 +150,7 @@ export const RootNavigator = React.forwardRef<
 
   return (
     <NavigationContainer {...props} ref={ref} linking={linking} fallback={<Text>Loading...</Text>}>
+      <StatusBar backgroundColor={"transparent"} translucent barStyle="light-content" />
       <TabStack />
     </NavigationContainer>
   )
