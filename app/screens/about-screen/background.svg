@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1025px" height="1024px" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.02 0 1025 0 1025 1024 0.02 1024"></polygon>
+        <linearGradient x1="25.5032098%" y1="110.236825%" x2="74.4964975%" y2="-10.2371158%" id="linearGradient-3">
+            <stop stop-color="#00AEEF" offset="20.9%"></stop>
+            <stop stop-color="#2E3192" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-4" points="0.02 0 1025 0 1025 1024 0.02 1024"></polygon>
+        <linearGradient x1="1.17397072e-05%" y1="49.9989594%" x2="99.9998122%" y2="49.9989594%" id="linearGradient-6">
+            <stop stop-color="#FDC70C" offset="2.16%"></stop>
+            <stop stop-color="#8DC63F" offset="57.65%"></stop>
+            <stop stop-color="#006838" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-7" points="0.02 0 1025 0 1025 1024 0.02 1024"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DZ_LOCATOR_APP_BADGE_UNBOUND_1024PX">
+            <g id="Clipped">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Shape"></g>
+                <polygon id="Shape" fill="url(#linearGradient-3)" fill-rule="nonzero" mask="url(#mask-2)" points="0.02 -10.79 1025 -10.79 1025 1020.9 0.02 1020.9"></polygon>
+            </g>
+            <g id="Clipped">
+                <mask id="mask-5" fill="white">
+                    <use xlink:href="#path-4"></use>
+                </mask>
+                <g id="Shape"></g>
+                <polygon id="Shape" fill="url(#linearGradient-6)" fill-rule="nonzero" mask="url(#mask-5)" points="-339.3 676.66 1364.32 676.66 1364.32 1061.07 -339.3 1061.07"></polygon>
+            </g>
+            <g id="Clipped">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Shape"></g>
+            </g>
+        </g>
+    </g>
+</svg>

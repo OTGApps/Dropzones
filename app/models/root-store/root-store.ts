@@ -149,7 +149,7 @@ export const RootStoreModel = types.model("RootStore", {
  */
 export interface RootStore extends Instance<typeof RootStoreModel> {}
 export interface Dropzone extends Instance<typeof DropzoneModel> {}
-export interface Flag extends Instance<typeof FlagModel> {}
+// export interface Flag extends Instance<typeof FlagModel> {}
 
 /**
  * The data of a RootStore.

@@ -11,6 +11,7 @@ import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from "@gorhom/anim
 import { palette } from "../theme/palette"
 import Animated from "react-native-reanimated"
 import _ from "lodash"
+import { AboutScreen } from "../screens"
 
 /**
  * The root navigator is used to switch between major navigation flows of your app.
@@ -32,6 +33,7 @@ import _ from "lodash"
 export type RootParamList = {
   primaryStack: undefined
   mapStack: undefined
+  about: undefined
 }
 
 const Stack = createNativeStackNavigator<RootParamList>()
@@ -53,6 +55,7 @@ const PrimaryStack = () => {
           headerShown: false,
         }}
       />
+      <Stack.Screen name="about" component={AboutScreen} />
     </Stack.Navigator>
   )
 }
@@ -79,7 +82,7 @@ const MapStack = () => {
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 const tabs: TabsConfig<BubbleTabBarItemConfig> = {
-  Dropzones: {
+  dropzones: {
     labelStyle: {
       color: color.primary,
     },
@@ -95,7 +98,7 @@ const tabs: TabsConfig<BubbleTabBarItemConfig> = {
       inactiveColor: palette.white,
     },
   },
-  Map: {
+  map: {
     labelStyle: {
       color: color.primary,
     },
@@ -125,8 +128,8 @@ const TabStack = () => {
       tabBarOptions={tabBarOptions}
       tabBar={props => <AnimatedTabBar tabs={tabs} {...props} />}
     >
-      <Tab.Screen name="Dropzones" component={PrimaryStack} />
-      <Tab.Screen name="Map" component={MapStack} />
+      <Tab.Screen name="dropzones" component={PrimaryStack} />
+      <Tab.Screen name="map" component={MapStack} />
     </Tab.Navigator>
   )
 }

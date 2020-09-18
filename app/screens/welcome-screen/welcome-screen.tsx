@@ -1,7 +1,6 @@
-import React, { FunctionComponent as Component, useState } from "react"
+import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { useStores } from "../../models/root-store/root-store-context"
 import { ViewStyle, FlatList, Alert, ActivityIndicator } from "react-native"
 import { color } from "../../theme"
 import { CountBadge } from "../../components"
@@ -16,7 +15,6 @@ const FULL: ViewStyle = {
 
 export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   const navigation = useNavigation()
-  const { flags } = useStores()
 
   Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: "whenInUse" })
 
@@ -24,6 +22,20 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   // It disables all the rows from interaction and shows a loading icon
   // on the near-me menu item.
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <Icon
+          name={"info-circle"}
+          type={"font-awesome"}
+          size={22}
+          color={color.palette.white}
+          onPress={() => navigation.navigate("about")}
+        />
+      ),
+    })
+  }, [])
 
   const openNearMeScreen = () => {
     setLoading(true)
@@ -45,8 +57,8 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
 
   const rightElement = item => {
     switch (item.screen) {
-      // case "flagged":
-      //   return <CountBadge count={flags.length} />
+      case "near-me":
+        return loading ? <ActivityIndicator /> : null
       default:
         return null
     }
