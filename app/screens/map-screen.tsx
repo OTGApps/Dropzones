@@ -43,7 +43,7 @@ export const MapScreen: Component = observer(function MapScreen() {
         <Icon
           name={"location-arrow"}
           type={"font-awesome"}
-          size={22}
+          size={24}
           color={showsUserLocation ? color.palette.white : color.palette.transparentWhite}
           onPress={() => setShowsUserLocation(!showsUserLocation)}
         />

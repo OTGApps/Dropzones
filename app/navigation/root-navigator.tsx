@@ -11,8 +11,8 @@ import AnimatedTabBar from "@gorhom/animated-tabbar"
 import { palette } from "../theme/palette"
 import Animated from "react-native-reanimated"
 import _ from "lodash"
-import { AboutScreen } from "../screens"
 import { StatusBar } from "react-native"
+import { AboutScreen } from "../screens"
 
 /**
  * The root navigator is used to switch between major navigation flows of your app.
@@ -56,7 +56,22 @@ const PrimaryStack = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="about" component={AboutScreen} />
+      <Stack.Screen
+        name="about"
+        component={AboutScreen}
+        options={{
+          title: "About",
+          headerShown: true,
+          gestureEnabled: true,
+          headerStyle: {
+            backgroundColor: color.primary,
+          },
+          headerTintColor: color.palette.white,
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
     </Stack.Navigator>
   )
 }
