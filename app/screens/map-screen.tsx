@@ -1,12 +1,10 @@
 import React, { FunctionComponent as Component, useState, useRef, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, Dimensions, Platform, TouchableOpacity, View } from "react-native"
+import { ViewStyle, Dimensions, Platform, useWindowDimensions, Alert } from "react-native"
 import { useStores } from "../models/root-store/root-store-context"
 import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from "react-native-elements"
-import _ from "lodash"
-
 import MapView from "react-native-map-clustering"
 import { Marker, Callout, LatLng } from "react-native-maps"
 
@@ -19,23 +17,23 @@ const NO_PADDING_IOS: ViewStyle = {
   padding: 0,
 }
 
-const window = Dimensions.get("window")
-const { width, height } = window
-const LATITUDE_DELTA = 50
-const LONGITUDE_DELTA = LATITUDE_DELTA + width / height
-const INITIAL_REGION = {
-  latitude: 39.828, // Geographic center
-  longitude: -98.579, // of the USA
-  latitudeDelta: LATITUDE_DELTA,
-  longitudeDelta: LONGITUDE_DELTA,
-}
-
 export const MapScreen: Component = observer(function MapScreen() {
   const navigation = useNavigation()
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
   const mapRef = useRef(null)
+
+  const { width, height } = useWindowDimensions()
+  const aspectRatio = height / width
+  const LATITUDE_DELTA = 50
+  const LONGITUDE_DELTA = LATITUDE_DELTA + width / height
+  const INITIAL_REGION = {
+    latitude: 39.828, // Geographic center
+    longitude: -98.579, // of the USA
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  }
 
   useEffect(() => {
     navigation.setOptions({
@@ -92,6 +90,7 @@ export const MapScreen: Component = observer(function MapScreen() {
       tracksViewChanges={false}
       spiralEnabled={false}
       animationEnabled
+      radius={aspectRatio > 1.6 ? 40 : 10} // Better clustering on iPad
       edgePadding={{
         top: spacing[11],
         left: spacing[11],
