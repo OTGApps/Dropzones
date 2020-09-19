@@ -4,7 +4,7 @@ import { Text } from "react-native-elements"
 import { color, spacing } from "../../theme"
 
 const BADGE_CONTAINER: ViewStyle = {
-  backgroundColor: color.primaryLighter,
+  backgroundColor: color.primary,
   borderRadius: spacing[1],
 }
 
