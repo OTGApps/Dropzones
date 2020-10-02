@@ -16,12 +16,12 @@ import { color, spacing } from "../theme"
 import { Dropzone } from "../models/"
 import ParallaxScrollView from "react-native-parallax-scroll-view"
 import MapView, { Marker } from "react-native-maps"
-import { Card, ListItem, Button, Icon, Avatar } from "react-native-elements"
+import { Card, ListItem, Button, Icon } from "react-native-elements"
 import Mailer from "react-native-mail"
-import openMaps from "react-native-open-maps"
 import AsyncStorage from "@react-native-community/async-storage"
 import { delay } from "../utils/delay"
 import _ from "lodash"
+import OpenMap from "react-native-open-map"
 
 const window = Dimensions.get("window")
 const PARALLAX_HEADER_HEIGHT = 300
@@ -69,11 +69,11 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     color: color.text,
   } as TextStyle,
-  iconContainer: {
-    flex: 1,
-    padding: 0,
-    marginHorizontal: spacing[4],
-  } as ViewStyle,
+  // iconContainer: {
+  //   flex: 1,
+  //   padding: 0,
+  //   marginHorizontal: spacing[4],
+  // } as ViewStyle,
   map: {
     width: "100%",
     height: PARALLAX_HEADER_HEIGHT,
@@ -149,13 +149,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const [offset, setOffset] = useState(0)
 
   const openDrivingDirectons = () => {
-    openMaps({
+    OpenMap.show({
       ...selectedDZ.coordinates,
-      query: selectedDZ.name,
-      zoom: 15,
-      travelType: "drive",
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      navigate_mode: "preview",
+      latitude: 40.778721,
+      longitude: -73.968188,
+      title: selectedDZ.name,
     })
   }
 
