@@ -13,14 +13,12 @@ import {
   Linking,
 } from "react-native"
 import { color, spacing } from "../theme"
-import { Dropzone } from "../models/"
 import ParallaxScrollView from "react-native-parallax-scroll-view"
 import MapView, { Marker } from "react-native-maps"
 import { Card, ListItem, Button, Icon } from "react-native-elements"
 import Mailer from "react-native-mail"
 import AsyncStorage from "@react-native-community/async-storage"
 import { delay } from "../utils/delay"
-import _ from "lodash"
 import OpenMap from "react-native-open-map"
 
 const window = Dimensions.get("window")
@@ -225,13 +223,15 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
 
   const openPhone = async () => {
     const { phone } = selectedDZ
-    const supported = await Linking.canOpenURL(phone)
-    if (phone && supported) {
+
+    const callSkyGods = `tel:${phone}`
+    const supported = await Linking.canOpenURL(callSkyGods)
+    if (callSkyGods && supported) {
       // Opening the link with some app, if the URL scheme is "http" the web link should be opened
       // by some browser in the mobile
-      await Linking.openURL(phone)
+      await Linking.openURL(callSkyGods)
     } else {
-      Alert.alert(`Don't know how to open this URL: ${phone}`)
+      Alert.alert(`Don't know how to open this URL: ${callSkyGods}`)
     }
   }
 
