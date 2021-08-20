@@ -19,19 +19,14 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
   const rootStore = useStores()
   const { route } = props as NearMeScreenProps
   const { location } = route.params // Get the location that was passed by the previous screen.
-  const l: any = JSON.parse(location) // un-stringify it from the previous screen.
 
-  const sortedFromUser = rootStore.sortByDistanceFrom(l)
+  const sortedFromUser = rootStore.sortByDistanceFrom(location)
 
   const renderItem = ({ item, index }) => (
     <DropzoneListRow
       item={item}
       index={index}
-      rightElement={
-        <SpeedLimitSign
-          distanceFromUser={(parseInt(item.distanceFromUser) * 0.621371).toString()}
-        />
-      }
+      rightElement={<SpeedLimitSign km={item.distanceFromUser} />}
     />
   )
 

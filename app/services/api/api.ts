@@ -57,7 +57,7 @@ export class Api {
       if (problem) return problem
     }
 
-    const convertUser = raw => {
+    const convertUser = (raw) => {
       return {
         id: raw.id,
         name: raw.name,

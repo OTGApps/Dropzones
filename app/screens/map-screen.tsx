@@ -1,12 +1,14 @@
 import React, { FunctionComponent as Component, useState, useRef, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, Dimensions, Platform, useWindowDimensions, Alert } from "react-native"
+import { ViewStyle, Platform, useWindowDimensions } from "react-native"
 import { useStores } from "../models/root-store/root-store-context"
 import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from "react-native-elements"
 import MapView from "react-native-map-clustering"
 import { Marker, Callout, LatLng } from "react-native-maps"
+import { getSnapshot } from "mobx-state-tree"
+import { Dropzone } from "../models/dropszones/dropzones"
 
 const ROOT: ViewStyle = {
   flex: 1,
@@ -22,7 +24,7 @@ export const MapScreen: Component = observer(function MapScreen() {
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
-  const mapRef = useRef(null)
+  const mapRef = useRef<MapView>()
 
   const { width, height } = useWindowDimensions()
   const aspectRatio = height / width
@@ -53,32 +55,34 @@ export const MapScreen: Component = observer(function MapScreen() {
     }
   }, [navigation, showsUserLocation])
 
-  const goToDetail = dropzone => {
+  const goToDetail = (dropzone: Dropzone) => {
     navigation.navigate("dropzone-detail", {
       anchor: dropzone.anchor,
       title: dropzone.name,
     })
   }
 
-  const markersArray = dropzones.map(d => (
-    <Marker
-      key={d.anchor.toString() + "_" + Date.now()}
-      coordinate={d.coordinates as LatLng}
-      pointerEvents="auto"
-    >
-      <Callout onPress={() => goToDetail(d)}>
-        <ListItem
-          containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
-          onPress={() => goToDetail(d)}
-        >
-          <ListItem.Content>
-            <ListItem.Title>{d.name}</ListItem.Title>
-          </ListItem.Content>
-          <ListItem.Chevron type="font-awesome" name="chevron-right" />
-        </ListItem>
-      </Callout>
-    </Marker>
-  ))
+  const markersArray = getSnapshot(dropzones).map((d) => {
+    return (
+      <Marker
+        key={d.anchor.toString() + "_" + Date.now()}
+        coordinate={d.coordinates as LatLng}
+        pointerEvents="auto"
+      >
+        <Callout onPress={() => goToDetail(d)}>
+          <ListItem
+            containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
+            onPress={() => goToDetail(d)}
+          >
+            <ListItem.Content>
+              <ListItem.Title>{d.name}</ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron type="font-awesome" name="chevron-right" />
+          </ListItem>
+        </Callout>
+      </Marker>
+    )
+  })
 
   return (
     <MapView
@@ -101,20 +105,21 @@ export const MapScreen: Component = observer(function MapScreen() {
       userLocationPriority={"passive"} // Android setting
       showsUserLocation={showsUserLocation}
       followsUserLocation={false}
-      onUserLocationChange={e => {
+      onUserLocationChange={(e) => {
         if (!initialZoomDone) {
           const { coordinate } = e.nativeEvent
           if (!coordinate) return
-          const { mapView } = mapRef.current || {}
-          const region = {
-            latitude: coordinate.latitude,
-            longitude: coordinate.longitude,
-            latitudeDelta: 5,
-            longitudeDelta: 5,
-          }
+          if (mapRef.current) {
+            const region = {
+              latitude: coordinate.latitude,
+              longitude: coordinate.longitude,
+              latitudeDelta: 5,
+              longitudeDelta: 5,
+            }
 
-          mapView.animateToRegion(region, 500)
-          setInitialZoomDone(true)
+            mapRef.current.animateToRegion(region, 500)
+            setInitialZoomDone(true)
+          }
         }
       }}
     >

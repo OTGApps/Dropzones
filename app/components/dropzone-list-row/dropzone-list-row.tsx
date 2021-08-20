@@ -1,17 +1,18 @@
 import React, { FunctionComponent as Component } from "react"
 import { useNavigation } from "@react-navigation/native"
-import { Dropzone } from "../../models"
+import { Dropzone } from "../../models/dropszones/dropzones"
 import { ListItem } from "react-native-elements"
 
 export interface DropzoneListRowProps {
   item: Dropzone
   index: number
   rightElement?: Record<string, any>
+  subtitle?: string
 }
 
-export const DropzoneListRow: Component<DropzoneListRowProps> = props => {
+export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
   const navigation = useNavigation()
-  const { item, rightElement, index } = props
+  const { item, rightElement, index, subtitle } = props
 
   return (
     <ListItem
@@ -26,6 +27,7 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = props => {
     >
       <ListItem.Content>
         <ListItem.Title>{item.name}</ListItem.Title>
+        {subtitle && <ListItem.Subtitle>{subtitle}</ListItem.Subtitle>}
       </ListItem.Content>
       {rightElement}
       <ListItem.Chevron type="font-awesome" name="chevron-right" />

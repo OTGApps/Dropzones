@@ -6,7 +6,6 @@ import { observer } from "mobx-react-lite"
 import { color } from "../../theme"
 import { ListItem, Avatar } from "react-native-elements"
 import { States } from "./states"
-import FastImage from "react-native-fast-image"
 import { CountBadge } from "../../components"
 import _ from "lodash"
 
@@ -19,14 +18,14 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
   const navigation = useNavigation()
   const rootStore = useStores()
   const { dropzones } = rootStore
-  const sortedStates = Object.keys(_.groupBy(dropzones, "state")).sort()
+  const sortedStates = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
 
   // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
   const groupByState = rootStore.groupByState()
 
   // this line just moves anything that's not a two-letter state to the end
   // essentially, just moving the "international" item to the bottom.
-  const dataSource = _.sortBy(sortedStates, state => (state.length > 2 ? 1 : 0))
+  const dataSource = _.sortBy(sortedStates, (state) => (state.length > 2 ? 1 : 0))
 
   const renderItem = ({ item, index }) => {
     const thisState = States[item.toLowerCase()]
@@ -46,7 +45,6 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
           <Avatar
             rounded
             key={`state-image-${index}`}
-            ImageComponent={FastImage}
             title={item}
             source={thisState.image}
             overlayContainerStyle={{ borderWidth: 1 }}

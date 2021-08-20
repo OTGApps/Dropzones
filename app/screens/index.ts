@@ -1,4 +1,6 @@
 export * from "./welcome-screen/welcome-screen"
+// export other screens here
+
 export * from "./alphabetical-screen"
 export * from "./map-screen"
 export * from "./by-region-screen/by-region-screen"

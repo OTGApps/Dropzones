@@ -16,9 +16,9 @@ export interface ByRegionScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
-export const ByRegionScreen: React.FunctionComponent<ByRegionScreenProps> = props => {
+export const ByRegionScreen: React.FunctionComponent<ByRegionScreenProps> = (props) => {
   const { dropzones } = useStores()
-  const dataSource = Object.keys(_.groupBy(dropzones, "state")).sort()
+  const dataSource = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
 
   const renderItem = ({ item }) => (
     <ListItem

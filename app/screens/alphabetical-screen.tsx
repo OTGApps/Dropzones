@@ -1,7 +1,7 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useStores } from "../models/root-store/root-store-context"
 import { observer } from "mobx-react-lite"
-import { Dropzone } from "../models/root-store/root-store"
+import { Dropzone } from "../models/dropszones/dropzones"
 import { View, ViewStyle, TextStyle, SectionList } from "react-native"
 import { DropzoneListRow } from "../components"
 import { color, spacing } from "../theme"
@@ -59,7 +59,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
     [],
   )
 
-  const renderItem = ({ item, index }) => <DropzoneListRow item={item} index={index} />
+  const renderItem = ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />
 
   return (
     <SectionList
@@ -68,7 +68,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled
-      keyExtractor={item => item}
+      keyExtractor={(item) => item}
       renderSectionHeader={HeaderView}
       renderItem={renderItem}
       ListHeaderComponent={
@@ -77,7 +77,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
           placeholder="Search Dropzones..."
           lightTheme
           value={search}
-          onChangeText={value => setSearch(value)}
+          onChangeText={(value) => setSearch(value)}
         />
       }
     />

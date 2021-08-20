@@ -1,11 +1,13 @@
-import Tron from "reactotron-react-native"
-import AsyncStorage from "@react-native-community/async-storage"
+import { Tron } from "./tron"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { ArgType } from "reactotron-core-client"
 import { RootStore } from "../../models/root-store/root-store"
 import { onSnapshot } from "mobx-state-tree"
 import { ReactotronConfig, DEFAULT_REACTOTRON_CONFIG } from "./reactotron-config"
 import { mst } from "reactotron-mst"
 import { clear } from "../../utils/storage"
-import { RootNavigation } from "../../navigation"
+import { goBack, resetRoot, navigate } from "../../navigators/navigation-utilities"
+import { Platform } from "react-native"
 
 // Teach TypeScript about the bad things we want to do.
 declare global {
@@ -96,12 +98,11 @@ export class Reactotron {
       }
       // log state changes?
       if (snapshots) {
-        onSnapshot(rootStore, snapshot => {
+        onSnapshot(rootStore, (snapshot) => {
           console.tron.display({ name, value: snapshot, preview: "New State" })
         })
       }
 
-      // @ts-ignore
       console.tron.trackMstNode(rootStore)
     }
   }
@@ -119,12 +120,14 @@ export class Reactotron {
       })
 
       // hookup middleware
-      if (this.config.useAsyncStorage) {
-        Tron.setAsyncStorageHandler(AsyncStorage)
+      if (Platform.OS !== "web") {
+        if (this.config.useAsyncStorage) {
+          Tron.setAsyncStorageHandler(AsyncStorage)
+        }
+        Tron.useReactNative({
+          asyncStorage: this.config.useAsyncStorage ? undefined : false,
+        })
       }
-      Tron.useReactNative({
-        asyncStorage: this.config.useAsyncStorage ? undefined : false,
-      })
 
       // ignore some chatty `mobx-state-tree` actions
       const RX = /postProcessSnapshot|@APPLY_SNAPSHOT/
@@ -132,7 +135,7 @@ export class Reactotron {
       // hookup mobx-state-tree middleware
       Tron.use(
         mst({
-          filter: event => RX.test(event.name) === false,
+          filter: (event) => RX.test(event.name) === false,
         }),
       )
 
@@ -156,8 +159,29 @@ export class Reactotron {
         command: "resetNavigation",
         handler: () => {
           console.tron.log("resetting navigation state")
-          RootNavigation.resetRoot({ routes: [] })
+          resetRoot({ index: 0, routes: [] })
         },
+      })
+
+      Tron.onCustomCommand({
+        command: "navigateTo",
+        handler: (args) => {
+          const { route } = args
+          if (route) {
+            console.log(`Navigating to: ${route}`)
+            navigate(route)
+          } else {
+            console.log("Could not navigate. No route provided.")
+          }
+        },
+        title: "Navigate To Screen",
+        description: "Navigates to a screen by name.",
+        args: [
+          {
+            name: "route",
+            type: ArgType.String,
+          },
+        ],
       })
 
       Tron.onCustomCommand({
@@ -166,7 +190,7 @@ export class Reactotron {
         command: "goBack",
         handler: () => {
           console.tron.log("Going back")
-          RootNavigation.goBack()
+          goBack()
         },
       })
 

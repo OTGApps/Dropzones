@@ -2,7 +2,7 @@ import * as React from "react"
 import { View, ViewStyle, TextStyle } from "react-native"
 import { Text } from "react-native-elements"
 import { spacing, color } from "../../theme"
-import { SpeedLimitSignProps } from "./speed-limit-sign.props"
+import { isMetric } from "expo-localization"
 
 const SPEED_LIMIT_SIGN: ViewStyle = {
   flexDirection: "column-reverse",
@@ -29,12 +29,17 @@ const DISTANCE_TEXT: TextStyle = {
   margin: 0,
   padding: 0,
 }
+interface SpeedLimitSignProps {
+  km?: number
+}
 
 export function SpeedLimitSign(props: SpeedLimitSignProps) {
   return (
     <View style={SPEED_LIMIT_SIGN}>
-      <Text style={MILES_TEXT}>MILES</Text>
-      <Text style={DISTANCE_TEXT}>{parseInt(props.distanceFromUser).toString()}</Text>
+      <Text style={MILES_TEXT}>{isMetric ? "KM" : "MILES"}</Text>
+      <Text style={DISTANCE_TEXT}>
+        {parseInt(isMetric ? props.km : props.km * 0.621371).toString()}
+      </Text>
     </View>
   )
 }

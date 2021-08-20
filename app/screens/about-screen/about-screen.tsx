@@ -1,11 +1,8 @@
 import React, { FunctionComponent as Component } from "react"
-import { ViewStyle, View, Image, Linking, ImageStyle, ScrollView } from "react-native"
-import { useNavigation } from "@react-navigation/native"
-import { color, spacing } from "../../theme"
-import { Text, Icon, SocialIcon } from "react-native-elements"
-import DeviceInfo from "react-native-device-info"
-import Background from "./background.svg"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { ViewStyle, View, Image, Linking, ImageStyle } from "react-native"
+import { spacing } from "../../theme"
+import { Text, SocialIcon } from "react-native-elements"
+import * as Application from "expo-application"
 
 const LOGO: ImageStyle = {
   width: 200,
@@ -48,7 +45,7 @@ export const AboutScreen: Component = () => {
           <Text h3>Dropzones:</Text>
           <Text h4>USPA Dropzone Finder</Text>
           <Text style={{ marginTop: spacing[1] }}>
-            Version: {DeviceInfo.getVersion()}({DeviceInfo.getBuildNumber()})
+            Version: {Application.nativeApplicationVersion}({Application.nativeBuildVersion})
           </Text>
         </View>
 

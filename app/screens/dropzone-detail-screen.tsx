@@ -17,9 +17,9 @@ import ParallaxScrollView from "react-native-parallax-scroll-view"
 import MapView, { Marker } from "react-native-maps"
 import { Card, ListItem, Button, Icon } from "react-native-elements"
 import Mailer from "react-native-mail"
-import AsyncStorage from "@react-native-community/async-storage"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { delay } from "../utils/delay"
-import OpenMap from "react-native-open-map"
+import openMap from "react-native-open-maps"
 
 const window = Dimensions.get("window")
 const PARALLAX_HEADER_HEIGHT = 300
@@ -147,11 +147,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const [offset, setOffset] = useState(0)
 
   const openDrivingDirectons = () => {
-    OpenMap.show({
+    openMap({
       ...selectedDZ.coordinates,
-      latitude: 40.778721,
-      longitude: -73.968188,
-      title: selectedDZ.name,
+      query: selectedDZ.name,
+      end: selectedDZ.name,
+      navigate_mode: "preview",
     })
   }
 
@@ -276,7 +276,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     </View>
   )
 
-  const onScroll = e => {
+  const onScroll = (e) => {
     setOffset(e.nativeEvent.contentOffset.y)
   }
 
@@ -352,7 +352,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           <ListItem>
             <Icon name="plane" {...iconProps} />
             <ListItem.Content>
-              <ListItem.Title>{selectedDZ.aircraft.sort().join("\n")}</ListItem.Title>
+              <ListItem.Title>{selectedDZ.aircraft.slice().sort().join("\n")}</ListItem.Title>
             </ListItem.Content>
           </ListItem>
         )}
@@ -360,7 +360,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           <ListItem>
             <Icon name="bath" {...iconProps} />
             <ListItem.Content>
-              <ListItem.Title>{selectedDZ.services.sort().join("\n")}</ListItem.Title>
+              <ListItem.Title>{selectedDZ.services.slice().sort().join("\n")}</ListItem.Title>
             </ListItem.Content>
           </ListItem>
         )}

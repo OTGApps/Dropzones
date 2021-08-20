@@ -1,65 +1,15 @@
-import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import ParseAddress from "parse-address"
-import distanceCalculator from "../../utils/lat-long-to-km"
+import { getSnapshot, Instance, SnapshotOut, types } from "mobx-state-tree"
 import _ from "lodash"
+import { Dropzone, DropzoneModel } from "../dropszones/dropzones"
+import { LocationObject } from "expo-location"
 
 const dropzoneData = require("./dropzones.json")
-
-export const DropzoneModel = types
-  .model("Dropzone", {
-    anchor: types.identifier,
-    flagged: types.optional(types.boolean, false),
-    name: types.string,
-    email: types.string,
-    description: types.optional(types.string, ""),
-    phone: types.optional(types.string, ""),
-    website: types.optional(types.string, ""),
-    aircraft: types.optional(types.array(types.string), []),
-    location: types.optional(types.array(types.string), []),
-    services: types.optional(types.array(types.string), []),
-    training: types.optional(types.array(types.string), []),
-    coordinates: types.model({
-      longitude: types.number,
-      latitude: types.number,
-    }),
-  })
-  .views(self => ({
-    // Returns the first letter of the name of the dropzone
-    get nameFirstLetter() {
-      return self.name[0].toUpperCase()
-    },
-
-    // Parses the location array and if it's in a state, figure it out!
-    get state() {
-      const parsed = ParseAddress.parseLocation(self.location.join(". "))
-      if (parsed && parsed.state && parsed.zip && parsed.zip !== "66798") {
-        return parsed.state.toUpperCase()
-      }
-      return "International"
-    },
-
-    // Returns a string of text that we can use to search the data of each dropzone
-    get searchableText() {
-      return [self.name, self.description, self.website].join(" ").toLowerCase()
-    },
-
-    // Calculates this dz's distance from a location (in km)
-    distanceFrom(location: any) {
-      const distance = distanceCalculator(
-        location.coords.latitude,
-        location.coords.longitude,
-        self.coordinates.latitude,
-        self.coordinates.longitude,
-      )
-      return distance
-    },
-  }))
 
 /**
  * A RootStore model.
  */
 // prettier-ignore
-export const RootStoreModel = types.model("RootStore", {
+export const RootStoreModel = types.model("RootStore").props({
   dropzones: types.array(DropzoneModel),
   // flags: types.array(types.number)
 }).actions(self => ({
@@ -86,7 +36,7 @@ export const RootStoreModel = types.model("RootStore", {
   // }
 })).views(self => ({
   dropzoneById(anchor) {
-    return _.find(self.dropzones, d => (parseInt(d.anchor) === parseInt(anchor)))
+    return getSnapshot(_.find(self.dropzones, d => (parseInt(d.anchor) === parseInt(anchor)))) as Dropzone
   },
   // Gets all the dropzones that have flags
   // get flaggedDropzones () {
@@ -107,15 +57,15 @@ export const RootStoreModel = types.model("RootStore", {
           return plane
         }
       })
-    )).sort()
+    )).slice().sort()
   },
   // Lists all unique service names
   get uniqueServices () {
-    return _.uniq(_.flatMap(self.dropzones, ({ services }) => _.map(services))).sort()
+    return _.uniq(_.flatMap(self.dropzones, ({ services }) => _.map(services))).slice().sort()
   },
   // Lists all unique training capabilities
   get uniqueTraining () {
-    return _.uniq(_.flatMap(self.dropzones, ({ training }) => _.map(training))).sort()
+    return _.uniq(_.flatMap(self.dropzones, ({ training }) => _.map(training))).slice().sort()
   },
   filteredDropzones (item, itemType: string) {
     return _.filter(self.dropzones, (d) => {
@@ -133,7 +83,7 @@ export const RootStoreModel = types.model("RootStore", {
     return _.groupBy(self.dropzones, 'state')
   },
   // Returns all the dropzones grouped by state so you can count how many are in each.
-  sortByDistanceFrom (location) {
+  sortByDistanceFrom (location: LocationObject) {
     if (__DEV__) console.tron.log('sortByDistanceFrom', location)
     return _.sortBy(_.map(self.dropzones, (dz) => {
       return {
@@ -148,8 +98,6 @@ export const RootStoreModel = types.model("RootStore", {
  * The RootStore instance.
  */
 export interface RootStore extends Instance<typeof RootStoreModel> {}
-export interface Dropzone extends Instance<typeof DropzoneModel> {}
-// export interface Flag extends Instance<typeof FlagModel> {}
 
 /**
  * The data of a RootStore.

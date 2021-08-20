@@ -1,11 +1,10 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, FlatList, Alert, ActivityIndicator } from "react-native"
+import { ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import { color } from "../../theme"
-import { CountBadge } from "../../components"
 import { ListItem, Icon } from "react-native-elements"
-import Geolocation from "@react-native-community/geolocation"
+import * as Location from "expo-location"
 
 const MenuItems = require("./menu-items.json")
 
@@ -15,13 +14,38 @@ const FULL: ViewStyle = {
 
 export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   const navigation = useNavigation()
-
-  Geolocation.setRNConfiguration({ skipPermissionRequests: false, authorizationLevel: "whenInUse" })
-
+  const [location, setLocation] = useState(null)
+  const [errorMsg, setErrorMsg] = useState(null)
   // This boolean state is used when getting a user's location.
   // It disables all the rows from interaction and shows a loading icon
   // on the near-me menu item.
   const [loading, setLoading] = useState(false)
+
+  const getLocation = async () => {
+    let { status } = await Location.requestForegroundPermissionsAsync()
+    if (status !== "granted") {
+      setErrorMsg("Permission to access location was denied")
+      return
+    }
+
+    let loc = await Location.getCurrentPositionAsync({})
+    setLocation(loc)
+  }
+
+  useEffect(() => {
+    if (loading) {
+      setLoading(false)
+      if (errorMsg) {
+        Alert.alert("Error", errorMsg)
+        setErrorMsg(null)
+      } else {
+        if (__DEV__) console.tron.log("opening the near me screen.", location)
+        navigation.navigate("near-me", {
+          location,
+        })
+      }
+    }
+  }, [location, errorMsg])
 
   useEffect(() => {
     navigation.setOptions({
@@ -39,23 +63,10 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
 
   const openNearMeScreen = () => {
     setLoading(true)
-    Geolocation.getCurrentPosition(
-      position => {
-        setLoading(false)
-        if (__DEV__) console.tron.log("opening the near me screen.", JSON.stringify(position))
-        navigation.navigate("near-me", {
-          location: JSON.stringify(position),
-        })
-      },
-      error => {
-        setLoading(false)
-        Alert.alert("Error", JSON.stringify(error))
-      },
-      { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 },
-    )
+    getLocation()
   }
 
-  const rightElement = item => {
+  const rightElement = (item) => {
     switch (item.screen) {
       case "near-me":
         return loading ? <ActivityIndicator /> : null
@@ -67,7 +78,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   const renderItem = ({ item }) => (
     <ListItem
       bottomDivider
-      disabled={loading || !item.screen}
+      disabled={!item.screen}
       onPress={
         item.screen &&
         (() => {
