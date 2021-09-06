@@ -38,6 +38,7 @@ export function PrimaryNavigator() {
         headerShown: true,
         headerBackTitle: "",
         gestureEnabled: true,
+        headerBackTitleVisible: false,
         headerStyle: {
           backgroundColor: color.primary,
         },

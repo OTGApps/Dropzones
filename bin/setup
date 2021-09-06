@@ -82,15 +82,6 @@ echo "----------------------------------------------------------"
 
 yarn || { echo "NPM Packages could not be installed!"; exit 1; };
 
-echo "----------------------------------------------------------"
-echo "Installing CocoaPods"
-echo "----------------------------------------------------------"
-
-cd ios/ && {
-  pod install || { echo "CocoaPods could not be installed!"; exit 1; };
-  cd -
-}
-
 # IF NEEDED
 # echo "----------------------------------------------------------"
 # echo "Running localizations"

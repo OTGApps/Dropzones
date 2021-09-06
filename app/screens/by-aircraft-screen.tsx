@@ -1,10 +1,10 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useStores } from "../models/root-store/root-store-context"
-import { ViewStyle, FlatList, SectionList, View } from "react-native"
+import { ViewStyle, SectionList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { color } from "../theme"
-import { Button, Card, ListItem, Text, Tile } from "react-native-elements"
+import { Button, Card, ListItem, Text } from "react-native-elements"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const FULL: ViewStyle = {
@@ -17,7 +17,7 @@ const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
 export const ByAircraftScreen: Component = observer(function ByAircraftScreen() {
   const navigation = useNavigation()
-  const { uniqueAircraft, uniqueAircraftSorted } = useStores()
+  const { uniqueAircraftSorted } = useStores()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
 
   useEffect(() => {
@@ -41,20 +41,15 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   }, [])
 
   const renderItem = ({ item, section }) => {
-    // console.log("props", props)
-    // const { item } = props
-    console.log("item", item)
+    const onPressed = () => {
+      navigation.navigate("list-detail", {
+        item,
+        itemType: "aircraft",
+        title: item,
+      })
+    }
     return (
-      <ListItem
-        bottomDivider
-        onPress={() =>
-          navigation.navigate("list-detail", {
-            item,
-            itemType: "aircraft",
-            title: item,
-          })
-        }
-      >
+      <ListItem bottomDivider onPress={onPressed}>
         <ListItem.Content>
           <ListItem.Title>{item}</ListItem.Title>
         </ListItem.Content>

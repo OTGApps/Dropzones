@@ -1,8 +1,8 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree"
-import ParseAddress from "parse-address"
 import distanceCalculator from "../../utils/lat-long-to-km"
 import _ from "lodash"
 import { LocationObject } from "expo-location"
+import { lookUp } from "geojson-places"
 
 export const DropzoneModel = types
   .model("Dropzone", {
@@ -30,9 +30,12 @@ export const DropzoneModel = types
 
     // Parses the location array and if it's in a state, figure it out!
     get state() {
-      const parsed = ParseAddress.parseLocation(self.location.join(". "))
-      if (parsed && parsed.state && parsed.zip && parsed.zip !== "66798") {
-        return parsed.state.toUpperCase()
+      const result = lookUp(self.coordinates.latitude, self.coordinates.longitude)
+
+      if (result?.state_code?.startsWith("US-")) {
+        return (result.state_code as string).substring(3)
+      } else {
+        if (self.name.toLowerCase().endsWith("key west")) return "FL"
       }
       return "International"
     },

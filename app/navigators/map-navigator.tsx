@@ -18,6 +18,7 @@ export function MapNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
+        headerBackTitleVisible: false,
         gestureEnabled: true,
         headerStyle: {
           backgroundColor: color.primary,
