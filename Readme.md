@@ -2,9 +2,11 @@
 
 #### A React Native application brought to you by [Off The Grid Apps](http://otgapps.io/).
 
-## [Currently in the App Store](https://apps.apple.com/us/app/dropzones-uspa-dropzone-finder/id960515397)
+## [for iOS](https://apps.apple.com/us/app/dropzones-uspa-dropzone-finder/id960515397)
 
-## Coming soon to Android!
+## [for Android](https://play.google.com/store/apps/details?id=io.otgapps.dropzones)
+
+---
 
 Looking for somewhere to make your first skydive? Are you an experienced skydiver looking for fun new places to jump? Then this app is for you!
 
