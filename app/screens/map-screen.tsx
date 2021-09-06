@@ -6,9 +6,9 @@ import { useStores } from "../models/root-store/root-store-context"
 import { color, spacing, typography } from "../theme"
 import { ListItem, Icon } from "react-native-elements"
 import MapView from "react-native-map-clustering"
-import { Marker, Callout, LatLng } from "react-native-maps"
+import Map, { Marker, Callout, LatLng, Region } from "react-native-maps"
 import { getSnapshot } from "mobx-state-tree"
-import { Dropzone } from "../models/dropszones/dropzones"
+import Device, { DeviceType } from "expo-device"
 
 const ROOT: ViewStyle = {
   flex: 1,
@@ -24,10 +24,11 @@ export const MapScreen: Component = observer(function MapScreen() {
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
-  const mapRef = useRef<MapView>()
+  const [clusteringEnabled, setClusteringEnabled] = useState(true)
+  const mapRef = useRef<Map>()
 
   const { width, height } = useWindowDimensions()
-  const aspectRatio = height / width
+
   const LATITUDE_DELTA = 50
   const LONGITUDE_DELTA = LATITUDE_DELTA + width / height
   const INITIAL_REGION = {
@@ -55,73 +56,87 @@ export const MapScreen: Component = observer(function MapScreen() {
     }
   }, [navigation, showsUserLocation])
 
-  const goToDetail = (dropzone: Dropzone) => {
+  const goToDetail = (anchor: string, title: string) => {
     navigation.navigate("dropzone-detail", {
-      anchor: dropzone.anchor,
-      title: dropzone.name,
+      anchor,
+      title,
     })
   }
 
-  const markersArray = getSnapshot(dropzones).map((d) => {
-    return (
-      <Marker
-        key={d.anchor.toString() + "_" + Date.now()}
-        coordinate={d.coordinates as LatLng}
-        pointerEvents="auto"
-      >
-        <Callout onPress={() => goToDetail(d)}>
-          <ListItem
-            containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
-            onPress={() => goToDetail(d)}
+  const markersArray = React.useMemo(
+    () =>
+      getSnapshot(dropzones).map((d) => {
+        return (
+          <Marker
+            key={d.anchor.toString() + "_" + Date.now()}
+            coordinate={d.coordinates as LatLng}
+            pointerEvents="auto"
           >
-            <ListItem.Content>
-              <ListItem.Title>{d.name}</ListItem.Title>
-            </ListItem.Content>
-            <ListItem.Chevron type="font-awesome" name="chevron-right" />
-          </ListItem>
-        </Callout>
-      </Marker>
-    )
-  })
+            <Callout onPress={() => goToDetail(d.anchor, d.name)}>
+              <ListItem
+                containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
+                onPress={() => goToDetail(d.anchor, d.name)}
+              >
+                <ListItem.Content>
+                  <ListItem.Title>{d.name}</ListItem.Title>
+                </ListItem.Content>
+                <ListItem.Chevron type="font-awesome" name="chevron-right" />
+              </ListItem>
+            </Callout>
+          </Marker>
+        )
+      }),
+    [dropzones],
+  )
+
+  const checkClustering = (region: Region) => {
+    const distanceDelta = Math.round(Math.log(360 / region.longitudeDelta) / Math.LN2)
+    if (distanceDelta > 7) {
+      setClusteringEnabled(false)
+    } else {
+      setClusteringEnabled(true)
+    }
+  }
+
+  const onUserLocationChange = (e) => {
+    if (!initialZoomDone) {
+      const { coordinate } = e.nativeEvent
+      if (!coordinate) return
+      const region = {
+        latitude: coordinate.latitude,
+        longitude: coordinate.longitude,
+        latitudeDelta: 5,
+        longitudeDelta: 5,
+      }
+
+      mapRef.current?.animateToRegion(region, 500)
+      setInitialZoomDone(true)
+    }
+  }
 
   return (
     <MapView
       ref={mapRef}
+      clusteringEnabled={clusteringEnabled}
       initialRegion={INITIAL_REGION}
+      onRegionChangeComplete={checkClustering}
       style={ROOT}
       clusterColor={color.primary}
       clusterFontFamily={typography.primary}
       tracksViewChanges={false}
       spiralEnabled={false}
       animationEnabled
-      radius={aspectRatio > 1.6 ? 40 : 10} // Better clustering on iPad
+      radius={10}
       edgePadding={{
         top: spacing[11],
         left: spacing[11],
         bottom: spacing[11],
         right: spacing[11],
       }}
-      // @ts-ignore
       userLocationPriority={"passive"} // Android setting
       showsUserLocation={showsUserLocation}
       followsUserLocation={false}
-      onUserLocationChange={(e) => {
-        if (!initialZoomDone) {
-          const { coordinate } = e.nativeEvent
-          if (!coordinate) return
-          if (mapRef.current) {
-            const region = {
-              latitude: coordinate.latitude,
-              longitude: coordinate.longitude,
-              latitudeDelta: 5,
-              longitudeDelta: 5,
-            }
-
-            mapRef.current.animateToRegion(region, 500)
-            setInitialZoomDone(true)
-          }
-        }
-      }}
+      onUserLocationChange={onUserLocationChange}
     >
       {markersArray}
     </MapView>
