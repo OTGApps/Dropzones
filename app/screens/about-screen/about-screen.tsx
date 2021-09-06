@@ -1,73 +1,60 @@
 import React, { FunctionComponent as Component } from "react"
-import { ViewStyle, View, Image, Linking, ImageStyle } from "react-native"
-import { spacing } from "../../theme"
-import { Text, SocialIcon } from "react-native-elements"
+import { Linking, ScrollView } from "react-native"
 import * as Application from "expo-application"
+import { SocialIcon, Card, ListItem } from "react-native-elements"
 
-const LOGO: ImageStyle = {
-  width: 200,
-  height: 200,
+const openWeb = (website: string) => {
+  Linking.canOpenURL(website).then((supported) => {
+    if (supported) {
+      Linking.openURL(website)
+    }
+  })
 }
-
-const ROOT: ViewStyle = {
-  flex: 1,
-}
-
-const WRAPPER = {
-  flex: 1,
-  flexDirection: "column",
-}
-const ABOUT: ViewStyle = {
-  flex: 1,
-  flexDirection: "column",
-  alignItems: "center",
-  alignContent: "space-between",
-}
-const INSTAGRAM = {
-  flexDirection: "column",
-  alignItems: "center",
-  padding: spacing[3],
-}
-const openInstagram = async () => {
-  const website = "https://www.instagram.com/euphoria.art.studios/"
-  const supported = await Linking.canOpenURL(website)
-  if (supported) {
-    await Linking.openURL(website)
-  }
-}
+const openInstagram = () => openWeb("https://www.instagram.com/euphoria.art.studios/")
+const openGithub = () => openWeb("https://github.com/OTGApps/Dropzones")
 
 export const AboutScreen: Component = () => {
   return (
-    <View style={ROOT}>
-      <View style={WRAPPER}>
-        <View style={ABOUT}>
-          <Image source={require("./logo.png")} style={LOGO} />
-          <Text h3>Dropzones:</Text>
-          <Text h4>USPA Dropzone Finder</Text>
-          <Text style={{ marginTop: spacing[1] }}>
-            Version: {Application.nativeApplicationVersion}({Application.nativeBuildVersion})
-          </Text>
-        </View>
-
-        <View style={INSTAGRAM}>
-          <SocialIcon
-            type="instagram"
-            style={{ marginTop: spacing[5], marginBottom: spacing[3] }}
-            onPress={openInstagram}
-          />
-          <Text>Icon design by euphoria.art.studios</Text>
-        </View>
-      </View>
-    </View>
+    <ScrollView style={{ flex: 1 }}>
+      <Card>
+        <Card.Image source={require("./logo.png")} resizeMode="contain" />
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Dropzones!</ListItem.Title>
+            <ListItem.Subtitle>USPA Dropzone Finder</ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem bottomDivider>
+          <ListItem.Content>
+            <ListItem.Title>Version</ListItem.Title>
+            <ListItem.Subtitle>
+              {Application.nativeApplicationVersion}({Application.nativeBuildVersion})
+            </ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+        <ListItem containerStyle={{ paddingBottom: 0 }}>
+          <ListItem.Content>
+            <ListItem.Title>Data file date:</ListItem.Title>
+            <ListItem.Subtitle>9/4/2021</ListItem.Subtitle>
+          </ListItem.Content>
+        </ListItem>
+      </Card>
+      <ListItem bottomDivider onPress={openGithub}>
+        <SocialIcon type="github-alt" raised={false} style={{ margin: 0, padding: 0 }} />
+        <ListItem.Content>
+          <ListItem.Title>Dropzones is open source!</ListItem.Title>
+          <ListItem.Subtitle>Go to Github to find out more or file a bug report</ListItem.Subtitle>
+        </ListItem.Content>
+        <ListItem.Chevron />
+      </ListItem>
+      <ListItem bottomDivider onPress={openInstagram}>
+        <SocialIcon type="instagram" raised={false} />
+        <ListItem.Content>
+          <ListItem.Title>Icon design by euphoria.art.studios</ListItem.Title>
+          <ListItem.Subtitle>Check her out on Instagram!</ListItem.Subtitle>
+        </ListItem.Content>
+        <ListItem.Chevron />
+      </ListItem>
+    </ScrollView>
   )
-  // return (
-  //   <View style={FULL}>
-  //     <View style={[INNER]}>
-  //       <View style={CENTERED}>
-  //       </View>
-  //       <View style={CENTERED}>
-  //       </View>
-  //     </View>
-  //   </View>
-  // )
 }
