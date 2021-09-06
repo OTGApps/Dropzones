@@ -59,6 +59,52 @@ export const RootStoreModel = types.model("RootStore").props({
       })
     )).slice().sort()
   },
+})).views(self=>({
+  get uniqueAircraftSorted () {
+    const allAircraft = self.uniqueAircraft
+    return [
+      {
+        title: "Antonov",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("antonov"))
+      }, {
+        title: "Atlas",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("atlas"))
+      },
+      {
+        title: "Beech",
+        data: [
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("beech")),
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("king air")),
+        ]
+      }, {
+        title: "de Havilland",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("otter"))
+      }, {
+        title: "Douglas",
+        data: [
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("dc3")),
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("dc9")),
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("dc-3")),
+          ..._.remove(allAircraft, (a: string) => a.toLowerCase().includes("dc-9")),
+        ]
+      }, {
+        title: "Cessna",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("cessna"))
+      }, {
+        title: "PAC",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("pac"))
+      }, {
+        title: "Pilatus",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("pilatus"))
+      }, {
+        title: "Piper",
+        data: _.remove(allAircraft, (a: string) => a.toLowerCase().includes("piper"))
+      }, {
+        title: "Other",
+        data: [...allAircraft]
+      }
+    ]
+  },
   // Lists all unique service names
   get uniqueServices () {
     return _.uniq(_.flatMap(self.dropzones, ({ services }) => _.map(services))).slice().sort()

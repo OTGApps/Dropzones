@@ -77,7 +77,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
           placeholder="Search Dropzones..."
           lightTheme
           value={search}
-          onChangeText={(value) => setSearch(value)}
+          onChangeText={setSearch}
         />
       }
     />
