@@ -2,12 +2,12 @@
   "expo": {
     "name": "Dropzones",
     "slug": "Dropzones",
+    "description": "USPA Dropzone Finder",
     "version": "3.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {

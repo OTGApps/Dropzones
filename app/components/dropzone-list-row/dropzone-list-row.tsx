@@ -14,12 +14,12 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
   const navigation = useNavigation()
   const { item, rightElement, index, subtitle } = props
 
-  const pressed = useCallback(() => {
+  const pressed = () => {
     navigation.navigate("dropzone-detail", {
       anchor: props.item.anchor,
       title: props.item.name,
     })
-  }, [props.item])
+  }
 
   return (
     <ListItem bottomDivider key={"listItem-" + index} onPress={pressed}>
