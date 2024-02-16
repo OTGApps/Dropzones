@@ -1,8 +1,8 @@
 import React from "react"
-import { createNativeStackNavigator } from "react-native-screens/native-stack"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import _ from "lodash"
 
-import { color } from "../theme"
+import { colors } from "../theme"
 
 import { PrimaryNavigator } from "./primary-navigator"
 import { AboutScreen } from "../screens"
@@ -39,9 +39,9 @@ const PrimaryStack = () => {
           headerShown: true,
           gestureEnabled: true,
           headerStyle: {
-            backgroundColor: color.primary,
+            backgroundColor: colors.primary,
           },
-          headerTintColor: color.palette.white,
+          headerTintColor: colors.palette.white,
           headerTitleStyle: {
             fontWeight: "bold",
           },

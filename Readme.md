@@ -1,22 +1,164 @@
-# Dropzones-USPA Dropzone Finder
+# Welcome to your new ignited app!
 
-#### A React Native application brought to you by [Off The Grid Apps](http://otgapps.io/).
+[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
 
-## [for iOS](https://apps.apple.com/us/app/dropzones-uspa-dropzone-finder/id960515397)
+## The latest and greatest boilerplate for Infinite Red opinions
 
-## [for Android](https://play.google.com/store/apps/details?id=io.otgapps.dropzones)
+This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
 
----
+Currently includes:
 
-Looking for somewhere to make your first skydive? Are you an experienced skydiver looking for fun new places to jump? Then this app is for you!
+- React Native
+- React Navigation
+- MobX State Tree
+- TypeScript
+- And more!
 
-Dropzones lists all current U.S. Parachute Association (USPA) member dropzones in an easy to navigate interface. Because these dropzones are USPA certified, you can be assured that the staff, training, equipment, and airplanes are top-quality!
+## Quick Start
 
-- Quickly find the dropzones closest to where you are now!
-- Search by state, region, aircraft, services offered, and training capabilities.
-- See a map of every USPA dropzone in the US!
-- Detailed information about each dropzone
+The Ignite boilerplate project's structure will look similar to this:
 
-Use this app to plan your next skydiving road trip across the United States!
+```
+ignite-project
+├── app
+│   ├── components
+│   ├── config
+│   ├── i18n
+│   ├── models
+│   ├── navigators
+│   ├── screens
+│   ├── services
+│   ├── theme
+│   ├── utils
+│   └── app.tsx
+├── assets
+│   ├── icons
+│   └── images
+├── test
+│   ├── __snapshots__
+│   ├── mockFile.ts
+│   └── setup.ts
+├── README.md
+├── android
+│   ├── app
+│   ├── build.gradle
+│   ├── gradle
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── keystores
+│   └── settings.gradle
+├── ignite
+│   └── templates
+|       |── app-icon
+│       ├── component
+│       ├── model
+│       ├── navigator
+│       └── screen
+├── index.js
+├── ios
+│   ├── IgniteProject
+│   ├── IgniteProject-tvOS
+│   ├── IgniteProject-tvOSTests
+│   ├── IgniteProject.xcodeproj
+│   └── IgniteProjectTests
+├── .env
+└── package.json
 
-> "Dropzones - USPA Dropzone Finder" is not endorsed by or affiliated with the USPA. While every reasonable effort is made to ensure that the dropzone data displayed in this app is accurate, we can not be held liable for incorrect information reported by the USPA. Please verify all information with the dropzone directly.
+```
+
+### ./app directory
+
+Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+
+The inside of the `app` directory looks similar to the following:
+
+```
+app
+├── components
+├── config
+├── i18n
+├── models
+├── navigators
+├── screens
+├── services
+├── theme
+├── utils
+└── app.tsx
+```
+
+**components**
+This is where your reusable components live which help you build your screens.
+
+**i18n**
+This is where your translations will live if you are using `react-native-i18n`.
+
+**models**
+This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
+
+**navigators**
+This is where your `react-navigation` navigators will live.
+
+**screens**
+This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
+
+**services**
+Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
+
+**theme**
+Here lives the theme for your application, including spacing, colors, and typography.
+
+**utils**
+This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truly shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
+
+**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
+
+### ./assets directory
+
+This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+
+```
+assets
+├── icons
+└── images
+```
+
+**icons**
+This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+
+Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-Icon.md).
+
+**images**
+This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
+
+Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
+
+How to use your `icon` or `image` assets:
+
+```
+import { Image } from 'react-native';
+
+const MyComponent = () => {
+  return (
+    <Image source={require('../assets/images/my_image.png')} />
+  );
+};
+```
+
+### ./ignite directory
+
+The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find templates you can customize to help you get started with React Native.
+
+### ./test directory
+
+This directory will hold your Jest configs and mocks.
+
+## Running Maestro end-to-end tests
+
+Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
+
+## Previous Boilerplates
+
+- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
+- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
+- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)

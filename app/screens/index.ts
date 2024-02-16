@@ -1,4 +1,5 @@
 export * from "./welcome-screen/welcome-screen"
+export * from "./ErrorScreen/ErrorBoundary"
 // export other screens here
 
 export * from "./alphabetical-screen"

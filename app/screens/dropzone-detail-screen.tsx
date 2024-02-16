@@ -1,7 +1,7 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { useStores } from "../models/root-store/root-store-context"
+import { useStores } from "app/models"
 import {
   View,
   ViewStyle,
@@ -12,7 +12,7 @@ import {
   Alert,
   Linking,
 } from "react-native"
-import { color, spacing } from "../theme"
+import { colors, spacing } from "../theme"
 import ParallaxScrollView from "react-native-parallax-scroll-view"
 import MapView, { Marker } from "react-native-maps"
 import { Card, ListItem, Button, Icon } from "react-native-elements"
@@ -28,7 +28,7 @@ const OFFSET_TRAVEL = -100
 const BACKGROUND_OPACITY = 0.4
 
 const textShadow = {
-  textShadowColor: color.palette.black,
+  textShadowColor: colors.palette.black,
   textShadowOffset: { width: -2, height: 2 },
   textShadowRadius: 10,
   padding: 10,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     width: window.width,
-    backgroundColor: Platform.OS === "ios" ? color.palette.black : color.transparent,
+    backgroundColor: Platform.OS === "ios" ? colors.palette.black : colors.transparent,
     height: PARALLAX_HEADER_HEIGHT,
   } as ViewStyle,
   cardStyle: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     minHeight: window.height - PARALLAX_HEADER_HEIGHT,
 
     // Card Shadow
-    shadowColor: color.palette.black,
+    shadowColor: colors.palette.black,
     shadowOffset: {
       width: 2,
       height: 2,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   descriptionText: {
     fontSize: 18,
     lineHeight: 26,
-    color: color.text,
+    color: colors.text,
   } as TextStyle,
   // iconContainer: {
   //   flex: 1,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   sectionSubtitleText: {
     ...textShadow,
-    color: color.lightText,
+    color: colors.lightText,
     fontSize: 18,
     paddingVertical: 5,
     fontWeight: "bold",
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   } as TextStyle,
   sectionTitleText: {
     ...textShadow,
-    color: color.lightText,
+    color: colors.lightText,
     fontSize: 24,
     paddingVertical: 5,
     fontWeight: "bold",
@@ -162,7 +162,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           name={"car"}
           type={"font-awesome"}
           size={22}
-          color={color.palette.white}
+          color={colors.palette.white}
           onPress={openDrivingDirectons}
         />
       ),
@@ -237,7 +237,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
 
   // const isFlagged = _.includes(flags, anchor)
   // const toggleFlag = () => {
-  //   if (__DEV__) console.tron.log("toggle flag. isFlagged", isFlagged)
+  //   if (__DEV__) console.log("toggle flag. isFlagged", isFlagged)
   //   isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
   // }
 
@@ -267,7 +267,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           icon={{
             type: "font-awesome",
             size: 35,
-            color: color.palette.white,
+            color: colors.palette.white,
             name: isFlagged ? "flag" : "flag-o",
           }}
           onPress={toggleFlag}
@@ -308,7 +308,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     // eslint-disable-next-line react-native/no-inline-styles
     <ParallaxScrollView
       onScroll={onScroll}
-      backgroundColor={color.primary}
+      backgroundColor={colors.primary}
       stickyHeaderHeight={STICKY_HEADER_HEIGHT}
       parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
       backgroundScrollSpeed={30}

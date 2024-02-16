@@ -1,5 +1,5 @@
 import React from "react"
-import { createNativeStackNavigator } from "react-native-screens/native-stack"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import {
   WelcomeScreen,
   AlphabeticalScreen,
@@ -12,7 +12,7 @@ import {
   ListDetailScreen,
   NearMeScreen,
 } from "../screens"
-import { color } from "../theme"
+import { colors } from "../theme"
 import _ from "lodash"
 
 export type PrimaryParamList = {
@@ -40,11 +40,10 @@ export function PrimaryNavigator() {
         gestureEnabled: true,
         headerBackTitleVisible: false,
         headerStyle: {
-          backgroundColor: color.primary,
+          backgroundColor: colors.primary,
         },
-        headerTintColor: color.palette.white,
+        headerTintColor: colors.palette.white,
         headerTitleStyle: {
-          // @ts-ignore
           fontWeight: "bold",
         },
       }}

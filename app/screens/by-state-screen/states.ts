@@ -1,212 +1,212 @@
 export const States = {
-  al: {
+  Alabama: {
     fullName: "Alabama",
     image: require("./flags/alabama.png"),
   },
-  ak: {
+  Alaska: {
     fullName: "Alaska",
     image: require("./flags/alaska.png"),
   },
-  az: {
+  Arizona: {
     fullName: "Arizona",
     image: require("./flags/arizona.png"),
   },
-  ar: {
+  Arkansas: {
     fullName: "Arkansas",
     image: require("./flags/arkansas.png"),
   },
-  ca: {
+  California: {
     fullName: "California",
     image: require("./flags/california.png"),
   },
-  co: {
+  Colorado: {
     fullName: "Colorado",
     image: require("./flags/colorado.png"),
   },
-  ct: {
+  Connecticut: {
     fullName: "Connecticut",
     image: require("./flags/connecticut.png"),
   },
-  de: {
+  Delaware: {
     fullName: "Delaware",
     image: require("./flags/delaware.png"),
   },
-  fl: {
+  Florida: {
     fullName: "Florida",
     image: require("./flags/florida.png"),
   },
-  ga: {
+  Georgia: {
     fullName: "Georgia",
     image: require("./flags/georgia.png"),
   },
-  hi: {
+  Hawaii: {
     fullName: "Hawaii",
     image: require("./flags/hawaii.png"),
   },
-  id: {
+  Idaho: {
     fullName: "Idaho",
     image: require("./flags/idaho.png"),
   },
-  il: {
+  Illinois: {
     fullName: "Illinois",
     image: require("./flags/illinois.png"),
   },
-  in: {
+  Indiana: {
     fullName: "Indiana",
     image: require("./flags/indiana.png"),
   },
-  ia: {
+  Iowa: {
     fullName: "Iowa",
     image: require("./flags/iowa.png"),
   },
-  ks: {
+  Kansas: {
     fullName: "Kansas",
     image: require("./flags/kansas.png"),
   },
-  ky: {
+  Kentucky: {
     fullName: "Kentucky",
     image: require("./flags/kentucky.png"),
   },
-  la: {
+  Louisiana: {
     fullName: "Louisiana",
     image: require("./flags/louisiana.png"),
   },
-  me: {
+  Maine: {
     fullName: "Maine",
     image: require("./flags/maine.png"),
   },
-  md: {
+  Maryland: {
     fullName: "Maryland",
     image: require("./flags/maryland.png"),
   },
-  ma: {
+  Massachusetts: {
     fullName: "Massachusetts",
     image: require("./flags/massachusets.png"),
   },
-  mi: {
+  Michigan: {
     fullName: "Michigan",
     image: require("./flags/michigan.png"),
   },
-  mn: {
+  Minnesota: {
     fullName: "Minnesota",
     image: require("./flags/minnesota.png"),
   },
-  ms: {
+  Mississippi: {
     fullName: "Mississippi",
   },
-  mo: {
+  Missouri: {
     fullName: "Missouri",
     image: require("./flags/missouri.png"),
   },
-  mt: {
+  Montana: {
     fullName: "Montana",
     image: require("./flags/montana.png"),
   },
-  ne: {
+  Nebraska: {
     fullName: "Nebraska",
     image: require("./flags/nebraska.png"),
   },
-  nv: {
+  Nevada: {
     fullName: "Nevada",
     image: require("./flags/nevada.png"),
   },
-  nh: {
+  "New Hampshire": {
     fullName: "New Hampshire",
     image: require("./flags/new-hampshire.png"),
   },
-  nj: {
+  "New Jersey": {
     fullName: "New Jersey",
     image: require("./flags/new-jersey.png"),
   },
-  nm: {
+  "New Mexico": {
     fullName: "New Mexico",
     image: require("./flags/new-mexico.png"),
   },
-  ny: {
+  "New York": {
     fullName: "New York",
     image: require("./flags/new-york.png"),
   },
-  nc: {
+  "North Carolina": {
     fullName: "North Carolina",
     image: require("./flags/north-carolina.png"),
   },
-  nd: {
+  "North Dakota": {
     fullName: "North Dakota",
     image: require("./flags/north-dakota.png"),
   },
-  oh: {
+  Ohio: {
     fullName: "Ohio",
     image: require("./flags/ohio.png"),
   },
-  ok: {
+  Oklahoma: {
     fullName: "Oklahoma",
     image: require("./flags/oklahoma.png"),
   },
-  or: {
+  Oregon: {
     fullName: "Oregon",
     image: require("./flags/oregon.png"),
   },
-  pa: {
+  Pennsylvania: {
     fullName: "Pennsylvania",
     image: require("./flags/pennsylvania.png"),
   },
-  pr: {
+  "Puerto Rico": {
     fullName: "Puerto Rico",
     image: require("./flags/puerto-rico.png"),
   },
-  ri: {
+  "Rhode Island": {
     fullName: "Rhode Island",
     image: require("./flags/rhode-island.png"),
   },
-  sc: {
+  "South Carolina": {
     fullName: "South Carolina",
     image: require("./flags/south-carolina.png"),
   },
-  sd: {
+  "South Dakota": {
     fullName: "South Dakota",
     image: require("./flags/south-dakota.png"),
   },
-  tn: {
+  Tennessee: {
     fullName: "Tennessee",
     image: require("./flags/tennessee.png"),
   },
-  tx: {
+  Texas: {
     fullName: "Texas",
     image: require("./flags/texas.png"),
   },
-  ut: {
+  Utah: {
     fullName: "Utah",
     image: require("./flags/utah.png"),
   },
-  vt: {
+  Vermont: {
     fullName: "Vermont",
     image: require("./flags/vermont.png"),
   },
-  va: {
+  Virginia: {
     fullName: "Virginia",
     image: require("./flags/virginia.png"),
   },
-  wa: {
+  Washington: {
     fullName: "Washington",
     image: require("./flags/washington.png"),
   },
-  wv: {
+  "West Virginia": {
     fullName: "West Virginia",
     image: require("./flags/west-virginia.png"),
   },
-  wi: {
+  Wisconsin: {
     fullName: "Wisconsin",
     image: require("./flags/wisconsin.png"),
   },
-  wy: {
+  Wyoming: {
     fullName: "Wyoming",
     image: require("./flags/wyoming.png"),
   },
-  usvi: {
+  "US Virgin Islands": {
     fullName: "US Virgin Islands",
     image: require("./flags/us-virgin-islands.png"),
   },
-  international: {
+  International: {
     fullName: "International",
     image: require("./flags/united-nations.png"),
   },

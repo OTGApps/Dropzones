@@ -1,15 +1,15 @@
 import * as React from "react"
-import { useStores } from "../../models/root-store/root-store-context"
+import { useStores } from "app/models"
 import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
-import { color } from "../../theme"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { colors } from "../../theme"
 import _ from "lodash"
 import { ListItem } from "react-native-elements"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background,
+  backgroundColor: colors.background,
 }
 
 export interface ByRegionScreenProps {

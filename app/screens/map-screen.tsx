@@ -2,8 +2,8 @@ import React, { FunctionComponent as Component, useState, useRef, useEffect } fr
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { ViewStyle, Platform, useWindowDimensions } from "react-native"
-import { useStores } from "../models/root-store/root-store-context"
-import { color, spacing, typography } from "../theme"
+import { useStores } from "app/models"
+import { colors, spacing, typography } from "../theme"
 import { ListItem, Icon } from "react-native-elements"
 import MapView from "react-native-map-clustering"
 import Map, { Marker, Callout, LatLng, Region } from "react-native-maps"
@@ -12,7 +12,7 @@ import Device, { DeviceType } from "expo-device"
 
 const ROOT: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background,
+  backgroundColor: colors.background,
 }
 
 const NO_PADDING_IOS: ViewStyle = {
@@ -45,7 +45,7 @@ export const MapScreen: Component = observer(function MapScreen() {
           name={"location-arrow"}
           type={"font-awesome"}
           size={24}
-          color={showsUserLocation ? color.palette.white : color.palette.transparentWhite}
+          color={showsUserLocation ? colors.palette.white : colors.palette.transparentWhite}
           onPress={() => setShowsUserLocation(!showsUserLocation)}
         />
       ),
@@ -121,7 +121,7 @@ export const MapScreen: Component = observer(function MapScreen() {
       initialRegion={INITIAL_REGION}
       onRegionChangeComplete={checkClustering}
       style={ROOT}
-      clusterColor={color.primary}
+      clusterColor={colors.primary}
       clusterFontFamily={typography.primary}
       tracksViewChanges={false}
       spiralEnabled={false}

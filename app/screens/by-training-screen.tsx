@@ -1,14 +1,14 @@
 import React, { FunctionComponent as Component } from "react"
-import { useStores } from "../models/root-store/root-store-context"
+import { useStores } from "app/models"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { color } from "../theme"
+import { colors } from "../theme"
 import { ListItem } from "react-native-elements"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background,
+  backgroundColor: colors.background,
 }
 
 const keyExtractor = (item, index) => index.toString()

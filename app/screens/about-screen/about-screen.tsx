@@ -1,6 +1,6 @@
 import React, { FunctionComponent as Component } from "react"
 import { Linking, ScrollView } from "react-native"
-import * as Application from "expo-application"
+import Constants from "expo-constants"
 import { SocialIcon, Card, ListItem } from "react-native-elements"
 
 const openWeb = (website: string) => {
@@ -28,7 +28,7 @@ export const AboutScreen: Component = () => {
           <ListItem.Content>
             <ListItem.Title>Version</ListItem.Title>
             <ListItem.Subtitle>
-              {Application.nativeApplicationVersion}({Application.nativeBuildVersion})
+              {Constants.nativeAppVersion}({Constants.nativeBuildVersion})
             </ListItem.Subtitle>
           </ListItem.Content>
         </ListItem>

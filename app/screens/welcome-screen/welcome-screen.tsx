@@ -2,7 +2,7 @@ import React, { FunctionComponent as Component, useState, useEffect } from "reac
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
-import { color } from "../../theme"
+import { colors } from "../../theme"
 import { ListItem, Icon } from "react-native-elements"
 import * as Location from "expo-location"
 
@@ -22,13 +22,13 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   const [loading, setLoading] = useState(false)
 
   const getLocation = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync()
+    const { status } = await Location.requestForegroundPermissionsAsync()
     if (status !== "granted") {
       setErrorMsg("Permission to access location was denied")
       return
     }
 
-    let loc = await Location.getCurrentPositionAsync({})
+    const loc = await Location.getCurrentPositionAsync({})
     setLocation(loc)
   }
 
@@ -39,7 +39,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
         Alert.alert("Error", errorMsg)
         setErrorMsg(null)
       } else {
-        if (__DEV__) console.tron.log("opening the near me screen.", location)
+        if (__DEV__) console.log("opening the near me screen.", location)
         navigation.navigate("near-me", {
           location,
         })
@@ -54,7 +54,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
           name={"info-circle"}
           type={"font-awesome"}
           size={22}
-          color={color.palette.white}
+          color={colors.palette.white}
           onPress={() => navigation.navigate("about")}
         />
       ),
@@ -93,7 +93,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
         })
       }
     >
-      <Icon color={color.primary} name={item.iconName} type="font-awesome" />
+      <Icon color={colors.primary} name={item.iconName} type="font-awesome" />
       <ListItem.Content>
         <ListItem.Title>{item.title}</ListItem.Title>
         <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>

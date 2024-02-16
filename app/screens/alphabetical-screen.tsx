@@ -1,12 +1,12 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
-import { useStores } from "../models/root-store/root-store-context"
 import { observer } from "mobx-react-lite"
-import { Dropzone } from "../models/dropszones/dropzones"
+import { Dropzone } from "../models/dropzones"
 import { View, ViewStyle, TextStyle, SectionList } from "react-native"
 import { DropzoneListRow } from "../components"
-import { color, spacing } from "../theme"
+import { colors, spacing } from "../theme"
 import _ from "lodash"
 import { SearchBar, Text } from "react-native-elements"
+import { useStores } from "app/models"
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -14,11 +14,11 @@ const FULL: ViewStyle = {
 
 const HEADER_STYLE: ViewStyle = {
   flex: 1,
-  backgroundColor: color.primary,
+  backgroundColor: colors.primary,
 }
 const HEADER_TEXT_STYLE: TextStyle = {
-  color: color.palette.white,
-  margin: spacing[2],
+  color: colors.palette.white,
+  margin: spacing.md,
   fontWeight: "bold",
 }
 

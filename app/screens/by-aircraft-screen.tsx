@@ -1,15 +1,15 @@
 import React, { FunctionComponent as Component, useState, useEffect } from "react"
-import { useStores } from "../models/root-store/root-store-context"
+import { useStores } from "app/models"
 import { ViewStyle, SectionList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { color } from "../theme"
+import { colors } from "../theme"
 import { Button, Card, ListItem, Text } from "react-native-elements"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background,
+  backgroundColor: colors.background,
 }
 
 const keyExtractor = (item, index) => index.toString()
@@ -84,7 +84,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
     <ListItem
       bottomDivider
       containerStyle={{
-        backgroundColor: color.palette.offWhite,
+        backgroundColor: colors.palette.offWhite,
         paddingVertical: 10,
         paddingHorizontal: 15,
       }}

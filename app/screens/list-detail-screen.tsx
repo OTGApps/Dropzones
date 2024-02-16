@@ -1,15 +1,15 @@
 import React, { FunctionComponent as Component, useEffect, useState } from "react"
-import { useStores } from "../models/root-store/root-store-context"
+import { useStores } from "app/models"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { color } from "../theme"
+import { colors } from "../theme"
 import { SearchBar } from "react-native-elements"
 import { DropzoneListRow } from "../components"
 
 const FULL: ViewStyle = {
   flex: 1,
-  backgroundColor: color.background,
+  backgroundColor: colors.background,
 }
 
 export interface ListDetailScreenProps {
@@ -49,7 +49,7 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
           placeholder="Search Dropzones..."
           lightTheme
           value={search}
-          onChangeText={value => setSearch(value)}
+          onChangeText={(value) => setSearch(value)}
         />
       }
       renderItem={renderItem}
