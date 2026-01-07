@@ -75,7 +75,6 @@
     "react-native-maps": "1.20.1",
     "react-native-mmkv": "3.3.3",
     "react-native-open-maps": "^0.4.0",
-    "react-native-parallax-scroll-view": "^0.21.3",
     "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "5.6.0",
     "react-native-screens": "~4.16.0",

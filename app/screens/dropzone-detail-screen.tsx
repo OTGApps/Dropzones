@@ -7,8 +7,8 @@ import { Card, ListItem, Button, Icon } from "react-native-elements"
 import Mailer from "react-native-mail"
 import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
-import ParallaxScrollView from "react-native-parallax-scroll-view"
 
+import { ParallaxScrollView } from "@/components/ParallaxScrollView"
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
