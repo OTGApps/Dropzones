@@ -2,31 +2,65 @@
   "expo": {
     "name": "Dropzones",
     "slug": "Dropzones",
+    "scheme": "dropzones",
     "description": "USPA Dropzone Finder",
     "version": "3.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "backgroundColor": "#ffffff"
-    },
+    "icon": "./assets/images/adaptive-icon.png",
+    "userInterfaceStyle": "automatic",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "newArchEnabled": true,
+    "jsEngine": "hermes",
     "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "io.otgapps.dropzones",
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+      "allowBackup": false,
+      "edgeToEdgeEnabled": true
     },
     "ios": {
-      "bundleIdentifier": "io.otgapps.dropzones",
       "supportsTablet": true,
+      "bundleIdentifier": "io.otgapps.dropzones",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone."
       }
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "imageWidth": 300,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      [
+        "react-native-edge-to-edge",
+        {
+          "android": {
+            "parentTheme": "Light",
+            "enforceNavigationBarContrast": false
+          }
+        }
+      ],
+      "expo-build-properties"
+    ],
+    "experiments": {
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "ignite": {
+        "version": "UNKNOWN"
+      }
     }
   }
 }

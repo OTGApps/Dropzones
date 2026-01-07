@@ -1,12 +1,13 @@
 import React from "react"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import PrimaryStack from "./primary-stack"
-import MapStack from "./map-stack"
 import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from "@gorhom/animated-tabbar"
-import { color } from "../theme"
-import { palette } from "../theme/palette"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Icon } from "react-native-elements"
 import Animated from "react-native-reanimated"
+
+import MapStack from "./map-stack"
+import PrimaryStack from "./primary-stack"
+import { color } from "../theme"
+import { palette } from "../theme/palette"
 
 class IconClassComponent extends React.Component {
   render() {
@@ -63,7 +64,7 @@ const TabNavigator = () => {
         headerShown: false,
       }}
       initialRouteName="dropzones"
-      tabBar={props => (
+      tabBar={(props) => (
         <AnimatedTabBar tabs={tabs} style={{ backgroundColor: color.primary }} {...props} />
       )}
     >
