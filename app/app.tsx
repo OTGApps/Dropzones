@@ -30,6 +30,7 @@ import { RootStoreProvider } from "./models/root-store/root-store-context"
 import { setupRootStore } from "./models/root-store/setup-root-store"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
+import { DatabaseProvider } from "./database"
 import { ThemeProvider } from "./theme/context"
 import { customFontsToLoad } from "./theme/typography"
 import { loadDateFnsLocale } from "./utils/formatDate"
@@ -82,12 +83,14 @@ export function App() {
       <PaperProvider>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <KeyboardProvider>
-            <RootStoreProvider value={rootStore}>
-              <AppNavigator
-                initialState={initialNavigationState}
-                onStateChange={onNavigationStateChange}
-              />
-            </RootStoreProvider>
+            <DatabaseProvider>
+              <RootStoreProvider value={rootStore}>
+                <AppNavigator
+                  initialState={initialNavigationState}
+                  onStateChange={onNavigationStateChange}
+                />
+              </RootStoreProvider>
+            </DatabaseProvider>
           </KeyboardProvider>
         </SafeAreaProvider>
       </PaperProvider>
