@@ -12,7 +12,7 @@ const SPEED_LIMIT_SIGN: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   borderWidth: 2.5,
   borderColor: colors.palette.neutral900,
   borderRadius: 6,
-  padding: spacing.md / 2,
+  padding: spacing.xxxs,
 })
 
 const MILES_TEXT: ThemedStyle<TextStyle> = ({ colors }) => ({
