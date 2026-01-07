@@ -1,10 +1,11 @@
-import React, { FunctionComponent as Component, useState, useEffect } from "react"
+import { FunctionComponent as Component, useState, useEffect } from "react"
+import { ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
+import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
-import { color } from "../../theme"
 import { ListItem, Icon } from "react-native-elements"
-import * as Location from "expo-location"
+
+import { useAppTheme } from "@/theme/context"
 
 const MenuItems = require("./menu-items.json")
 
@@ -13,6 +14,11 @@ const FULL: ViewStyle = {
 }
 
 export const WelcomeScreen: Component = observer(function WelcomeScreen() {
+  const {
+    themed,
+    theme: { colors },
+  } = useAppTheme()
+
   const navigation = useNavigation()
   const [location, setLocation] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
@@ -22,13 +28,13 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
   const [loading, setLoading] = useState(false)
 
   const getLocation = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync()
+    const { status } = await Location.requestForegroundPermissionsAsync()
     if (status !== "granted") {
       setErrorMsg("Permission to access location was denied")
       return
     }
 
-    let loc = await Location.getCurrentPositionAsync({})
+    const loc = await Location.getCurrentPositionAsync({})
     setLocation(loc)
   }
 
@@ -54,7 +60,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
           name={"info-circle"}
           type={"font-awesome"}
           size={22}
-          color={color.palette.white}
+          color={colors.palette.neutral100}
           onPress={() => navigation.navigate("about")}
         />
       ),
@@ -93,7 +99,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
         })
       }
     >
-      <Icon color={color.primary} name={item.iconName} type="font-awesome" />
+      <Icon color={colors.tint} name={item.iconName} type="font-awesome" />
       <ListItem.Content>
         <ListItem.Title>{item.title}</ListItem.Title>
         <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
@@ -105,7 +111,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
 
   return (
     <FlatList
-      style={FULL}
+      style={themed(FULL)}
       data={MenuItems}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}

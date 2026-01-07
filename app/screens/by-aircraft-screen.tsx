@@ -1,16 +1,19 @@
-import React, { FunctionComponent as Component, useState, useEffect } from "react"
-import { useStores } from "../models/root-store/root-store-context"
+import { FunctionComponent as Component, useState, useEffect } from "react"
 import { ViewStyle, SectionList, View } from "react-native"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { color } from "../theme"
 import { Button, Card, ListItem, Text } from "react-native-elements"
-import AsyncStorage from "@react-native-async-storage/async-storage"
 
-const FULL: ViewStyle = {
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+import { useStores } from "../models/root-store/root-store-context"
+
+const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: color.background,
-}
+  backgroundColor: colors.background,
+})
 
 const keyExtractor = (item, index) => index.toString()
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
@@ -19,6 +22,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   const navigation = useNavigation()
   const { uniqueAircraftSorted } = useStores()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
+  const { themed } = useAppTheme()
 
   useEffect(() => {
     let isMounted = true
@@ -98,7 +102,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   return (
     <View style={{ flex: 1 }}>
       <SectionList
-        style={FULL}
+        style={themed(FULL)}
         sections={uniqueAircraftSorted}
         keyExtractor={keyExtractor}
         renderItem={renderItem}

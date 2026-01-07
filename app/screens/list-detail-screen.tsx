@@ -1,16 +1,19 @@
-import React, { FunctionComponent as Component, useEffect, useState } from "react"
-import { useStores } from "../models/root-store/root-store-context"
+import { FunctionComponent as Component, useEffect, useState } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { color } from "../theme"
 import { SearchBar } from "react-native-elements"
-import { DropzoneListRow } from "../components"
 
-const FULL: ViewStyle = {
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+import { DropzoneListRow } from "../components"
+import { useStores } from "../models/root-store/root-store-context"
+
+const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: color.background,
-}
+  backgroundColor: colors.background,
+})
 
 export interface ListDetailScreenProps {
   route: any
@@ -25,6 +28,7 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
   const dropzones = rootStore.filteredDropzones(item, itemType)
   const [search, setSearch] = useState("")
   const [list, setList] = useState(dropzones)
+  const { themed } = useAppTheme()
 
   useEffect(() => {
     const filteredData = search
@@ -40,7 +44,7 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
   return (
     <FlatList
       key="list"
-      style={FULL}
+      style={themed(FULL)}
       keyExtractor={keyExtractor}
       data={list}
       ListHeaderComponent={
@@ -49,7 +53,7 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
           placeholder="Search Dropzones..."
           lightTheme
           value={search}
-          onChangeText={value => setSearch(value)}
+          onChangeText={(value) => setSearch(value)}
         />
       }
       renderItem={renderItem}

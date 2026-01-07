@@ -1,31 +1,36 @@
-import React, { FunctionComponent as Component, useState, useEffect } from "react"
-import { useStores } from "../models/root-store/root-store-context"
-import { observer } from "mobx-react-lite"
-import { Dropzone } from "../models/dropszones/dropzones"
+import { FunctionComponent as Component, useState, useEffect } from "react"
 import { View, ViewStyle, TextStyle, SectionList } from "react-native"
-import { DropzoneListRow } from "../components"
-import { color, spacing } from "../theme"
 import _ from "lodash"
+import { observer } from "mobx-react-lite"
 import { SearchBar, Text } from "react-native-elements"
+
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+import { DropzoneListRow } from "../components"
+import { Dropzone } from "../models/dropszones/dropzones"
+import { useStores } from "../models/root-store/root-store-context"
 
 const FULL: ViewStyle = {
   flex: 1,
 }
 
-const HEADER_STYLE: ViewStyle = {
+const HEADER_STYLE: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: color.primary,
-}
-const HEADER_TEXT_STYLE: TextStyle = {
-  color: color.palette.white,
-  margin: spacing[2],
+  backgroundColor: colors.background,
+})
+
+const HEADER_TEXT_STYLE: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  color: colors.palette.neutral100,
+  margin: spacing.sm,
   fontWeight: "bold",
-}
+})
 
 const HeaderView = ({ section: { title } }) => {
+  const { themed } = useAppTheme()
   return (
-    <View style={HEADER_STYLE}>
-      <Text style={HEADER_TEXT_STYLE}>{title}</Text>
+    <View style={themed(HEADER_STYLE)}>
+      <Text style={themed(HEADER_TEXT_STYLE)}>{title}</Text>
     </View>
   )
 }
@@ -34,6 +39,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
   const { dropzones } = useStores()
   const [search, setSearch] = useState("")
   const [list, setList] = useState<Dropzone[]>(dropzones)
+  const { themed } = useAppTheme()
 
   useEffect(() => {
     const filteredData = search
@@ -64,7 +70,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
   return (
     <SectionList
       removeClippedSubviews
-      style={FULL}
+      style={themed(FULL)}
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled

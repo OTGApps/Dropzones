@@ -1,24 +1,28 @@
-import React, { FunctionComponent as Component } from "react"
-import { useStores } from "../../models/root-store/root-store-context"
+import { FunctionComponent as Component } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import _ from "lodash"
 import { observer } from "mobx-react-lite"
-import { color } from "../../theme"
 import { ListItem, Avatar } from "react-native-elements"
+
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
 import { States } from "./states"
 import { CountBadge } from "../../components"
-import _ from "lodash"
+import { useStores } from "../../models/root-store/root-store-context"
 
-const FULL: ViewStyle = {
+const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: color.background,
-}
+  backgroundColor: colors.background,
+})
 
 export const ByStateScreen: Component = observer(function ByStateScreen() {
   const navigation = useNavigation()
   const rootStore = useStores()
   const { dropzones } = rootStore
   const sortedStates = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
+  const { themed } = useAppTheme()
 
   // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
   const groupByState = rootStore.groupByState()
@@ -61,7 +65,7 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
 
   return (
     <FlatList
-      style={FULL}
+      style={themed(FULL)}
       removeClippedSubviews
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}

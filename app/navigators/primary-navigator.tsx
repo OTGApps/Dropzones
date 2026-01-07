@@ -1,5 +1,8 @@
-import React from "react"
+import _ from "lodash"
 import { createNativeStackNavigator } from "react-native-screens/native-stack"
+
+import { useAppTheme } from "@/theme/context"
+
 import {
   WelcomeScreen,
   AlphabeticalScreen,
@@ -12,13 +15,11 @@ import {
   ListDetailScreen,
   NearMeScreen,
 } from "../screens"
-import { color } from "../theme"
-import _ from "lodash"
 
 export type PrimaryParamList = {
-  welcome: undefined
-  alphabetical: undefined
-  map: undefined
+  "welcome": undefined
+  "alphabetical": undefined
+  "map": undefined
   "list-detail": undefined
   "near-me": undefined
   "dropzone-detail": undefined
@@ -32,6 +33,10 @@ export type PrimaryParamList = {
 const Stack = createNativeStackNavigator<PrimaryParamList>()
 
 export function PrimaryNavigator() {
+  const {
+    theme: { colors },
+  } = useAppTheme()
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -40,9 +45,9 @@ export function PrimaryNavigator() {
         gestureEnabled: true,
         headerBackTitleVisible: false,
         headerStyle: {
-          backgroundColor: color.primary,
+          backgroundColor: colors.tint,
         },
-        headerTintColor: color.palette.white,
+        headerTintColor: colors.palette.neutral100,
         headerTitleStyle: {
           // @ts-ignore
           fontWeight: "bold",

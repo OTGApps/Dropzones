@@ -1,31 +1,38 @@
-import React, { FunctionComponent as Component, useState, useRef, useEffect } from "react"
+import { FunctionComponent as Component, useState, useRef, useEffect } from "react"
+import { ViewStyle, Platform, useWindowDimensions } from "react-native"
+import Device, { DeviceType } from "expo-device"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, Platform, useWindowDimensions } from "react-native"
-import { useStores } from "../models/root-store/root-store-context"
-import { color, spacing, typography } from "../theme"
+import { getSnapshot } from "mobx-state-tree"
 import { ListItem, Icon } from "react-native-elements"
 import MapView from "react-native-map-clustering"
 import Map, { Marker, Callout, LatLng, Region } from "react-native-maps"
-import { getSnapshot } from "mobx-state-tree"
-import Device, { DeviceType } from "expo-device"
 
-const ROOT: ViewStyle = {
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+import { useStores } from "../models/root-store/root-store-context"
+
+const ROOT: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: color.background,
-}
+  backgroundColor: colors.background,
+})
 
 const NO_PADDING_IOS: ViewStyle = {
   padding: 0,
 }
 
 export const MapScreen: Component = observer(function MapScreen() {
+  const {
+    theme: { colors, spacing, typography },
+  } = useAppTheme()
+
   const navigation = useNavigation()
   const { dropzones } = useStores()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
   const [clusteringEnabled, setClusteringEnabled] = useState(true)
-  const mapRef = useRef<Map>()
+  const mapRef = useRef<Map>(null)
 
   const { width, height } = useWindowDimensions()
 
@@ -45,7 +52,7 @@ export const MapScreen: Component = observer(function MapScreen() {
           name={"location-arrow"}
           type={"font-awesome"}
           size={24}
-          color={showsUserLocation ? color.palette.white : color.palette.transparentWhite}
+          color={showsUserLocation ? colors.palette.neutral100 : color.palette.transparentWhite}
           onPress={() => setShowsUserLocation(!showsUserLocation)}
         />
       ),
@@ -121,7 +128,7 @@ export const MapScreen: Component = observer(function MapScreen() {
       initialRegion={INITIAL_REGION}
       onRegionChangeComplete={checkClustering}
       style={ROOT}
-      clusterColor={color.primary}
+      clusterColor={colors.tint}
       clusterFontFamily={typography.primary}
       tracksViewChanges={false}
       spiralEnabled={false}

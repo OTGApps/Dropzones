@@ -1,4 +1,4 @@
-// import React, { FunctionComponent as Component } from "react"
+// import { FunctionComponent as Component } from "react"
 // import { observer } from "mobx-react-lite"
 // import { useStores } from "../models/root-store/root-store-context"
 // import { ViewStyle, FlatList } from "react-native"
@@ -17,7 +17,7 @@
 
 //   return (
 //     <FlatList
-//       style={FULL}
+//       style={themed(FULL)}
 //       data={flaggedDropzones}
 //       keyExtractor={keyExtractor}
 //       renderItem={renderItem}

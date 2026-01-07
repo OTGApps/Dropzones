@@ -1,17 +1,17 @@
-import React from "react"
+import { Component } from "react"
 import AnimatedTabBar, { TabsConfig, BubbleTabBarItemConfig } from "@gorhom/animated-tabbar"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Icon } from "react-native-elements"
 import Animated from "react-native-reanimated"
 
+import { useAppTheme } from "@/theme/context"
+
 import MapStack from "./map-stack"
 import PrimaryStack from "./primary-stack"
-import { color } from "../theme"
-import { palette } from "../theme/palette"
 
-class IconClassComponent extends React.Component {
+class IconClassComponent extends Component<{ color: string }> {
   render() {
-    return <Icon name={""} {...this.props} color={color.primary} />
+    return <Icon name={""} {...this.props} />
   }
 }
 
@@ -26,38 +26,46 @@ export type NavigatorParamList = {
 
 const Tab = createBottomTabNavigator<NavigatorParamList>()
 
-const tabs: TabsConfig<BubbleTabBarItemConfig> = {
-  dropzones: {
-    labelStyle: {
-      color: color.primary,
-    },
-    icon: {
-      component: ({ size }) => <AnimatedIcon name="plane" size={size} type="font-awesome" />,
-      activeColor: color.primary,
-      inactiveColor: color.primaryLighter,
-    },
-    background: {
-      activeColor: palette.white,
-      inactiveColor: palette.white,
-    },
-  },
-  map: {
-    labelStyle: {
-      color: color.primary,
-    },
-    icon: {
-      component: ({ size }) => <AnimatedIcon name="map" size={size} type="font-awesome" />,
-      activeColor: color.primary,
-      inactiveColor: palette.white,
-    },
-    background: {
-      activeColor: palette.white,
-      inactiveColor: palette.white,
-    },
-  },
-}
-
 const TabNavigator = () => {
+  const {
+    theme: { colors },
+  } = useAppTheme()
+
+  const tabs: TabsConfig<BubbleTabBarItemConfig> = {
+    dropzones: {
+      labelStyle: {
+        color: colors.tint,
+      },
+      icon: {
+        component: ({ size }) => (
+          <AnimatedIcon name="plane" size={size} type="font-awesome" color={colors.tint} />
+        ),
+        activeColor: colors.tint,
+        inactiveColor: colors.tintInactive,
+      },
+      background: {
+        activeColor: colors.palette.neutral100,
+        inactiveColor: colors.palette.neutral100,
+      },
+    },
+    map: {
+      labelStyle: {
+        color: colors.tint,
+      },
+      icon: {
+        component: ({ size }) => (
+          <AnimatedIcon name="map" size={size} type="font-awesome" color={colors.tint} />
+        ),
+        activeColor: colors.tint,
+        inactiveColor: colors.tintInactive,
+      },
+      background: {
+        activeColor: colors.palette.neutral100,
+        inactiveColor: colors.palette.neutral100,
+      },
+    },
+  }
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -65,7 +73,7 @@ const TabNavigator = () => {
       }}
       initialRouteName="dropzones"
       tabBar={(props) => (
-        <AnimatedTabBar tabs={tabs} style={{ backgroundColor: color.primary }} {...props} />
+        <AnimatedTabBar tabs={tabs} style={{ backgroundColor: colors.tint }} {...props} />
       )}
     >
       <Tab.Screen

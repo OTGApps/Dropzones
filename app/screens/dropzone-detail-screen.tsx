@@ -1,108 +1,25 @@
-import React, { FunctionComponent as Component, useState, useEffect } from "react"
+import { FunctionComponent as Component, useState, useEffect } from "react"
+import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking } from "react-native"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { useStores } from "../models/root-store/root-store-context"
-import {
-  View,
-  ViewStyle,
-  TextStyle,
-  StyleSheet,
-  Dimensions,
-  Platform,
-  Alert,
-  Linking,
-} from "react-native"
-import { color, spacing } from "../theme"
-import ParallaxScrollView from "react-native-parallax-scroll-view"
-import MapView, { Marker } from "react-native-maps"
 import { Card, ListItem, Button, Icon } from "react-native-elements"
 import Mailer from "react-native-mail"
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import { delay } from "../utils/delay"
+import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
+import ParallaxScrollView from "react-native-parallax-scroll-view"
+
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+import { useStores } from "../models/root-store/root-store-context"
+import { delay } from "../utils/delay"
 
 const window = Dimensions.get("window")
 const PARALLAX_HEADER_HEIGHT = 300
 const STICKY_HEADER_HEIGHT = 50
 const OFFSET_TRAVEL = -100
 const BACKGROUND_OPACITY = 0.4
-
-const textShadow = {
-  textShadowColor: color.palette.black,
-  textShadowOffset: { width: -2, height: 2 },
-  textShadowRadius: 10,
-  padding: 10,
-  overflow: "visible",
-} as TextStyle
-
-const styles = StyleSheet.create({
-  // eslint-disable-next-line react-native/no-color-literals
-  background: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: window.width,
-    backgroundColor: Platform.OS === "ios" ? color.palette.black : color.transparent,
-    height: PARALLAX_HEADER_HEIGHT,
-  } as ViewStyle,
-  cardStyle: {
-    borderWidth: 0,
-    paddingVertical: spacing[4],
-    marginBottom: spacing[5],
-    marginTop: -spacing[8],
-    minHeight: window.height - PARALLAX_HEADER_HEIGHT,
-
-    // Card Shadow
-    shadowColor: color.palette.black,
-    shadowOffset: {
-      width: 2,
-      height: 2,
-    },
-    shadowOpacity: 0.7,
-    shadowRadius: 10,
-    elevation: 10,
-  } as ViewStyle,
-  descriptionText: {
-    fontSize: 18,
-    lineHeight: 26,
-    color: color.text,
-  } as TextStyle,
-  // iconContainer: {
-  //   flex: 1,
-  //   padding: 0,
-  //   marginHorizontal: spacing[4],
-  // } as ViewStyle,
-  map: {
-    width: "100%",
-    height: PARALLAX_HEADER_HEIGHT,
-  } as ViewStyle,
-  noPadding: {
-    padding: 0,
-  } as TextStyle,
-  parallaxHeader: {
-    flex: 1,
-    flexDirection: "column-reverse",
-    alignItems: "flex-end",
-    marginBottom: spacing[10],
-    marginHorizontal: spacing[1],
-  } as ViewStyle,
-  sectionSubtitleText: {
-    ...textShadow,
-    color: color.lightText,
-    fontSize: 18,
-    paddingVertical: 5,
-    fontWeight: "bold",
-    textAlign: "right",
-  } as TextStyle,
-  sectionTitleText: {
-    ...textShadow,
-    color: color.lightText,
-    fontSize: 24,
-    paddingVertical: 5,
-    fontWeight: "bold",
-    textAlign: "right",
-  } as TextStyle,
-})
 
 const DISCLAIMER_BYPASS_KEY = "@bypassDisclaimer"
 const showDisclaimerAlert = async () => {
@@ -135,6 +52,10 @@ export interface DropzoneDetailScreenProps {
 
 export const DropzoneDetailScreen: Component = observer(function DropzoneDetailScreen(props) {
   const navigation = useNavigation()
+  const {
+    theme: { colors },
+    themed,
+  } = useAppTheme()
   const { route } = props as DropzoneDetailScreenProps
   const anchor = parseInt(route.params.anchor)
 
@@ -162,7 +83,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           name={"car"}
           type={"font-awesome"}
           size={22}
-          color={color.palette.white}
+          color={colors.palette.neutral100}
           onPress={openDrivingDirectons}
         />
       ),
@@ -196,7 +117,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       <View key={"background"}>
         <MapView
           key={"map-view"}
-          style={styles.map}
+          style={themed($map)}
           initialRegion={regionToDisplay}
           region={regionToDisplay} // Initial region doesn't work alone on android.
           mapType={"satellite"}
@@ -204,7 +125,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
         >
           <Marker coordinate={coordinates} />
         </MapView>
-        <View style={[styles.background, { opacity: backgroundOpacity }]} />
+        <View style={[themed($background), { opacity: backgroundOpacity }]} />
       </View>
     )
   }
@@ -242,12 +163,12 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   // }
 
   const renderForeground = () => (
-    <View key="parallax-header" style={styles.parallaxHeader}>
+    <View key="parallax-header" style={themed($parallaxHeader)}>
       <Button
         title={selectedDZ.name}
         type={"clear"}
-        titleStyle={styles.sectionTitleText}
-        buttonStyle={styles.noPadding}
+        titleStyle={themed($sectionTitleText)}
+        buttonStyle={themed($noPadding)}
         onPress={openDrivingDirectons}
       />
       <Button
@@ -257,8 +178,8 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           adjustsFontSizeToFit: true,
         }}
         type={"clear"}
-        titleStyle={styles.sectionSubtitleText}
-        buttonStyle={styles.noPadding}
+        titleStyle={themed($sectionSubtitleText)}
+        buttonStyle={themed($noPadding)}
         onPress={openWebsite}
       />
       {/* <View>
@@ -267,7 +188,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           icon={{
             type: "font-awesome",
             size: 35,
-            color: color.palette.white,
+            color: colors.palette.neutral100,
             name: isFlagged ? "flag" : "flag-o",
           }}
           onPress={toggleFlag}
@@ -308,7 +229,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     // eslint-disable-next-line react-native/no-inline-styles
     <ParallaxScrollView
       onScroll={onScroll}
-      backgroundColor={color.primary}
+      backgroundColor={colors.tint}
       stickyHeaderHeight={STICKY_HEADER_HEIGHT}
       parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
       backgroundScrollSpeed={30}
@@ -317,14 +238,14 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       renderForeground={renderForeground}
       overScrollMode={"always"}
     >
-      <Card containerStyle={styles.cardStyle}>
+      <Card containerStyle={themed($cardStyle)}>
         {selectedDZ.email && (
           <Button title={selectedDZ.email.toLowerCase()} type="outline" onPress={handleEmail} />
         )}
         {selectedDZ.description.length > 0 && (
           <ListItem>
             <ListItem.Content>
-              <ListItem.Title style={styles.descriptionText}>
+              <ListItem.Title style={themed($descriptionText)}>
                 {selectedDZ.description}
               </ListItem.Title>
             </ListItem.Content>
@@ -367,4 +288,79 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       </Card>
     </ParallaxScrollView>
   )
+})
+
+// Styles
+const $textShadow: ThemedStyle<TextStyle> = ({ colors }) => ({
+  textShadowColor: colors.palette.neutral900,
+  textShadowOffset: { width: -2, height: 2 },
+  textShadowRadius: 10,
+  padding: 10,
+  overflow: "visible",
+})
+
+const $background: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: window.width,
+  backgroundColor: Platform.OS === "ios" ? colors.palette.neutral900 : colors.transparent,
+  height: PARALLAX_HEADER_HEIGHT,
+})
+
+const $cardStyle: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  borderWidth: 0,
+  paddingVertical: spacing.sm,
+  marginBottom: spacing.md,
+  marginTop: -spacing.xxl,
+  minHeight: window.height - PARALLAX_HEADER_HEIGHT,
+  shadowColor: colors.palette.neutral900,
+  shadowOffset: {
+    width: 2,
+    height: 2,
+  },
+  shadowOpacity: 0.7,
+  shadowRadius: 10,
+  elevation: 10,
+})
+
+const $descriptionText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  fontSize: 18,
+  lineHeight: 26,
+  color: colors.text,
+})
+
+const $map: ViewStyle = {
+  width: "100%",
+  height: PARALLAX_HEADER_HEIGHT,
+}
+
+const $noPadding: ViewStyle = {
+  padding: 0,
+}
+
+const $parallaxHeader: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flex: 1,
+  flexDirection: "column-reverse",
+  alignItems: "flex-end",
+  marginBottom: spacing.xxxl,
+  marginHorizontal: spacing.xxxs,
+})
+
+const $sectionSubtitleText: ThemedStyle<TextStyle> = (theme) => ({
+  ...$textShadow(theme),
+  color: theme.colors.textDim,
+  fontSize: 18,
+  paddingVertical: 5,
+  fontWeight: "bold",
+  textAlign: "right",
+})
+
+const $sectionTitleText: ThemedStyle<TextStyle> = (theme) => ({
+  ...$textShadow(theme),
+  color: theme.colors.textDim,
+  fontSize: 24,
+  paddingVertical: 5,
+  fontWeight: "bold",
+  textAlign: "right",
 })

@@ -1,8 +1,7 @@
-import React from "react"
-import { createNativeStackNavigator } from "react-native-screens/native-stack"
 import _ from "lodash"
+import { createNativeStackNavigator } from "react-native-screens/native-stack"
 
-import { color } from "../theme"
+import { useAppTheme } from "@/theme/context"
 
 import { PrimaryNavigator } from "./primary-navigator"
 import { AboutScreen } from "../screens"
@@ -16,6 +15,10 @@ export type RootParamList = {
 const Stack = createNativeStackNavigator<RootParamList>()
 
 const PrimaryStack = () => {
+  const {
+    theme: { colors },
+  } = useAppTheme()
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -39,9 +42,9 @@ const PrimaryStack = () => {
           headerShown: true,
           gestureEnabled: true,
           headerStyle: {
-            backgroundColor: color.primary,
+            backgroundColor: colors.tint,
           },
-          headerTintColor: color.palette.white,
+          headerTintColor: colors.palette.neutral100,
           headerTitleStyle: {
             fontWeight: "bold",
           },

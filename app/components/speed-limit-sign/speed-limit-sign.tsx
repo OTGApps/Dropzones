@@ -1,43 +1,48 @@
 import * as React from "react"
 import { View, ViewStyle, TextStyle } from "react-native"
-import { Text } from "react-native-elements"
-import { spacing, color } from "../../theme"
 import { isMetric } from "expo-localization"
+import { Text } from "react-native-elements"
 
-const SPEED_LIMIT_SIGN: ViewStyle = {
+import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+
+const SPEED_LIMIT_SIGN: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   flexDirection: "column-reverse",
   alignItems: "center",
   justifyContent: "center",
   borderWidth: 2.5,
-  borderColor: color.palette.black,
+  borderColor: colors.palette.neutral900,
   borderRadius: 6,
-  padding: spacing[1] / 2,
-}
+  padding: spacing.md / 2,
+})
 
-const MILES_TEXT: TextStyle = {
-  color: color.palette.black,
+const MILES_TEXT: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.palette.neutral900,
   textAlign: "center",
   fontSize: 10,
-}
+})
 
-const DISTANCE_TEXT: TextStyle = {
-  color: color.palette.black,
+const DISTANCE_TEXT: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.palette.neutral900,
   textAlign: "center",
   fontSize: 22,
   lineHeight: 23,
   fontWeight: "bold",
   margin: 0,
   padding: 0,
-}
+})
+
 interface SpeedLimitSignProps {
   km?: number
 }
 
 export function SpeedLimitSign(props: SpeedLimitSignProps) {
+  const { themed } = useAppTheme()
+
   return (
-    <View style={SPEED_LIMIT_SIGN}>
-      <Text style={MILES_TEXT}>{isMetric ? "KM" : "MILES"}</Text>
-      <Text style={DISTANCE_TEXT}>
+    <View style={themed(SPEED_LIMIT_SIGN)}>
+      <Text style={themed(MILES_TEXT)}>{isMetric ? "KM" : "MILES"}</Text>
+      <Text style={themed(DISTANCE_TEXT)}>
         {parseInt(isMetric ? props.km : props.km * 0.621371).toString()}
       </Text>
     </View>

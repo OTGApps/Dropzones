@@ -1,7 +1,8 @@
-import React, { FunctionComponent as Component, useCallback } from "react"
+import { FunctionComponent as Component, useCallback } from "react"
 import { useNavigation } from "@react-navigation/native"
-import { Dropzone } from "../../models/dropszones/dropzones"
 import { ListItem } from "react-native-elements"
+
+import { Dropzone } from "../../models/dropszones/dropzones"
 
 export interface DropzoneListRowProps {
   item: Dropzone
@@ -14,12 +15,12 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
   const navigation = useNavigation()
   const { item, rightElement, index, subtitle } = props
 
-  const pressed = () => {
+  const pressed = useCallback(() => {
     navigation.navigate("dropzone-detail", {
       anchor: props.item.anchor,
       title: props.item.name,
     })
-  }
+  }, [navigation, props.item.anchor, props.item.name])
 
   return (
     <ListItem bottomDivider key={"listItem-" + index} onPress={pressed}>

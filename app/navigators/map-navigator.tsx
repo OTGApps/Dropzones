@@ -1,19 +1,23 @@
-import React from "react"
-
-import { createNativeStackNavigator } from "react-native-screens/native-stack"
-import { MapScreen, DropzoneDetailScreen } from "../screens"
-import { color } from "../theme"
 import _ from "lodash"
+import { createNativeStackNavigator } from "react-native-screens/native-stack"
+
+import { useAppTheme } from "@/theme/context"
+
+import { MapScreen, DropzoneDetailScreen } from "../screens"
 
 export type MapParamList = {
-  map: undefined
-  dropzones: undefined
+  "map": undefined
+  "dropzones": undefined
   "dropzone-detail": undefined
 }
 
 const Stack = createNativeStackNavigator<MapParamList>()
 
 export function MapNavigator() {
+  const {
+    theme: { colors },
+  } = useAppTheme()
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -21,9 +25,9 @@ export function MapNavigator() {
         headerBackTitleVisible: false,
         gestureEnabled: true,
         headerStyle: {
-          backgroundColor: color.primary,
+          backgroundColor: colors.tint,
         },
-        headerTintColor: color.palette.white,
+        headerTintColor: colors.palette.neutral100,
         headerTitleStyle: {
           fontWeight: "bold",
         },

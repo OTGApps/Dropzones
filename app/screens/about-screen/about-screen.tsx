@@ -1,4 +1,4 @@
-import React, { FunctionComponent as Component } from "react"
+import { FunctionComponent as Component } from "react"
 import { Linking, ScrollView } from "react-native"
 import * as Application from "expo-application"
 import { SocialIcon, Card, ListItem } from "react-native-elements"
