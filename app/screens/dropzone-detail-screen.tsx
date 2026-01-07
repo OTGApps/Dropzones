@@ -10,7 +10,6 @@ import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking, Anima
 import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import Mailer from "react-native-mail"
 import MapView, { Marker } from "react-native-maps"
@@ -23,7 +22,7 @@ import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-import { useStores } from "../models/root-store/root-store-context"
+import { useDropzone } from "../database"
 import { delay } from "../utils/delay"
 
 const DISCLAIMER_BYPASS_KEY = "@bypassDisclaimer"
@@ -74,7 +73,7 @@ const BottomSheetZoomTracker: Component<{ onZoomChange: (zoom: number) => void }
   return null
 }
 
-export const DropzoneDetailScreen: Component = observer(function DropzoneDetailScreen(props) {
+export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(props) {
   const navigation = useNavigation()
   const {
     theme: { colors },
@@ -83,11 +82,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const { route } = props as DropzoneDetailScreenProps
   const anchor = parseInt(route.params.anchor)
 
-  const rootStore = useStores()
-  const selectedDZ = rootStore.dropzoneById(anchor)
-
-  // TODO - what if the DZ isn't in the database. How did the user get here?
-  // maybe from a tyop'd app url?
+  const { dropzone: selectedDZ, isLoading } = useDropzone(anchor)
 
   const bottomSheetRef = useRef<BottomSheet>(null)
   const mapRef = useRef<MapView>(null)
@@ -238,6 +233,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     )
   }
 
+  // Handle loading and missing dropzone - after all hooks
+  if (isLoading || !selectedDZ) {
+    return null
+  }
+
   const { coordinates } = selectedDZ
 
   // Offset the map center based on sheet position
@@ -368,7 +368,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       </View>
     </GestureHandlerRootView>
   )
-})
+}
 
 const $container: ThemedStyle<ViewStyle> = () => ({
   flex: 1,

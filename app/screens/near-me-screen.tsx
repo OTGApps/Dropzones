@@ -1,12 +1,11 @@
 import { FunctionComponent as Component, useCallback } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
-import { observer } from "mobx-react-lite"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { SpeedLimitSign, DropzoneListRow } from "../components"
-import { useStores } from "../models/root-store/root-store-context"
+import { useNearbyDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -23,12 +22,11 @@ export interface NearMeScreenProps {
 }
 const keyExtractor = (item, index) => index.toString()
 
-export const NearMeScreen: Component = observer(function NearMeScreen(props) {
-  const rootStore = useStores()
+export const NearMeScreen: Component = function NearMeScreen(props) {
   const { route } = props as NearMeScreenProps
   const { location } = route.params // Get the location that was passed by the previous screen.
   const { themed } = useAppTheme()
-  const sortedFromUser = rootStore.sortByDistanceFrom(location)
+  const { dropzones: sortedFromUser } = useNearbyDropzones(location)
 
   const renderItem = useCallback(
     ({ item, index }) => (
@@ -54,4 +52,4 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
       removeClippedSubviews
     />
   )
-})
+}

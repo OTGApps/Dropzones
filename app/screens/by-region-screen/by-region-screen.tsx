@@ -1,8 +1,7 @@
-import { FunctionComponent } from "react"
+import { FunctionComponent, useMemo } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
-import _ from "lodash"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -10,7 +9,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
-import { useStores } from "../../models/root-store/root-store-context"
+import { useDropzonesByState } from "../../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -22,8 +21,8 @@ export interface ByRegionScreenProps {
 }
 
 export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) => {
-  const { dropzones } = useStores()
-  const dataSource = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
+  const { stateGroups } = useDropzonesByState()
+  const dataSource = useMemo(() => stateGroups.map((g) => g.stateCode), [stateGroups])
   const { themed } = useAppTheme()
 
   const renderItem = ({ item }) => (

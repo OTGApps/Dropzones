@@ -1,14 +1,13 @@
-import { FunctionComponent as Component, useEffect, useState, useCallback } from "react"
+import { FunctionComponent as Component, useEffect, useState, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow } from "../components"
-import { useStores } from "../models/root-store/root-store-context"
+import { useFilteredDropzones, type Dropzone } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -20,24 +19,21 @@ export interface ListDetailScreenProps {
 }
 const keyExtractor = (item, index) => index.toString()
 
-export const ListDetailScreen: Component = observer(function ListDetailScreen(props) {
+export const ListDetailScreen: Component = function ListDetailScreen(props) {
   const navigation = useNavigation()
-  const rootStore = useStores()
   const { route } = props as ListDetailScreenProps
   const { item, itemType } = route.params
-  const dropzones = rootStore.filteredDropzones(item, itemType)
+  const { dropzones } = useFilteredDropzones(item, itemType)
   const [search, setSearch] = useState("")
-  const [list, setList] = useState(dropzones)
   const { themed } = useAppTheme()
 
-  useEffect(() => {
-    const filteredData = search
-      ? dropzones.filter(({ searchableText }) => {
-          return searchableText.includes(search.toLowerCase())
-        })
-      : dropzones
-    setList(filteredData)
-  }, [search])
+  // Filter dropzones based on search
+  const list = useMemo(() => {
+    if (!search) return dropzones
+    return dropzones.filter(({ searchableText }) => {
+      return searchableText.includes(search.toLowerCase())
+    })
+  }, [dropzones, search])
 
   const renderItem = useCallback(
     ({ item, index }) => <DropzoneListRow item={item} index={index} />,
@@ -62,4 +58,4 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
       removeClippedSubviews
     />
   )
-})
+}

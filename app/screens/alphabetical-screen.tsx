@@ -1,15 +1,12 @@
-import { FunctionComponent as Component, useState, useEffect, useCallback, useMemo } from "react"
+import { FunctionComponent as Component, useState, useCallback, useMemo } from "react"
 import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
-import _ from "lodash"
-import { observer } from "mobx-react-lite"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow } from "../components"
-import { Dropzone } from "../models/dropszones/dropzones"
-import { useStores } from "../models/root-store/root-store-context"
+import { useDropzoneSearch, type Dropzone } from "../database"
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -26,37 +23,30 @@ const HEADER_TEXT_STYLE: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
   fontWeight: "bold",
 })
 
-export const AlphabeticalScreen: Component = observer(function AlphabeticalScreen() {
-  const { dropzones } = useStores()
-  const [search, setSearch] = useState("")
-  const [list, setList] = useState<Dropzone[]>(dropzones)
+export const AlphabeticalScreen: Component = function AlphabeticalScreen() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const { results: dropzones, search } = useDropzoneSearch()
   const { themed } = useAppTheme()
 
-  useEffect(() => {
-    const filteredData = search
-      ? dropzones.filter(({ searchableText }) => {
-          return searchableText.includes(search.toLowerCase())
-        })
-      : dropzones
-    setList(filteredData)
+  // Handle search input
+  const handleSearch = useCallback((text: string) => {
+    setSearchQuery(text)
+    search(text)
   }, [search])
 
   // groupBy to extract section headers and reduce to generate new array
   // Memoized to prevent recalculation on every render
   const dataSource = useMemo(() => {
-    const grouped = _.groupBy(list, "nameFirstLetter") // <- This is just the first letter of the name.
-    return _.reduce(
-      grouped,
-      (acc, next, index) => {
-        acc.push({
-          title: index,
-          data: next,
-        })
-        return acc
-      },
-      [],
-    )
-  }, [list])
+    const grouped: Record<string, Dropzone[]> = {}
+    for (const dz of dropzones) {
+      const letter = dz.nameFirstLetter
+      if (!grouped[letter]) {
+        grouped[letter] = []
+      }
+      grouped[letter].push(dz)
+    }
+    return Object.entries(grouped).map(([title, data]) => ({ title, data }))
+  }, [dropzones])
 
   const renderItem = useCallback(
     ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />,
@@ -68,11 +58,11 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       <Searchbar
         key="list-search"
         placeholder="Search Dropzones..."
-        value={search}
-        onChangeText={setSearch}
+        value={searchQuery}
+        onChangeText={handleSearch}
       />
     )
-  }, [search])
+  }, [handleSearch])
 
   const renderSectionHeader = useCallback(
     ({ section: { title } }) => (
@@ -86,7 +76,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
   return (
     <SectionList
       removeClippedSubviews
-      style={themed(FULL)}
+      style={FULL}
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled
@@ -96,4 +86,4 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       ListHeaderComponent={listHeader}
     />
   )
-})
+}

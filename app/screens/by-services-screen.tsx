@@ -1,7 +1,6 @@
 import { FunctionComponent as Component, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -9,7 +8,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
-import { useStores } from "../models/root-store/root-store-context"
+import { useUniqueServices } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -18,9 +17,9 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 
 const keyExtractor = (item, index) => index.toString()
 
-export const ByServicesScreen: Component = observer(function ByServicesScreen() {
+export const ByServicesScreen: Component = function ByServicesScreen() {
   const navigation = useNavigation()
-  const { uniqueServices } = useStores()
+  const { services: uniqueServices } = useUniqueServices()
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
@@ -49,4 +48,4 @@ export const ByServicesScreen: Component = observer(function ByServicesScreen() 
       removeClippedSubviews
     />
   )
-})
+}

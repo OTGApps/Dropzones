@@ -2,7 +2,6 @@ import { FunctionComponent as Component, useState, useEffect, useCallback } from
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { Button, Card, List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -10,7 +9,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
-import { useStores } from "../models/root-store/root-store-context"
+import { useUniqueAircraft } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -20,9 +19,9 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 const keyExtractor = (item, index) => index.toString()
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
-export const ByAircraftScreen: Component = observer(function ByAircraftScreen() {
+export const ByAircraftScreen: Component = function ByAircraftScreen() {
   const navigation = useNavigation()
-  const { uniqueAircraftSorted } = useStores()
+  const { aircraftSections: uniqueAircraftSorted } = useUniqueAircraft()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
   const {
     themed,
@@ -123,7 +122,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
       />
     </View>
   )
-})
+}
 
 const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.md,

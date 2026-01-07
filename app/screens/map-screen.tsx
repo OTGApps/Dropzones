@@ -1,7 +1,6 @@
 import { FunctionComponent as Component, useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { ViewStyle, Platform } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
@@ -10,7 +9,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
-import { useStores } from "../models/root-store/root-store-context"
+import { useDropzones } from "../database"
 
 const ROOT: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -29,14 +28,14 @@ const INITIAL_REGION: Region = {
   longitudeDelta: 50,
 }
 
-export const MapScreen: Component = observer(function MapScreen() {
+export const MapScreen: Component = function MapScreen() {
   const {
     themed,
     theme: { colors },
   } = useAppTheme()
 
   const navigation = useNavigation()
-  const { dropzones } = useStores()
+  const { dropzones } = useDropzones()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
   const mapRef = useRef<MapView>(null)
@@ -93,14 +92,14 @@ export const MapScreen: Component = observer(function MapScreen() {
             longitude: dropzone.coordinates.longitude,
           }}
           title={dropzone.name}
-          description={dropzone.state}
+          description={dropzone.stateCode}
           tracksViewChanges={false}
         >
           <Callout onPress={() => goToDetail(dropzone.anchor, dropzone.name)}>
             <List.Item
               style={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
               title={dropzone.name}
-              description={dropzone.state}
+              description={dropzone.stateCode}
               onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
               right={(props) => (
                 <Icon
@@ -134,4 +133,4 @@ export const MapScreen: Component = observer(function MapScreen() {
       {markers}
     </MapView>
   )
-})
+}

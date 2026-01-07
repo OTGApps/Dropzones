@@ -1,7 +1,6 @@
 import { FunctionComponent as Component, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -9,7 +8,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
-import { useStores } from "../models/root-store/root-store-context"
+import { useUniqueTraining } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -25,9 +24,9 @@ const TRAINING_TITLES = {
   tandem: "Tandem",
 }
 
-export const ByTrainingScreen: Component = observer(function ByTrainingScreen() {
+export const ByTrainingScreen: Component = function ByTrainingScreen() {
   const navigation = useNavigation()
-  const { uniqueTraining } = useStores()
+  const { training: uniqueTraining } = useUniqueTraining()
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
@@ -56,4 +55,4 @@ export const ByTrainingScreen: Component = observer(function ByTrainingScreen() 
       removeClippedSubviews
     />
   )
-})
+}

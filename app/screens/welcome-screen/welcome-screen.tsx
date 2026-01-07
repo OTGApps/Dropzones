@@ -2,7 +2,6 @@ import { FunctionComponent as Component, useState, useEffect } from "react"
 import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
-import { observer } from "mobx-react-lite"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -16,7 +15,7 @@ const FULL: ViewStyle = {
   flex: 1,
 }
 
-export const WelcomeScreen: Component = observer(function WelcomeScreen() {
+export const WelcomeScreen: Component = function WelcomeScreen() {
   const {
     themed,
     theme: { colors },
@@ -126,7 +125,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
       renderItem={renderItem}
     />
   )
-})
+}
 
 const $headerIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
   marginRight: spacing.md,

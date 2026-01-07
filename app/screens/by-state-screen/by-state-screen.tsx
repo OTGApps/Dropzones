@@ -1,8 +1,6 @@
 import { FunctionComponent as Component, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import _ from "lodash"
-import { observer } from "mobx-react-lite"
 import { List, Avatar, Badge } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
@@ -11,29 +9,31 @@ import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
 
 import { States } from "./states"
-import { useStores } from "../../models/root-store/root-store-context"
+import { useDropzonesByState } from "../../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
   backgroundColor: colors.background,
 })
 
-export const ByStateScreen: Component = observer(function ByStateScreen() {
+export const ByStateScreen: Component = function ByStateScreen() {
   const navigation = useNavigation()
-  const rootStore = useStores()
-  const { dropzones } = rootStore
+  const { stateGroups } = useDropzonesByState()
   const { themed } = useAppTheme()
 
-  // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
-  const groupByState = rootStore.groupByState()
+  // Create a lookup map for counts
+  const stateCountMap = useMemo(() => {
+    const map: Record<string, number> = {}
+    for (const group of stateGroups) {
+      map[group.stateCode] = group.count
+    }
+    return map
+  }, [stateGroups])
 
-  // Memoize the data processing to prevent recalculation on every render
+  // Get sorted state codes (2-letter states first, then International)
   const dataSource = useMemo(() => {
-    const sortedStates = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
-    // this line just moves anything that's not a two-letter state to the end
-    // essentially, just moving the "international" item to the bottom.
-    return _.sortBy(sortedStates, (state) => (state.length > 2 ? 1 : 0))
-  }, [dropzones])
+    return stateGroups.map((g) => g.stateCode)
+  }, [stateGroups])
 
   const renderItem = useCallback(({ item, index }) => {
     const thisState = States[item.toLowerCase()]
@@ -55,13 +55,13 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
         }
         right={(props) => (
           <View style={themed($rightContainer)}>
-            <Badge style={themed($badge)}>{groupByState[item].length}</Badge>
+            <Badge style={themed($badge)}>{stateCountMap[item] || 0}</Badge>
             <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
           </View>
         )}
       />
     )
-  }, [navigation, themed, groupByState])
+  }, [navigation, themed, stateCountMap])
 
   return (
     <FlatList
@@ -72,7 +72,7 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
       renderItem={renderItem}
     />
   )
-})
+}
 
 const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   flexDirection: "row",

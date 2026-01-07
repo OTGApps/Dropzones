@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
-import { Dropzone } from "../../models/dropszones/dropzones"
+import type { Dropzone } from "../../database"
 
 export interface DropzoneListRowProps {
   item: Dropzone
@@ -20,10 +20,10 @@ const DropzoneListRowComponent: Component<DropzoneListRowProps> = (props) => {
   const { item, rightElement, index, subtitle } = props
 
   const pressed = useCallback(() => {
-    navigation.navigate("dropzone-detail", {
-      anchor: props.item.anchor,
+    navigation.navigate("dropzone-detail" as never, {
+      anchor: props.item.anchor.toString(),
       title: props.item.name,
-    })
+    } as never)
   }, [navigation, props.item.anchor, props.item.name])
 
   return (
