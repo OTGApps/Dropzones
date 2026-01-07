@@ -1,9 +1,10 @@
 import { FunctionComponent as Component } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle, FlatList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import _ from "lodash"
 import { observer } from "mobx-react-lite"
-import { ListItem, Avatar } from "react-native-elements"
+import { List, Avatar } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -35,8 +36,8 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
     const thisState = States[item.toLowerCase()]
 
     return (
-      <ListItem
-        bottomDivider
+      <List.Item
+        title={thisState && thisState.fullName}
         onPress={() =>
           navigation.navigate("list-detail", {
             item,
@@ -44,22 +45,18 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
             title: States[item.toLowerCase()].fullName,
           })
         }
-      >
-        {thisState && (
-          <Avatar
-            rounded
-            key={`state-image-${index}`}
-            title={item}
-            source={thisState.image}
-            overlayContainerStyle={{ borderWidth: 1 }}
-          />
+        left={(props) =>
+          thisState ? (
+            <Avatar.Image {...props} key={`state-image-${index}`} source={thisState.image} size={40} />
+          ) : null
+        }
+        right={(props) => (
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <CountBadge count={groupByState[item].length} />
+            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center", marginLeft: 8 }} />
+          </View>
         )}
-        <ListItem.Content>
-          <ListItem.Title>{thisState && thisState.fullName}</ListItem.Title>
-        </ListItem.Content>
-        <CountBadge count={groupByState[item].length} />
-        <ListItem.Chevron type="font-awesome" name="chevron-right" />
-      </ListItem>
+      />
     )
   }
 

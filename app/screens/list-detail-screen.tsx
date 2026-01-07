@@ -2,7 +2,7 @@ import { FunctionComponent as Component, useEffect, useState } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { SearchBar } from "react-native-elements"
+import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -48,10 +48,9 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
       keyExtractor={keyExtractor}
       data={list}
       ListHeaderComponent={
-        <SearchBar
+        <Searchbar
           key="list-search"
           placeholder="Search Dropzones..."
-          lightTheme
           value={search}
           onChangeText={(value) => setSearch(value)}
         />

@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Icon } from "react-native-elements"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 
@@ -37,9 +37,7 @@ const TabNavigator = () => {
         component={PrimaryStack}
         options={{
           tabBarLabel: "Dropzones",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="plane" type="font-awesome" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <Icon name="plane" color={color} size={size} />,
         }}
       />
       <Tab.Screen
@@ -47,9 +45,7 @@ const TabNavigator = () => {
         component={MapStack}
         options={{
           tabBarLabel: "Map",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="map" type="font-awesome" color={color} size={size} />
-          ),
+          tabBarIcon: ({ color, size }) => <Icon name="map" color={color} size={size} />,
         }}
       />
     </Tab.Navigator>

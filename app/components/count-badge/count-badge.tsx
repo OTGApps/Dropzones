@@ -1,5 +1,4 @@
-import { View, ViewStyle, TextStyle } from "react-native"
-import { Text } from "react-native-elements"
+import { View, ViewStyle, TextStyle, Text } from "react-native"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"

@@ -1,6 +1,7 @@
 import { FunctionComponent as Component, useCallback } from "react"
 import { useNavigation } from "@react-navigation/native"
-import { ListItem } from "react-native-elements"
+import { List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { Dropzone } from "../../models/dropszones/dropzones"
 
@@ -23,13 +24,17 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
   }, [navigation, props.item.anchor, props.item.name])
 
   return (
-    <ListItem bottomDivider key={"listItem-" + index} onPress={pressed}>
-      <ListItem.Content>
-        <ListItem.Title>{item.name}</ListItem.Title>
-        {subtitle && <ListItem.Subtitle>{subtitle}</ListItem.Subtitle>}
-      </ListItem.Content>
-      {rightElement}
-      <ListItem.Chevron type="font-awesome" name="chevron-right" />
-    </ListItem>
+    <List.Item
+      key={"listItem-" + index}
+      title={item.name}
+      description={subtitle}
+      onPress={pressed}
+      right={(props) => (
+        <>
+          {rightElement}
+          <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
+        </>
+      )}
+    />
   )
 }

@@ -2,7 +2,8 @@ import { FunctionComponent as Component } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ListItem } from "react-native-elements"
+import { List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -22,8 +23,8 @@ export const ByServicesScreen: Component = observer(function ByServicesScreen() 
   const { themed } = useAppTheme()
 
   const renderItem = ({ item }) => (
-    <ListItem
-      bottomDivider
+    <List.Item
+      title={item}
       onPress={() =>
         navigation.navigate("list-detail", {
           item,
@@ -31,12 +32,8 @@ export const ByServicesScreen: Component = observer(function ByServicesScreen() 
           title: item,
         })
       }
-    >
-      <ListItem.Content>
-        <ListItem.Title>{item}</ListItem.Title>
-      </ListItem.Content>
-      <ListItem.Chevron type="font-awesome" name="chevron-right" />
-    </ListItem>
+      right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+    />
   )
 
   return (

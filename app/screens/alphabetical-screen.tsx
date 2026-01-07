@@ -1,8 +1,8 @@
 import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
-import { View, ViewStyle, TextStyle, SectionList } from "react-native"
+import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
 import _ from "lodash"
 import { observer } from "mobx-react-lite"
-import { SearchBar, Text } from "react-native-elements"
+import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -72,10 +72,9 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
 
   const listHeader = useCallback(() => {
     return (
-      <SearchBar
+      <Searchbar
         key="list-search"
         placeholder="Search Dropzones..."
-        lightTheme
         value={search}
         onChangeText={setSearch}
       />

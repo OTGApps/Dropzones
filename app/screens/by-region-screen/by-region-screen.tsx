@@ -3,7 +3,8 @@ import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import _ from "lodash"
-import { ListItem } from "react-native-elements"
+import { List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -25,20 +26,16 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   const { themed } = useAppTheme()
 
   const renderItem = ({ item }) => (
-    <ListItem
-      bottomDivider
+    <List.Item
+      title={item}
       onPress={() =>
         props.navigation.navigate("list-detail", {
           item,
           itemType: "state",
         })
       }
-    >
-      <ListItem.Content>
-        <ListItem.Title>{item}</ListItem.Title>
-      </ListItem.Content>
-      <ListItem.Chevron type="font-awesome" name="chevron-right" />
-    </ListItem>
+      right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+    />
   )
 
   return (

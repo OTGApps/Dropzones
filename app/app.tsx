@@ -22,6 +22,7 @@ import { useEffect, useState } from "react"
 import { useFonts } from "expo-font"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
+import { PaperProvider } from "react-native-paper"
 
 import { initI18n } from "./i18n"
 import { RootStore } from "./models/root-store/root-store"
@@ -78,16 +79,18 @@ export function App() {
   // otherwise, we're ready to render the app
   return (
     <ThemeProvider>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <KeyboardProvider>
-          <RootStoreProvider value={rootStore}>
-            <AppNavigator
-              initialState={initialNavigationState}
-              onStateChange={onNavigationStateChange}
-            />
-          </RootStoreProvider>
-        </KeyboardProvider>
-      </SafeAreaProvider>
+      <PaperProvider>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <KeyboardProvider>
+            <RootStoreProvider value={rootStore}>
+              <AppNavigator
+                initialState={initialNavigationState}
+                onStateChange={onNavigationStateChange}
+              />
+            </RootStoreProvider>
+          </KeyboardProvider>
+        </SafeAreaProvider>
+      </PaperProvider>
     </ThemeProvider>
   )
 }

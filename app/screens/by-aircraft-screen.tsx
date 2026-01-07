@@ -1,9 +1,10 @@
 import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
-import { ViewStyle, SectionList, View } from "react-native"
+import { ViewStyle, SectionList, View, Text } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { Button, Card, ListItem, Text } from "react-native-elements"
+import { Button, Card, List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -57,12 +58,11 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
         })
       }
       return (
-        <ListItem bottomDivider onPress={onPressed}>
-          <ListItem.Content>
-            <ListItem.Title>{item}</ListItem.Title>
-          </ListItem.Content>
-          <ListItem.Chevron type="font-awesome" name="chevron-right" />
-        </ListItem>
+        <List.Item
+          title={item}
+          onPress={onPressed}
+          right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+        />
       )
     },
     [navigation],
@@ -75,35 +75,34 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   }
   const renderHeaderComponent = useCallback(() => {
     return (
-      <Card containerStyle={{ marginBottom: 15 }}>
-        <Card.Title>DATA WARNING:</Card.Title>
-        <Card.Divider />
-        <View style={{ marginBottom: 15 }}>
-          <Text style={[]}>
+      <Card style={{ marginBottom: 15, margin: 10 }}>
+        <Card.Title title="DATA WARNING:" />
+        <Card.Content>
+          <Text style={{ marginBottom: 15 }}>
             We've tried to clean up the data as much as possible, but USPA member dropzones are
             allowed to enter their own data, resulting in a lot of inconsistent names and spelling
             mistakes.
           </Text>
-        </View>
-        <Button title="OK" type="outline" onPress={hideHeaderComponent} />
+        </Card.Content>
+        <Card.Actions>
+          <Button mode="outlined" onPress={hideHeaderComponent}>
+            OK
+          </Button>
+        </Card.Actions>
       </Card>
     )
   }, [])
 
   const renderSectionHeader = useCallback(
     ({ section: { title } }) => (
-      <ListItem
-        bottomDivider
-        containerStyle={{
+      <List.Subheader
+        style={{
           backgroundColor: colors.palette.neutral300,
-          paddingVertical: 10,
-          paddingHorizontal: 15,
+          fontWeight: "bold",
         }}
       >
-        <ListItem.Content style={{}}>
-          <ListItem.Title style={{ fontWeight: "bold" }}>{title}</ListItem.Title>
-        </ListItem.Content>
-      </ListItem>
+        {title}
+      </List.Subheader>
     ),
     [colors],
   )

@@ -1,9 +1,10 @@
 import { FunctionComponent as Component, useState, useEffect } from "react"
-import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking } from "react-native"
+import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking, Text as RNText } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { Card, ListItem, Button, Icon } from "react-native-elements"
+import { Card, List, Button, Text } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 import Mailer from "react-native-mail"
 import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
@@ -81,10 +82,10 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       headerRight: () => (
         <Icon
           name={"car"}
-          type={"font-awesome"}
           size={22}
           color={colors.palette.neutral100}
           onPress={openDrivingDirectons}
+          style={{ marginRight: 15 }}
         />
       ),
     })
@@ -165,23 +166,21 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
   const renderForeground = () => (
     <View key="parallax-header" style={themed($parallaxHeader)}>
       <Button
-        title={selectedDZ.name}
-        type={"clear"}
-        titleStyle={themed($sectionTitleText)}
-        buttonStyle={themed($noPadding)}
+        mode="text"
+        labelStyle={themed($sectionTitleText)}
+        style={themed($noPadding)}
         onPress={openDrivingDirectons}
-      />
+      >
+        {selectedDZ.name}
+      </Button>
       <Button
-        title={selectedDZ.website}
-        titleProps={{
-          numberOfLines: 1,
-          adjustsFontSizeToFit: true,
-        }}
-        type={"clear"}
-        titleStyle={themed($sectionSubtitleText)}
-        buttonStyle={themed($noPadding)}
+        mode="text"
+        labelStyle={themed($sectionSubtitleText)}
+        style={themed($noPadding)}
         onPress={openWebsite}
-      />
+      >
+        {selectedDZ.website}
+      </Button>
       {/* <View>
         <Avatar
           containerStyle={styles.iconContainer}
@@ -201,11 +200,9 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
     setOffset(e.nativeEvent.contentOffset.y)
   }
 
-  const iconProps = {
-    type: "font-awesome",
-    containerStyle: {
-      alignSelf: "flex-start",
-    } as ViewStyle,
+  const iconStyle = {
+    alignSelf: "flex-start" as const,
+    marginRight: 12,
   }
 
   const handleEmail = () => {
@@ -238,52 +235,46 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       renderForeground={renderForeground}
       overScrollMode={"always"}
     >
-      <Card containerStyle={themed($cardStyle)}>
+      <Card style={themed($cardStyle)}>
         {selectedDZ.email && (
-          <Button title={selectedDZ.email.toLowerCase()} type="outline" onPress={handleEmail} />
+          <Card.Content>
+            <Button mode="outlined" onPress={handleEmail}>
+              {selectedDZ.email.toLowerCase()}
+            </Button>
+          </Card.Content>
         )}
         {selectedDZ.description.length > 0 && (
-          <ListItem>
-            <ListItem.Content>
-              <ListItem.Title style={themed($descriptionText)}>
-                {selectedDZ.description}
-              </ListItem.Title>
-            </ListItem.Content>
-          </ListItem>
+          <Card.Content>
+            <Text style={themed($descriptionText)}>{selectedDZ.description}</Text>
+          </Card.Content>
         )}
         {selectedDZ.phone && (
-          <ListItem onPress={openPhone}>
-            <Icon name="phone" {...iconProps} />
-            <ListItem.Content>
-              <ListItem.Title>{selectedDZ.phone}</ListItem.Title>
-            </ListItem.Content>
-            <ListItem.Chevron type="font-awesome" name="chevron-right" />
-          </ListItem>
+          <List.Item
+            title={selectedDZ.phone}
+            onPress={openPhone}
+            left={(props) => <Icon name="phone" size={20} style={iconStyle} />}
+            right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+          />
         )}
         {selectedDZ.location && selectedDZ.location.length > 0 && (
-          <ListItem onPress={openDrivingDirectons}>
-            <Icon name="map" {...iconProps} />
-            <ListItem.Content>
-              <ListItem.Title>{selectedDZ.location.join("\n")}</ListItem.Title>
-            </ListItem.Content>
-            <ListItem.Chevron type="font-awesome" name="chevron-right" />
-          </ListItem>
+          <List.Item
+            title={selectedDZ.location.join("\n")}
+            onPress={openDrivingDirectons}
+            left={(props) => <Icon name="map" size={20} style={iconStyle} />}
+            right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+          />
         )}
         {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
-          <ListItem>
-            <Icon name="plane" {...iconProps} />
-            <ListItem.Content>
-              <ListItem.Title>{selectedDZ.aircraft.slice().sort().join("\n")}</ListItem.Title>
-            </ListItem.Content>
-          </ListItem>
+          <List.Item
+            title={selectedDZ.aircraft.slice().sort().join("\n")}
+            left={(props) => <Icon name="plane" size={20} style={iconStyle} />}
+          />
         )}
         {selectedDZ.services && selectedDZ.services.length > 0 && (
-          <ListItem>
-            <Icon name="bath" {...iconProps} />
-            <ListItem.Content>
-              <ListItem.Title>{selectedDZ.services.slice().sort().join("\n")}</ListItem.Title>
-            </ListItem.Content>
-          </ListItem>
+          <List.Item
+            title={selectedDZ.services.slice().sort().join("\n")}
+            left={(props) => <Icon name="bath" size={20} style={iconStyle} />}
+          />
         )}
       </Card>
     </ParallaxScrollView>

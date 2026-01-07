@@ -3,7 +3,8 @@ import { View, ViewStyle, FlatList, ActivityIndicator, Alert } from "react-nativ
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { ListItem, Icon } from "react-native-elements"
+import { List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 
@@ -58,10 +59,10 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
       headerRight: () => (
         <Icon
           name={"info-circle"}
-          type={"font-awesome"}
           size={22}
           color={colors.palette.neutral100}
           onPress={() => navigation.navigate("about")}
+          style={{ marginRight: 15 }}
         />
       ),
     })
@@ -85,33 +86,32 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
     const rightEl = rightElement(item)
 
     return (
-      <ListItem
-        bottomDivider
+      <List.Item
+        title={item.title}
+        description={item.subtitle}
         disabled={!item.screen}
         onPress={
-          item.screen &&
-          (() => {
-            switch (item.screen) {
-              case "near-me":
-                openNearMeScreen()
-                break
-              default:
-                navigation.navigate(item.screen)
-                break
-            }
-          })
+          item.screen
+            ? () => {
+                switch (item.screen) {
+                  case "near-me":
+                    openNearMeScreen()
+                    break
+                  default:
+                    navigation.navigate(item.screen)
+                    break
+                }
+              }
+            : undefined
         }
-      >
-        <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
-          <Icon color={colors.tint} name={item.iconName} type="font-awesome" />
-          <ListItem.Content>
-            <ListItem.Title>{item.title}</ListItem.Title>
-            <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
-          </ListItem.Content>
-          {rightEl}
-          <ListItem.Chevron type="font-awesome" name="chevron-right" />
-        </View>
-      </ListItem>
+        left={(props) => <Icon color={colors.tint} name={item.iconName} size={20} style={{ alignSelf: "center", marginRight: 12 }} />}
+        right={(props) => (
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            {rightEl}
+            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
+          </View>
+        )}
+      />
     )
   }
 

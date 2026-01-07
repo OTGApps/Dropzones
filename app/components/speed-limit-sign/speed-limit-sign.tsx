@@ -1,7 +1,6 @@
 import * as React from "react"
-import { View, ViewStyle, TextStyle } from "react-native"
+import { View, ViewStyle, TextStyle, Text } from "react-native"
 import { isMetric } from "expo-localization"
-import { Text } from "react-native-elements"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"

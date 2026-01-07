@@ -4,7 +4,8 @@ import { ViewStyle, Platform, useWindowDimensions } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { getSnapshot } from "mobx-state-tree"
-import { ListItem, Icon } from "react-native-elements"
+import { List } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 import MapView from "react-native-map-clustering"
 import Map, { Marker, Callout, LatLng, Region } from "react-native-maps"
 
@@ -50,10 +51,10 @@ export const MapScreen: Component = observer(function MapScreen() {
       headerRight: () => (
         <Icon
           name={"location-arrow"}
-          type={"font-awesome"}
           size={24}
-          color={showsUserLocation ? colors.palette.neutral100 : color.palette.transparentWhite}
+          color={showsUserLocation ? colors.palette.neutral100 : colors.palette.transparentWhite}
           onPress={() => setShowsUserLocation(!showsUserLocation)}
+          style={{ marginRight: 15 }}
         />
       ),
     })
@@ -80,15 +81,12 @@ export const MapScreen: Component = observer(function MapScreen() {
             pointerEvents="auto"
           >
             <Callout onPress={() => goToDetail(d.anchor, d.name)}>
-              <ListItem
-                containerStyle={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
+              <List.Item
+                style={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
+                title={d.name}
                 onPress={() => goToDetail(d.anchor, d.name)}
-              >
-                <ListItem.Content>
-                  <ListItem.Title>{d.name}</ListItem.Title>
-                </ListItem.Content>
-                <ListItem.Chevron type="font-awesome" name="chevron-right" />
-              </ListItem>
+                right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+              />
             </Callout>
           </Marker>
         )

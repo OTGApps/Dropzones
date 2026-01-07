@@ -1,5 +1,2 @@
-onlyBuiltDependencies:
-  - react-native-elements
-
 patchedDependencies:
   geojson-places: patches/geojson-places.patch
