@@ -1,4 +1,4 @@
-import { ComponentType } from "react"
+import { ComponentType, ReactNode } from "react"
 import {
   Pressable,
   PressableProps,
@@ -73,7 +73,7 @@ export interface ButtonProps extends PressableProps {
   /**
    * Children components.
    */
-  children?: React.ReactNode
+  children?: ReactNode
   /**
    * disabled prop, accessed directly for declarative styling reasons.
    * https://reactnative.dev/docs/pressable#disabled

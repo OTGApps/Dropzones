@@ -1,8 +1,9 @@
+import { FunctionComponent } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import _ from "lodash"
 import { ListItem } from "react-native-elements"
-import { NativeStackNavigationProp } from "react-native-screens/native-stack"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -18,7 +19,7 @@ export interface ByRegionScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
 
-export const ByRegionScreen: React.FunctionComponent<ByRegionScreenProps> = (props) => {
+export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) => {
   const { dropzones } = useStores()
   const dataSource = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
   const { themed } = useAppTheme()

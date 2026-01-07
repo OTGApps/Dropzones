@@ -1,6 +1,6 @@
-import { FunctionComponent as Component, useState, useRef, useEffect } from "react"
+import { FunctionComponent as Component, useState, useRef, useEffect, useMemo } from "react"
 import { ViewStyle, Platform, useWindowDimensions } from "react-native"
-import Device, { DeviceType } from "expo-device"
+// import Device, { DeviceType } from "expo-device"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { getSnapshot } from "mobx-state-tree"
@@ -70,7 +70,7 @@ export const MapScreen: Component = observer(function MapScreen() {
     })
   }
 
-  const markersArray = React.useMemo(
+  const markersArray = useMemo(
     () =>
       getSnapshot(dropzones).map((d) => {
         return (

@@ -1,5 +1,5 @@
 import { FunctionComponent as Component, useState, useEffect } from "react"
-import { ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
+import { View, ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -81,33 +81,39 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
     }
   }
 
-  const renderItem = ({ item }) => (
-    <ListItem
-      bottomDivider
-      disabled={!item.screen}
-      onPress={
-        item.screen &&
-        (() => {
-          switch (item.screen) {
-            case "near-me":
-              openNearMeScreen()
-              break
-            default:
-              navigation.navigate(item.screen)
-              break
-          }
-        })
-      }
-    >
-      <Icon color={colors.tint} name={item.iconName} type="font-awesome" />
-      <ListItem.Content>
-        <ListItem.Title>{item.title}</ListItem.Title>
-        <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
-      </ListItem.Content>
-      {rightElement(item)}
-      <ListItem.Chevron type="font-awesome" name="chevron-right" />
-    </ListItem>
-  )
+  const renderItem = ({ item, index }) => {
+    const rightEl = rightElement(item)
+
+    return (
+      <ListItem
+        bottomDivider
+        disabled={!item.screen}
+        onPress={
+          item.screen &&
+          (() => {
+            switch (item.screen) {
+              case "near-me":
+                openNearMeScreen()
+                break
+              default:
+                navigation.navigate(item.screen)
+                break
+            }
+          })
+        }
+      >
+        <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
+          <Icon color={colors.tint} name={item.iconName} type="font-awesome" />
+          <ListItem.Content>
+            <ListItem.Title>{item.title}</ListItem.Title>
+            <ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
+          </ListItem.Content>
+          {rightEl}
+          <ListItem.Chevron type="font-awesome" name="chevron-right" />
+        </View>
+      </ListItem>
+    )
+  }
 
   return (
     <FlatList
