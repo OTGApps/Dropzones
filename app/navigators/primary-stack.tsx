@@ -1,5 +1,5 @@
-import _ from "lodash"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import _ from "lodash"
 
 import { useAppTheme } from "@/theme/context"
 

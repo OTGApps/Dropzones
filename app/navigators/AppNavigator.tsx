@@ -30,7 +30,6 @@ export const AppNavigator = (props: NavigationProps) => {
     <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
       <ErrorBoundary catchErrors={Config.catchErrors}>
         <TabNavigator />
-        {/* <AppStack /> */}
       </ErrorBoundary>
     </NavigationContainer>
   )

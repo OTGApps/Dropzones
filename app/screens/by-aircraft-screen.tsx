@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useEffect } from "react"
+import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
 import { ViewStyle, SectionList, View } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
@@ -22,7 +22,10 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   const navigation = useNavigation()
   const { uniqueAircraftSorted } = useStores()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
-  const { themed } = useAppTheme()
+  const {
+    themed,
+    theme: { colors },
+  } = useAppTheme()
 
   useEffect(() => {
     let isMounted = true
@@ -44,30 +47,33 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
     }
   }, [])
 
-  const renderItem = ({ item, section }) => {
-    const onPressed = () => {
-      navigation.navigate("list-detail", {
-        item,
-        itemType: "aircraft",
-        title: item,
-      })
-    }
-    return (
-      <ListItem bottomDivider onPress={onPressed}>
-        <ListItem.Content>
-          <ListItem.Title>{item}</ListItem.Title>
-        </ListItem.Content>
-        <ListItem.Chevron type="font-awesome" name="chevron-right" />
-      </ListItem>
-    )
-  }
+  const renderItem = useCallback(
+    ({ item, section }) => {
+      const onPressed = () => {
+        navigation.navigate("list-detail", {
+          item,
+          itemType: "aircraft",
+          title: item,
+        })
+      }
+      return (
+        <ListItem bottomDivider onPress={onPressed}>
+          <ListItem.Content>
+            <ListItem.Title>{item}</ListItem.Title>
+          </ListItem.Content>
+          <ListItem.Chevron type="font-awesome" name="chevron-right" />
+        </ListItem>
+      )
+    },
+    [navigation],
+  )
 
   const hideHeaderComponent = () => {
     AsyncStorage.setItem(HIDE_HEADER_COMPONENT_KEY, JSON.stringify(true)).then(() => {
       setHeaderHidden(true)
     })
   }
-  const renderHeaderComponent = () => {
+  const renderHeaderComponent = useCallback(() => {
     return (
       <Card containerStyle={{ marginBottom: 15 }}>
         <Card.Title>DATA WARNING:</Card.Title>
@@ -82,21 +88,24 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
         <Button title="OK" type="outline" onPress={hideHeaderComponent} />
       </Card>
     )
-  }
+  }, [])
 
-  const renderSectionHeader = ({ section: { title } }) => (
-    <ListItem
-      bottomDivider
-      containerStyle={{
-        backgroundColor: color.palette.offWhite,
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-      }}
-    >
-      <ListItem.Content style={{}}>
-        <ListItem.Title style={{ fontWeight: "bold" }}>{title}</ListItem.Title>
-      </ListItem.Content>
-    </ListItem>
+  const renderSectionHeader = useCallback(
+    ({ section: { title } }) => (
+      <ListItem
+        bottomDivider
+        containerStyle={{
+          backgroundColor: colors.palette.neutral300,
+          paddingVertical: 10,
+          paddingHorizontal: 15,
+        }}
+      >
+        <ListItem.Content style={{}}>
+          <ListItem.Title style={{ fontWeight: "bold" }}>{title}</ListItem.Title>
+        </ListItem.Content>
+      </ListItem>
+    ),
+    [colors],
   )
 
   return (

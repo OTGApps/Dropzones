@@ -1,8 +1,7 @@
-import React from "react"
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { MapNavigator } from "./map-navigator"
 import _ from "lodash"
+
+import { MapNavigator } from "./map-navigator"
 
 export type RootParamList = {
   primaryStack: undefined

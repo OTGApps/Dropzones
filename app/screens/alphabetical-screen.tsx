@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useEffect } from "react"
+import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
 import { View, ViewStyle, TextStyle, SectionList } from "react-native"
 import _ from "lodash"
 import { observer } from "mobx-react-lite"
@@ -65,7 +65,22 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
     [],
   )
 
-  const renderItem = ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />
+  const renderItem = useCallback(
+    ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />,
+    [],
+  )
+
+  const listHeader = useCallback(() => {
+    return (
+      <SearchBar
+        key="list-search"
+        placeholder="Search Dropzones..."
+        lightTheme
+        value={search}
+        onChangeText={setSearch}
+      />
+    )
+  }, [search])
 
   return (
     <SectionList
@@ -77,15 +92,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       keyExtractor={(item) => item}
       renderSectionHeader={HeaderView}
       renderItem={renderItem}
-      ListHeaderComponent={
-        <SearchBar
-          key="list-search"
-          placeholder="Search Dropzones..."
-          lightTheme
-          value={search}
-          onChangeText={setSearch}
-        />
-      }
+      ListHeaderComponent={listHeader}
     />
   )
 })
