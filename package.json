@@ -53,7 +53,7 @@
     "expo-splash-screen": "~31.0.10",
     "expo-status-bar": "~3.0.9",
     "expo-system-ui": "~6.0.7",
-    "geojson-places": "^1.0.3",
+    "geojson-places": "1.0.8",
     "i18next": "^23.14.0",
     "intl-pluralrules": "^2.0.1",
     "lodash": "^4.17.21",

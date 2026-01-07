@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  geojson-places:
+    hash: 6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e
+    path: patches/geojson-places.patch
+
 importers:
 
   .:
@@ -75,8 +80,8 @@ importers:
         specifier: ~6.0.7
         version: 6.0.9(expo@54.0.31)(react-native-web@0.21.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.17)(react@19.1.0))
       geojson-places:
-        specifier: ^1.0.3
-        version: 1.0.8
+        specifier: 1.0.8
+        version: 1.0.8(patch_hash=6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e)
       i18next:
         specifier: ^23.14.0
         version: 23.16.8
@@ -8984,7 +8989,7 @@ snapshots:
 
   gensync@1.0.0-beta.2: {}
 
-  geojson-places@1.0.8:
+  geojson-places@1.0.8(patch_hash=6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e):
     dependencies:
       just-clone: 6.2.0
 
