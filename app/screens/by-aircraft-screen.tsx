@@ -1,5 +1,5 @@
 import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
-import { ViewStyle, SectionList, View, Text } from "react-native"
+import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
+import { $chevronRight } from "@/theme/styles"
 
 import { useStores } from "../models/root-store/root-store-context"
 
@@ -61,7 +62,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
         <List.Item
           title={item}
           onPress={onPressed}
-          right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+          right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
         />
       )
     },
@@ -75,10 +76,10 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
   }
   const renderHeaderComponent = useCallback(() => {
     return (
-      <Card style={{ marginBottom: 15, margin: 10 }}>
+      <Card style={themed($warningCard)}>
         <Card.Title title="DATA WARNING:" />
         <Card.Content>
-          <Text style={{ marginBottom: 15 }}>
+          <Text style={themed($warningText)}>
             We've tried to clean up the data as much as possible, but USPA member dropzones are
             allowed to enter their own data, resulting in a lot of inconsistent names and spelling
             mistakes.
@@ -91,7 +92,7 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
         </Card.Actions>
       </Card>
     )
-  }, [])
+  }, [themed])
 
   const renderSectionHeader = useCallback(
     ({ section: { title } }) => (
@@ -122,4 +123,13 @@ export const ByAircraftScreen: Component = observer(function ByAircraftScreen() 
       />
     </View>
   )
+})
+
+const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  marginBottom: spacing.md,
+  margin: spacing.sm,
+})
+
+const $warningText: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  marginBottom: spacing.md,
 })

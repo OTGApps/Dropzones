@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
+import { $chevronRight } from "@/theme/styles"
 
 import { useStores } from "../models/root-store/root-store-context"
 
@@ -39,7 +40,7 @@ export const ByTrainingScreen: Component = observer(function ByTrainingScreen() 
           title: TRAINING_TITLES[item.toLowerCase()],
         })
       }
-      right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+      right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
     />
   )
 

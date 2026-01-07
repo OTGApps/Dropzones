@@ -3,6 +3,8 @@ import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
+import { useAppTheme } from "@/theme/context"
+import { $chevronRight } from "@/theme/styles"
 import { Dropzone } from "../../models/dropszones/dropzones"
 
 export interface DropzoneListRowProps {
@@ -14,6 +16,7 @@ export interface DropzoneListRowProps {
 
 export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
   const navigation = useNavigation()
+  const { themed } = useAppTheme()
   const { item, rightElement, index, subtitle } = props
 
   const pressed = useCallback(() => {
@@ -32,7 +35,7 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
       right={(props) => (
         <>
           {rightElement}
-          <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
+          <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
         </>
       )}
     />

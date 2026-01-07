@@ -1,4 +1,5 @@
-import { ViewStyle } from "react-native"
+import { ViewStyle, TextStyle } from "react-native"
+import { ThemedStyle } from "./types"
 
 /* Use this file to define styles that are used in multiple places in your app. */
 export const $styles = {
@@ -14,3 +15,12 @@ export const $styles = {
     overflow: "hidden",
   } as ViewStyle,
 }
+
+/**
+ * Shared themed style for chevron-right icons used in list items.
+ * Uses theme's textDim color for proper light/dark mode support.
+ */
+export const $chevronRight: ThemedStyle<TextStyle> = ({ colors }) => ({
+  alignSelf: "center",
+  color: colors.textDim,
+})

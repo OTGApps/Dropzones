@@ -8,6 +8,7 @@ import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
+import { $chevronRight } from "@/theme/styles"
 
 import { useStores } from "../models/root-store/root-store-context"
 
@@ -30,6 +31,7 @@ const INITIAL_REGION: Region = {
 
 export const MapScreen: Component = observer(function MapScreen() {
   const {
+    themed,
     theme: { colors },
   } = useAppTheme()
 
@@ -104,8 +106,7 @@ export const MapScreen: Component = observer(function MapScreen() {
                 <Icon
                   name="chevron-right"
                   size={16}
-                  color="#666"
-                  style={{ alignSelf: "center" }}
+                  style={themed($chevronRight)}
                 />
               )}
             />

@@ -1,5 +1,5 @@
 import { FunctionComponent as Component, useState, useEffect } from "react"
-import { View, ViewStyle, FlatList, ActivityIndicator, Alert } from "react-native"
+import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -7,6 +7,8 @@ import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
+import { ThemedStyle } from "@/theme/types"
+import { $chevronRight } from "@/theme/styles"
 
 const MenuItems = require("./menu-items.json")
 
@@ -62,11 +64,11 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
           size={22}
           color={colors.palette.neutral100}
           onPress={() => navigation.navigate("about")}
-          style={{ marginRight: 15 }}
+          style={themed($headerIcon)}
         />
       ),
     })
-  }, [])
+  }, [themed])
 
   const openNearMeScreen = () => {
     setLoading(true)
@@ -90,7 +92,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
         title={item.title}
         description={item.subtitle}
         disabled={!item.screen}
-        style={{ paddingLeft: 16 }}
+        style={themed($listItem)}
         onPress={
           item.screen
             ? () => {
@@ -105,11 +107,11 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
               }
             : undefined
         }
-        left={(props) => <Icon color={colors.tint} name={item.iconName} size={20} style={{ alignSelf: "center", marginRight: 12 }} />}
+        left={(props) => <Icon color={colors.tint} name={item.iconName} size={20} style={themed($leftIcon)} />}
         right={(props) => (
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <View style={themed($rightContainer)}>
             {rightEl}
-            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
+            <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
           </View>
         )}
       />
@@ -124,4 +126,22 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
       renderItem={renderItem}
     />
   )
+})
+
+const $headerIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  marginRight: spacing.md,
+})
+
+const $listItem: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingLeft: spacing.md,
+})
+
+const $leftIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  alignSelf: "center",
+  marginRight: spacing.sm,
+})
+
+const $rightContainer: ThemedStyle<ViewStyle> = () => ({
+  flexDirection: "row",
+  alignItems: "center",
 })

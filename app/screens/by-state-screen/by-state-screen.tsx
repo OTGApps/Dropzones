@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
+import { $chevronRight } from "@/theme/styles"
 
 import { States } from "./states"
 import { useStores } from "../../models/root-store/root-store-context"
@@ -50,9 +51,9 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
           ) : null
         }
         right={(props) => (
-          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginRight: 8 }}>
-            <Badge style={{ marginRight: 8, alignSelf: "center", fontSize: 14 }}>{groupByState[item].length}</Badge>
-            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
+          <View style={themed($rightContainer)}>
+            <Badge style={themed($badge)}>{groupByState[item].length}</Badge>
+            <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
           </View>
         )}
       />
@@ -68,4 +69,17 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
       renderItem={renderItem}
     />
   )
+})
+
+const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  marginRight: spacing.xs,
+})
+
+const $badge: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  marginRight: spacing.xs,
+  alignSelf: "center",
+  fontSize: 14,
 })
