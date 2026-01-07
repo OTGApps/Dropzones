@@ -17,23 +17,14 @@ const FULL: ViewStyle = {
 
 const HEADER_STYLE: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
-  backgroundColor: colors.background,
+  backgroundColor: colors.palette.neutral300,
 })
 
 const HEADER_TEXT_STYLE: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
-  color: colors.palette.neutral100,
+  color: colors.palette.neutral900,
   margin: spacing.sm,
   fontWeight: "bold",
 })
-
-const HeaderView = ({ section: { title } }) => {
-  const { themed } = useAppTheme()
-  return (
-    <View style={themed(HEADER_STYLE)}>
-      <Text style={themed(HEADER_TEXT_STYLE)}>{title}</Text>
-    </View>
-  )
-}
 
 export const AlphabeticalScreen: Component = observer(function AlphabeticalScreen() {
   const { dropzones } = useStores()
@@ -81,6 +72,15 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
     )
   }, [search])
 
+  const renderSectionHeader = useCallback(
+    ({ section: { title } }) => (
+      <View style={themed(HEADER_STYLE)}>
+        <Text style={themed(HEADER_TEXT_STYLE)}>{title}</Text>
+      </View>
+    ),
+    [themed],
+  )
+
   return (
     <SectionList
       removeClippedSubviews
@@ -89,7 +89,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       extraData={dropzones}
       stickySectionHeadersEnabled
       keyExtractor={(item) => item}
-      renderSectionHeader={HeaderView}
+      renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
       ListHeaderComponent={listHeader}
     />

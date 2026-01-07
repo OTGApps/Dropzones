@@ -3,14 +3,13 @@ import { ViewStyle, FlatList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import _ from "lodash"
 import { observer } from "mobx-react-lite"
-import { List, Avatar } from "react-native-paper"
+import { List, Avatar, Badge } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { States } from "./states"
-import { CountBadge } from "../../components"
 import { useStores } from "../../models/root-store/root-store-context"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
@@ -51,9 +50,9 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
           ) : null
         }
         right={(props) => (
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <CountBadge count={groupByState[item].length} />
-            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center", marginLeft: 8 }} />
+          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", marginRight: 8 }}>
+            <Badge style={{ marginRight: 8, alignSelf: "center", fontSize: 14 }}>{groupByState[item].length}</Badge>
+            <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />
           </View>
         )}
       />
