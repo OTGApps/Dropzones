@@ -40,6 +40,16 @@ export class Api {
       },
     })
   }
+
+  /**
+   * Set up the API. This is called by the Environment on initialization.
+   * Add any async initialization logic here if needed.
+   */
+  async setup() {
+    // The apisauce instance is already created in the constructor.
+    // This method exists for compatibility with Environment.setup()
+    // and can be extended with async initialization if needed in the future.
+  }
 }
 
 // Singleton instance of the API for convenience

@@ -34,13 +34,16 @@ export async function setupRootStore() {
     // load data from storage
     data = (await storage.load(ROOT_STATE_STORAGE_KEY)) || {}
     rootStore = RootStoreModel.create(data, env)
-  } catch (e) {
+  } catch (e: any) {
     // if there's any problems loading, then let's at least fallback to an empty state
     // instead of crashing.
     rootStore = RootStoreModel.create({}, env)
 
     // but please inform us what happened
-    __DEV__ && console.tron.error(e.message, null)
+    if (__DEV__) {
+      console.error("Error loading root store:", e)
+      console.tron?.error?.(e.message, null)
+    }
   }
 
   // reactotron logging
