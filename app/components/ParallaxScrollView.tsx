@@ -39,7 +39,7 @@ export function ParallaxScrollView({
   renderForeground,
   renderStickyHeader,
   renderFixedHeader,
-  contentBackgroundColor = "#fff",
+  contentBackgroundColor = "transparent",
   children,
   onScroll,
   style,
