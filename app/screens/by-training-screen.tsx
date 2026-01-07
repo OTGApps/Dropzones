@@ -1,12 +1,12 @@
-import { FunctionComponent as Component, useCallback } from "react"
+import { FC, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueTraining } from "../database"
 
@@ -24,7 +24,7 @@ const TRAINING_TITLES = {
   tandem: "Tandem",
 }
 
-export const ByTrainingScreen: Component = function ByTrainingScreen() {
+export const ByTrainingScreen: FC = function ByTrainingScreen() {
   const navigation = useNavigation()
   const { training: uniqueTraining } = useUniqueTraining()
   const { themed } = useAppTheme()
@@ -43,7 +43,7 @@ export const ByTrainingScreen: Component = function ByTrainingScreen() {
         right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
       />
     ),
-    [navigation, themed]
+    [navigation, themed],
   )
 
   return (

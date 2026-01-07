@@ -1,12 +1,15 @@
+import { FC, useEffect, useRef, useMemo, useState, useCallback } from "react"
 import {
-  FunctionComponent as Component,
-  useEffect,
-  useRef,
-  useMemo,
-  useState,
-  useCallback,
-} from "react"
-import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking, Animated, TouchableOpacity } from "react-native"
+  View,
+  ViewStyle,
+  TextStyle,
+  Dimensions,
+  Platform,
+  Alert,
+  Linking,
+  Animated,
+  TouchableOpacity,
+} from "react-native"
 import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
@@ -55,9 +58,7 @@ export interface DropzoneDetailScreenProps {
 }
 
 // Component to track bottom sheet position and update map zoom
-const BottomSheetZoomTracker: Component<{ onZoomChange: (zoom: number) => void }> = ({
-  onZoomChange,
-}) => {
+const BottomSheetZoomTracker: FC<{ onZoomChange: (zoom: number) => void }> = ({ onZoomChange }) => {
   const { animatedIndex } = useBottomSheetInternal()
 
   useAnimatedReaction(
@@ -274,7 +275,10 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
         </MapView>
 
         {/* Zoom controls - fade in/out when map is interactive */}
-        <Animated.View style={[themed($zoomControls), { opacity: zoomControlsOpacity }]} pointerEvents={sheetIndex === 0 ? "auto" : "none"}>
+        <Animated.View
+          style={[themed($zoomControls), { opacity: zoomControlsOpacity }]}
+          pointerEvents={sheetIndex === 0 ? "auto" : "none"}
+        >
           <TouchableOpacity onPress={handleZoomIn} style={themed($zoomButton)} activeOpacity={0.7}>
             <Icon name="plus" size={20} color="#fff" />
           </TouchableOpacity>

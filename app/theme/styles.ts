@@ -1,4 +1,5 @@
 import { ViewStyle, TextStyle } from "react-native"
+
 import { ThemedStyle } from "./types"
 
 /* Use this file to define styles that are used in multiple places in your app. */

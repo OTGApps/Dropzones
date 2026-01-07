@@ -1,13 +1,13 @@
-import { FunctionComponent as Component, useState, useRef, useEffect, useMemo, useCallback } from "react"
+import { FC, useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { ViewStyle, Platform } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
-import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useDropzones } from "../database"
 
@@ -28,7 +28,7 @@ const INITIAL_REGION: Region = {
   longitudeDelta: 50,
 }
 
-export const MapScreen: Component = function MapScreen() {
+export const MapScreen: FC = function MapScreen() {
   const {
     themed,
     theme: { colors },
@@ -58,12 +58,15 @@ export const MapScreen: Component = function MapScreen() {
     }
   }, [navigation, showsUserLocation, colors])
 
-  const goToDetail = useCallback((anchor: string, title: string) => {
-    navigation.navigate("dropzone-detail", {
-      anchor,
-      title,
-    })
-  }, [navigation])
+  const goToDetail = useCallback(
+    (anchor: string, title: string) => {
+      navigation.navigate("dropzone-detail", {
+        anchor,
+        title,
+      })
+    },
+    [navigation],
+  )
 
   const onUserLocationChange = (e: any) => {
     if (!initialZoomDone && showsUserLocation) {
@@ -102,11 +105,7 @@ export const MapScreen: Component = function MapScreen() {
               description={dropzone.stateCode}
               onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
               right={(props) => (
-                <Icon
-                  name="chevron-right"
-                  size={16}
-                  style={themed($chevronRight)}
-                />
+                <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
               )}
             />
           </Callout>

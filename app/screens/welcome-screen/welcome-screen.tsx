@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useEffect } from "react"
+import { FC, useState, useEffect } from "react"
 import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
@@ -6,8 +6,8 @@ import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 const MenuItems = require("./menu-items.json")
 
@@ -15,7 +15,7 @@ const FULL: ViewStyle = {
   flex: 1,
 }
 
-export const WelcomeScreen: Component = function WelcomeScreen() {
+export const WelcomeScreen: FC = function WelcomeScreen() {
   const {
     themed,
     theme: { colors },
@@ -106,7 +106,9 @@ export const WelcomeScreen: Component = function WelcomeScreen() {
               }
             : undefined
         }
-        left={(props) => <Icon color={colors.tint} name={item.iconName} size={20} style={themed($leftIcon)} />}
+        left={(props) => (
+          <Icon color={colors.tint} name={item.iconName} size={20} style={themed($leftIcon)} />
+        )}
         right={(props) => (
           <View style={themed($rightContainer)}>
             {rightEl}

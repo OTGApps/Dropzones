@@ -1,4 +1,4 @@
-// import { FunctionComponent as Component } from "react"
+// import { FC } from "react"
 // import { observer } from "mobx-react-lite"
 // import { useStores } from "../models/root-store/root-store-context"
 // import { ViewStyle, FlatList } from "react-native"
@@ -10,7 +10,7 @@
 
 // const keyExtractor = (item, index) => index.toString()
 
-// export const FlaggedScreen: Component = observer(function FlaggedScreen() {
+// export const FlaggedScreen: FC = observer(function FlaggedScreen() {
 //   const { flaggedDropzones } = useStores()
 
 //   const renderItem = ({ item, index }) => <DropzoneListRow item={item} index={index} />

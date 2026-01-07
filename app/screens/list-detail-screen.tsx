@@ -1,13 +1,12 @@
-import { FunctionComponent as Component, useEffect, useState, useCallback, useMemo } from "react"
+import { FC, useState, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList } from "react-native"
-import { useNavigation } from "@react-navigation/native"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow } from "../components"
-import { useFilteredDropzones, type Dropzone } from "../database"
+import { useFilteredDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -17,10 +16,9 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 export interface ListDetailScreenProps {
   route: any
 }
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (_item, index) => index.toString()
 
-export const ListDetailScreen: Component = function ListDetailScreen(props) {
-  const navigation = useNavigation()
+export const ListDetailScreen: FC = function ListDetailScreen(props) {
   const { route } = props as ListDetailScreenProps
   const { item, itemType } = route.params
   const { dropzones } = useFilteredDropzones(item, itemType)
@@ -37,7 +35,19 @@ export const ListDetailScreen: Component = function ListDetailScreen(props) {
 
   const renderItem = useCallback(
     ({ item, index }) => <DropzoneListRow item={item} index={index} />,
-    []
+    [],
+  )
+
+  const listHeader = useMemo(
+    () => (
+      <Searchbar
+        key="list-search"
+        placeholder="Search Dropzones..."
+        value={search}
+        onChangeText={(value) => setSearch(value)}
+      />
+    ),
+    [search],
   )
 
   return (
@@ -46,14 +56,7 @@ export const ListDetailScreen: Component = function ListDetailScreen(props) {
       style={themed(FULL)}
       keyExtractor={keyExtractor}
       data={list}
-      ListHeaderComponent={
-        <Searchbar
-          key="list-search"
-          placeholder="Search Dropzones..."
-          value={search}
-          onChangeText={(value) => setSearch(value)}
-        />
-      }
+      ListHeaderComponent={listHeader}
       renderItem={renderItem}
       removeClippedSubviews
     />

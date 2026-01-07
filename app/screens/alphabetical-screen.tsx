@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useCallback, useMemo } from "react"
+import { FC, useState, useCallback, useMemo } from "react"
 import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
 import { Searchbar } from "react-native-paper"
 
@@ -23,16 +23,19 @@ const HEADER_TEXT_STYLE: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
   fontWeight: "bold",
 })
 
-export const AlphabeticalScreen: Component = function AlphabeticalScreen() {
+export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   const [searchQuery, setSearchQuery] = useState("")
   const { results: dropzones, search } = useDropzoneSearch()
   const { themed } = useAppTheme()
 
   // Handle search input
-  const handleSearch = useCallback((text: string) => {
-    setSearchQuery(text)
-    search(text)
-  }, [search])
+  const handleSearch = useCallback(
+    (text: string) => {
+      setSearchQuery(text)
+      search(text)
+    },
+    [search],
+  )
 
   // groupBy to extract section headers and reduce to generate new array
   // Memoized to prevent recalculation on every render
@@ -53,16 +56,16 @@ export const AlphabeticalScreen: Component = function AlphabeticalScreen() {
     [],
   )
 
-  const listHeader = useCallback(() => {
-    return (
+  const listHeader = useMemo(
+    () => (
       <Searchbar
-        key="list-search"
         placeholder="Search Dropzones..."
         value={searchQuery}
         onChangeText={handleSearch}
       />
-    )
-  }, [handleSearch])
+    ),
+    [searchQuery, handleSearch],
+  )
 
   const renderSectionHeader = useCallback(
     ({ section: { title } }) => (

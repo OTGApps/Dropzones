@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
+import { FC, useState, useEffect, useCallback } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
@@ -6,8 +6,8 @@ import { Button, Card, List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueAircraft } from "../database"
 
@@ -19,7 +19,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 const keyExtractor = (item, index) => index.toString()
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
-export const ByAircraftScreen: Component = function ByAircraftScreen() {
+export const ByAircraftScreen: FC = function ByAircraftScreen() {
   const navigation = useNavigation()
   const { aircraftSections: uniqueAircraftSorted } = useUniqueAircraft()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)

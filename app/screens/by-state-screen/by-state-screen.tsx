@@ -1,12 +1,12 @@
-import { FunctionComponent as Component, useCallback, useMemo } from "react"
+import { FC, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { States } from "./states"
 import { useDropzonesByState } from "../../database"
@@ -16,7 +16,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-export const ByStateScreen: Component = function ByStateScreen() {
+export const ByStateScreen: FC = function ByStateScreen() {
   const navigation = useNavigation()
   const { stateGroups } = useDropzonesByState()
   const { themed } = useAppTheme()
@@ -35,33 +35,41 @@ export const ByStateScreen: Component = function ByStateScreen() {
     return stateGroups.map((g) => g.stateCode)
   }, [stateGroups])
 
-  const renderItem = useCallback(({ item, index }) => {
-    const thisState = States[item.toLowerCase()]
+  const renderItem = useCallback(
+    ({ item, index }) => {
+      const thisState = States[item.toLowerCase()]
 
-    return (
-      <List.Item
-        title={thisState && thisState.fullName}
-        onPress={() =>
-          navigation.navigate("list-detail", {
-            item,
-            itemType: "state",
-            title: States[item.toLowerCase()].fullName,
-          })
-        }
-        left={(props) =>
-          thisState ? (
-            <Avatar.Image {...props} key={`state-image-${index}`} source={thisState.image} size={40} />
-          ) : null
-        }
-        right={(props) => (
-          <View style={themed($rightContainer)}>
-            <Badge style={themed($badge)}>{stateCountMap[item] || 0}</Badge>
-            <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
-          </View>
-        )}
-      />
-    )
-  }, [navigation, themed, stateCountMap])
+      return (
+        <List.Item
+          title={thisState && thisState.fullName}
+          onPress={() =>
+            navigation.navigate("list-detail", {
+              item,
+              itemType: "state",
+              title: States[item.toLowerCase()].fullName,
+            })
+          }
+          left={(props) =>
+            thisState ? (
+              <Avatar.Image
+                {...props}
+                key={`state-image-${index}`}
+                source={thisState.image}
+                size={40}
+              />
+            ) : null
+          }
+          right={(props) => (
+            <View style={themed($rightContainer)}>
+              <Badge style={themed($badge)}>{stateCountMap[item] || 0}</Badge>
+              <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+            </View>
+          )}
+        />
+      )
+    },
+    [navigation, themed, stateCountMap],
+  )
 
   return (
     <FlatList

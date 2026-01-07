@@ -1,12 +1,12 @@
-import { FunctionComponent as Component } from "react"
+import { FC } from "react"
 import { Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
 import * as Application from "expo-application"
-import { Card, List } from "react-native-paper"
+import { Card, List, Text } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 const openWeb = (website: string) => {
   Linking.canOpenURL(website).then((supported) => {
@@ -15,45 +15,47 @@ const openWeb = (website: string) => {
     }
   })
 }
-const openInstagram = () => openWeb("https://www.instagram.com/euphoria.art.studios/")
 const openGithub = () => openWeb("https://github.com/OTGApps/Dropzones")
 
-export const AboutScreen: Component = () => {
-  const { themed, theme: { colors } } = useAppTheme()
+export const AboutScreen: FC = () => {
+  const {
+    themed,
+    theme: { colors },
+  } = useAppTheme()
 
   return (
     <ScrollView style={themed($container)}>
       <Card style={themed($logoCard)}>
-        <Card.Cover source={require("./logo.png")} resizeMode="contain" style={themed($logoCover)} />
-        <List.Item title="Dropzones!" description="USPA Dropzone Finder" />
-        <List.Item
-          title="Version"
-          description={`${Application.nativeApplicationVersion}(${Application.nativeBuildVersion})`}
+        <Card.Cover
+          source={require("./logo.png")}
+          resizeMode="contain"
+          style={themed($logoCover)}
         />
-        <List.Item title="Data file date:" description="9/4/2021" />
+        <Card.Title
+          title="Dropzones!"
+          subtitle="USPA Dropzone Finder"
+          titleStyle={themed($cardTitle)}
+        />
+        <Card.Content style={themed($cardContent)}>
+          <Text variant="bodyMedium" style={themed($versionText)}>
+            Version {Application.nativeApplicationVersion} ({Application.nativeBuildVersion})
+          </Text>
+          <Text variant="bodyMedium" style={themed($dataDateText)}>
+            Data updated: 9/4/2021
+          </Text>
+          <List.Item
+            title="Dropzones is open source!"
+            description="Go to Github to find out more"
+            onPress={openGithub}
+            left={(props) => (
+              <View style={themed($githubIconContainer)}>
+                <Icon name="github" size={24} color={colors.palette.neutral100} />
+              </View>
+            )}
+            right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+          />
+        </Card.Content>
       </Card>
-      <List.Item
-        title="Dropzones is open source!"
-        description="Go to Github to find out more or file a bug report"
-        onPress={openGithub}
-        left={(props) => (
-          <View style={themed($githubIconContainer)}>
-            <Icon name="github" size={24} color={colors.palette.neutral100} />
-          </View>
-        )}
-        right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
-      />
-      <List.Item
-        title="Icon design by euphoria.art.studios"
-        description="Check her out on Instagram!"
-        onPress={openInstagram}
-        left={(props) => (
-          <View style={themed($instagramIconContainer)}>
-            <Icon name="instagram" size={24} color={colors.palette.neutral100} />
-          </View>
-        )}
-        right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
-      />
     </ScrollView>
   )
 }
@@ -64,11 +66,31 @@ const $container: ThemedStyle<ViewStyle> = () => ({
 })
 
 const $logoCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  margin: spacing.sm,
+  margin: spacing.md,
+  marginBottom: spacing.lg,
 })
 
 const $logoCover: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.palette.neutral100,
+})
+
+const $cardTitle: ThemedStyle<TextStyle> = () => ({
+  fontSize: 24,
+  fontWeight: "bold",
+})
+
+const $cardContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingTop: spacing.xs,
+  gap: spacing.xs,
+})
+
+const $versionText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.text,
+})
+
+const $dataDateText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  color: colors.palette.neutral600,
+  marginTop: spacing.xxs,
 })
 
 const $githubIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
@@ -76,17 +98,6 @@ const $githubIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   height: 40,
   borderRadius: 20,
   backgroundColor: colors.palette.neutral700,
-  justifyContent: "center",
-  alignItems: "center",
-  marginRight: spacing.sm,
-  alignSelf: "center",
-})
-
-const $instagramIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
-  width: 40,
-  height: 40,
-  borderRadius: 20,
-  backgroundColor: "#C13584", // Instagram brand color - keep consistent
   justifyContent: "center",
   alignItems: "center",
   marginRight: spacing.sm,

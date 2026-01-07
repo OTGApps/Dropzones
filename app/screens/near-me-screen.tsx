@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useCallback } from "react"
+import { FC, useCallback } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
 
 import { useAppTheme } from "@/theme/context"
@@ -22,7 +22,7 @@ export interface NearMeScreenProps {
 }
 const keyExtractor = (item, index) => index.toString()
 
-export const NearMeScreen: Component = function NearMeScreen(props) {
+export const NearMeScreen: FC = function NearMeScreen(props) {
   const { route } = props as NearMeScreenProps
   const { location } = route.params // Get the location that was passed by the previous screen.
   const { themed } = useAppTheme()
@@ -36,7 +36,7 @@ export const NearMeScreen: Component = function NearMeScreen(props) {
         rightElement={<SpeedLimitSign km={item.distanceFromUser} />}
       />
     ),
-    []
+    [],
   )
 
   const renderSeparator = useCallback(() => <View style={themed(SEPARATOR)} />, [themed])

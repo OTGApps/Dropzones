@@ -1,12 +1,12 @@
-import { FunctionComponent as Component, useCallback } from "react"
+import { FC, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueServices } from "../database"
 
@@ -17,7 +17,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 
 const keyExtractor = (item, index) => index.toString()
 
-export const ByServicesScreen: Component = function ByServicesScreen() {
+export const ByServicesScreen: FC = function ByServicesScreen() {
   const navigation = useNavigation()
   const { services: uniqueServices } = useUniqueServices()
   const { themed } = useAppTheme()
@@ -36,7 +36,7 @@ export const ByServicesScreen: Component = function ByServicesScreen() {
         right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
       />
     ),
-    [navigation, themed]
+    [navigation, themed],
   )
 
   return (
