@@ -1,5 +1,5 @@
-import { FunctionComponent as Component } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { FunctionComponent as Component, useCallback } from "react"
+import { ViewStyle, FlatList, View } from "react-native"
 import { observer } from "mobx-react-lite"
 
 import { useAppTheme } from "@/theme/context"
@@ -11,6 +11,11 @@ import { useStores } from "../models/root-store/root-store-context"
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
   backgroundColor: colors.background,
+})
+
+const SEPARATOR: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  height: 1,
+  backgroundColor: colors.palette.neutral300,
 })
 
 export interface NearMeScreenProps {
@@ -25,13 +30,18 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
   const { themed } = useAppTheme()
   const sortedFromUser = rootStore.sortByDistanceFrom(location)
 
-  const renderItem = ({ item, index }) => (
-    <DropzoneListRow
-      item={item}
-      index={index}
-      rightElement={<SpeedLimitSign km={item.distanceFromUser} />}
-    />
+  const renderItem = useCallback(
+    ({ item, index }) => (
+      <DropzoneListRow
+        item={item}
+        index={index}
+        rightElement={<SpeedLimitSign km={item.distanceFromUser} />}
+      />
+    ),
+    []
   )
+
+  const renderSeparator = useCallback(() => <View style={themed(SEPARATOR)} />, [themed])
 
   return (
     <FlatList
@@ -40,6 +50,7 @@ export const NearMeScreen: Component = observer(function NearMeScreen(props) {
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       renderItem={renderItem}
+      ItemSeparatorComponent={renderSeparator}
       removeClippedSubviews
     />
   )

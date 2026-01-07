@@ -1,4 +1,4 @@
-import { FunctionComponent as Component } from "react"
+import { FunctionComponent as Component, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -23,18 +23,21 @@ export const ByServicesScreen: Component = observer(function ByServicesScreen() 
   const { uniqueServices } = useStores()
   const { themed } = useAppTheme()
 
-  const renderItem = ({ item }) => (
-    <List.Item
-      title={item}
-      onPress={() =>
-        navigation.navigate("list-detail", {
-          item,
-          itemType: "services",
-          title: item,
-        })
-      }
-      right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
-    />
+  const renderItem = useCallback(
+    ({ item }) => (
+      <List.Item
+        title={item}
+        onPress={() =>
+          navigation.navigate("list-detail", {
+            item,
+            itemType: "services",
+            title: item,
+          })
+        }
+        right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+      />
+    ),
+    [navigation, themed]
   )
 
   return (

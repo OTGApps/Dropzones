@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useEffect, useCallback } from "react"
+import { FunctionComponent as Component, useState, useEffect, useCallback, useMemo } from "react"
 import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
 import _ from "lodash"
 import { observer } from "mobx-react-lite"
@@ -41,20 +41,22 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
     setList(filteredData)
   }, [search])
 
-  // groupBy to extract section headers
-  let dataSource = _.groupBy(list, "nameFirstLetter") // <- This is just the first letter of the name.
-  // reduce to generate new array
-  dataSource = _.reduce(
-    dataSource,
-    (acc, next, index) => {
-      acc.push({
-        title: index,
-        data: next,
-      })
-      return acc
-    },
-    [],
-  )
+  // groupBy to extract section headers and reduce to generate new array
+  // Memoized to prevent recalculation on every render
+  const dataSource = useMemo(() => {
+    const grouped = _.groupBy(list, "nameFirstLetter") // <- This is just the first letter of the name.
+    return _.reduce(
+      grouped,
+      (acc, next, index) => {
+        acc.push({
+          title: index,
+          data: next,
+        })
+        return acc
+      },
+      [],
+    )
+  }, [list])
 
   const renderItem = useCallback(
     ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />,
@@ -88,7 +90,7 @@ export const AlphabeticalScreen: Component = observer(function AlphabeticalScree
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled
-      keyExtractor={(item) => item}
+      keyExtractor={(item) => item.anchor.toString()}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
       ListHeaderComponent={listHeader}

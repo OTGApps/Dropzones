@@ -21,6 +21,7 @@ export const DropzoneModel = types
       longitude: types.number,
       latitude: types.number,
     }),
+    stateCode: types.optional(types.string, ""), // Cached state value
   })
   .views((self) => ({
     // Returns the first letter of the name of the dropzone
@@ -30,6 +31,10 @@ export const DropzoneModel = types
 
     // Parses the location array and if it's in a state, figure it out!
     get state() {
+      // Return cached value if available
+      if (self.stateCode) return self.stateCode
+
+      // Fallback to computation (only runs once during initialization)
       const result = lookUp(self.coordinates.latitude, self.coordinates.longitude)
 
       if (result?.state_code?.startsWith("US-")) {
@@ -54,6 +59,21 @@ export const DropzoneModel = types
         self.coordinates.longitude,
       )
       return distance
+    },
+  }))
+  .actions((self) => ({
+    afterCreate() {
+      // Compute and cache state on creation if not already cached
+      if (!self.stateCode) {
+        const result = lookUp(self.coordinates.latitude, self.coordinates.longitude)
+        if (result?.state_code?.startsWith("US-")) {
+          self.stateCode = result.state_code.substring(3)
+        } else if (self.name.toLowerCase().endsWith("key west")) {
+          self.stateCode = "FL"
+        } else {
+          self.stateCode = "International"
+        }
+      }
     },
   }))
 

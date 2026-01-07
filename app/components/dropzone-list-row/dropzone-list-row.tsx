@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useCallback } from "react"
+import { FunctionComponent as Component, useCallback, memo } from "react"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
@@ -14,7 +14,7 @@ export interface DropzoneListRowProps {
   subtitle?: string
 }
 
-export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
+const DropzoneListRowComponent: Component<DropzoneListRowProps> = (props) => {
   const navigation = useNavigation()
   const { themed } = useAppTheme()
   const { item, rightElement, index, subtitle } = props
@@ -41,3 +41,16 @@ export const DropzoneListRow: Component<DropzoneListRowProps> = (props) => {
     />
   )
 }
+
+// Wrap in memo with custom comparison to prevent unnecessary re-renders
+export const DropzoneListRow = memo(
+  DropzoneListRowComponent,
+  (prevProps, nextProps) => {
+    // Only re-render if the anchor changes (or other props that matter)
+    return (
+      prevProps.item.anchor === nextProps.item.anchor &&
+      prevProps.subtitle === nextProps.subtitle &&
+      prevProps.rightElement === nextProps.rightElement
+    )
+  }
+)

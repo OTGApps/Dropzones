@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useState, useRef, useEffect, useMemo } from "react"
+import { FunctionComponent as Component, useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { ViewStyle, Platform } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -59,12 +59,12 @@ export const MapScreen: Component = observer(function MapScreen() {
     }
   }, [navigation, showsUserLocation, colors])
 
-  const goToDetail = (anchor: string, title: string) => {
+  const goToDetail = useCallback((anchor: string, title: string) => {
     navigation.navigate("dropzone-detail", {
       anchor,
       title,
     })
-  }
+  }, [navigation])
 
   const onUserLocationChange = (e: any) => {
     if (!initialZoomDone && showsUserLocation) {
@@ -113,7 +113,7 @@ export const MapScreen: Component = observer(function MapScreen() {
           </Callout>
         </Marker>
       )) || [],
-    [dropzones],
+    [dropzones, goToDetail, themed],
   )
 
   return (

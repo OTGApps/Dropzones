@@ -1,4 +1,4 @@
-import { FunctionComponent as Component } from "react"
+import { FunctionComponent as Component, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import _ from "lodash"
@@ -22,17 +22,20 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
   const navigation = useNavigation()
   const rootStore = useStores()
   const { dropzones } = rootStore
-  const sortedStates = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
   const { themed } = useAppTheme()
 
   // Count the number of dropzones per state BEFORE rendering. this greatly reduces the load time of the page.
   const groupByState = rootStore.groupByState()
 
-  // this line just moves anything that's not a two-letter state to the end
-  // essentially, just moving the "international" item to the bottom.
-  const dataSource = _.sortBy(sortedStates, (state) => (state.length > 2 ? 1 : 0))
+  // Memoize the data processing to prevent recalculation on every render
+  const dataSource = useMemo(() => {
+    const sortedStates = Object.keys(_.groupBy(dropzones, "state")).slice().sort()
+    // this line just moves anything that's not a two-letter state to the end
+    // essentially, just moving the "international" item to the bottom.
+    return _.sortBy(sortedStates, (state) => (state.length > 2 ? 1 : 0))
+  }, [dropzones])
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = useCallback(({ item, index }) => {
     const thisState = States[item.toLowerCase()]
 
     return (
@@ -58,7 +61,7 @@ export const ByStateScreen: Component = observer(function ByStateScreen() {
         )}
       />
     )
-  }
+  }, [navigation, themed, groupByState])
 
   return (
     <FlatList

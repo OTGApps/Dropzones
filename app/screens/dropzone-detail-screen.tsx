@@ -126,7 +126,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
 
   // Zoom out button handler
   const handleZoomOut = useCallback(() => {
-    setManualZoom((prev) => Math.max(prev / 1.5, 0.5)) // Min 0.5x zoom
+    setManualZoom((prev) => prev / 1.5)
   }, [])
 
   // Animate zoom controls fade in/out based on sheet position
@@ -293,7 +293,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           handleIndicatorStyle={themed($handleIndicator)}
         >
           <BottomSheetZoomTracker onZoomChange={handleZoomChange} />
-          <BottomSheetScrollView>
+          <BottomSheetScrollView contentContainerStyle={themed($scrollViewContent)}>
             <View style={themed($sheetHeader)}>
               <Button
                 mode="text"
@@ -411,6 +411,10 @@ const $sheetBackground: ThemedStyle<ViewStyle> = ({ colors }) => ({
 
 const $handleIndicator: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.palette.neutral400,
+})
+
+const $scrollViewContent: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingTop: spacing.lg,
 })
 
 const $sheetHeader: ThemedStyle<ViewStyle> = ({ spacing }) => ({

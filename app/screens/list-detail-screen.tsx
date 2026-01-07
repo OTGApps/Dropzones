@@ -1,4 +1,4 @@
-import { FunctionComponent as Component, useEffect, useState } from "react"
+import { FunctionComponent as Component, useEffect, useState, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
@@ -39,7 +39,10 @@ export const ListDetailScreen: Component = observer(function ListDetailScreen(pr
     setList(filteredData)
   }, [search])
 
-  const renderItem = ({ item, index }) => <DropzoneListRow item={item} index={index} />
+  const renderItem = useCallback(
+    ({ item, index }) => <DropzoneListRow item={item} index={index} />,
+    []
+  )
 
   return (
     <FlatList
