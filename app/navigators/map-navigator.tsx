@@ -22,7 +22,7 @@ export function MapNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerBackTitleVisible: false,
+        headerBackButtonDisplayMode: "minimal",
         gestureEnabled: true,
         headerStyle: {
           backgroundColor: colors.tint,

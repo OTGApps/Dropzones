@@ -41,9 +41,8 @@ export function PrimaryNavigator() {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerBackTitle: "",
+        headerBackButtonDisplayMode: "minimal",
         gestureEnabled: true,
-        headerBackTitleVisible: false,
         headerStyle: {
           backgroundColor: colors.tint,
         },

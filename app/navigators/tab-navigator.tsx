@@ -24,6 +24,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        headerBackButtonDisplayMode: "minimal",
         tabBarActiveTintColor: colors.tint,
         tabBarInactiveTintColor: colors.tintInactive,
         tabBarStyle: {

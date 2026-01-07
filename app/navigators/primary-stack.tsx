@@ -38,7 +38,7 @@ const PrimaryStack = () => {
         component={AboutScreen}
         options={{
           title: "About",
-          headerBackTitleVisible: false,
+          headerBackButtonDisplayMode: "minimal",
           headerShown: true,
           gestureEnabled: true,
           headerStyle: {
