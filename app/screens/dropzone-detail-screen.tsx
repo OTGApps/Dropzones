@@ -1,16 +1,26 @@
 import { FunctionComponent as Component, useState, useEffect } from "react"
-import { View, ViewStyle, TextStyle, Dimensions, Platform, Alert, Linking, Text as RNText } from "react-native"
+import {
+  View,
+  ViewStyle,
+  TextStyle,
+  Dimensions,
+  Platform,
+  Alert,
+  Linking,
+  Text as RNText,
+} from "react-native"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
-import { Card, List, Button, Text } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
 import Mailer from "react-native-mail"
 import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
+import { Card, List, Button, Text } from "react-native-paper"
+import Icon from "react-native-vector-icons/FontAwesome"
 
 import { ParallaxScrollView } from "@/components/ParallaxScrollView"
 import { useAppTheme } from "@/theme/context"
+import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useStores } from "../models/root-store/root-store-context"
@@ -181,28 +191,11 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       >
         {selectedDZ.website}
       </Button>
-      {/* <View>
-        <Avatar
-          containerStyle={styles.iconContainer}
-          icon={{
-            type: "font-awesome",
-            size: 35,
-            color: colors.palette.neutral100,
-            name: isFlagged ? "flag" : "flag-o",
-          }}
-          onPress={toggleFlag}
-        />
-      </View> */}
     </View>
   )
 
   const onScroll = (e) => {
     setOffset(e.nativeEvent.contentOffset.y)
-  }
-
-  const iconStyle = {
-    alignSelf: "flex-start" as const,
-    marginRight: 12,
   }
 
   const handleEmail = () => {
@@ -235,7 +228,7 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
       renderForeground={renderForeground}
       overScrollMode={"always"}
     >
-      <Card style={themed($cardStyle)}>
+      <Card style={themed($cardStyle)} elevation={0}>
         {selectedDZ.email && (
           <Card.Content>
             <Button mode="outlined" onPress={handleEmail}>
@@ -252,28 +245,28 @@ export const DropzoneDetailScreen: Component = observer(function DropzoneDetailS
           <List.Item
             title={selectedDZ.phone}
             onPress={openPhone}
-            left={(props) => <Icon name="phone" size={20} style={iconStyle} />}
-            right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+            left={(props) => <Icon name="phone" size={20} style={themed($iconStyle)} />}
+            right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
           />
         )}
         {selectedDZ.location && selectedDZ.location.length > 0 && (
           <List.Item
             title={selectedDZ.location.join("\n")}
             onPress={openDrivingDirectons}
-            left={(props) => <Icon name="map" size={20} style={iconStyle} />}
-            right={(props) => <Icon name="chevron-right" size={16} color="#666" style={{ alignSelf: "center" }} />}
+            left={(props) => <Icon name="map" size={20} style={themed($iconStyle)} />}
+            right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
           />
         )}
         {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
           <List.Item
             title={selectedDZ.aircraft.slice().sort().join("\n")}
-            left={(props) => <Icon name="plane" size={20} style={iconStyle} />}
+            left={(props) => <Icon name="plane" size={20} style={themed($iconStyle)} />}
           />
         )}
         {selectedDZ.services && selectedDZ.services.length > 0 && (
           <List.Item
             title={selectedDZ.services.slice().sort().join("\n")}
-            left={(props) => <Icon name="bath" size={20} style={iconStyle} />}
+            left={(props) => <Icon name="bath" size={20} style={themed($iconStyle)} />}
           />
         )}
       </Card>
@@ -301,24 +294,31 @@ const $background: ThemedStyle<ViewStyle> = ({ colors }) => ({
 
 const $cardStyle: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   borderWidth: 0,
+  borderBottomWidth: 0,
   paddingVertical: spacing.sm,
-  marginBottom: spacing.md,
+  paddingLeft: spacing.md,
+  marginBottom: 0,
   marginTop: -spacing.xxl,
   minHeight: window.height - PARALLAX_HEADER_HEIGHT,
-  shadowColor: colors.palette.neutral900,
-  shadowOffset: {
-    width: 2,
-    height: 2,
-  },
-  shadowOpacity: 0.7,
-  shadowRadius: 10,
-  elevation: 10,
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+  backgroundColor: colors.background,
+  shadowOpacity: 0,
+  shadowColor: "transparent",
+  shadowOffset: { width: 0, height: 0 },
+  shadowRadius: 0,
+  elevation: 0,
 })
 
 const $descriptionText: ThemedStyle<TextStyle> = ({ colors }) => ({
   fontSize: 18,
   lineHeight: 26,
   color: colors.text,
+})
+
+const $iconStyle: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  alignSelf: "flex-start",
+  marginRight: spacing.sm,
 })
 
 const $map: ViewStyle = {
@@ -338,9 +338,15 @@ const $parallaxHeader: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginHorizontal: spacing.xxxs,
 })
 
+const $footerSection: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flexDirection: "column",
+  alignItems: "flex-start",
+  paddingVertical: spacing.md,
+})
+
 const $sectionSubtitleText: ThemedStyle<TextStyle> = (theme) => ({
   ...$textShadow(theme),
-  color: theme.colors.textDim,
+  color: theme.colors.palette.neutral100,
   fontSize: 18,
   paddingVertical: 5,
   fontWeight: "bold",
@@ -349,7 +355,7 @@ const $sectionSubtitleText: ThemedStyle<TextStyle> = (theme) => ({
 
 const $sectionTitleText: ThemedStyle<TextStyle> = (theme) => ({
   ...$textShadow(theme),
-  color: theme.colors.textDim,
+  color: theme.colors.palette.neutral100,
   fontSize: 24,
   paddingVertical: 5,
   fontWeight: "bold",
