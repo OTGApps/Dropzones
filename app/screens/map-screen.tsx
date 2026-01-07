@@ -37,14 +37,18 @@ export const MapScreen: Component = observer(function MapScreen() {
 
   const { width, height } = useWindowDimensions()
 
-  const LATITUDE_DELTA = 50
-  const LONGITUDE_DELTA = LATITUDE_DELTA + width / height
-  const INITIAL_REGION = {
-    latitude: 39.828, // Geographic center
-    longitude: -98.579, // of the USA
-    latitudeDelta: LATITUDE_DELTA,
-    longitudeDelta: LONGITUDE_DELTA,
-  }
+  const INITIAL_REGION = useMemo(() => {
+    const LATITUDE_DELTA = 50
+    const aspectRatio = height > 0 ? width / height : 1
+    const LONGITUDE_DELTA = LATITUDE_DELTA + aspectRatio
+
+    return {
+      latitude: 39.828, // Geographic center
+      longitude: -98.579, // of the USA
+      latitudeDelta: LATITUDE_DELTA,
+      longitudeDelta: LONGITUDE_DELTA,
+    }
+  }, [width, height])
 
   useEffect(() => {
     navigation.setOptions({
@@ -76,7 +80,7 @@ export const MapScreen: Component = observer(function MapScreen() {
       getSnapshot(dropzones).map((d) => {
         return (
           <Marker
-            key={d.anchor.toString() + "_" + Date.now()}
+            key={d.anchor.toString()}
             coordinate={d.coordinates as LatLng}
             pointerEvents="auto"
           >
@@ -121,11 +125,15 @@ export const MapScreen: Component = observer(function MapScreen() {
 
   return (
     <MapView
-      ref={mapRef}
+      mapRef={(map) => {
+        if (mapRef.current !== map) {
+          mapRef.current = map
+        }
+      }}
       clusteringEnabled={clusteringEnabled}
       initialRegion={INITIAL_REGION}
       onRegionChangeComplete={checkClustering}
-      style={ROOT}
+      style={ROOT({ colors })}
       clusterColor={colors.tint}
       clusterFontFamily={typography.primary}
       tracksViewChanges={false}

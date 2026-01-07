@@ -90,6 +90,7 @@ export const WelcomeScreen: Component = observer(function WelcomeScreen() {
         title={item.title}
         description={item.subtitle}
         disabled={!item.screen}
+        style={{ paddingLeft: 16 }}
         onPress={
           item.screen
             ? () => {
