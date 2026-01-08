@@ -48,7 +48,7 @@
         "image": "./assets/images/adaptive-icon.png",
         "imageWidth": 300,
         "resizeMode": "contain",
-        "backgroundColor": "#000"
+        "backgroundColor": "#000000"
       }
     ],
     [
