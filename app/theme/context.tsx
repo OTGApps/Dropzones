@@ -83,15 +83,6 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
     return t === "dark" ? "dark" : "light"
   }, [initialContext, themeScheme, systemColorScheme])
 
-  const navigationTheme: NavTheme = useMemo(() => {
-    switch (themeContext) {
-      case "dark":
-        return NavDarkTheme
-      default:
-        return NavDefaultTheme
-    }
-  }, [themeContext])
-
   const theme: Theme = useMemo(() => {
     switch (themeContext) {
       case "dark":
@@ -100,6 +91,22 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
         return lightTheme
     }
   }, [themeContext])
+
+  const navigationTheme: NavTheme = useMemo(() => {
+    const baseTheme = themeContext === "dark" ? NavDarkTheme : NavDefaultTheme
+    return {
+      ...baseTheme,
+      colors: {
+        ...baseTheme.colors,
+        primary: theme.colors.tint,
+        background: theme.colors.background,
+        card: theme.colors.headerBackground,
+        text: theme.colors.text,
+        border: theme.colors.border,
+        notification: theme.colors.error,
+      },
+    }
+  }, [themeContext, theme])
 
   useEffect(() => {
     setImperativeTheming(theme)

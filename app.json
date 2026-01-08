@@ -16,7 +16,12 @@
     "package": "io.otgapps.dropzones",
     "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
     "allowBackup": false,
-    "edgeToEdgeEnabled": true
+    "edgeToEdgeEnabled": true,
+    "config": {
+      "googleMaps": {
+        "apiKey": "AIzaSyDRsjdrHQu1hxIInW6yH2k34Jfrn80hcsU"
+      }
+    }
   },
   "ios": {
     "supportsTablet": true,

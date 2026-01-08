@@ -109,6 +109,23 @@ export async function getDropzonesGroupedByState(
 }
 
 /**
+ * Normalizes an aircraft name by removing leading numbers and trailing 's'.
+ * This should match the normalization logic in getUniqueAircraftSorted.
+ */
+function normalizeAircraftName(name: string): string {
+  let normalized = name
+  // Remove leading numbers (e.g., "2 Cessna 182" -> "Cessna 182")
+  if (normalized.match(/^\d+ /)) {
+    normalized = normalized.substring(normalized.indexOf(" ") + 1)
+  }
+  // Remove trailing 's' for plurals
+  if (normalized.endsWith("s") && normalized.length > 1) {
+    normalized = normalized.slice(0, -1)
+  }
+  return normalized
+}
+
+/**
  * Filters dropzones by a specific criteria.
  */
 export async function getFilteredDropzones(
@@ -141,9 +158,25 @@ export async function getFilteredDropzones(
         query = "SELECT * FROM dropzones WHERE state_code = ? ORDER BY name"
         params = [item]
       }
+      const rows = await db.getAllAsync<DropzoneRow>(query, ...params)
+      return rows.map(rowToDropzone)
+    } else if (itemType === "aircraft") {
+      // For aircraft, we need to use the same normalization logic as the counting
+      // to ensure the counts match the filtered results
+      const allRows = await db.getAllAsync<DropzoneRow>("SELECT * FROM dropzones ORDER BY name")
+      const normalizedSearchTerm = item.toLowerCase()
+
+      const matchingDropzones = allRows.filter((row) => {
+        const aircraftList: string[] = JSON.parse(row.aircraft)
+        return aircraftList.some((plane) => {
+          const normalized = normalizeAircraftName(plane)
+          return normalized.toLowerCase() === normalizedSearchTerm
+        })
+      })
+
+      return matchingDropzones.map(rowToDropzone)
     } else {
-      // For array fields, check if item exists in the JSON array
-      // Using json_each to match both exact and partial matches
+      // For services and training, use the original logic
       query = `
         SELECT DISTINCT d.* FROM dropzones d
         WHERE EXISTS (
@@ -153,10 +186,9 @@ export async function getFilteredDropzones(
         ORDER BY d.name
       `
       params = [item, `%${item}%`]
+      const rows = await db.getAllAsync<DropzoneRow>(query, ...params)
+      return rows.map(rowToDropzone)
     }
-
-    const rows = await db.getAllAsync<DropzoneRow>(query, ...params)
-    return rows.map(rowToDropzone)
   })
 }
 

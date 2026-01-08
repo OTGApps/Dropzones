@@ -4,10 +4,10 @@ import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { States } from "./states"
 import { useDropzonesByState } from "../../database"
@@ -83,7 +83,6 @@ export const ByStateScreen: FC = function ByStateScreen() {
     },
     [navigation, themed, processedData.stateCountMap],
   )
-
 
   return (
     <FlatList
