@@ -1,6 +1,5 @@
 import { FC, useState, useEffect, useCallback } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
-import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
@@ -10,6 +9,7 @@ import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueAircraft } from "../database"
+import { load, save } from "../utils/storage"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -29,22 +29,11 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   } = useAppTheme()
 
   useEffect(() => {
-    let isMounted = true
-    const showDisclaimerAlert = async () => {
-      const headerAsyncData = await AsyncStorage.getItem(HIDE_HEADER_COMPONENT_KEY)
-      if (isMounted) {
-        const hidden = JSON.parse(headerAsyncData)
-        if (!hidden) {
-          setHeaderHidden(false)
-        } else {
-          setHeaderHidden(hidden)
-        }
-      }
-    }
-    showDisclaimerAlert()
-
-    return () => {
-      isMounted = false
+    const hidden = load<boolean>(HIDE_HEADER_COMPONENT_KEY)
+    if (!hidden) {
+      setHeaderHidden(false)
+    } else {
+      setHeaderHidden(hidden)
     }
   }, [])
 
@@ -71,9 +60,8 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   )
 
   const hideHeaderComponent = () => {
-    AsyncStorage.setItem(HIDE_HEADER_COMPONENT_KEY, JSON.stringify(true)).then(() => {
-      setHeaderHidden(true)
-    })
+    save(HIDE_HEADER_COMPONENT_KEY, true)
+    setHeaderHidden(true)
   }
   const renderHeaderComponent = useCallback(() => {
     return (

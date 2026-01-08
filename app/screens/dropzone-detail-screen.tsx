@@ -10,7 +10,6 @@ import {
   TouchableOpacity,
 } from "react-native"
 import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
-import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import MapView, { Marker } from "react-native-maps"
@@ -25,11 +24,12 @@ import { ThemedStyle } from "@/theme/types"
 
 import { useDropzone } from "../database"
 import { delay } from "../utils/delay"
+import { load, save } from "../utils/storage"
 
 const DISCLAIMER_BYPASS_KEY = "@bypassDisclaimer"
 const showDisclaimerAlert = async () => {
-  const bypassDisclaimer = await AsyncStorage.getItem(DISCLAIMER_BYPASS_KEY)
-  if (!JSON.parse(bypassDisclaimer)) {
+  const bypassDisclaimer = load<boolean>(DISCLAIMER_BYPASS_KEY)
+  if (!bypassDisclaimer) {
     await delay(500)
     Alert.alert(
       "Disclaimer:",
@@ -42,8 +42,8 @@ const showDisclaimerAlert = async () => {
         {
           text: "Don't show this again!",
           style: "destructive",
-          onPress: async () => {
-            await AsyncStorage.setItem(DISCLAIMER_BYPASS_KEY, JSON.stringify(true))
+          onPress: () => {
+            save(DISCLAIMER_BYPASS_KEY, true)
           },
         },
       ],
