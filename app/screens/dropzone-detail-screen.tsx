@@ -158,14 +158,18 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
     }
   }, [zoomMultiplier, manualZoom, sheetIndex, selectedDZ])
 
-  const openDrivingDirectons = () => {
+  const openDrivingDirectons = useCallback(() => {
+    if (!selectedDZ) {
+      Alert.alert("Loading", "Dropzone data is still loading. Please try again.")
+      return
+    }
     openMap({
       ...selectedDZ.coordinates,
       query: selectedDZ.name,
       end: selectedDZ.name,
       travelType: "drive",
     })
-  }
+  }, [selectedDZ])
 
   useEffect(() => {
     navigation.setOptions({
@@ -183,7 +187,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
     const focusListener = navigation.addListener("focus", showDisclaimerAlert)
     // Return the focuslistener so it gets removed and we don't cause a memory leak.
     return focusListener
-  }, [navigation])
+  }, [navigation, openDrivingDirectons, colors])
 
   const openWebsite = async () => {
     const { website } = selectedDZ
