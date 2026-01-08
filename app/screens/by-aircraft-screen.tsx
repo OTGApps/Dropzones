@@ -184,8 +184,9 @@ const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginRight: spacing.xs,
 })
 
-const $badge: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $badge: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
   marginRight: spacing.xs,
   alignSelf: "center",
   fontSize: 14,
+  backgroundColor: colors.palette.primary500,
 })
