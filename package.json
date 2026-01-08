@@ -54,7 +54,6 @@
     "expo-sqlite": "~16.0.10",
     "expo-status-bar": "~3.0.9",
     "expo-system-ui": "~6.0.9",
-    "geojson-places": "1.0.8",
     "i18next": "^23.16.8",
     "intl-pluralrules": "^2.0.1",
     "lodash": "^4.17.21",

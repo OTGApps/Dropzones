@@ -1,5 +1,4 @@
 import type * as SQLite from "expo-sqlite"
-import { lookUp } from "geojson-places"
 
 // @ts-expect-error - babel-plugin-inline-import handles .geojson files
 import dropzoneDataRaw from "../../assets/dropzones.geojson"
@@ -32,25 +31,6 @@ interface GeoJSONFeature {
   geometry: {
     coordinates: [number | string, number | string] // [longitude, latitude]
   }
-}
-
-/**
- * Computes the state code from coordinates using geojson-places.
- * Returns "International" for non-US locations.
- */
-function computeStateCode(latitude: number, longitude: number, name: string): string {
-  const result = lookUp(latitude, longitude)
-
-  if (result?.state_code?.startsWith("US-")) {
-    return result.state_code.substring(3)
-  }
-
-  // Special case for Key West which sometimes doesn't geocode correctly
-  if (name.toLowerCase().endsWith("key west")) {
-    return "FL"
-  }
-
-  return "International"
 }
 
 /**
@@ -97,6 +77,14 @@ async function updateDataVersion(db: SQLite.SQLiteDatabase): Promise<void> {
 }
 
 /**
+ * Configuration for batch processing during database seeding.
+ * Processing in batches reduces memory pressure and prevents OOM kills.
+ * Using smaller batches (25) to ensure memory stays under control on low-end devices.
+ */
+const BATCH_SIZE = 25 // Insert 25 dropzones per transaction
+const GC_DELAY_MS = 200 // Delay between batches to allow garbage collection
+
+/**
  * Normalizes a field that could be a string, array, or undefined into an array.
  */
 function normalizeToArray(value: string | string[] | undefined): string[] {
@@ -106,116 +94,149 @@ function normalizeToArray(value: string | string[] | undefined): string[] {
 }
 
 /**
- * Inserts all dropzones from the provided features array.
+ * Inserts all dropzones from the provided features array using batch processing.
+ * Processing in batches reduces memory consumption and prevents out-of-memory crashes.
  */
 async function insertDropzones(
   db: SQLite.SQLiteDatabase,
   features: GeoJSONFeature[],
   onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
-  console.log(`[DB] Starting to insert ${features.length} dropzones...`)
-  const startTime = Date.now()
-  let skipped = 0
-  let insertCount = 0
-
-  const transactionStart = Date.now()
-  await db.withTransactionAsync(async () => {
-    console.log(`[DB] Transaction started in ${Date.now() - transactionStart}ms`)
-    const batchStart = Date.now()
-
-    for (let index = 0; index < features.length; index++) {
-      const feature = features[index]
-      const props = feature.properties
-      const [lon, lat] = feature.geometry?.coordinates || []
-
-      // Skip features without valid coordinates
-      if (!lon || !lat) {
-        console.warn(`Skipping feature ${props.anchor} (${props.name}) - missing coordinates`)
-        skipped++
-        continue
-      }
-
-      // Ensure coordinates are numbers (remote data may have strings)
-      const longitude = typeof lon === "string" ? parseFloat(lon) : lon
-      const latitude = typeof lat === "string" ? parseFloat(lat) : lat
-
-      // Skip if coordinates are invalid after parsing
-      if (isNaN(longitude) || isNaN(latitude)) {
-        console.warn(`Skipping feature ${props.anchor} (${props.name}) - invalid coordinates`)
-        skipped++
-        continue
-      }
-
-      // Pre-compute derived fields
-      const stateCode = computeStateCode(latitude, longitude, props.name)
-      const nameFirstLetter = props.name[0].toUpperCase()
-      const searchableText = [
-        props.name,
-        props.description || "",
-        props.website || "",
-        props.airport || "",
-        props.country || "",
-      ]
-        .join(" ")
-        .toLowerCase()
-
-      // Normalize array fields (remote data may have strings instead of arrays)
-      const aircraft = normalizeToArray(props.aircraft)
-      const location = normalizeToArray(props.location)
-      const services = normalizeToArray(props.services)
-      const training = normalizeToArray(props.training)
-
-      // Ensure anchor is a number
-      const anchor = typeof props.anchor === "string" ? parseInt(props.anchor, 10) : props.anchor
-
-      await db.runAsync(
-        `INSERT INTO dropzones (
-          anchor, name, email, description, phone, website,
-          aircraft, location, services, training,
-          latitude, longitude, airport, country, state,
-          state_code, name_first_letter, searchable_text
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        anchor,
-        props.name,
-        props.email || "",
-        props.description || "",
-        props.phone || "",
-        props.website || "",
-        JSON.stringify(aircraft),
-        JSON.stringify(location),
-        JSON.stringify(services),
-        JSON.stringify(training),
-        latitude,
-        longitude,
-        props.airport || "",
-        props.country || "",
-        props.state || "",
-        stateCode,
-        nameFirstLetter,
-        searchableText,
-      )
-      insertCount++
-
-      // Report progress every 2 features or on the last feature
-      if (onProgress && (index % 2 === 0 || index === features.length - 1)) {
-        onProgress(index + 1, features.length)
-      }
-
-      // Log progress every 50 inserts
-      if (insertCount % 50 === 0) {
-        const elapsed = Date.now() - batchStart
-        const rate = (insertCount / elapsed) * 1000
-        console.log(
-          `[DB] Inserted ${insertCount}/${features.length} dropzones (${rate.toFixed(1)} rows/sec)`,
-        )
-      }
-    }
-  })
-
-  const elapsed = Date.now() - startTime
-  const rate = (insertCount / elapsed) * 1000
+  const totalFeatures = features.length
+  const totalBatches = Math.ceil(totalFeatures / BATCH_SIZE)
   console.log(
-    `[DB] Insert complete: ${insertCount} inserted, ${skipped} skipped in ${elapsed}ms (${rate.toFixed(1)} rows/sec)`,
+    `[DB] Starting to insert ${totalFeatures} dropzones in ${totalBatches} batches (${BATCH_SIZE} per batch)...`,
+  )
+
+  const startTime = Date.now()
+  let totalSkipped = 0
+  let totalInserted = 0
+
+  // Process features in batches
+  for (let batchIndex = 0; batchIndex < totalBatches; batchIndex++) {
+    const batchStart = batchIndex * BATCH_SIZE
+    const batchEnd = Math.min(batchStart + BATCH_SIZE, totalFeatures)
+    const batch = features.slice(batchStart, batchEnd)
+    const batchNum = batchIndex + 1
+
+    const batchStartTime = Date.now()
+    console.log(
+      `[DB] Processing batch ${batchNum}/${totalBatches} (records ${batchStart + 1}-${batchEnd})...`,
+    )
+
+    let batchSkipped = 0
+    let batchInserted = 0
+
+    try {
+      // Process each batch in its own transaction
+      await db.withTransactionAsync(async () => {
+        for (let i = 0; i < batch.length; i++) {
+          const feature = batch[i]
+          const props = feature.properties
+          const [lon, lat] = feature.geometry?.coordinates || []
+          const globalIndex = batchStart + i
+
+          // Skip features without valid coordinates
+          if (!lon || !lat) {
+            console.warn(`Skipping feature ${props.anchor} (${props.name}) - missing coordinates`)
+            batchSkipped++
+            continue
+          }
+
+          // Ensure coordinates are numbers (remote data may have strings)
+          const longitude = typeof lon === "string" ? parseFloat(lon) : lon
+          const latitude = typeof lat === "string" ? parseFloat(lat) : lat
+
+          // Skip if coordinates are invalid after parsing
+          if (isNaN(longitude) || isNaN(latitude)) {
+            console.warn(`Skipping feature ${props.anchor} (${props.name}) - invalid coordinates`)
+            batchSkipped++
+            continue
+          }
+
+          // Pre-compute derived fields
+          const stateCode = props.state
+          const nameFirstLetter = props.name[0].toUpperCase()
+          const searchableText = [
+            props.name,
+            props.description || "",
+            props.website || "",
+            props.airport || "",
+            props.country || "",
+          ]
+            .join(" ")
+            .toLowerCase()
+
+          // Normalize array fields (remote data may have strings instead of arrays)
+          const aircraft = normalizeToArray(props.aircraft)
+          const location = normalizeToArray(props.location)
+          const services = normalizeToArray(props.services)
+          const training = normalizeToArray(props.training)
+
+          // Ensure anchor is a number
+          const anchor =
+            typeof props.anchor === "string" ? parseInt(props.anchor, 10) : props.anchor
+
+          await db.runAsync(
+            `INSERT INTO dropzones (
+              anchor, name, email, description, phone, website,
+              aircraft, location, services, training,
+              latitude, longitude, airport, country, state,
+              state_code, name_first_letter, searchable_text
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            anchor,
+            props.name,
+            props.email || "",
+            props.description || "",
+            props.phone || "",
+            props.website || "",
+            JSON.stringify(aircraft),
+            JSON.stringify(location),
+            JSON.stringify(services),
+            JSON.stringify(training),
+            latitude,
+            longitude,
+            props.airport || "",
+            props.country || "",
+            props.state || "",
+            stateCode,
+            nameFirstLetter,
+            searchableText,
+          )
+          batchInserted++
+
+          // Report progress every 2 features or on the last feature
+          const currentTotal = totalInserted + batchInserted
+          if (onProgress && (i % 2 === 0 || globalIndex === totalFeatures - 1)) {
+            onProgress(currentTotal, totalFeatures)
+          }
+        }
+      })
+
+      totalInserted += batchInserted
+      totalSkipped += batchSkipped
+
+      const batchElapsed = Date.now() - batchStartTime
+      const batchRate = batchInserted > 0 ? (batchInserted / batchElapsed) * 1000 : 0
+      console.log(
+        `[DB] Batch ${batchNum}/${totalBatches} complete: ${batchInserted} inserted, ${batchSkipped} skipped in ${batchElapsed}ms (${batchRate.toFixed(1)} rows/sec). Total: ${totalInserted}/${totalFeatures}`,
+      )
+
+      // Brief delay between batches to allow garbage collection
+      // This helps prevent memory accumulation that can lead to OOM crashes
+      if (batchEnd < totalFeatures) {
+        await new Promise((resolve) => setTimeout(resolve, GC_DELAY_MS))
+      }
+    } catch (error) {
+      console.error(`[DB] Batch ${batchNum}/${totalBatches} failed:`, error)
+      throw error
+    }
+  }
+
+  const totalElapsed = Date.now() - startTime
+  const overallRate = totalInserted > 0 ? (totalInserted / totalElapsed) * 1000 : 0
+  console.log(
+    `[DB] Insert complete: ${totalInserted} inserted, ${totalSkipped} skipped in ${totalElapsed}ms (${overallRate.toFixed(1)} rows/sec)`,
   )
 }
 

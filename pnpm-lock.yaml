@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  geojson-places:
-    hash: 6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e
-    path: patches/geojson-places.patch
-
 importers:
 
   .:
@@ -79,9 +74,6 @@ importers:
       expo-system-ui:
         specifier: ~6.0.9
         version: 6.0.9(expo@54.0.31)(react-native-web@0.21.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.17)(react@19.1.0))
-      geojson-places:
-        specifier: 1.0.8
-        version: 1.0.8(patch_hash=6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e)
       i18next:
         specifier: ^23.16.8
         version: 23.16.8
@@ -3153,9 +3145,6 @@ packages:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
 
-  geojson-places@1.0.8:
-    resolution: {integrity: sha512-4jqzFgpz9S3QZ9KsDTvokuf3qCygfhgYlBaVHhGt27bI9uzvbxacFz19qxGui1WUAwYXj39IZdtATsQ1ggtlOQ==}
-
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -3810,9 +3799,6 @@ packages:
   jsx-ast-utils@3.3.5:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
     engines: {node: '>=4.0'}
-
-  just-clone@6.2.0:
-    resolution: {integrity: sha512-1IynUYEc/HAwxhi3WDpIpxJbZpMCvvrrmZVqvj9EhpvbH8lls7HhdhiByjL7DkAaWlLIzpC0Xc/VPvy/UxLNjA==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -9306,10 +9292,6 @@ snapshots:
 
   gensync@1.0.0-beta.2: {}
 
-  geojson-places@1.0.8(patch_hash=6081d2221a8e3930ad83e0c0cbc6f22a74c24c47a11e36cacaf51b913bf6e59e):
-    dependencies:
-      just-clone: 6.2.0
-
   get-caller-file@2.0.5: {}
 
   get-intrinsic@1.3.0:
@@ -10222,8 +10204,6 @@ snapshots:
       array.prototype.flat: 1.3.3
       object.assign: 4.1.7
       object.values: 1.2.1
-
-  just-clone@6.2.0: {}
 
   keyv@4.5.4:
     dependencies:

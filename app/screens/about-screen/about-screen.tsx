@@ -4,7 +4,6 @@ import * as Application from "expo-application"
 import { ActivityIndicator, Card, List, ProgressBar, Text } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
-import Config from "@/config"
 import { useDatabase, seedDatabase, LOCAL_DATA_VERSION } from "@/database"
 import {
   checkForUpdates,
@@ -225,7 +224,7 @@ export const AboutScreen: FC = () => {
                 <Icon name="github" size={24} color={colors.palette.neutral100} />
               </View>
             )}
-            right={() => (
+            right={(props) => (
               <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
             )}
           />
