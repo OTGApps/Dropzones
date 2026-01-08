@@ -13,7 +13,6 @@ import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gor
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
-import Mailer from "react-native-mail"
 import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
 import { List, Button, Text } from "react-native-paper"
@@ -218,21 +217,17 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   //   isFlagged ? rootStore.removeFlag(anchor) : rootStore.addFlag(anchor)
   // }
 
-  const handleEmail = () => {
-    Mailer.mail(
-      {
-        subject: "Question for " + selectedDZ.name,
-        recipients: [selectedDZ.email],
-        // body: '<b>A Bold Body</b>',
-        // isHTML: true,
-      },
-      (error, event) => {
-        if (error) {
-          // Probably should log this? maybe? probably not.
-          Alert.alert("There was an error", error)
-        }
-      },
-    )
+  const handleEmail = async () => {
+    const { email } = selectedDZ
+    const subject = encodeURIComponent("Question for " + selectedDZ.name)
+    const mailtoUrl = `mailto:${email}?subject=${subject}`
+
+    const supported = await Linking.canOpenURL(mailtoUrl)
+    if (supported) {
+      await Linking.openURL(mailtoUrl)
+    } else {
+      Alert.alert("Unable to open email", `Could not open email client for ${email}`)
+    }
   }
 
   // Handle loading and missing dropzone - after all hooks
