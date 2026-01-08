@@ -60,6 +60,9 @@
     "extra": {
       "ignite": {
         "version": "UNKNOWN"
+      },
+      "eas": {
+        "projectId": "9ef197d8-34eb-4d05-90aa-a8f0fb7bea3c"
       }
     }
   }
