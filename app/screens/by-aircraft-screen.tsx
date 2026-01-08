@@ -128,9 +128,17 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         placeholder="Search Aircraft..."
         value={searchQuery}
         onChangeText={handleSearch}
+        autoComplete="off"
+        autoCorrect={false}
+        autoCapitalize="none"
+        spellCheck={false}
+        accessibilityLabel="Search aircraft"
+        accessibilityHint="Filter the list of aircraft by name or manufacturer"
+        accessibilityRole="search"
+        style={themed(SEARCHBAR_STYLE)}
       />
     ),
-    [searchQuery, handleSearch],
+    [searchQuery, handleSearch, themed],
   )
 
   const listHeader = useMemo(() => {

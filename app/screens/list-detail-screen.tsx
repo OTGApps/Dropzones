@@ -45,9 +45,17 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
         placeholder="Search Dropzones..."
         value={search}
         onChangeText={(value) => setSearch(value)}
+        autoComplete="off"
+        autoCorrect={false}
+        autoCapitalize="none"
+        spellCheck={false}
+        accessibilityLabel="Search dropzones"
+        accessibilityHint="Filter the list of dropzones by name, location, or other details"
+        accessibilityRole="search"
+        style={themed(SEARCHBAR_STYLE)}
       />
     ),
-    [search],
+    [search, themed],
   )
 
   return (

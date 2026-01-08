@@ -62,9 +62,17 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
         placeholder="Search Dropzones..."
         value={searchQuery}
         onChangeText={handleSearch}
+        autoComplete="off"
+        autoCorrect={false}
+        autoCapitalize="none"
+        spellCheck={false}
+        accessibilityLabel="Search dropzones"
+        accessibilityHint="Filter the list of dropzones by name, location, or other details"
+        accessibilityRole="search"
+        style={themed(SEARCHBAR_STYLE)}
       />
     ),
-    [searchQuery, handleSearch],
+    [searchQuery, handleSearch, themed],
   )
 
   const renderSectionHeader = useCallback(
