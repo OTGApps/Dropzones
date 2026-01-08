@@ -11,15 +11,6 @@ import { ThemedStyle } from "@/theme/types"
 
 import { useDropzones } from "../database"
 
-const ROOT: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
-const NO_PADDING_IOS: ViewStyle = {
-  padding: 0,
-}
-
 // Initial map region centered on the USA
 const INITIAL_REGION: Region = {
   latitude: 39.828,
@@ -41,17 +32,17 @@ export const MapScreen: FC = function MapScreen() {
   const mapRef = useRef<MapView>(null)
 
   useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Icon
-          name="location-arrow"
-          size={24}
-          color={showsUserLocation ? colors.palette.neutral100 : colors.palette.transparentWhite}
-          onPress={() => setShowsUserLocation(!showsUserLocation)}
-          style={{ marginRight: 15 }}
-        />
-      ),
-    })
+    // navigation.setOptions({
+    //   headerRight: () => (
+    //     <Icon
+    //       name="location-arrow"
+    //       size={24}
+    //       color={showsUserLocation ? colors.palette.neutral100 : colors.palette.transparentWhite}
+    //       onPress={() => setShowsUserLocation(!showsUserLocation)}
+    //       style={{ marginRight: 15 }}
+    //     />
+    //   ),
+    // })
 
     if (showsUserLocation === false) {
       setInitialZoomDone(false)
@@ -119,7 +110,7 @@ export const MapScreen: FC = function MapScreen() {
       ref={mapRef}
       provider={Platform.OS === "android" ? PROVIDER_GOOGLE : undefined}
       initialRegion={INITIAL_REGION}
-      style={ROOT({ colors })}
+      style={themed($map)}
       showsUserLocation={showsUserLocation}
       followsUserLocation={false}
       onUserLocationChange={onUserLocationChange}
@@ -132,4 +123,13 @@ export const MapScreen: FC = function MapScreen() {
       {markers}
     </MapView>
   )
+}
+
+const $map: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})
+
+const NO_PADDING_IOS: ViewStyle = {
+  padding: 0,
 }

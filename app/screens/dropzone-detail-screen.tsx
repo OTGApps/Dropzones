@@ -354,10 +354,22 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
                   )}
                 />
               )}
+              {selectedDZ.airport && (
+                <List.Item
+                  title={selectedDZ.airport}
+                  left={(props) => <Icon name="plane" size={20} style={themed($iconStyle)} />}
+                />
+              )}
+              {(selectedDZ.country || selectedDZ.state) && (
+                <List.Item
+                  title={[selectedDZ.state, selectedDZ.country].filter(Boolean).join(", ")}
+                  left={(props) => <Icon name="globe" size={20} style={themed($iconStyle)} />}
+                />
+              )}
               {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
                 <List.Item
                   title={selectedDZ.aircraft.slice().sort().join("\n")}
-                  left={(props) => <Icon name="plane" size={20} style={themed($iconStyle)} />}
+                  left={(props) => <Icon name="fighter-jet" size={20} style={themed($iconStyle)} />}
                 />
               )}
               {selectedDZ.services && selectedDZ.services.length > 0 && (

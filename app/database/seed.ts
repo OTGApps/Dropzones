@@ -10,7 +10,7 @@ const dropzoneData = JSON.parse(dropzoneDataRaw)
 /**
  * Version from the bundled GeoJSON file
  */
-export const LOCAL_DATA_VERSION = dropzoneData.version || "unknown"
+export const LOCAL_DATA_VERSION = dropzoneData.metadata?.version || dropzoneData.version || "unknown"
 
 interface GeoJSONFeature {
   properties: {
@@ -24,6 +24,9 @@ interface GeoJSONFeature {
     location?: string | string[]
     services?: string | string[]
     training?: string | string[]
+    airport?: string
+    country?: string
+    state?: string
   }
   geometry: {
     coordinates: [number | string, number | string] // [longitude, latitude]
@@ -128,7 +131,13 @@ async function insertDropzones(
       // Pre-compute derived fields
       const stateCode = computeStateCode(latitude, longitude, props.name)
       const nameFirstLetter = props.name[0].toUpperCase()
-      const searchableText = [props.name, props.description || "", props.website || ""]
+      const searchableText = [
+        props.name,
+        props.description || "",
+        props.website || "",
+        props.airport || "",
+        props.country || "",
+      ]
         .join(" ")
         .toLowerCase()
 
@@ -145,8 +154,9 @@ async function insertDropzones(
         `INSERT INTO dropzones (
           anchor, name, email, description, phone, website,
           aircraft, location, services, training,
-          latitude, longitude, state_code, name_first_letter, searchable_text
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+          latitude, longitude, airport, country, state,
+          state_code, name_first_letter, searchable_text
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         anchor,
         props.name,
         props.email || "",
@@ -159,6 +169,9 @@ async function insertDropzones(
         JSON.stringify(training),
         latitude,
         longitude,
+        props.airport || "",
+        props.country || "",
+        props.state || "",
         stateCode,
         nameFirstLetter,
         searchableText,

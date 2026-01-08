@@ -17,6 +17,9 @@ export interface DropzoneRow {
   training: string // JSON array string
   latitude: number
   longitude: number
+  airport: string
+  country: string
+  state: string
   state_code: string
   name_first_letter: string
   searchable_text: string
@@ -40,6 +43,9 @@ export interface Dropzone {
     latitude: number
     longitude: number
   }
+  airport: string
+  country: string
+  state: string
   stateCode: string
   nameFirstLetter: string
   searchableText: string

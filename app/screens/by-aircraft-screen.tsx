@@ -129,6 +129,7 @@ const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   margin: spacing.sm,
 })
 
-const $warningText: ThemedStyle<TextStyle> = ({ spacing }) => ({
+const $warningText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
   marginBottom: spacing.md,
+  color: colors.text,
 })

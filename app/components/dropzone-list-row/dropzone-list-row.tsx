@@ -30,11 +30,18 @@ const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
     )
   }, [navigation, props.item.anchor, props.item.name])
 
+  // Generate subtitle from airport/country/state if not explicitly provided
+  const displaySubtitle =
+    subtitle ||
+    [item.airport, [item.state, item.country].filter(Boolean).join(", ")]
+      .filter(Boolean)
+      .join(" • ")
+
   return (
     <List.Item
       key={"listItem-" + index}
       title={item.name}
-      description={subtitle}
+      description={displaySubtitle || undefined}
       onPress={pressed}
       right={(props) => (
         <>

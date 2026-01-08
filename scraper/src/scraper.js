@@ -1,5 +1,6 @@
 import axios from "axios"
 import * as cheerio from "cheerio"
+import { execSync } from "child_process"
 import fs from "fs"
 import path from "path"
 import puppeteer from "puppeteer"
@@ -545,7 +546,7 @@ export class DZScraper {
         !text.match(/^(Aircraft|Training|Services|Phone|Email|Website)/i) &&
         !result.description
       ) {
-        result.description = text
+        result.description = normalizeWhitespace(text)
       }
     })
 
@@ -605,11 +606,23 @@ export class DZScraper {
   }
 
   /**
-   * Write GeoJSON to file
+   * Write GeoJSON to file and format with Prettier
    */
   writeGeoJson(geojson) {
     const output = JSON.stringify(geojson, null, 2)
     fs.writeFileSync(this.outputFile, output)
+
+    // Run prettier on the output file
+    try {
+      console.log("\nFormatting with Prettier...")
+      execSync(`npx prettier --write "${this.outputFile}"`, {
+        cwd: path.join(__dirname, "..", ".."),
+        stdio: "inherit",
+      })
+      console.log("Formatting complete.")
+    } catch (error) {
+      console.error("Warning: Prettier formatting failed:", error.message)
+    }
   }
 
   /**

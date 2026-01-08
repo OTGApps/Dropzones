@@ -22,8 +22,8 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
   } = useAppTheme()
 
   const navigation = useNavigation()
-  const [location, setLocation] = useState(null)
-  const [errorMsg, setErrorMsg] = useState(null)
+  const [location, setLocation] = useState<Location.LocationObject | null>(null)
+  const [errorMsg, setErrorMsg] = useState<string | null>(null)
   // This boolean state is used when getting a user's location.
   // It disables all the rows from interaction and shows a loading icon
   // on the near-me menu item.
@@ -67,7 +67,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
         />
       ),
     })
-  }, [themed])
+  }, [colors.palette.neutral100, navigation, themed])
 
   const openNearMeScreen = () => {
     setLoading(true)
@@ -140,6 +140,7 @@ const $listItem: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 const $leftIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
   alignSelf: "center",
   marginRight: spacing.sm,
+  width: 20,
 })
 
 const $rightContainer: ThemedStyle<ViewStyle> = () => ({
