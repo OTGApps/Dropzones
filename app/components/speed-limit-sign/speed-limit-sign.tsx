@@ -1,6 +1,5 @@
-import * as React from "react"
 import { View, ViewStyle, TextStyle, Text } from "react-native"
-import { isMetric } from "expo-localization"
+import { measurementSystem } from "expo-localization"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -39,12 +38,14 @@ interface SpeedLimitSignProps {
 export function SpeedLimitSign(props: SpeedLimitSignProps) {
   const { themed } = useAppTheme()
 
+  const km = props.km ?? 0
+  const isMetric = measurementSystem === "metric"
+  const distanceNumber = isMetric ? Math.round(km) : Math.round(km * 0.621371)
+
   return (
     <View style={themed(SPEED_LIMIT_SIGN)}>
       <Text style={themed(MILES_TEXT)}>{isMetric ? "KM" : "MILES"}</Text>
-      <Text style={themed(DISTANCE_TEXT)}>
-        {parseInt(isMetric ? props.km : props.km * 0.621371).toString()}
-      </Text>
+      <Text style={themed(DISTANCE_TEXT)}>{distanceNumber.toString()}</Text>
     </View>
   )
 }

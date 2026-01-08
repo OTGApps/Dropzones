@@ -53,15 +53,24 @@ function computeStateCode(latitude: number, longitude: number, name: string): st
  * Checks if the database needs to be reseeded based on version comparison.
  */
 async function shouldReseed(db: SQLite.SQLiteDatabase): Promise<boolean> {
+  // Check stored version
   const stored = await db.getFirstAsync<{ value: string }>(
     "SELECT value FROM metadata WHERE key = 'data_version'",
   )
   const storedVersion = stored?.value || "none"
   const localVersion = LOCAL_DATA_VERSION
-  const needsReseed = !stored || stored.value !== localVersion
+
+  // Check if data exists
+  const countResult = await db.getFirstAsync<{ count: number }>(
+    "SELECT COUNT(*) as count FROM dropzones",
+  )
+  const hasData = countResult && countResult.count > 0
+
+  // Reseed if version differs OR if database is empty
+  const needsReseed = !stored || stored.value !== localVersion || !hasData
 
   console.log(
-    `Version check: stored="${storedVersion}", local="${localVersion}", needsReseed=${needsReseed}`,
+    `Version check: stored="${storedVersion}", local="${localVersion}", hasData=${hasData}, needsReseed=${needsReseed}`,
   )
 
   return needsReseed
@@ -92,13 +101,29 @@ async function insertDropzones(
   db: SQLite.SQLiteDatabase,
   features: GeoJSONFeature[],
 ): Promise<void> {
+  let skipped = 0
   await db.withTransactionAsync(async () => {
     for (const feature of features) {
       const props = feature.properties
-      const [lon, lat] = feature.geometry.coordinates
+      const [lon, lat] = feature.geometry?.coordinates || []
+
+      // Skip features without valid coordinates
+      if (!lon || !lat) {
+        console.warn(`Skipping feature ${props.anchor} (${props.name}) - missing coordinates`)
+        skipped++
+        continue
+      }
+
       // Ensure coordinates are numbers (remote data may have strings)
       const longitude = typeof lon === "string" ? parseFloat(lon) : lon
       const latitude = typeof lat === "string" ? parseFloat(lat) : lat
+
+      // Skip if coordinates are invalid after parsing
+      if (isNaN(longitude) || isNaN(latitude)) {
+        console.warn(`Skipping feature ${props.anchor} (${props.name}) - invalid coordinates`)
+        skipped++
+        continue
+      }
 
       // Pre-compute derived fields
       const stateCode = computeStateCode(latitude, longitude, props.name)
@@ -147,16 +172,11 @@ async function insertDropzones(
  * Checks the data version and reseeds if the version has changed.
  */
 export async function seedDatabase(db: SQLite.SQLiteDatabase): Promise<void> {
-  // Check if we need to reseed based on version
+  // Check if we need to reseed based on version or empty database
   const needsReseed = await shouldReseed(db)
 
   if (!needsReseed) {
-    const countResult = await db.getFirstAsync<{ count: number }>(
-      "SELECT COUNT(*) as count FROM dropzones",
-    )
-    console.log(
-      `Database up to date (version ${LOCAL_DATA_VERSION}) with ${countResult?.count || 0} dropzones`,
-    )
+    console.log(`Database up to date (version ${LOCAL_DATA_VERSION})`)
     return
   }
 
