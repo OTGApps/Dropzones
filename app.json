@@ -24,7 +24,16 @@
       "supportsTablet": true,
       "bundleIdentifier": "io.otgapps.dropzones",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone."
+        "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "privacyManifests": {
+        "NSPrivacyAccessedAPITypes": [
+          {
+            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+          }
+        ]
       }
     },
     "web": {
