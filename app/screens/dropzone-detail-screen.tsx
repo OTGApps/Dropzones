@@ -328,7 +328,9 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
                 <List.Item
                   title={selectedDZ.phone}
                   onPress={openPhone}
-                  left={(props) => <Icon name="phone" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon name="phone" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
                   right={(props) => (
                     <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
@@ -338,7 +340,14 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
                 <List.Item
                   title={selectedDZ.email.toLowerCase()}
                   onPress={handleEmail}
-                  left={(props) => <Icon name="envelope" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon
+                      name="envelope"
+                      size={20}
+                      color={colors.text}
+                      style={themed($iconStyle)}
+                    />
+                  )}
                   right={(props) => (
                     <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
@@ -348,7 +357,9 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
                 <List.Item
                   title={selectedDZ.location.join("\n")}
                   onPress={openDrivingDirectons}
-                  left={(props) => <Icon name="map" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon name="map" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
                   right={(props) => (
                     <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
@@ -357,25 +368,38 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
               {selectedDZ.airport && (
                 <List.Item
                   title={selectedDZ.airport}
-                  left={(props) => <Icon name="plane" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon name="plane" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
                 />
               )}
               {(selectedDZ.country || selectedDZ.state) && (
                 <List.Item
                   title={[selectedDZ.state, selectedDZ.country].filter(Boolean).join(", ")}
-                  left={(props) => <Icon name="globe" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon name="globe" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
                 />
               )}
               {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
                 <List.Item
                   title={selectedDZ.aircraft.slice().sort().join("\n")}
-                  left={(props) => <Icon name="fighter-jet" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon
+                      name="fighter-jet"
+                      size={20}
+                      color={colors.text}
+                      style={themed($iconStyle)}
+                    />
+                  )}
                 />
               )}
               {selectedDZ.services && selectedDZ.services.length > 0 && (
                 <List.Item
                   title={selectedDZ.services.slice().sort().join("\n")}
-                  left={(props) => <Icon name="bath" size={20} style={themed($iconStyle)} />}
+                  left={(props) => (
+                    <Icon name="bath" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
                 />
               )}
             </View>
