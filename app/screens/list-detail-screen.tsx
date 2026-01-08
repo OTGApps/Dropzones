@@ -3,6 +3,7 @@ import { ViewStyle, FlatList } from "react-native"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
+import { $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow, ListSeparator } from "../components"
@@ -52,7 +53,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
         accessibilityLabel="Search dropzones"
         accessibilityHint="Filter the list of dropzones by name, location, or other details"
         accessibilityRole="search"
-        style={themed(SEARCHBAR_STYLE)}
+        style={themed($searchbar)}
       />
     ),
     [search, themed],

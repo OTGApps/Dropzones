@@ -25,3 +25,11 @@ export const $chevronRight: ThemedStyle<TextStyle> = ({ colors }) => ({
   alignSelf: "center",
   color: colors.textDim,
 })
+
+/**
+ * Shared themed style for searchbar components.
+ * Removes rounded corners for consistent appearance in dark mode.
+ */
+export const $searchbar: ThemedStyle<ViewStyle> = () => ({
+  borderRadius: 0,
+})

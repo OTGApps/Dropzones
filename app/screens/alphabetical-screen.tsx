@@ -3,6 +3,7 @@ import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
+import { $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow, ListSeparator } from "../components"
@@ -69,7 +70,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
         accessibilityLabel="Search dropzones"
         accessibilityHint="Filter the list of dropzones by name, location, or other details"
         accessibilityRole="search"
-        style={themed(SEARCHBAR_STYLE)}
+        style={themed($searchbar)}
       />
     ),
     [searchQuery, handleSearch, themed],

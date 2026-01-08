@@ -5,7 +5,7 @@ import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 import { ListSeparator } from "@/components"
 
@@ -135,7 +135,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         accessibilityLabel="Search aircraft"
         accessibilityHint="Filter the list of aircraft by name or manufacturer"
         accessibilityRole="search"
-        style={themed(SEARCHBAR_STYLE)}
+        style={themed($searchbar)}
       />
     ),
     [searchQuery, handleSearch, themed],
