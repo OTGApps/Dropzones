@@ -1,78 +1,75 @@
 {
-  "expo": {
-    "name": "Dropzones",
-    "slug": "Dropzones",
-    "scheme": "dropzones",
-    "description": "USPA Dropzone Finder",
-    "version": "3.1.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/adaptive-icon.png",
-    "userInterfaceStyle": "automatic",
-    "updates": {
-      "fallbackToCacheTimeout": 0
+  "name": "Dropzones",
+  "slug": "Dropzones",
+  "scheme": "dropzones",
+  "description": "USPA Dropzone Finder",
+  "orientation": "portrait",
+  "icon": "./assets/images/adaptive-icon.png",
+  "userInterfaceStyle": "automatic",
+  "updates": {
+    "fallbackToCacheTimeout": 0
+  },
+  "newArchEnabled": true,
+  "jsEngine": "hermes",
+  "assetBundlePatterns": ["**/*"],
+  "android": {
+    "package": "io.otgapps.dropzones",
+    "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
+    "allowBackup": false,
+    "edgeToEdgeEnabled": true
+  },
+  "ios": {
+    "supportsTablet": true,
+    "bundleIdentifier": "io.otgapps.dropzones",
+    "infoPlist": {
+      "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone.",
+      "ITSAppUsesNonExemptEncryption": false
     },
-    "newArchEnabled": true,
-    "jsEngine": "hermes",
-    "assetBundlePatterns": ["**/*"],
-    "android": {
-      "package": "io.otgapps.dropzones",
-      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
-      "allowBackup": false,
-      "edgeToEdgeEnabled": true
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "io.otgapps.dropzones",
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone.",
-        "ITSAppUsesNonExemptEncryption": false
-      },
-      "privacyManifests": {
-        "NSPrivacyAccessedAPITypes": [
-          {
-            "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-            "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
-          }
-        ]
+    "privacyManifests": {
+      "NSPrivacyAccessedAPITypes": [
+        {
+          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
+          "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
+        }
+      ]
+    }
+  },
+  "web": {
+    "favicon": "./assets/images/favicon.png",
+    "bundler": "metro"
+  },
+  "plugins": [
+    "expo-localization",
+    "expo-font",
+    [
+      "expo-splash-screen",
+      {
+        "image": "./assets/images/adaptive-icon.png",
+        "imageWidth": 300,
+        "resizeMode": "contain",
+        "backgroundColor": "#000"
       }
-    },
-    "web": {
-      "favicon": "./assets/images/favicon.png",
-      "bundler": "metro"
-    },
-    "plugins": [
-      "expo-localization",
-      "expo-font",
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/adaptive-icon.png",
-          "imageWidth": 300,
-          "resizeMode": "contain",
-          "backgroundColor": "#000"
-        }
-      ],
-      [
-        "react-native-edge-to-edge",
-        {
-          "android": {
-            "parentTheme": "Light",
-            "enforceNavigationBarContrast": false
-          }
-        }
-      ],
-      "expo-build-properties"
     ],
-    "experiments": {
-      "tsconfigPaths": true
-    },
-    "extra": {
-      "ignite": {
-        "version": "UNKNOWN"
-      },
-      "eas": {
-        "projectId": "9ef197d8-34eb-4d05-90aa-a8f0fb7bea3c"
+    [
+      "react-native-edge-to-edge",
+      {
+        "android": {
+          "parentTheme": "Light",
+          "enforceNavigationBarContrast": false
+        }
       }
+    ],
+    "expo-build-properties"
+  ],
+  "experiments": {
+    "tsconfigPaths": true
+  },
+  "extra": {
+    "ignite": {
+      "version": "UNKNOWN"
+    },
+    "eas": {
+      "projectId": "9ef197d8-34eb-4d05-90aa-a8f0fb7bea3c"
     }
   }
 }

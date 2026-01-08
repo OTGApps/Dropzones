@@ -3,10 +3,13 @@ import { ExpoConfig, ConfigContext } from "@expo/config"
 /**
  * Use tsx/cjs here so we can use TypeScript for our Config Plugins
  * and not have to compile them to JavaScript.
- * 
+ *
  * See https://docs.expo.dev/config-plugins/plugins/#add-typescript-support-and-convert-to-dynamic-app-config
  */
 import "tsx/cjs"
+
+// Read in the package.json and get the version number:
+const packageJson = require("./package.json")
 
 /**
  * @param config ExpoConfig coming from the static config app.json if it exists
@@ -19,6 +22,7 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
 
   return {
     ...config,
+    version: packageJson.version,
     ios: {
       ...config.ios,
       // This privacyManifests is to get you started.
