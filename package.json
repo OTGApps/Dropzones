@@ -28,7 +28,8 @@
     "build:android:sim": "eas build --profile development --platform android --local",
     "build:android:device": "eas build --profile development:device --platform android --local",
     "build:android:preview": "eas build --profile preview --platform android --local",
-    "build:android:prod": "eas build --profile production --platform android --local"
+    "build:android:prod": "eas build --profile production --platform android --local",
+    "scraper": "node scraper/src/index.js"
   },
   "dependencies": {
     "@expo-google-fonts/space-grotesk": "^0.4.1",
@@ -89,6 +90,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
+    "puppeteer": "^24.34.0",
     "@babel/preset-env": "^7.28.5",
     "@babel/runtime": "^7.28.4",
     "@testing-library/react-native": "^13.3.3",
@@ -97,6 +99,7 @@
     "@types/react-native-vector-icons": "^6.4.18",
     "babel-jest": "^29.7.0",
     "babel-plugin-inline-import": "^3.0.0",
+    "cheerio": "^1.1.2",
     "dependency-cruiser": "^17.3.6",
     "eslint": "^8.57.1",
     "eslint-config-expo": "~10.0.0",

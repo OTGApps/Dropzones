@@ -1,0 +1,1372 @@
+<!DOCTYPE html><html lang="en-US"><head id="Head"><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll;}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll;}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll;}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style>@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
+
+<script>function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [month, day,year].join('/');
+}
+
+function showhidetilemenu() {
+
+if(document.getElementById('tilemenu').style.display != "block"){
+ document.getElementById('tilemenu').style.display="block";
+}
+
+else {
+ document.getElementById('tilemenu').style.display="none";
+}
+
+
+
+}
+
+
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PQ9XWFVSYW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PQ9XWFVSYW');
+
+
+function copylink(url) {
+  /* put in then get the text field
+  alert(url);*/
+document.getElementById('hiddenurl').value=url;
+
+  var copyText = document.getElementById("hiddenurl");
+
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the link: " + copyText.value);
+}
+</script>
+</head><body id="Body"><input id="hiddenurl" style="height:0px;border:0px;padding:0px;margin:0px;" type="text" value=""><title>
+	United States Parachute Association &gt; First-Time &amp; Student Skydivers &gt; Find a Drop Zone &gt; Details 
+</title><meta id="MetaKeywords" name="keywords" content="Skydive, Skydiving, Parachute, Parachuting, United States Parachute Association, USPA, Skydivers, parachute jump, licenses, skydiving license, ratings, skydiving instructor ratings, competition, membership, drop zone, dropzone, drop zones, dropzones, Skydiving Education, Skydive School, SkydiveSchool"><meta id="MetaRobots" name="robots" content="INDEX, FOLLOW"><link href="/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/DesktopModules/DnnSharp/SearchBoost/module.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/skins/ozone/common/bootstrap/css/bootstrap.min.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/skins/ozone/common/fontawesome/css/all.min.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/skins/ozone/common/css/base.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/skins/ozone/skin.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/Containers/Multifunction/container.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/_default/containers/ozone/container.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/Portals/0/portal.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/DesktopModules/DnnSharp/SearchBoost/templates/input/PageBuilderDefaultSearchBs5/styles.min.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/DesktopModules/DnnSharp/Common/static/font-awesome/css/font-awesome.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/DesktopModules/DnnSharp/ActionForm/static/vendors.min.css?cdv=1920" type="text/css" rel="stylesheet"><link href="/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/styles.min.css?cdv=1920" type="text/css" rel="stylesheet"><script id="DnnSharp_ClientResourceService_-230398409" type="text/javascript">(function() { var _g_dnnsfState = {"commonUrl":"/DesktopModules/DnnSharp/Common","protocol":"https","locale":"en-US","aliasid":12,"isEditor":false,"tabId":686,"commonVersion":"5.27.127","virtualDirectory":"","rootAlias":"www.uspa.org","dnnPageQuery":"?language=en-US","features":{"authorize":{"name":"Packages","value":"AUTHORIZE","parent":null,"upgradeMessage":null},"barcode":{"name":"Packages","value":"BARCODE","parent":null,"upgradeMessage":null},"beefree":{"name":"Packages","value":"BEEFREE","parent":null,"upgradeMessage":null},"clickatell":{"name":"Packages","value":"CLICKATELL","parent":null,"upgradeMessage":null},"oidc":{"name":"Packages","value":"OIDC","parent":null,"upgradeMessage":null},"pdf":{"name":"Packages","value":"PDF","parent":null,"upgradeMessage":null},"drawing":{"name":"Packages","value":"DRAWING","parent":null,"upgradeMessage":null},"dyncrm":{"name":"Packages","value":"DYNCRM","parent":null,"upgradeMessage":null},"emsync":{"name":"Packages","value":"EMSYNC","parent":null,"upgradeMessage":null},"exgen":{"name":"Packages","value":"EXGEN","parent":null,"upgradeMessage":null},"mailchimp":{"name":"Packages","value":"MAILCHIMP","parent":null,"upgradeMessage":null},"paypal":{"name":"Packages","value":"PAYPAL","parent":null,"upgradeMessage":null},"standard":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"enterprise":{"name":"Features","value":"Enterprise","parent":null,"upgradeMessage":null},"developer":{"name":"Features","value":"Developer","parent":null,"upgradeMessage":null},"legacy":{"name":"Features","value":"Legacy","parent":null,"upgradeMessage":null},"developer.knowledgeaiassistant":{"name":"Features","value":"Developer.KnowledgeAiAssistant","parent":{"name":"Features","value":"Developer","parent":null,"upgradeMessage":null},"upgradeMessage":"An intelligent chat widget offering instant, accurate answers and insights for streamlined knowledge access."},"developer.nonprodenvironments":{"name":"Features","value":"Developer.NonProdEnvironments","parent":{"name":"Features","value":"Developer","parent":null,"upgradeMessage":null},"upgradeMessage":""},"developer.sqlaiassistant":{"name":"Features","value":"Developer.SqlAiAssistant","parent":{"name":"Features","value":"Developer","parent":null,"upgradeMessage":null},"upgradeMessage":"AI-powered tool to simplify, optimize, and generate SQL queries efficiently."},"enterprise.advancedsecurity":{"name":"Features","value":"Enterprise.AdvancedSecurity","parent":{"name":"Features","value":"Enterprise","parent":null,"upgradeMessage":null},"upgradeMessage":"Ensure security by monitoring your application."},"enterprise.parallelization":{"name":"Features","value":"Enterprise.Parallelization","parent":{"name":"Features","value":"Enterprise","parent":null,"upgradeMessage":null},"upgradeMessage":"Workflows Parallel Gateway allows running actions in parallel without being required to wait for an execution to finish before continuing."},"enterprise.workflows.contracts":{"name":"Features","value":"Enterprise.Workflows.Contracts","parent":{"name":"Features","value":"Enterprise","parent":null,"upgradeMessage":null},"upgradeMessage":"Workflow Contracts allows you to group, manage, and enforce consistent input/output parameters across multiple workflows. Simplify dynamic execution based on business logic."},"standard.apis":{"name":"Features","value":"Standard.Apis","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"The API Builder allows rapidly building APIs that other systems can consume. Various features include security, caching, response formats, and access to the Action Engine to define the logic through no-code/low-code."},"standard.automation":{"name":"Features","value":"Standard.Automation","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Automation allows scheduling complex activities to execute in the background."},"standard.branding":{"name":"Features","value":"Standard.Branding","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Set your company's visual identity design with Application Logos and Favicons."},"standard.connectors":{"name":"Features","value":"Standard.Connectors","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":""},"standard.dataintegration":{"name":"Features","value":"Standard.DataIntegration","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Unlock advanced database capabilities: run SQL queries, load users into context, create lists, and automate with DataBase triggers. Access powerful data sources and token types for seamless integration."},"standard.embed":{"name":"Features","value":"Standard.Embed","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Embed allows to generate an embeddable code snippet that can integrate your data on external pages."},"standard.forms.dynamic":{"name":"Features","value":"Standard.Forms.Dynamic","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Dynamic Forms is a feature that allows creating on the initialization of the form different fields depending on what you want to display."},"standard.guides":{"name":"Features","value":"Standard.Guides","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Guides drives user engagement and improves the user journey with customized walkthroughs."},"standard.menubuilder":{"name":"Features","value":"Standard.MenuBuilder","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Menu Builder gives you full control over Menu layout, hierarchy and appearance."},"standard.menubuilder.default":{"name":"Features","value":"Standard.MenuBuilder.Default","parent":{"name":"Features","value":"Standard.MenuBuilder","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Menu Builder gives you full control over Menu layout, hierarchy and appearance."},"upgradeMessage":"Menu Builder Basic allows you to navigate the site's menu."},"standard.permissions":{"name":"Features","value":"Standard.Permissions","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":""},"standard.permissions.granular":{"name":"Features","value":"Standard.Permissions.Granular","parent":{"name":"Features","value":"Standard.Permissions","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":""},"upgradeMessage":"Unlock full control! Upgrade permissions to manage all user roles seamlessly and access enhanced settings."},"standard.redirecttoolkit":{"name":"Features","value":"Standard.RedirectToolkit","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Redirect Toolkit has got them all: user redirects, roles redirects, mobile redirects, variable redirects, random A/B testing redirects and a dozen more."},"standard.scripting":{"name":"Features","value":"Standard.Scripting","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Scripting enhances the interactivity with dynamic scripts that can be executed throughout your application."},"standard.search":{"name":"Features","value":"Standard.Search","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Search comes with powerful searching functionalities and allows indexing various types of content(Custom Data from databases, Files, External URLs etc)."},"standard.seo":{"name":"Features","value":"Standard.Seo","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Seo is a next generation URL Builder and URL Rewriting engine."},"standard.sql":{"name":"Features","value":"Standard.SQL","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":""},"standard.templating":{"name":"Features","value":"Standard.Templating","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Templating allows implementing complex layout scenarios through built-in HTML Templates, Razor Tokens and specialized Listing Fields."},"standard.tokens":{"name":"Features","value":"Standard.Tokens","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Custom Tokens are a very powerful tool that allow including dynamic content in static places and are also very useful for achieving seamless integration between otherwise isolated components."},"standard.workflows":{"name":"Features","value":"Standard.Workflows","parent":{"name":"Features","value":"Standard","parent":null,"upgradeMessage":null},"upgradeMessage":"Workflows allow designing the business logic of the application by having lists of actions of various types to be performed in a sequence, optionally with conditional logic."},"developer.versioning":{"name":"Features","value":"Developer.Versioning","parent":{"name":"Features","value":"Developer","parent":null,"upgradeMessage":null},"upgradeMessage":"Version Control is an integration with GitHub that allows you to track work and modifications."},"legacy.versioning":{"name":"Features","value":"Legacy.Versioning","parent":{"name":"Features","value":"Legacy","parent":null,"upgradeMessage":null},"upgradeMessage":""},"passk":{"name":"Packages","value":"PASSK","parent":null,"upgradeMessage":null},"portal":{"name":"Packages","value":"PORTAL","parent":null,"upgradeMessage":null},"pushn":{"name":"Packages","value":"PUSHN","parent":null,"upgradeMessage":null},"s3prvd":{"name":"Packages","value":"S3PRVD","parent":null,"upgradeMessage":null},"salesforce":{"name":"Packages","value":"SALESFORCE","parent":null,"upgradeMessage":null},"papslack":{"name":"Packages","value":"PAPSLACK","parent":null,"upgradeMessage":null},"stripe":{"name":"Packages","value":"STRIPE","parent":null,"upgradeMessage":null},"esign":{"name":"Packages","value":"ESIGN","parent":null,"upgradeMessage":null},"twiliosms":{"name":"Packages","value":"TWILIOSMS","parent":null,"upgradeMessage":null},"uipath":{"name":"Packages","value":"UIPATH","parent":null,"upgradeMessage":null}}}; window.g_dnnsfState = Object.assign(window.g_dnnsfState || {}, _g_dnnsfState); })();</script><script id="RegisterHeadJsScript-103273594" type="text/javascript">var g_dnnsfState = {"commonUrl":"/DesktopModules/DnnSharp/Common","protocol":"https","locale":"en-US","alias":"www.uspa.org","aliasid":12,"isEditor":false,"tabId":686,"commonVersion":"5.27.127","virtualDirectory":"","rootAlias":"www.uspa.org","dnnPageQuery":"?language=en-US","licensedFeatureFlags":["enterprise","legacy.versioning","standard"],"licensedFeaturePackages":["authorize","barcode","beefree","campaignm","clickatell","constantc","drawing","dyncrm","emailver","emoauth","emsync","esign","exgen","googl","ibanvld","mailchimp","mpl","oidc","paaqr","papslack","paypal","pdf","portal","pushn","rdtlk","s3prvd","salesforce","sbstpdf","stripe","twiliosms","uipath","urlrw","usrmgmt","usrmgr","passk"],"features":{"authorize":{"Name":"Packages","Value":"AUTHORIZE","Parent":null,"UpgradeMessage":null},"barcode":{"Name":"Packages","Value":"BARCODE","Parent":null,"UpgradeMessage":null},"beefree":{"Name":"Packages","Value":"BEEFREE","Parent":null,"UpgradeMessage":null},"clickatell":{"Name":"Packages","Value":"CLICKATELL","Parent":null,"UpgradeMessage":null},"oidc":{"Name":"Packages","Value":"OIDC","Parent":null,"UpgradeMessage":null},"pdf":{"Name":"Packages","Value":"PDF","Parent":null,"UpgradeMessage":null},"drawing":{"Name":"Packages","Value":"DRAWING","Parent":null,"UpgradeMessage":null},"dyncrm":{"Name":"Packages","Value":"DYNCRM","Parent":null,"UpgradeMessage":null},"emsync":{"Name":"Packages","Value":"EMSYNC","Parent":null,"UpgradeMessage":null},"exgen":{"Name":"Packages","Value":"EXGEN","Parent":null,"UpgradeMessage":null},"mailchimp":{"Name":"Packages","Value":"MAILCHIMP","Parent":null,"UpgradeMessage":null},"paypal":{"Name":"Packages","Value":"PAYPAL","Parent":null,"UpgradeMessage":null},"standard":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"enterprise":{"Name":"Features","Value":"Enterprise","Parent":null,"UpgradeMessage":null},"developer":{"Name":"Features","Value":"Developer","Parent":null,"UpgradeMessage":null},"legacy":{"Name":"Features","Value":"Legacy","Parent":null,"UpgradeMessage":null},"developer.knowledgeaiassistant":{"Name":"Features","Value":"Developer.KnowledgeAiAssistant","Parent":{"Name":"Features","Value":"Developer","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"An intelligent chat widget offering instant, accurate answers and insights for streamlined knowledge access."},"developer.nonprodenvironments":{"Name":"Features","Value":"Developer.NonProdEnvironments","Parent":{"Name":"Features","Value":"Developer","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"developer.sqlaiassistant":{"Name":"Features","Value":"Developer.SqlAiAssistant","Parent":{"Name":"Features","Value":"Developer","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"AI-powered tool to simplify, optimize, and generate SQL queries efficiently."},"enterprise.advancedsecurity":{"Name":"Features","Value":"Enterprise.AdvancedSecurity","Parent":{"Name":"Features","Value":"Enterprise","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Ensure security by monitoring your application."},"enterprise.parallelization":{"Name":"Features","Value":"Enterprise.Parallelization","Parent":{"Name":"Features","Value":"Enterprise","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Workflows Parallel Gateway allows running actions in parallel without being required to wait for an execution to finish before continuing."},"enterprise.workflows.contracts":{"Name":"Features","Value":"Enterprise.Workflows.Contracts","Parent":{"Name":"Features","Value":"Enterprise","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Workflow Contracts allows you to group, manage, and enforce consistent input/output parameters across multiple workflows. Simplify dynamic execution based on business logic."},"standard.apis":{"Name":"Features","Value":"Standard.Apis","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"The API Builder allows rapidly building APIs that other systems can consume. Various features include security, caching, response formats, and access to the Action Engine to define the logic through no-code/low-code."},"standard.automation":{"Name":"Features","Value":"Standard.Automation","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Automation allows scheduling complex activities to execute in the background."},"standard.branding":{"Name":"Features","Value":"Standard.Branding","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Set your company\u0027s visual identity design with Application Logos and Favicons."},"standard.connectors":{"Name":"Features","Value":"Standard.Connectors","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"standard.dataintegration":{"Name":"Features","Value":"Standard.DataIntegration","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Unlock advanced database capabilities: run SQL queries, load users into context, create lists, and automate with DataBase triggers. Access powerful data sources and token types for seamless integration."},"standard.embed":{"Name":"Features","Value":"Standard.Embed","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Embed allows to generate an embeddable code snippet that can integrate your data on external pages."},"standard.forms.dynamic":{"Name":"Features","Value":"Standard.Forms.Dynamic","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Dynamic Forms is a feature that allows creating on the initialization of the form different fields depending on what you want to display."},"standard.guides":{"Name":"Features","Value":"Standard.Guides","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Guides drives user engagement and improves the user journey with customized walkthroughs."},"standard.menubuilder":{"Name":"Features","Value":"Standard.MenuBuilder","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Menu Builder gives you full control over Menu layout, hierarchy and appearance."},"standard.menubuilder.default":{"Name":"Features","Value":"Standard.MenuBuilder.Default","Parent":{"Name":"Features","Value":"Standard.MenuBuilder","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Menu Builder gives you full control over Menu layout, hierarchy and appearance."},"UpgradeMessage":"Menu Builder Basic allows you to navigate the site\u0027s menu."},"standard.permissions":{"Name":"Features","Value":"Standard.Permissions","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"standard.permissions.granular":{"Name":"Features","Value":"Standard.Permissions.Granular","Parent":{"Name":"Features","Value":"Standard.Permissions","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"UpgradeMessage":"Unlock full control! Upgrade permissions to manage all user roles seamlessly and access enhanced settings."},"standard.redirecttoolkit":{"Name":"Features","Value":"Standard.RedirectToolkit","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Redirect Toolkit has got them all: user redirects, roles redirects, mobile redirects, variable redirects, random A/B testing redirects and a dozen more."},"standard.scripting":{"Name":"Features","Value":"Standard.Scripting","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Scripting enhances the interactivity with dynamic scripts that can be executed throughout your application."},"standard.search":{"Name":"Features","Value":"Standard.Search","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Search comes with powerful searching functionalities and allows indexing various types of content(Custom Data from databases, Files, External URLs etc)."},"standard.seo":{"Name":"Features","Value":"Standard.Seo","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Seo is a next generation URL Builder and URL Rewriting engine."},"standard.sql":{"Name":"Features","Value":"Standard.SQL","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"standard.templating":{"Name":"Features","Value":"Standard.Templating","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Templating allows implementing complex layout scenarios through built-in HTML Templates, Razor Tokens and specialized Listing Fields."},"standard.tokens":{"Name":"Features","Value":"Standard.Tokens","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Custom Tokens are a very powerful tool that allow including dynamic content in static places and are also very useful for achieving seamless integration between otherwise isolated components."},"standard.workflows":{"Name":"Features","Value":"Standard.Workflows","Parent":{"Name":"Features","Value":"Standard","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Workflows allow designing the business logic of the application by having lists of actions of various types to be performed in a sequence, optionally with conditional logic."},"developer.versioning":{"Name":"Features","Value":"Developer.Versioning","Parent":{"Name":"Features","Value":"Developer","Parent":null,"UpgradeMessage":null},"UpgradeMessage":"Version Control is an integration with GitHub that allows you to track work and modifications."},"legacy.versioning":{"Name":"Features","Value":"Legacy.Versioning","Parent":{"Name":"Features","Value":"Legacy","Parent":null,"UpgradeMessage":null},"UpgradeMessage":""},"passk":{"Name":"Packages","Value":"PASSK","Parent":null,"UpgradeMessage":null},"portal":{"Name":"Packages","Value":"PORTAL","Parent":null,"UpgradeMessage":null},"pushn":{"Name":"Packages","Value":"PUSHN","Parent":null,"UpgradeMessage":null},"s3prvd":{"Name":"Packages","Value":"S3PRVD","Parent":null,"UpgradeMessage":null},"salesforce":{"Name":"Packages","Value":"SALESFORCE","Parent":null,"UpgradeMessage":null},"papslack":{"Name":"Packages","Value":"PAPSLACK","Parent":null,"UpgradeMessage":null},"stripe":{"Name":"Packages","Value":"STRIPE","Parent":null,"UpgradeMessage":null},"esign":{"Name":"Packages","Value":"ESIGN","Parent":null,"UpgradeMessage":null},"twiliosms":{"Name":"Packages","Value":"TWILIOSMS","Parent":null,"UpgradeMessage":null},"uipath":{"Name":"Packages","Value":"UIPATH","Parent":null,"UpgradeMessage":null}},"appId":"509d3c8e-1722-49d0-bb03-caf904071a2c","envId":"0a4db5c8-2e1d-4e4d-8ee3-88c0c1c72e49","devSeatId":null};</script><script src="/Resources/libraries/jQuery/03_07_01/jquery.js?cdv=1920" type="text/javascript"></script><script src="/Resources/libraries/jQuery-Migrate/03_04_01/jquery-migrate.js?cdv=1920" type="text/javascript"></script><script src="/Resources/libraries/jQuery-UI/01_13_03/jquery-ui.min.js?cdv=1920" type="text/javascript"></script><link rel="icon" href="/Portals/0/Images/favicon.ico?ver=FFrYQ1HXMH-_wSJol54QPw%3d%3d" type="image/x-icon"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <form method="post" action="/DZdetails?accountnumber=100525" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="90xRAJGrnL7emcp7awLI2SEDvs7Z9SZ1jGCVTBYS2bg6ZQEiU7Hhj6lB6DO/WwIphlYnJfz3JQCz3LMSytttIiux0i8oPcFxGpGj4g==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV3PDo-XU2-zdQLMwqUc46fN9VSKC5xg21BKXNFuPiJOxWq6qhE1&amp;t=638942066805310136" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+$(function() { window.angular = window.dnnsfAngular15 || window.angular });;;
+                $(function() {
+                    $.validator && $.validator.addMethod('email', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^(?:[a-z0-9!#$%&amp;\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&amp;\'*+/=?^_`{|}~-]+)*|"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$','i'); }catch(ex) { console.error('Invalid regex validator: Email Address.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid email address.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('url', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^((ftp|http|https):+\\/\\/)?(www.)?([a-zA-Z0-9_.-])+\\.[a-z]+([^ ]*)|^(((http|https):+\\/\\/)?localhost:(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))([^ ]*)$','i'); }catch(ex) { console.error('Invalid regex validator: Web Address.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid URL.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('domain', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][-_\\.a-zA-Z0-9]{1,61}[a-zA-Z0-9]))\\.([a-zA-Z]{2,13}|[a-zA-Z0-9-]{2,30}\\.[a-zA-Z]{2,3})(\\:([1-9]|[1-9][0-9]{1,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?$','i'); }catch(ex) { console.error('Invalid regex validator: Domain Validator.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'The specified domain is invalid!');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('dnnsfpassword', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        isValid = $.trim(value).length == 0 || ($.trim(value).length >= 7 && $.trim(value).replace(/[0-9A-Z ]/gi, '').length >= 1);
+                        return this.optional(element) || isValid;
+                    }, 'Password must contain at least 7 characters including one letter, one number, and one special character.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('numberPositive', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*\\d+\\s*$',''); }catch(ex) { console.error('Invalid regex validator: Positive Integer Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid positive integer number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('numberStrictlyPositive', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*[1-9]+\\d*\\s*$',''); }catch(ex) { console.error('Invalid regex validator: Strictly Positive Integer Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid strictly positive integer number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('creditCardNumber', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$',''); }catch(ex) { console.error('Invalid regex validator: Credit Card Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid Visa, MasterCard, American Express, Diners Club, Discover or JCB card number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('visaCardNumber', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^4[0-9]{12}(?:[0-9]{3})?$',''); }catch(ex) { console.error('Invalid regex validator: Visa Card Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid Visa card number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('mastercardCardNumber', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^5[1-5][0-9]{14}$',''); }catch(ex) { console.error('Invalid regex validator: Master Card Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid MasterCard card number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('amexCardNumber', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^3[47][0-9]{13}$',''); }catch(ex) { console.error('Invalid regex validator: AMEX Card Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid American Express card number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('discoverCardNumber', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^6(?:011|5[0-9]{2})[0-9]{12}$',''); }catch(ex) { console.error('Invalid regex validator: Discover Card Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid Discover card number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('number', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*-?\\d+\\s*$',''); }catch(ex) { console.error('Invalid regex validator: Integer Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid integer number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('lettersOnly', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^[A-Za-z\\s]*$',''); }catch(ex) { console.error('Invalid regex validator: Letters Only.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Only letters allowed.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('floatPositive', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*\\d+(\\.\\d+)?\\s*$',''); }catch(ex) { console.error('Invalid regex validator: Positive Floating Point Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid positive float number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('floatStrictlyPositive', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*([1-9]\\d*(\\.\\d+)?|0+\\.\\d*[1-9]\\d*)$',''); }catch(ex) { console.error('Invalid regex validator: Strictly Positive Floating Point Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid strictly positive number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('float', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\s*-?\\d+(\\.\\d+)?\\s*$',''); }catch(ex) { console.error('Invalid regex validator: Floating Point Number.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid float number.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        isValid = true;
+                        return this.optional(element) || isValid;
+                    }, '');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('phoneus', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^([\\(]{1}[0-9]{3}[\\)]{1}[\\.| |\\-]{0,1}|^[0-9]{3}[\\.|\\-| ]?)?[0-9]{3}(\\.|\\-| )?[0-9]{4}$',''); }catch(ex) { console.error('Invalid regex validator: Phone (###) ###-####.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Phone number must be in format (###) ###-####.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('dateus', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^\\b([1-9]|0[1-9]|1[0-2])\\b/\\b([1-9]|0[1-9]|1[0-9]|2[0-9]|3[0-1])\\b/\\b(1[0-9]{3}|2[0-9]{3})\\b$',''); }catch(ex) { console.error('Invalid regex validator: Date US (mm/dd/yyyy).') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Date must be in format mm/dd/yyyy.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('nowhitespace', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^[^ ]*$',''); }catch(ex) { console.error('Invalid regex validator: No Whitespace.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'No spaces are allowed.');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('validUsername', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        
+                $(element).addClass('server-validator');
+                var mid = scope.settings.ModuleId;
+                var tabId = scope.settings.TabId;
+                var formSettings = dnnsf.api.actionForm.getSettings(mid);
+                var optionsQs = formSettings.options.qs && !$.isEmptyObject(formSettings.options.qs) && formSettings.options.qs;
+                var urlParams = $.extend({}, dnnsf.getUrlParts(dnnsf.dnnPageQuery).query, dnnsf.getUrlParts(location.search).query, optionsQs);
+                isValid = true;
+                var validationUrl = '/DesktopModules/DnnSharp/ActionForm' + '/Validation.ashx?_mid=' + mid + '&_tabid=' + tabId + (urlParams && !$.isEmptyObject(urlParams) ? '&' + $.param(urlParams) : '')
+                var svcFramework;
+                if ($.ServicesFramework) {
+                    svcFramework = $.ServicesFramework(mid);
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: validationUrl,
+                    headers: {
+                        'RequestVerificationToken': svcFramework && svcFramework.getAntiForgeryValue()
+                    },
+                    data: {
+                        validator: 'Username is Available',
+                        value: value,
+                        fieldId: $(element).attr('data-fieldid')
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            $(element).nextAll('.alert').stop(true, true).slideUp('fast', function() { $(this).remove() });
+                            return;
+                        }
+
+                        parseFormResponse(data, {
+                            error: function (err) {
+                                isValid = false;
+
+                                $(element).rules('add', {
+                                    messages: {
+                                        'validUsername': data.error
+                                    }
+                                });
+                            },
+                            message: function (msg) {
+                                isValid = false;
+                                if ($(element).nextAll('.alert').size()) {
+                                    $(element).nextAll('.alert').html(msg);
+                                } else {
+                                    $(element).after('<div class="alert alert-warning" style="display: none;">' + msg + '</div>');
+                                    $(element).nextAll('.alert').stop(true, true).slideDown('fast');
+                                }
+                            }
+                        });
+
+                    },
+                    dataType: 'json',
+                    async:false
+                });
+                        return this.optional(element) || isValid;
+                    }, '');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('validUsernameExcludeCurrent', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        
+                $(element).addClass('server-validator');
+                var mid = scope.settings.ModuleId;
+                var tabId = scope.settings.TabId;
+                var formSettings = dnnsf.api.actionForm.getSettings(mid);
+                var optionsQs = formSettings.options.qs && !$.isEmptyObject(formSettings.options.qs) && formSettings.options.qs;
+                var urlParams = $.extend({}, dnnsf.getUrlParts(dnnsf.dnnPageQuery).query, dnnsf.getUrlParts(location.search).query, optionsQs);
+                isValid = true;
+                var validationUrl = '/DesktopModules/DnnSharp/ActionForm' + '/Validation.ashx?_mid=' + mid + '&_tabid=' + tabId + (urlParams && !$.isEmptyObject(urlParams) ? '&' + $.param(urlParams) : '')
+                var svcFramework;
+                if ($.ServicesFramework) {
+                    svcFramework = $.ServicesFramework(mid);
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: validationUrl,
+                    headers: {
+                        'RequestVerificationToken': svcFramework && svcFramework.getAntiForgeryValue()
+                    },
+                    data: {
+                        validator: 'Username is Available (excluding current user)',
+                        value: value,
+                        fieldId: $(element).attr('data-fieldid')
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            $(element).nextAll('.alert').stop(true, true).slideUp('fast', function() { $(this).remove() });
+                            return;
+                        }
+
+                        parseFormResponse(data, {
+                            error: function (err) {
+                                isValid = false;
+
+                                $(element).rules('add', {
+                                    messages: {
+                                        'validUsernameExcludeCurrent': data.error
+                                    }
+                                });
+                            },
+                            message: function (msg) {
+                                isValid = false;
+                                if ($(element).nextAll('.alert').size()) {
+                                    $(element).nextAll('.alert').html(msg);
+                                } else {
+                                    $(element).after('<div class="alert alert-warning" style="display: none;">' + msg + '</div>');
+                                    $(element).nextAll('.alert').stop(true, true).slideDown('fast');
+                                }
+                            }
+                        });
+
+                    },
+                    dataType: 'json',
+                    async:false
+                });
+                        return this.optional(element) || isValid;
+                    }, '');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('validUsernameByEmail', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        
+                $(element).addClass('server-validator');
+                var mid = scope.settings.ModuleId;
+                var tabId = scope.settings.TabId;
+                var formSettings = dnnsf.api.actionForm.getSettings(mid);
+                var optionsQs = formSettings.options.qs && !$.isEmptyObject(formSettings.options.qs) && formSettings.options.qs;
+                var urlParams = $.extend({}, dnnsf.getUrlParts(dnnsf.dnnPageQuery).query, dnnsf.getUrlParts(location.search).query, optionsQs);
+                isValid = true;
+                var validationUrl = '/DesktopModules/DnnSharp/ActionForm' + '/Validation.ashx?_mid=' + mid + '&_tabid=' + tabId + (urlParams && !$.isEmptyObject(urlParams) ? '&' + $.param(urlParams) : '')
+                var svcFramework;
+                if ($.ServicesFramework) {
+                    svcFramework = $.ServicesFramework(mid);
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: validationUrl,
+                    headers: {
+                        'RequestVerificationToken': svcFramework && svcFramework.getAntiForgeryValue()
+                    },
+                    data: {
+                        validator: 'User exists (by email)',
+                        value: value,
+                        fieldId: $(element).attr('data-fieldid')
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            $(element).nextAll('.alert').stop(true, true).slideUp('fast', function() { $(this).remove() });
+                            return;
+                        }
+
+                        parseFormResponse(data, {
+                            error: function (err) {
+                                isValid = false;
+
+                                $(element).rules('add', {
+                                    messages: {
+                                        'validUsernameByEmail': data.error
+                                    }
+                                });
+                            },
+                            message: function (msg) {
+                                isValid = false;
+                                if ($(element).nextAll('.alert').size()) {
+                                    $(element).nextAll('.alert').html(msg);
+                                } else {
+                                    $(element).after('<div class="alert alert-warning" style="display: none;">' + msg + '</div>');
+                                    $(element).nextAll('.alert').stop(true, true).slideDown('fast');
+                                }
+                            }
+                        });
+
+                    },
+                    dataType: 'json',
+                    async:false
+                });
+                        return this.optional(element) || isValid;
+                    }, '');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('validcnp', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        function validateCnp(input) {
+                    var regex = /^[1-9]\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])(0[1-9]|[1-4]\d|5[0-2]|70|8[0-1]|99)((?!000)\d{3})\d$/;
+
+                    if(!regex.test(input)) {
+                        return false;
+                    }
+
+                    // Date validation logic
+                    var cnpArray = input.split('').map(Number);
+                    var yearPrefixes = {
+                        1: 1900,
+                        2: 1900,
+                        3: 1800,
+                        4: 1800,
+                        5: 2000,
+                        6: 2000
+                    };
+
+                    if (cnpArray[0] === 7 || cnpArray[0] === 8) {
+                        return true;
+                    }
+
+                    var yearPrefix = yearPrefixes[cnpArray[0]];
+                    if (yearPrefix === undefined) {
+                        return false;
+                    }
+
+                    var year = yearPrefix + Number(input.substring(1, 3));
+                    var month = Number(input.substring(3, 5));
+                    var day = Number(input.substring(5, 7));
+
+                    var date = new Date(year, month - 1, day);
+                    if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
+                        return false;
+                    }
+
+                    // Control digit validation
+                    var controlKey = [2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9];
+                    var sum = 0;
+
+                    for (let i = 0; i < 12; i++) {
+                        sum += cnpArray[i] * controlKey[i];
+                    }
+
+                    var controlDigit = sum % 11;
+                    if (controlDigit === 10) {
+                        controlDigit = 1;
+                    }
+
+                    return controlDigit === cnpArray[12];   
+                }
+
+                isValid = validateCnp(value);
+                
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid Numeric Personal Code');
+                });
+                $(function() {
+                    $.validator && $.validator.addMethod('creditCardNumberAlt', function(value, element) {
+                        var isValid;
+                        var scope = $(element).scope();
+                        if(!scope || !scope.getField)
+                            return $(element).closest('form').validate().valid();
+                        var field = scope.getField(element);
+                        value = (field && field.getValue && field.getValue(value)) || value;
+                        var regex = new RegExp();try { regex = new RegExp('^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$',''); }catch(ex) { console.error('Invalid regex validator: Credit Card Number Alt.') }isValid = $.trim(value).length == 0 || regex.test(value);
+                        return this.optional(element) || isValid;
+                    }, 'Please enter a valid credit card number.');
+                });$(function(){
+    var state = {"virtualDirectory":"","alias":"www.uspa.org","aliasid":12,"portalId":0,"tabId":686,"popupSettings":{"width":"600px","name":""},"moduleId":4766,"openMode":"Always","frontEndTemplate":"<p>This is a sample text, edit this to match the purpose and describe the resource you're targeting (page, file).<br/><br/><a href = \"javascript: ;\">ACCESS this resource</a> now.</p>","rootElementClientId":"pnlContent4766","cssName":"listing-details","showLoading":false,"onFocusoutValidation":false,"tabsProLoading":false,"dnnPageQuery":"language=en-US","hasTabEnterActions":false,"hasTabLeaveActions":false,"cacheFormInit":false,"loadedJsIncludes":[]};
+    initForm(state);
+});;;$(function(){
+    var state = {"virtualDirectory":"","alias":"www.uspa.org","aliasid":12,"portalId":0,"tabId":686,"popupSettings":{"width":"600px","name":"[popupTitle]"},"moduleId":4416,"openMode":"Always","frontEndTemplate":"","rootElementClientId":"pnlContent4416","cssName":"amenities-training-programs-form","showLoading":false,"onFocusoutValidation":false,"tabsProLoading":false,"dnnPageQuery":"language=en-US","hasTabEnterActions":false,"hasTabLeaveActions":false,"cacheFormInit":false,"loadedJsIncludes":["/DesktopModules/DnnSharp/Common/static/js/FuzzySearch.js","/DesktopModules/DnnSharp/Common/static/angular15/checkbox-treeview/checkbox-tree-view.js"]};
+    initForm(state);
+});;;$(function(){
+    var state = {"virtualDirectory":"","alias":"www.uspa.org","aliasid":12,"portalId":0,"tabId":686,"popupSettings":{"width":"400px","name":""},"moduleId":4268,"openMode":"Always","frontEndTemplate":"<div><span><a href=\"javascript: ;\">Click here to change.</a></span></div>","rootElementClientId":"pnlContent4268","cssName":"register-login","showLoading":false,"onFocusoutValidation":false,"tabsProLoading":false,"dnnPageQuery":"language=en-US","hasTabEnterActions":false,"hasTabLeaveActions":false,"cacheFormInit":false,"loadedJsIncludes":[]};
+    initForm(state);
+});;$(function() { 
+                         dnnsf.api.searchboost.initInputBox({"ClientId":"dnn_ctr3414_SearchInput_pnlInput","BehaviorId":1,"SuggestionsApi":"//www.uspa.org/DesktopModules/DnnSharp/SearchBoost/API/Autocomplete/FromPopularSearchTerms","UseAutocompleteWithSearchResults":false,"UseAutocompleteWithCategories":false,"PreventNormalSearchForAutocompleteWithSearchResults":false,"SuggestionCount":8,"FwdToSearchResultsPageApi":"//www.uspa.org/DesktopModules/DnnSharp/SearchBoost/API/Search/FwdToSearchResultsPage?language=en-US","IsLiveSearch":false,"RenderResultsApi":"//www.uspa.org/DesktopModules/DnnSharp/SearchBoost/API/Search/RenderResults"});
+                    });//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=NJmAwtEo3IpiTuHo7kEVGqBAWK6HPDaEDHK3aOSm2KOFATVayR7B45zUhELX0ZT9Ptb2DilHlEQyrx-RZxMoYnoY3ob1g9nRlV-Taf55FgjYc1U1m8ykFg6BQd98sJzMQU6SfQ2&amp;t=32e5dfca" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dwY9oWetJoK2y5N--_KClDPBSDTa89NzbuizbBg5QbwT8oPF84nlwxw7QE7iwzPm0tfPCmssektixxLHaOlLBHAsJLaln9S2knbWCMt6Hg-fzumwtsi-w8jr0AYo08BYadqCWKZ_pMaPbZgS0&amp;t=32e5dfca" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="5n6PUu1RzUwCuegwEpajJFoNxp75M9Y5ZNF/W9wcZoRbTECN/dKSXwtZ7E+xA6ZHYWSMLOQ/jn4mVe9uXkbTxBqViKwQp8ku8Ay57SeCvgy2dmAm">
+</div><script src="/js/dnn.js?cdv=1920" type="text/javascript"></script><script src="/js/dnn.modalpopup.js?cdv=1920" type="text/javascript"></script><script src="/Portals/_default/skins/ozone/common/bootstrap/js/bootstrap.bundle.min.js?cdv=1920" type="text/javascript"></script><script src="/Portals/_default/skins/ozone/common/js/main.js?cdv=1920" type="text/javascript"></script><script src="/js/dnncore.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/SearchBoost/templates/input/PageBuilderDefaultSearchBs5/script.js?cdv=1920" type="text/javascript"></script><script src="/js/dnn.servicesframework.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/angular182/angular.min.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/dnnsf/dnnsf.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/angular182/angular-animate.min.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/angular182/angular-sanitize.min.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/js/paa-api/dist/paa-api.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/static/vendors.min.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/static/jquery-mask.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/static/jquery.cookie.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/script.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/js/FuzzySearch.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/angular15/checkbox-treeview/checkbox-tree-view.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/Common/static/js/typeahead.min.js?cdv=1920" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 90, '');
+//]]>
+</script>
+
+        
+        
+        
+
+
+<!-- loader_StyleWizardTemplateSection --><!-- loader_StyleWizardTemplateSectionEnd -->
+<!-- header_StyleWizardTemplateSection -->
+<div class="EasyDNNSkin_Ozone eds_contentLoaded">
+	<div class="eds_headerContainer eds_headerContainer1">
+		<div class="eds_fixedHeader eds_headerHeight" data-placeholder-selector=".eds_headerHeightHolder">
+			<div class="eds_headerBackground">
+				<header class="eds_header edn_clearFix container-fluid" style="padding:0px;margin:0px;max-width:100%;">    
+           <div class="row" style="padding:0px;margin:0px;">
+               <div class="col-sm-5" style="padding:0px;margin:0px;">
+                   <a id="dnn_dnnLOGO_hypLogo" title="United States Parachute Association" aria-label="United States Parachute Association" href="https://www.uspa.org/"><img id="dnn_dnnLOGO_imgLogo" src="/Portals/0/USPA-Logo-Homepage.png?ver=jxHJCVyoZNrxChcXs5dbAw%3d%3d" alt="United States Parachute Association"></a>
+               </div>
+              <div class="col-sm-7" style="padding:0px;margin:0px;">         
+                  
+                    
+   <div id="dnn_SearchPane" style="float:right;min-width:30px;padding:0px;margin:25px 5px 0 0;"><div class="DnnModule DnnModule-avtSearchBoostInput DnnModule-3414"><a name="3414"></a>
+<div class="eds_containers_Ozone eds_templateGroup_noTitle eds_template_NoTitlePaddingTopPaddingBottom eds_noTitlePaddingTopBottom">
+	<div id="dnn_ctr3414_ContentPane"><!-- Start_Module_3414 --><div id="dnn_ctr3414_ModuleContent" class="DNNModuleContent ModavtSearchBoostInputC">
+	<div id="dnn_ctr3414_SearchInput_pnlInput" class="sb-module-instance"><div class="searchbar-bs5">
+            <div class="input-group searchbar-input">
+            <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control search-box typeahead tt-hint" aria-label="search input" title="Search input" value="" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box padding-box rgb(255, 255, 255);" dir="ltr"><input type="text" class="form-control search-box typeahead tt-input" aria-label="search input" title="Search input" placeholder="Input your search..." value="" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;PT Sans&quot;, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-searchTerms"></div></div></span>
+            </div>
+            <button type="button" class="btn btn-link searchbar-icon" title="">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+</div>
+
+
+
+
+
+</div>
+<div id="dnn_ctr3414_SearchInput_pnlError"></div>
+
+
+<!-- For old templates: -->
+<div>
+<script>
+    // some common functions
+    function sbInp_clearPlaceholder(sbox) {
+        sbox = $(sbox);
+        if (sbox.hasClass('searchBoxEmpty')) {
+            sbox.removeClass('searchBoxEmpty').val('').removeAttr('placeholder');
+        }
+    }
+    function sbInp_syncPlaceholder(sbox) {
+        sbox = $(sbox);
+        sbox.removeClass('searchBoxEmpty');
+        var emptyText = sbox.attr('data-empty');
+        if ($.trim(sbox.val()).length == 0 || $.trim(sbox.val()) == emptyText) {
+            sbox.addClass('searchBoxEmpty').val(emptyText).attr('placeholder', emptyText);
+        }
+    }
+</script>
+</div>
+
+</div><!-- End_Module_3414 --></div>
+	<div class="eds_clear"></div>
+</div></div></div> 
+                
+    <div id="dnn_LRJN" style="padding:0px;margin:0px;"><div class="DnnModule DnnModule-ActionForm DnnModule-4268"><a name="4268"></a>
+<div class="eds_containers_Ozone eds_templateGroup_noTitle eds_template_NoTitleNoPadding eds_noTitleNoPadding">
+	<div id="dnn_ctr4268_ContentPane"><!-- Start_Module_4268 --><div id="dnn_ctr4268_ModuleContent" class="DNNModuleContent ModActionFormC">
+	<div id="mvcContainer-4268">
+    
+
+<div id="pnlContent4268" class="pnlMessage bootstrap5 register-login" af-name="" data-moduleid="4268">
+
+
+
+<div id="dnn4268root" ng-controller="ActionFormCtrl" ng-init="load('4268')" has-repeaters="" class="container-fluid form-root bootstrap5 reg-login ng-scope" style="padding: 0px;" data-rootclass="bootstrap5" novalidate="novalidate">
+
+
+
+
+<div class="row">
+
+    <div class="c-form container compact label-align-right col-12">
+                    <div class="form-group" style="grid-row: 1; grid-column: 1 / 13; --width-scale: 1;">
+                            
+
+
+
+
+
+<div style="" class="field-container af-button-group col-sm-12  btnc-right">
+
+
+
+
+    <button id="dnn4268Join" type="button" data-loading-text="Please wait..." data-name="Join" class="btn submit form-button af-btn-loading btn-sm btn-primary" title="Become a member of the United States Parachute Association." data-submiturl="/DesktopModules/MVC/DnnSharp/ActionForm/Submit?accountnumber=100525&amp;openMode=Always&amp;arePasskeysSupported=true&amp;language=en-US&amp;_=1766942909433&amp;event=click&amp;b=16103" data-submitquery="accountnumber=100525&amp;openMode=Always&amp;arePasskeysSupported=true&amp;language=en-US&amp;_=1766942909433&amp;_aliasid=12&amp;_mid=4268&amp;_tabid=686&amp;event=click&amp;b=16103">
+
+        Join USPA
+
+
+    </button>
+
+
+
+
+    <button id="dnn4268SignIn" type="button" data-loading-text="Please wait..." data-name="SignIn" class="btn submit form-button af-btn-loading btn-sm btn-default btn-outline-primary" title="Sign in to your USPA account." data-validation="on" data-default-button="on" data-submiturl="/DesktopModules/MVC/DnnSharp/ActionForm/Submit?accountnumber=100525&amp;openMode=Always&amp;arePasskeysSupported=true&amp;language=en-US&amp;_=1766942909433&amp;event=click&amp;b=16107" data-submitquery="accountnumber=100525&amp;openMode=Always&amp;arePasskeysSupported=true&amp;language=en-US&amp;_=1766942909433&amp;_aliasid=12&amp;_mid=4268&amp;_tabid=686&amp;event=click&amp;b=16107">
+
+        Sign In
+
+
+    </button>
+</div>
+
+                    </div>
+    </div>
+
+    <div class="alert alert-danger server-error" style="display: none;"></div>
+    <div class="alert alert-info submit-confirm" style="display: none; text-align: center;"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+    
+</div>
+
+</div><!-- End_Module_4268 --></div>
+	<div class="eds_clear"></div>
+</div></div></div>	 
+
+                      
+       
+
+               </div>
+           </div>   
+<div class="responsAbilityMenu float-right" style="padding:0px;margin-top:0px;margin-bottom:0px;">
+                        <div class="raMenuTriggerWrapper">
+                            <span class="raMenuTrigger">Menu</span>
+                        </div>
+						<div class="raMenuWrapper"><ol><li class="edsmm_menuItem edsmm_first edsmm_hasChild edsmm_active First-TimeampStudentSkydivers"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/first-time-student-skydivers/your-first-skydive">First-Time &amp; Student Skydivers</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first HowSafeisSkydiving"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/discover/faqs/safety">How Safe is Skydiving?</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem YourFirstSkydive"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/first-time-student-skydivers/your-first-skydive">Your First Skydive</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_active FindaDropZone"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/dzlocator">Find a Drop Zone</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem StarterMag"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/startermag">Starter Mag</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem FAQs"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/faqs">FAQs</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem CategoryDiveFlows"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/diveflows" target="_blank">Category Dive Flows</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem CategoryQuizzes"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/quiz">Category Quizzes</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last Resources"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/resources">Resources</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild ExperiencedSkydivers"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers">Experienced Skydivers</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first edsmm_hasChild USPAMembership"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/uspa-membership/membership-options-benefits-and-pricing">USPA Membership</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first MembershipOptionsBenefitsandPricing"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/uspa-membership/membership-options-benefits-and-pricing">Membership Options, Benefits and Pricing</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem MembershipFAQ"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/uspa-membership/membership-faq">Membership FAQ</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last AffinityBenefits"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/uspa-membership/affinity-benefits">Affinity Benefits</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild Resources"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/resources">Resources</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first Downloads"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/downloads">Downloads</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem MalfunctionVideos"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/vrvideos">Malfunction Videos</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem LogbookApps"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/logbookapps">Logbook Apps</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem quotTheUpdatequotArchives"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/resources/-the-update-archives">"The Update" Archives</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem TravelingwithParachutes"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/traveling-with-equipment">Traveling with Parachutes</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem CalendarofEvents"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/events/calendar-and-submissions">Calendar of Events</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last USPALibrary"><span><a class="edsmm_itemContainer" href="/library">USPA Library</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild Awards"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/awards/achievement-awards">Awards</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first AchievementAwards"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/awards/achievement-awards">Achievement Awards</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem ServiceAwards"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/awards/service-awards">Service Awards</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last SpecialAwards"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/awards/special-awards">Special Awards</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem SIM"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/sim">SIM</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem EarningLicensesampRatings"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/earning-licenses-ratings">Earning Licenses &amp; Ratings</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem ReportampBrowseIncidents"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/ir">Report &amp; Browse Incidents</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem StolenGear"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/information/news/stolen-gear">Stolen Gear</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem SistersInSkydiving"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/sis">Sisters In Skydiving</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem PriceList"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/experienced-skydivers/price-list">Price List</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last DZLocator"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/dzlocator">DZ Locator</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild RatingHoldersandSampTAs"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/rating-holders-and-s-tas">Rating Holders and S&amp;TAs</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first edsmm_hasChild Resources"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/resources">Resources</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first Downloads"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/downloads">Downloads</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPALibrary"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/library">USPA Library</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem SkydiveSchool"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/skydiveschool/landing">Skydive School</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem MalfunctionVideos"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/vrvideos">Malfunction Videos</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem quotTheProfessionalquotArchives"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/rating-holders-and-s-tas/resources/-the-professional-archives">"The Professional" Archives</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem LogbookApps"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/logbookapps">Logbook Apps</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem UsedGearCalculator"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/ugc">Used Gear Calculator</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem WingloadingCalculator"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/wingloading">Wingloading Calculator</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last RepackDateCalculator"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/repack">Repack Date Calculator</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild Judges"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/rating-holders-and-s-tas/judges">Judges</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first FindaJudge"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/judge-locator">Find a Judge</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem JudgeRatingCourses"><span><a class="edsmm_itemContainer" href="/events?typecontains=Judge+Rating+Course&amp;view=DataTable">Judge Rating Courses</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last SubmitACourse"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/submit-event">Submit A Course</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild Examiners"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/locator/examiner">Examiners</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first edsmm_last StandardizationMeetings"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/standardization">Standardization Meetings</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem IRM"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/irm">IRM</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem ReportampBrowseIncidents"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/ir">Report &amp; Browse Incidents</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem CheckCredentials"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/check">Check Credentials</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem SafetyampTrainingAdvisors"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/locator/sta">Safety &amp; Training Advisors</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last PRORatingandDemoJumps"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/demo">PRO Rating and Demo Jumps</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild DropZoneManagement"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management">Drop Zone Management</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first edsmm_hasChild GroupMembership"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/group-membership">Group Membership</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first Benefits"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/group-membership/benefits">Benefits</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last GroupMemberPledge"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/pledge">Group Member Pledge</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem CheckCredentials"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/check">Check Credentials</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem AirportAccess"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/airport-access">Airport Access</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem DZOResources"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/dzo-resources">DZO Resources</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem JumpPilotandDZONews"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/jumppilot">Jump Pilot and DZO News</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem FARs"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/atc">FARs</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem CollegeClubs"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/college-clubs">College Clubs</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem SupplementalTypeCertificatesforSale"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/drop-zone-management/supplemental-type-certificates-for-sale">Supplemental Type Certificates for Sale</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last USPADZOConference"><span><a class="edsmm_itemContainer" href="https://www.uspadzoconference.com/" target="_blank">USPA DZO Conference</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_hasChild Events"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/events/calendar-and-submissions">Events</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first edsmm_hasChild CompetitionandRecords"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/events/competition-and-records">Competition and Records</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_2"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first SCM"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/scm">SCM</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem NationalsandCollegiates"><span><a class="edsmm_itemContainer" href="https://www.uspanationals.com/" target="_blank">Nationals and Collegiates</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USParachuteTeam"><span><a class="edsmm_itemContainer" href="https://usparachuteteam.org/" target="_blank">U.S. Parachute Team</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem FindaJudge"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/judge-locator" target="_blank">Find a Judge</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last Records"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/records">Records</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem CalendarandSubmissions"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/events/calendar-and-submissions">Calendar and Submissions</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPASafetyDay"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/safetyday">USPA Safety Day</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPANationalsandCollegiates"><span><a class="edsmm_itemContainer" href="https://www.uspanationals.com/">USPA Nationals and Collegiates</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPABoardMeeting"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/bod">USPA Board Meeting</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPADZOConference"><span><a class="edsmm_itemContainer" href="https://www.uspadzoconference.com/">USPA DZO Conference</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPASTARTechContest"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/star">USPA STAR Tech Contest</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last WorldSkydivingDay"><span><a class="edsmm_itemContainer" href="https://worldskydivingday.com" target="_blank">World Skydiving Day</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li><li class="edsmm_menuItem edsmm_last edsmm_hasChild ContactandAboutUSPA"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/staff">Contact and About USPA</a><span class="edsmm_childIndicator"></span></span><div class="edsmm_level_1"><div class="edsmm_menuListsContainer"><ol><li class="edsmm_menuItem edsmm_first CharitableFundsDonate"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/donations">Charitable Funds (Donate)</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem ContactUSPA"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/staff">Contact USPA</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem BoardofDirectors"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/bod">Board of Directors</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem ContactsbyRegion"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/regions">Contacts by Region</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem AboutUSPA"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/contact-and-about-uspa/about-uspa">About USPA</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem PressCenter"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/press-center">Press Center</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USPANews"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/contact-and-about-uspa/uspa-news">USPA News</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem NationalampCollegiateCompetitions"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/nationals">National &amp; Collegiate Competitions</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem USParachuteTeam"><span><a class="edsmm_itemContainer" href="https://usparachuteteam.org" target="_blank">U.S. Parachute Team</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem Advertise"><span><a class="edsmm_itemContainer" href="https://parachutist.com/advertising" target="_blank">Advertise</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem SkydiverDemographics"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/LinkClick.aspx?fileticket=4DJYjAyLi3Y%3d&amp;portalid=0" target="_blank">Skydiver Demographics</a><span class="edsmm_childIndicator"></span></span></li><li class="edsmm_menuItem edsmm_last OpenJobs"><span><a class="edsmm_itemContainer" href="https://www.uspa.org/employment">Open Jobs</a><span class="edsmm_childIndicator"></span></span></li></ol></div></div></li></ol></div>
+</div>				
+			</header>
+			</div>
+		</div>
+<!-- header_StyleWizardTemplateSectionEnd -->
+<!-- pageDetails_StyleWizardTemplateSection -->
+		<div class="eds_pageDetails eds_pageDetails1">
+			<div class="eds_headerHeightHolder eds_headerHeightHolderPd" style="height: 155px;"></div>
+			<div class="container-fluid">
+				       <span class="eds_currentDate float-end">Sunday, December 28, 2025</span>
+				<div class="eds_breadCrumbs"><span id="dnn_dnnBreadcrumb_lblBreadCrumb" itemprop="breadcrumb" itemscope="" itemtype="https://schema.org/breadcrumb"><span itemscope="" itemtype="http://schema.org/BreadcrumbList"><span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.uspa.org/first-time-student-skydivers/your-first-skydive" class="eds_breadCrumb" itemprop="item"><span itemprop="name">First-Time &amp; Student Skydivers</span></a><meta itemprop="position" content="1"></span><span class="fas fa-chevron-right eds_breadcrumbSeparator"></span><span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.uspa.org/dzlocator" class="eds_breadCrumb" itemprop="item"><span itemprop="name">Find a Drop Zone</span></a><meta itemprop="position" content="2"></span><span class="fas fa-chevron-right eds_breadcrumbSeparator"></span><span itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a href="https://www.uspa.org/dzdetails" class="eds_breadCrumb" itemprop="item"><span itemprop="name">Details</span></a><meta itemprop="position" content="3"></span></span></span></div>
+				
+			</div>
+		</div><!-- pageDetails_StyleWizardTemplateSectionEnd -->
+
+		<div class="eds_headerHeightHolder" style="height: 155px;"></div>
+		<div id="dnn_headerWide" class="eds_headerContent eds_container DNNEmptyPane"></div>
+		<div class="eds_headerHeightHolder" style="height: 155px;"></div>
+	</div>
+	<div class="eds_container container-fluid">
+		<div id="dnn_ContentPane"><div class="DnnModule DnnModule-DNN_HTML DnnModule-1837"><a name="1837"></a>
+
+
+<div class="Bt3_style">
+  <div class="Bt3_style">
+    <div class="Bt3_top clearafter">
+      <div class="c_icon">
+        
+      </div>
+      <h2 class="c_title">
+        <span id="dnn_ctr1837_dnnTITLE_titleLabel" class="c_title_black">USPA Group Member And International Affiliate Drop Zone Locator</span>
+
+
+
+      </h2>
+    </div>
+    <div class="c_content_style">
+      <div id="dnn_ctr1837_ContentPane" class="Bt3_content"><!-- Start_Module_1837 --><div id="dnn_ctr1837_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr1837_HtmlModule_lblContent" class="Normal">
+	<p><a href="/dzlocator"><span style="font-size:130%;"><strong><img class="animation fadeInRight animated" alt="" src="/portals/0/Images/icons/doubleback.png" style="max-height: 18px;float:left;padding-right:8px;">Back To Search</strong></span></a></p>
+
+</div>
+
+</div><!-- End_Module_1837 --></div>
+    </div>
+  </div>
+</div>
+</div><div class="DnnModule DnnModule-ActionForm DnnModule-4766"><a name="4766"></a>
+<div class="eds_containers_Ozone eds_templateGroup_noTitle eds_template_NoTitlePaddingTopPaddingBottom eds_noTitlePaddingTopBottom">
+	<div id="dnn_ctr4766_ContentPane"><!-- Start_Module_4766 --><div id="dnn_ctr4766_ModuleContent" class="DNNModuleContent ModActionFormC">
+	<div id="mvcContainer-4766">
+    
+
+<div id="pnlContent4766" class="pnlMessage bootstrap5 listing-details" af-name="" data-moduleid="4766">
+
+
+
+<div id="dnn4766root" ng-controller="ActionFormCtrl" ng-init="load('4766')" has-repeaters="" class="container-fluid form-root bootstrap5 ng-scope" style="padding: 0px; color: inherit;" data-rootclass="bootstrap5" novalidate="novalidate">
+
+
+
+
+<div class="row">
+
+    <div class="c-form container loose label-align-default col-12">
+                    <div class="form-group" style="grid-row: 1; grid-column: 1 / 4; --width-scale: 4;">
+                            
+
+
+
+
+
+
+<div class="field-container af-slide btnc-left">
+
+
+    
+
+
+
+    <input type="text" id="dnn4766leftside" name="dnn4766leftside" data-fieldid="9694" data-af-field="leftside" aria-hidden="true" aria-label="hidden input of static text" style="width:0!important;height:0!important;opacity:0!important;position:absolute!important;" tabindex="-1" ng-model="form.fields.leftside.value" value="&lt;img style='max-width:300px;width:100%;height:auto;margin-bottom:10px;' src='Portals/0/Images/account.jpg' /&gt;" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <p class="ng-binding ng-scope" name="dnn4766leftside" af-bind-html="form.fields.leftside.value" ng-bind-html="afBoundHtml"><img style="max-width:300px;width:100%;height:auto;margin-bottom:10px;" src="Portals/0/Images/account.jpg"></p>
+
+
+</div>
+
+                    </div>
+                    <div class="form-group" style="grid-row: 1; grid-column: 4 / 13; --width-scale: 1;">
+                            
+
+
+
+
+
+
+<div class="field-container af-slide btnc-left">
+
+
+    
+
+
+
+    <input type="text" id="dnn4766rightside" name="dnn4766rightside" data-fieldid="9695" data-af-field="rightside" aria-hidden="true" aria-label="hidden input of static text" style="width:0!important;height:0!important;opacity:0!important;position:absolute!important;" tabindex="-1" ng-model="form.fields.rightside.value" value=" &lt;h2 style=&quot;font-weight:bold;&quot;&gt;Skydive Carolina!&lt;/h2&gt; 
+&lt;p class=&quot;dzdetails&quot;&gt;
+   &lt;a title=&quot;Open Map&quot; href=&quot;https://www.google.com/maps/place/34.7893333+-81.1957778/@34.7893333,-81.1957778,15z&quot; target=&quot;_blank&quot;&gt; &lt;i class=&quot;fa fa-map-marker&quot;&gt;
+     
+     &lt;/i&gt;&amp;nbsp; &lt;strong&gt;Chester Municipal Airport (DCM), Chester, SC US&lt;/strong&gt;&lt;/a&gt;
+  
+  
+  &lt;br /&gt; 1903 King Air Dr Chester SC 29706-4421 US &lt;br /&gt;35 miles S of Charlotte 6 miles to nearest hotel &lt;/p&gt;
+
+
+&lt;p class=&quot;dzdetails&quot;&gt;&lt;i class=&quot;fa fa-external-link&quot;&gt;&lt;/i&gt;&amp;nbsp; &lt;strong&gt;&lt;a id=&quot;website&quot; href=&quot;http://www.skydivecarolina.com&quot; target=&quot;_blank&quot;&gt;http://www.skydivecarolina.com&lt;/a&gt;&lt;/strong&gt; &lt;/p&gt;
+  
+  &lt;p class=&quot;dzdetails&quot;&gt;&lt;i class=&quot;fa fa-envelope&quot;&gt;&lt;/i&gt;&amp;nbsp; &lt;a href='mailto:info@skydivecarolina.com'&gt;info@skydivecarolina.com&lt;/a&gt;  &lt;/p&gt;
+  
+  &lt;p class=&quot;dzdetails&quot;&gt;&lt;i class=&quot;fa fa-sitemap&quot;&gt;&lt;/i&gt;&amp;nbsp;
+&lt;a href='/Regions/Mid-Atlantic'&gt;Mid-Atlantic Region&lt;/a&gt;
+    &lt;/p&gt;&lt;p class=&quot;dzdetails&quot;&gt; &lt;i class=&quot;fa fa-plane&quot;&gt;&lt;/i&gt;&amp;nbsp; Supervan 208, Cessna 182, Twin Otter &lt;/p&gt; &lt;hr /&gt; &lt;p style=&quot;font-size:130%;&quot;&gt;&lt;p&gt;Located near Charlotte, NC &amp;amp; Columbia, Greenville/Spartanburg, SC. DZ is 8 miles from I-77. Open Mar-Nov, Wed-Sun &amp;amp; Dec- Feb, Fri-Sun.  Indoor packing. Designated landing areas:regular,swooping &amp;amp; students. USPA membership, A license, TSO equip. required &amp;amp; AAD required.&lt;/p&gt;&lt;/p&gt; 
+
+&lt;script&gt;
+  function validateUrl(string) {
+    if (!string || !/\./g.test(string)) {
+      return ''
+    }
+    try {
+      const newUrl = new URL(string);
+      if (newUrl.protocol === 'http:' || newUrl.protocol === 'https:') {
+        return newUrl.href
+      }
+    } catch (err) {}
+    try {
+      let newUrl = new URL('http://' + string);
+      return newUrl.href
+    } catch (err) {}
+    return ''
+  }
+  const validated_url = validateUrl(&quot;http://www.skydivecarolina.com&quot;)
+  $('#website').html(validated_url).attr('href', validated_url)
+&lt;/script&gt;" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <p class="ng-binding ng-scope" name="dnn4766rightside" af-bind-html="form.fields.rightside.value" ng-bind-html="afBoundHtml"> <h2 style="font-weight:bold;">Skydive Carolina!</h2> 
+<p class="dzdetails">
+   <a title="Open Map" href="https://www.google.com/maps/place/34.7893333+-81.1957778/@34.7893333,-81.1957778,15z" target="_blank"> <i class="fa fa-map-marker">
+     
+     </i>&nbsp; <strong>Chester Municipal Airport (DCM), Chester, SC US</strong></a>
+  
+  
+  <br> 1903 King Air Dr Chester SC 29706-4421 US <br>35 miles S of Charlotte 6 miles to nearest hotel </p>
+
+
+<p class="dzdetails"><i class="fa fa-external-link"></i>&nbsp; <strong><a id="website" href="http://www.skydivecarolina.com/" target="_blank">http://www.skydivecarolina.com/</a></strong> </p>
+  
+  <p class="dzdetails"><i class="fa fa-envelope"></i>&nbsp; <a href="mailto:info@skydivecarolina.com">info@skydivecarolina.com</a>  </p>
+  
+  <p class="dzdetails"><i class="fa fa-sitemap"></i>&nbsp;
+<a href="/Regions/Mid-Atlantic">Mid-Atlantic Region</a>
+    </p><p class="dzdetails"> <i class="fa fa-plane"></i>&nbsp; Supervan 208, Cessna 182, Twin Otter </p> <hr> <p style="font-size:130%;"></p><p>Located near Charlotte, NC &amp; Columbia, Greenville/Spartanburg, SC. DZ is 8 miles from I-77. Open Mar-Nov, Wed-Sun &amp; Dec- Feb, Fri-Sun.  Indoor packing. Designated landing areas:regular,swooping &amp; students. USPA membership, A license, TSO equip. required &amp; AAD required.</p><p></p> 
+
+</p>
+
+
+</div>
+
+                    </div>
+    </div>
+
+    <div class="alert alert-danger server-error" style="display: none;"></div>
+    <div class="alert alert-info submit-confirm" style="display: none; text-align: center;"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+    
+</div>
+
+</div><!-- End_Module_4766 --></div>
+	<div class="eds_clear"></div>
+</div></div><div class="DnnModule DnnModule-ActionForm DnnModule-4416"><a name="4416"></a>
+<div class="eds_containers_Ozone eds_templateGroup_noTitle eds_template_NoTitlePaddingTopPaddingBottom eds_noTitlePaddingTopBottom">
+	<div id="dnn_ctr4416_ContentPane"><!-- Start_Module_4416 --><div id="dnn_ctr4416_ModuleContent" class="DNNModuleContent ModActionFormC">
+	<div id="mvcContainer-4416">
+    
+
+<div id="pnlContent4416" class="pnlMessage bootstrap5 amenities-training-programs-form" af-name="[popupTitle]" data-moduleid="4416">
+
+
+
+<div id="dnn4416root" ng-controller="ActionFormCtrl" ng-init="load('4416')" has-repeaters="" class="container-fluid form-root bootstrap5 ng-scope" style="padding: 0px;" data-rootclass="bootstrap5" novalidate="novalidate">
+
+
+
+
+<div class="row">
+
+    <div class="c-form container normal label-align-right col-12">
+                    <div class="form-group" style="grid-row: 1; grid-column: 1 / 13; --width-scale: 1;">
+                            
+
+
+
+
+
+
+<div class="field-container af-slide btnc-left">
+
+
+    
+
+
+
+    <input type="text" id="dnn4416TC" name="dnn4416TC" data-fieldid="9188" data-af-field="TC" aria-hidden="true" aria-label="hidden input of static text" style="width:0!important;height:0!important;opacity:0!important;position:absolute!important;" tabindex="-1" ng-model="form.fields.TC.value" value="&lt;img src=&quot;/portals/0/Images/tc.gif&quot; alt=&quot;Training Center&quot; /&gt;" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <p class="ng-binding ng-scope" name="dnn4416TC" af-bind-html="form.fields.TC.value" ng-bind-html="afBoundHtml"><img src="/portals/0/Images/tc.gif" alt="Training Center"></p>
+
+
+</div>
+
+                    </div>
+                    <div class="form-group" style="grid-row: 3; grid-column: 1 / 13; --width-scale: 1;">
+                            
+
+
+
+
+
+<input type="hidden" id="dnn4416h_isEdit" name="dnn4416h_isEdit" data-fieldid="8797" data-af-field="h_isEdit" value="False" ng-model="form.fields.h_isEdit.value" data-val="False" autocomplete="off" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                    </div>
+                    <div class="form-group" style="grid-row: 4; grid-column: 1 / 13; --width-scale: 1;">
+                            
+
+
+
+
+
+
+<div class="field-container af-slide btnc-left">
+
+
+    
+
+
+
+    <input type="text" id="dnn4416StaticText" name="dnn4416StaticText" data-fieldid="11293" data-af-field="StaticText" aria-hidden="true" aria-label="hidden input of static text" style="width:0!important;height:0!important;opacity:0!important;position:absolute!important;" tabindex="-1" ng-model="form.fields.StaticText.value" value="&lt;div style=&quot;margin: 0 6em; float: left;&quot;&gt;
+  &lt;strong style=&quot;font-size: 1.5em;&quot;&gt;Amenities&lt;/strong&gt;
+  &lt;div id=&quot;amenities_list&quot; style=&quot;padding: 0.2em 3em;&quot;&gt;(none)&lt;/div&gt;  
+&lt;/div&gt;
+&lt;div style=&quot;margin: 0 6em; float: left;&quot;&gt;
+  &lt;strong style=&quot;font-size: 1.5em;&quot;&gt;Training Programs&lt;/strong&gt;
+  &lt;div id=&quot;training_programs_list&quot; style=&quot;padding: 0.2em 3em;&quot;&gt;(none)&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var amenities_list = 'Equipment Rental/Sales,Load Organizers,Packing Service,Rigging Service,Showers Facilities,Videographers,Wi-Fi';
+  var training_programs_list = 'AFF,Tandem';
+ 
+  if (training_programs_list) {
+    document.getElementById('training_programs_list').innerHTML = training_programs_list.split(',').join('&lt;br&gt;');
+  }
+  if (amenities_list) {
+    document.getElementById('amenities_list').innerHTML = amenities_list.split(',').join('&lt;br&gt;'); 
+  }
+&lt;/script&gt;" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+    <p class="ng-binding ng-scope" name="dnn4416StaticText" af-bind-html="form.fields.StaticText.value" ng-bind-html="afBoundHtml"><div style="margin: 0 6em; float: left;">
+  <strong style="font-size: 1.5em;">Amenities</strong>
+  <div id="amenities_list" style="padding: 0.2em 3em;">Equipment Rental/Sales<br>Load Organizers<br>Packing Service<br>Rigging Service<br>Showers Facilities<br>Videographers<br>Wi-Fi</div>  
+</div>
+<div style="margin: 0 6em; float: left;">
+  <strong style="font-size: 1.5em;">Training Programs</strong>
+  <div id="training_programs_list" style="padding: 0.2em 3em;">AFF<br>Tandem</div>
+</div>
+</p>
+
+
+</div>
+
+                    </div>
+    </div>
+
+    <div class="alert alert-danger server-error" style="display: none;"></div>
+    <div class="alert alert-info submit-confirm" style="display: none; text-align: center;"></div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+    
+</div>
+
+</div><!-- End_Module_4416 --></div>
+	<div class="eds_clear"></div>
+</div></div></div>
+	</div>
+
+     <!--inserted panes by :Jen-->
+    <div class="fullpanewidth" id="Div1full">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-12 eds_container">
+          <div id="dnn_Div1" class="DNNEmptyPane"></div>
+                      </div>
+                  </div>
+        </div></div>
+    <div class="fullpanewidth" id="OneGridfull">
+        <div class="container-fluid">
+<div class="row">
+
+    <div class="col-sm-3 eds_container">
+          <div id="dnn_OneGrid3" class="DNNEmptyPane"></div>
+        </div>
+    <div class="col-sm-9 eds_container">
+          <div id="dnn_OneGrid9" class="DNNEmptyPane"></div>
+        </div>
+    </div>
+        </div></div>
+
+
+    <div class="fullpanewidth" id="TwoGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 eds_container">
+          <div id="dnn_TwoGrid4A" class="DNNEmptyPane"></div></div>
+                <div class="col-sm-4 eds_container">
+          <div id="dnn_TwoGrid4B" class="DNNEmptyPane"></div>
+                    </div>
+                <div class="col-sm-4 eds_container">
+          <div id="dnn_TwoGrid4C" class="DNNEmptyPane"></div>
+                    </div>
+
+                </div>
+        </div></div>
+
+    <div class="fullpanewidth" id="ThreeGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-9 eds_container">
+          <div id="dnn_ThreeGrid9" class="DNNEmptyPane"></div>
+                    </div>
+                <div class="col-sm-3 eds_container">
+          <div id="dnn_ThreeGrid3" class="DNNEmptyPane"></div>
+                    </div>
+                </div>
+        </div></div>
+
+    <div class="fullpanewidth" id="FourGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 eds_container">
+          <div id="dnn_FourGrid12" class="DNNEmptyPane"></div>
+                    </div>
+                </div>
+        </div></div>
+    <div class="fullpanewidth" id="FiveGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 eds_container">
+          <div id="dnn_FiveGrid6A" class="DNNEmptyPane"></div>
+                    </div>
+                <div class="col-sm-6 eds_container">
+          <div id="dnn_FiveGrid6B" class="DNNEmptyPane"></div>
+                    </div>
+                </div>
+        </div></div>
+    <div class="fullpanewidth" id="SixGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 eds_container">
+          <div id="dnn_SixGrid3A" class="DNNEmptyPane"></div>
+                    </div>
+                 <div class="col-sm-3 eds_container">
+          <div id="dnn_SixGrid3B" class="DNNEmptyPane"></div>
+                     </div>
+                 <div class="col-sm-3 eds_container">
+          <div id="dnn_SixGrid3C" class="DNNEmptyPane"></div>
+                     </div>
+                 <div class="col-sm-3 eds_container">
+          <div id="dnn_SixGrid3D" class="DNNEmptyPane"></div>
+                     </div>
+                </div>
+        </div></div>
+    <div class="fullpanewidth" id="SevenGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-12 eds_container">
+          <div id="dnn_SevenGrid12" class="DNNEmptyPane"></div>
+                     </div>
+                </div>
+        </div></div>
+    <div class="fullpanewidth" id="EightGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-4 eds_container">
+          <div id="dnn_EightGrid4" class="DNNEmptyPane"></div>
+                     </div>
+                 <div class="col-sm-8 eds_container">
+          <div id="dnn_EightGrid8" class="DNNEmptyPane"></div>
+                     </div>
+                </div>
+        </div></div>
+
+    <div class="fullpanewidth" id="NineGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-8 eds_container">
+          <div id="dnn_NineGrid8" class="DNNEmptyPane"></div>
+                     </div>
+                 <div class="col-sm-4 eds_container">
+          <div id="dnn_NineGrid4" class="DNNEmptyPane"></div>
+                     </div>
+                </div>
+        </div></div>
+    <div class="fullpanewidth" id="TenGridfull">
+        <div class="container-fluid">
+            <div class="row">
+                 <div class="col-sm-12 eds_container">
+          <div id="dnn_TenGrid12" class="DNNEmptyPane"></div>
+                     </div>
+                </div>
+        </div></div>
+    <!--end inserted panes by :Jen-->
+    <div class="fullpanewidth" id="LeftMiddleRightPanefull">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 eds_container">
+				<div id="dnn_contentLeftPane" class="DNNEmptyPane"></div>
+			</div>
+			<div class="col-sm-4 eds_container">
+				<div id="dnn_contentMiddlePane" class="DNNEmptyPane"></div>
+			</div>
+			<div class="col-sm-4 eds_container">
+				<div id="dnn_contentRightPane" class="DNNEmptyPane"></div>
+			</div>
+		</div>
+	</div></div>
+
+    <div class="fullpanewidth" id="contentPane5full">
+	<div class="container-fluid eds_container">
+		<div id="dnn_contentPane5" class="DNNEmptyPane"></div>
+	</div>
+</div>
+
+    <div class="fullpanewidth" id="aPane8full">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-8 eds_container">
+				<div id="dnn_leftPane8" class="DNNEmptyPane"></div>
+			</div>
+			<div class="col-sm-4 eds_container">
+				<div id="dnn_sidebarPane8" class="DNNEmptyPane"></div>
+			</div>
+		</div>
+	</div></div>
+    <div class="fullpanewidth" id="contentPane8full">
+	<div class="container-fluid eds_container">
+		<div id="dnn_contentPane8" class="DNNEmptyPane"></div>
+	</div>
+	<div class="container-fluid" id="bPane8full">
+		<div class="row">
+			<div class="col-sm-4 eds_container">
+				<div id="dnn_sidebarLeftPane8" class="DNNEmptyPane"></div>
+			</div>
+			<div class="col-sm-8 eds_container">
+				<div id="dnn_rightPane8" class="DNNEmptyPane"></div>
+			</div>
+		</div>
+	</div></div> 
+
+
+    <div class="fullpanewidth" id="BottomPane1full">
+	<div class="container-fluid eds_container">
+		<div id="dnn_BottomPane1" class="DNNEmptyPane"></div>
+	</div>
+	<div id="dnn_BottomPane2" class="eds_bottomPaneWide DNNEmptyPane"></div>
+	<div class="container-fluid eds_container">
+		<div id="dnn_BottomPane3" class="DNNEmptyPane"></div>
+	</div>
+</div>
+
+
+   
+
+
+
+	<div class="edsFooterBackground edn_clearFix">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3 footerBoxContainer">
+					<div id="dnn_Footer1" class="footerBox DNNEmptyPane"></div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 footerBoxContainer">
+					<div id="dnn_Footer2" class="footerBox eds_second DNNEmptyPane"></div>
+				</div>
+				<div class="edn_clearFix d-block d-md-none"></div>
+				<div class="col-xs-12 col-sm-6 col-md-3 footerBoxContainer">
+					<div id="dnn_Footer3" class="footerBox DNNEmptyPane"></div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3 footerBoxContainer">
+					<div id="dnn_Footer4" class="footerBox eds_last DNNEmptyPane"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="dnn_Footer5" class="col-sm-4 footerBoxContainer2">
+
+                     <a href="https://parachutist.com" target="_blank"><img class="jenfooterimage" alt="PARACHUTIST" src="/portals/0/internal/parachutist_com_WHT.png"></a>
+				</div>
+				<div id="dnn_Footer6" class="col-sm-4 footerBoxContainer2">
+
+                     <a href="/store"><img class="jenfooterimage" style="width:90px;" alt="USPA STORE" src="/portals/0/internal/uspa_store_logo_WHT.png"></a>
+				</div>
+				<div id="dnn_Footer7" class="col-sm-4 footerBoxContainer2">
+                    
+                  
+
+
+                      <div id="dnn_JenSocialLinks">
+  
+                 <div class="Social-Links">
+ <a class="iconFacebook" title="Facebook" href="https://www.facebook.com/SkydiveUSPA" target="_blank"></a> 
+  <a class="iconInstagram" title="Instagram" href="https://www.instagram.com/skydiveuspa/" target="_blank"></a> 
+    
+<a class="iconYouTube" title="YouTube" href="https://www.youtube.com/user/SkydiveUSPA" target="_blank"></a>
+ <a class="iconLinkedIn" title="LinkedIn" href="https://www.linkedin.com/company/u.s.-parachute-association-uspa-" target="_blank"></a></div></div>
+
+				</div>
+                </div></div>
+        <div class="container-fluid">
+
+			<div class="row">
+
+                <div id="dnn_JenInsertedFooter" class="col-sm-12 footerBoxContainer2">
+
+
+
+<p><strong>USPA</strong> &nbsp; &nbsp; <i class="fas fa-map-marker"></i>&nbsp;5401 Southpoint Centre Blvd., Fredericksburg, VA, 22407 &nbsp; <a class="footer" href="tel:5406049740"><i class="fas fa-phone"></i>&nbsp; (540) 604-9740</a> &nbsp; <i class="fas fa-clock-o"></i>&nbsp;M-F 9am-5pm Eastern &nbsp; <i class="fas fa-file"></i>&nbsp;(540) 604-9741 &nbsp; <a class="footer" href="mailto:uspa@uspa.org"><i class="fas fa-envelope"></i>&nbsp; uspa@uspa.org</a></p>
+
+ 
+
+                </div>
+
+               
+
+			</div>
+		</div>
+	</div>
+	<div class="edsCopyrightBg">
+		<div class="edsCopyright container-fluid edn_clearFix"><a id="dnn_dnnTerms_hypTerms" class="float-right" rel="nofollow" href="https://www.uspa.org/terms">Terms Of Use</a><a id="dnn_dnnPrivacy_hypPrivacy" class="float-right" rel="nofollow" href="https://www.uspa.org/privacy">Privacy Statement</a><span id="dnn_dnnCopyright_lblCopyright" class="float-left">Copyright 2025 by United States Parachute Association</span>
+</div>
+	</div>
+</div>
+
+<div id="topblueuspabar">Your Source for all things Skydiving in the U.S.</div>
+<a data-options="{ &quot;speed&quot;: 700,&quot;easing&quot;: &quot;easeOutQuint&quot;,&quot;updateURL&quot;: false }" href="#" class="eds_scrollTo eds_backToTop"><span>Back To Top</span></a>
+
+
+<!--CDF(Css|/Portals/_default/skins/ozone/common/bootstrap/css/bootstrap.min.css?cdv=1920|DnnPageHeaderProvider|11)-->
+<!--CDF(Css|/Portals/_default/skins/ozone/common/fontawesome/css/all.min.css?cdv=1920|DnnPageHeaderProvider|12)-->
+<!--CDF(Css|/Portals/_default/skins/ozone/common/css/base.css?cdv=1920|DnnPageHeaderProvider|13)-->
+
+
+<!--CDF(Javascript|/Portals/_default/skins/ozone/common/bootstrap/js/bootstrap.bundle.min.js?cdv=1920|DnnBodyProvider|100)-->
+<!--CDF(Javascript|/Portals/_default/skins/ozone/common/js/main.js?cdv=1920|DnnBodyProvider|100)-->
+
+        <input name="ScrollTop" type="hidden" id="ScrollTop">
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" autocomplete="off" value="{&quot;__scdoff&quot;:&quot;1&quot;,&quot;sf_siteRoot&quot;:&quot;/&quot;,&quot;sf_tabId&quot;:&quot;686&quot;}">
+        <input name="__RequestVerificationToken" type="hidden" value="R7hus53hZ7-aMpFWFU-OA1jiFNUW-BQKQP1-B2nHU-dSSKLLjAUcNc0eSbNbwdFTsJ64xQ2"><script src="/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-is-filled.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-positive-integer.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/ActionForm/static/validators/fill-all.js?cdv=1920" type="text/javascript"></script><script src="/DesktopModules/DnnSharp/SearchBoost/static/sb-client.js?cdv=1920" type="text/javascript"></script>
+    </form>
+    <!--CDF(Javascript|/js/dnncore.js?cdv=1920|DnnBodyProvider|100)--><!--CDF(Javascript|/js/dnn.modalpopup.js?cdv=1920|DnnBodyProvider|50)--><!--CDF(Css|/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css?cdv=1920|DnnPageHeaderProvider|5)--><!--CDF(Css|/Portals/_default/skins/ozone/skin.css?cdv=1920|DnnPageHeaderProvider|15)--><!--CDF(Css|/Portals/_default/Containers/Multifunction/container.css?cdv=1920|DnnPageHeaderProvider|25)--><!--CDF(Css|/DesktopModules/DnnSharp/Common/static/font-awesome/css/font-awesome.css?cdv=1920|DnnPageHeaderProvider|200)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular.min.js?cdv=1920|DnnBodyProvider|110)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular-animate.min.js?cdv=1920|DnnBodyProvider|200)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular-sanitize.min.js?cdv=1920|DnnBodyProvider|201)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/dnnsf/dnnsf.js?cdv=1920|DnnBodyProvider|120)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/js/paa-api/dist/paa-api.js?cdv=1920|DnnBodyProvider|202)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.js?cdv=1920|DnnBodyProvider|203)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.css?cdv=1920|DnnPageHeaderProvider|201)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery-mask.js?cdv=1920|DnnBodyProvider|204)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery.cookie.js?cdv=1920|DnnBodyProvider|205)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/script.js?cdv=1920|DnnBodyProvider|206)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/styles.min.css?cdv=1920|DnnPageHeaderProvider|202)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-is-filled.js?cdv=1920|DnnFormBottomProvider|207)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-positive-integer.js?cdv=1920|DnnFormBottomProvider|208)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/fill-all.js?cdv=1920|DnnFormBottomProvider|209)--><!--CDF(Css|/Portals/_default/containers/ozone/container.css?cdv=1920|DnnPageHeaderProvider|25)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/dnnsf/dnnsf.js?cdv=1920|DnnBodyProvider|120)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/js/paa-api/dist/paa-api.js?cdv=1920|DnnBodyProvider|210)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.js?cdv=1920|DnnBodyProvider|211)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.css?cdv=1920|DnnPageHeaderProvider|203)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery-mask.js?cdv=1920|DnnBodyProvider|212)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery.cookie.js?cdv=1920|DnnBodyProvider|213)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/script.js?cdv=1920|DnnBodyProvider|214)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/styles.min.css?cdv=1920|DnnPageHeaderProvider|204)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/js/FuzzySearch.js?cdv=1920|DnnBodyProvider|215)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular15/checkbox-treeview/checkbox-tree-view.js?cdv=1920|DnnBodyProvider|216)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-is-filled.js?cdv=1920|DnnFormBottomProvider|217)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-positive-integer.js?cdv=1920|DnnFormBottomProvider|218)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/fill-all.js?cdv=1920|DnnFormBottomProvider|219)--><!--CDF(Css|/Portals/_default/containers/ozone/container.css?cdv=1920|DnnPageHeaderProvider|25)--><!--CDF(Css|/DesktopModules/DnnSharp/Common/static/font-awesome/css/font-awesome.css?cdv=1920|DnnPageHeaderProvider|205)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular.min.js?cdv=1920|DnnBodyProvider|110)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular-animate.min.js?cdv=1920|DnnBodyProvider|220)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/angular182/angular-sanitize.min.js?cdv=1920|DnnBodyProvider|221)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/dnnsf/dnnsf.js?cdv=1920|DnnBodyProvider|120)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/js/paa-api/dist/paa-api.js?cdv=1920|DnnBodyProvider|222)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.js?cdv=1920|DnnBodyProvider|223)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/static/vendors.min.css?cdv=1920|DnnPageHeaderProvider|206)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery-mask.js?cdv=1920|DnnBodyProvider|224)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/jquery.cookie.js?cdv=1920|DnnBodyProvider|225)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/script.js?cdv=1920|DnnBodyProvider|226)--><!--CDF(Css|/DesktopModules/DnnSharp/ActionForm/templates/Form/bootstrap5/styles.min.css?cdv=1920|DnnPageHeaderProvider|207)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-is-filled.js?cdv=1920|DnnFormBottomProvider|227)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/at-least-one-positive-integer.js?cdv=1920|DnnFormBottomProvider|228)--><!--CDF(Javascript|/DesktopModules/DnnSharp/ActionForm/static/validators/fill-all.js?cdv=1920|DnnFormBottomProvider|229)--><!--CDF(Css|/Portals/_default/Containers/Ozone/container.css?cdv=1920|DnnPageHeaderProvider|25)--><!--CDF(Css|/Portals/_default/containers/ozone/container.css?cdv=1920|DnnPageHeaderProvider|25)--><!--CDF(Css|/DesktopModules/DnnSharp/SearchBoost/module.css?cdv=1920|DnnPageHeaderProvider|10)--><!--CDF(Css|/Portals/0/portal.css?cdv=1920|DnnPageHeaderProvider|35)--><!--CDF(Css|/DesktopModules/DnnSharp/SearchBoost/templates/input/PageBuilderDefaultSearchBs5/styles.min.css?cdv=1920|DnnPageHeaderProvider|100)--><!--CDF(Javascript|/DesktopModules/DnnSharp/SearchBoost/templates/input/PageBuilderDefaultSearchBs5/script.js?cdv=1920|DnnBodyProvider|100)--><!--CDF(Javascript|/js/dnn.js?cdv=1920|DnnBodyProvider|12)--><!--CDF(Javascript|/js/dnn.servicesframework.js?cdv=1920|DnnBodyProvider|100)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/dnnsf/dnnsf.js?cdv=1920|DnnBodyProvider|120)--><!--CDF(Javascript|/DesktopModules/DnnSharp/Common/static/js/typeahead.min.js?cdv=1920|DnnBodyProvider|230)--><!--CDF(Javascript|/DesktopModules/DnnSharp/SearchBoost/static/sb-client.js?cdv=1920|DnnFormBottomProvider|231)--><!--CDF(Javascript|/Resources/libraries/jQuery/03_07_01/jquery.js?cdv=1920|DnnPageHeaderProvider|5)--><!--CDF(Javascript|/Resources/libraries/jQuery-UI/01_13_03/jquery-ui.min.js?cdv=1920|DnnPageHeaderProvider|10)--><!--CDF(Javascript|/Resources/libraries/jQuery-Migrate/03_04_01/jquery-migrate.js?cdv=1920|DnnPageHeaderProvider|6)-->
+    
+
+
+</body></html>
