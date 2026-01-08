@@ -30,7 +30,7 @@ const BaseConfig: ConfigBaseProps = {
    * Remote URL to check for dropzone data updates.
    */
   dataUpdateUrl:
-    "https://raw.githubusercontent.com/OTGApps/USPADropzones/refs/heads/master/dropzones.geojson",
+    "https://raw.githubusercontent.com/OTGApps/Dropzones/refs/heads/master/assets/dropzones.geojson",
 
   /**
    * Check for remote updates every N app launches.
