@@ -20,17 +20,18 @@ import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
 import { useFonts } from "expo-font"
+import { StatusBar } from "expo-status-bar"
 import { KeyboardProvider } from "react-native-keyboard-controller"
-import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 import { PaperProvider } from "react-native-paper"
+import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
+import { DatabaseProvider } from "./database"
 import { initI18n } from "./i18n"
 import { RootStore } from "./models/root-store/root-store"
 import { RootStoreProvider } from "./models/root-store/root-store-context"
 import { setupRootStore } from "./models/root-store/setup-root-store"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
-import { DatabaseProvider } from "./database"
 import { ThemeProvider } from "./theme/context"
 import { customFontsToLoad } from "./theme/typography"
 import { loadDateFnsLocale } from "./utils/formatDate"
@@ -79,21 +80,24 @@ export function App() {
 
   // otherwise, we're ready to render the app
   return (
-    <ThemeProvider>
-      <PaperProvider>
-        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-          <KeyboardProvider>
-            <DatabaseProvider>
-              <RootStoreProvider value={rootStore}>
-                <AppNavigator
-                  initialState={initialNavigationState}
-                  onStateChange={onNavigationStateChange}
-                />
-              </RootStoreProvider>
-            </DatabaseProvider>
-          </KeyboardProvider>
-        </SafeAreaProvider>
-      </PaperProvider>
-    </ThemeProvider>
+    <>
+      <StatusBar style="light" />
+      <ThemeProvider>
+        <PaperProvider>
+          <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+            <KeyboardProvider>
+              <DatabaseProvider>
+                <RootStoreProvider value={rootStore}>
+                  <AppNavigator
+                    initialState={initialNavigationState}
+                    onStateChange={onNavigationStateChange}
+                  />
+                </RootStoreProvider>
+              </DatabaseProvider>
+            </KeyboardProvider>
+          </SafeAreaProvider>
+        </PaperProvider>
+      </ThemeProvider>
+    </>
   )
 }
