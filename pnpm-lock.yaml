@@ -97,15 +97,6 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
-      mobx:
-        specifier: 6.3.3
-        version: 6.3.3
-      mobx-react-lite:
-        specifier: 3.2.1
-        version: 3.2.1(mobx@6.3.3)(react-dom@19.1.0(react@19.1.0))(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
-      mobx-state-tree:
-        specifier: 5.0.2
-        version: 5.0.2(mobx@6.3.3)
       query-string:
         specifier: 7.0.1
         version: 7.0.1
@@ -4163,19 +4154,6 @@ packages:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
     engines: {node: '>=10'}
     hasBin: true
-
-  mobx-react-lite@3.2.1:
-    resolution: {integrity: sha512-hwURgfmP2apX3HQrB55V9DN47kuN3C6KlQvI5UIfJRibXma72C/JudcNt2r9dWjAdFMrcZoz1ivvtXMCkJ2aQA==}
-    peerDependencies:
-      mobx: ^6.1.0
-      react: ^16.8.0 || ^17
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
 
   mobx-state-tree@5.0.2:
     resolution: {integrity: sha512-hQ2Ewbf2hwB4BNAq0ysYMXywbXQ4bHMpAJRnquzKtUBY1OclZTMBg1Dc2gkZNWfU9PrJ03s2tHK5X5c8wtHAHA==}
@@ -10719,14 +10697,6 @@ snapshots:
   mitt@3.0.1: {}
 
   mkdirp@1.0.4: {}
-
-  mobx-react-lite@3.2.1(mobx@6.3.3)(react-dom@19.1.0(react@19.1.0))(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      mobx: 6.3.3
-      react: 19.1.0
-    optionalDependencies:
-      react-dom: 19.1.0(react@19.1.0)
-      react-native: 0.81.5(@babel/core@7.28.5)(@types/react@19.1.17)(react@19.1.0)
 
   mobx-state-tree@5.0.2(mobx@6.3.3):
     dependencies:

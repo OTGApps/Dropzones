@@ -25,11 +25,9 @@ import { KeyboardProvider } from "react-native-keyboard-controller"
 import { PaperProvider } from "react-native-paper"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 
-import { DatabaseProvider } from "./database"
+import { LoadingScreen } from "./components/LoadingScreen"
+import { DatabaseProvider, useDatabase } from "./database"
 import { initI18n } from "./i18n"
-import { RootStore } from "./models/root-store/root-store"
-import { RootStoreProvider } from "./models/root-store/root-store-context"
-import { setupRootStore } from "./models/root-store/setup-root-store"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
 import { ThemeProvider } from "./theme/context"
@@ -38,6 +36,19 @@ import { loadDateFnsLocale } from "./utils/formatDate"
 import * as storage from "./utils/storage"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
+
+/**
+ * Wrapper component that shows LoadingScreen while database is initializing.
+ */
+function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): JSX.Element | null {
+  const { isReady, progress, message } = useDatabase()
+
+  if (!isReady) {
+    return <LoadingScreen message={message} progress={progress} />
+  }
+
+  return <>{children}</>
+}
 
 /**
  * This is the root component of our app.
@@ -53,14 +64,9 @@ export function App() {
 
   const [areFontsLoaded, fontLoadError] = useFonts(customFontsToLoad)
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
-  const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined)
 
   useEffect(() => {
-    Promise.all([
-      initI18n().then(() => setIsI18nInitialized(true)),
-      loadDateFnsLocale(),
-      setupRootStore().then(setRootStore),
-    ])
+    Promise.all([initI18n().then(() => setIsI18nInitialized(true)), loadDateFnsLocale()])
   }, [])
 
   // Before we show the app, we have to wait for our state to be ready.
@@ -69,12 +75,7 @@ export function App() {
   // In iOS: application:didFinishLaunchingWithOptions:
   // In Android: https://stackoverflow.com/a/45838109/204044
   // You can replace with your own loading component if you wish.
-  if (
-    !isNavigationStateRestored ||
-    !isI18nInitialized ||
-    (!areFontsLoaded && !fontLoadError) ||
-    !rootStore
-  ) {
+  if (!isNavigationStateRestored || !isI18nInitialized || (!areFontsLoaded && !fontLoadError)) {
     return null
   }
 
@@ -87,12 +88,12 @@ export function App() {
           <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <KeyboardProvider>
               <DatabaseProvider>
-                <RootStoreProvider value={rootStore}>
+                <DatabaseLoadingWrapper>
                   <AppNavigator
                     initialState={initialNavigationState}
                     onStateChange={onNavigationStateChange}
                   />
-                </RootStoreProvider>
+                </DatabaseLoadingWrapper>
               </DatabaseProvider>
             </KeyboardProvider>
           </SafeAreaProvider>
