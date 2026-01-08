@@ -5,7 +5,7 @@ import { ActivityIndicator, Card, List, Text } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import Config from "@/config"
-import { useDatabase } from "@/database"
+import { useDatabase, seedDatabase, LOCAL_DATA_VERSION } from "@/database"
 import {
   checkForUpdates,
   applyUpdate,
@@ -33,7 +33,7 @@ export const AboutScreen: FC = () => {
   const { db } = useDatabase()
 
   const [isChecking, setIsChecking] = useState(false)
-  const [dataVersion, setDataVersion] = useState(Config.dataVersion)
+  const [dataVersion, setDataVersion] = useState(LOCAL_DATA_VERSION)
   const [lastChecked, setLastChecked] = useState<string | null>(null)
 
   // Load the current data version from the database
@@ -102,6 +102,45 @@ export const AboutScreen: FC = () => {
     }
   }, [db, isChecking, dataVersion])
 
+  const handleResetDatabase = useCallback(async () => {
+    if (!db || isChecking) return
+
+    Alert.alert(
+      "Reset Database",
+      "This will delete all dropzone data and reload from the bundled file. This action cannot be undone. Continue?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Reset",
+          style: "destructive",
+          onPress: async () => {
+            setIsChecking(true)
+            try {
+              // Delete all dropzones
+              await db.runAsync("DELETE FROM dropzones")
+              // Delete version metadata to force reseed
+              await db.runAsync("DELETE FROM metadata WHERE key = 'data_version'")
+              // Reseed from local file
+              await seedDatabase(db)
+              // Reload current version
+              const result = await db.getFirstAsync<{ value: string }>(
+                "SELECT value FROM metadata WHERE key = 'data_version'",
+              )
+              if (result?.value) {
+                setDataVersion(result.value)
+              }
+              Alert.alert("Database Reset", "Successfully reset and reloaded dropzone data from local file.")
+            } catch (error) {
+              Alert.alert("Reset Failed", error instanceof Error ? error.message : "Unknown error")
+            } finally {
+              setIsChecking(false)
+            }
+          },
+        },
+      ],
+    )
+  }, [db, isChecking])
+
   const formatDescription = () => {
     const versionLine = `Data version: ${dataVersion}`
     if (!lastChecked) return `${versionLine}\nNever checked`
@@ -134,6 +173,7 @@ export const AboutScreen: FC = () => {
             title="Check for Data Updates"
             description={isChecking ? "Checking..." : formatDescription()}
             onPress={handleCheckForUpdates}
+            onLongPress={handleResetDatabase}
             disabled={isChecking || !db}
             left={() => (
               <View style={themed($updateIconContainer)}>

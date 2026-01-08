@@ -1,26 +1,32 @@
 import type * as SQLite from "expo-sqlite"
 import { lookUp } from "geojson-places"
 
-import Config from "../config"
+// @ts-expect-error - babel-plugin-inline-import handles .geojson files
+import dropzoneDataRaw from "../../assets/dropzones.geojson"
 
-// Import the dropzone data
-const dropzoneData = require("../models/root-store/dropzones.json")
+// Parse the inlined JSON string
+const dropzoneData = JSON.parse(dropzoneDataRaw)
+
+/**
+ * Version from the bundled GeoJSON file
+ */
+export const LOCAL_DATA_VERSION = dropzoneData.version || "unknown"
 
 interface GeoJSONFeature {
   properties: {
-    anchor: number
+    anchor: number | string
     name: string
     email: string
     description?: string
     phone?: string
     website?: string
-    aircraft?: string[]
-    location?: string[]
-    services?: string[]
-    training?: string[]
+    aircraft?: string | string[]
+    location?: string | string[]
+    services?: string | string[]
+    training?: string | string[]
   }
   geometry: {
-    coordinates: [number, number] // [longitude, latitude]
+    coordinates: [number | string, number | string] // [longitude, latitude]
   }
 }
 
@@ -50,17 +56,33 @@ async function shouldReseed(db: SQLite.SQLiteDatabase): Promise<boolean> {
   const stored = await db.getFirstAsync<{ value: string }>(
     "SELECT value FROM metadata WHERE key = 'data_version'",
   )
-  return !stored || stored.value !== Config.dataVersion
+  const storedVersion = stored?.value || "none"
+  const localVersion = LOCAL_DATA_VERSION
+  const needsReseed = !stored || stored.value !== localVersion
+
+  console.log(
+    `Version check: stored="${storedVersion}", local="${localVersion}", needsReseed=${needsReseed}`,
+  )
+
+  return needsReseed
 }
 
 /**
  * Updates the stored data version in the metadata table.
  */
 async function updateDataVersion(db: SQLite.SQLiteDatabase): Promise<void> {
-  await db.runAsync(
-    "INSERT OR REPLACE INTO metadata (key, value) VALUES ('data_version', ?)",
-    [Config.dataVersion],
-  )
+  await db.runAsync("INSERT OR REPLACE INTO metadata (key, value) VALUES ('data_version', ?)", [
+    LOCAL_DATA_VERSION,
+  ])
+}
+
+/**
+ * Normalizes a field that could be a string, array, or undefined into an array.
+ */
+function normalizeToArray(value: string | string[] | undefined): string[] {
+  if (!value) return []
+  if (Array.isArray(value)) return value
+  return [value]
 }
 
 /**
@@ -73,7 +95,10 @@ async function insertDropzones(
   await db.withTransactionAsync(async () => {
     for (const feature of features) {
       const props = feature.properties
-      const [longitude, latitude] = feature.geometry.coordinates
+      const [lon, lat] = feature.geometry.coordinates
+      // Ensure coordinates are numbers (remote data may have strings)
+      const longitude = typeof lon === "string" ? parseFloat(lon) : lon
+      const latitude = typeof lat === "string" ? parseFloat(lat) : lat
 
       // Pre-compute derived fields
       const stateCode = computeStateCode(latitude, longitude, props.name)
@@ -82,22 +107,31 @@ async function insertDropzones(
         .join(" ")
         .toLowerCase()
 
+      // Normalize array fields (remote data may have strings instead of arrays)
+      const aircraft = normalizeToArray(props.aircraft)
+      const location = normalizeToArray(props.location)
+      const services = normalizeToArray(props.services)
+      const training = normalizeToArray(props.training)
+
+      // Ensure anchor is a number
+      const anchor = typeof props.anchor === "string" ? parseInt(props.anchor, 10) : props.anchor
+
       await db.runAsync(
         `INSERT INTO dropzones (
           anchor, name, email, description, phone, website,
           aircraft, location, services, training,
           latitude, longitude, state_code, name_first_letter, searchable_text
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        props.anchor,
+        anchor,
         props.name,
         props.email || "",
         props.description || "",
         props.phone || "",
         props.website || "",
-        JSON.stringify(props.aircraft || []),
-        JSON.stringify(props.location || []),
-        JSON.stringify(props.services || []),
-        JSON.stringify(props.training || []),
+        JSON.stringify(aircraft),
+        JSON.stringify(location),
+        JSON.stringify(services),
+        JSON.stringify(training),
         latitude,
         longitude,
         stateCode,
@@ -121,12 +155,12 @@ export async function seedDatabase(db: SQLite.SQLiteDatabase): Promise<void> {
       "SELECT COUNT(*) as count FROM dropzones",
     )
     console.log(
-      `Database up to date (version ${Config.dataVersion}) with ${countResult?.count || 0} dropzones`,
+      `Database up to date (version ${LOCAL_DATA_VERSION}) with ${countResult?.count || 0} dropzones`,
     )
     return
   }
 
-  console.log(`Seeding database with dropzone data (version ${Config.dataVersion})...`)
+  console.log(`Seeding database with dropzone data (version ${LOCAL_DATA_VERSION})...`)
   const startTime = Date.now()
 
   // Clear existing data before reseeding

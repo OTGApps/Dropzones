@@ -1,7 +1,7 @@
 import type * as SQLite from "expo-sqlite"
 
 import Config from "@/config"
-import { seedDatabaseFromRemote } from "@/database/seed"
+import { seedDatabaseFromRemote, LOCAL_DATA_VERSION } from "@/database/seed"
 import { load, save } from "@/utils/storage"
 
 /**
@@ -62,9 +62,9 @@ async function getCurrentVersion(db: SQLite.SQLiteDatabase): Promise<string> {
     const result = await db.getFirstAsync<{ value: string }>(
       "SELECT value FROM metadata WHERE key = 'data_version'",
     )
-    return result?.value || Config.dataVersion
+    return result?.value || LOCAL_DATA_VERSION
   } catch {
-    return Config.dataVersion
+    return LOCAL_DATA_VERSION
   }
 }
 

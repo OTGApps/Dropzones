@@ -2,8 +2,6 @@ export interface ConfigBaseProps {
   persistNavigation: "always" | "dev" | "prod" | "never"
   catchErrors: "always" | "dev" | "prod" | "never"
   exitRoutes: string[]
-  /** Version of the bundled dropzone data. Increment when updating dropzones.json */
-  dataVersion: string
   /** Remote URL to check for dropzone data updates */
   dataUpdateUrl: string
   /** Check for remote updates every N app launches */
@@ -27,14 +25,6 @@ const BaseConfig: ConfigBaseProps = {
    * is pressed while in that screen. Only affects Android.
    */
   exitRoutes: ["Welcome"],
-
-  /**
-   * Version of the bundled dropzone data.
-   * Increment this when updating the dropzones.json file to trigger
-   * a database refresh for existing users.
-   * Format: YYYY.MM.DD.revision
-   */
-  dataVersion: "2025.01.07.1",
 
   /**
    * Remote URL to check for dropzone data updates.

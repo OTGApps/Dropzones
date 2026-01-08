@@ -1,7 +1,7 @@
 // Database initialization
 export { getDatabase, closeDatabase } from "./database"
 export { createSchema } from "./schema"
-export { seedDatabase, seedDatabaseFromRemote } from "./seed"
+export { seedDatabase, seedDatabaseFromRemote, LOCAL_DATA_VERSION } from "./seed"
 
 // Types
 export type {
