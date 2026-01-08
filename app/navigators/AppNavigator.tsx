@@ -5,7 +5,7 @@
  * and a "main" flow which the user will use once logged in.
  */
 import { NavigationContainer } from "@react-navigation/native"
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { SystemBars } from "react-native-edge-to-edge"
 
 import Config from "@/config"
 import { ErrorBoundary } from "@/screens/ErrorScreen/ErrorBoundary"
@@ -22,15 +22,19 @@ import TabNavigator from "./tab-navigator"
 const exitRoutes = Config.exitRoutes
 
 export const AppNavigator = (props: NavigationProps) => {
-  const { navigationTheme } = useAppTheme()
+  const { navigationTheme, themeContext } = useAppTheme()
 
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 
   return (
-    <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
-      <ErrorBoundary catchErrors={Config.catchErrors}>
-        <TabNavigator />
-      </ErrorBoundary>
-    </NavigationContainer>
+    <>
+      <SystemBars style={themeContext === "dark" ? "dark" : "light"} />
+
+      <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
+        <ErrorBoundary catchErrors={Config.catchErrors}>
+          <TabNavigator />
+        </ErrorBoundary>
+      </NavigationContainer>
+    </>
   )
 }

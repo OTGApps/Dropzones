@@ -20,7 +20,6 @@ import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
 import { useFonts } from "expo-font"
-import { StatusBar } from "expo-status-bar"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { PaperProvider } from "react-native-paper"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -81,24 +80,21 @@ export function App() {
 
   // otherwise, we're ready to render the app
   return (
-    <>
-      <StatusBar style="light" />
-      <ThemeProvider>
-        <PaperProvider>
-          <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-            <KeyboardProvider>
-              <DatabaseProvider>
-                <DatabaseLoadingWrapper>
-                  <AppNavigator
-                    initialState={initialNavigationState}
-                    onStateChange={onNavigationStateChange}
-                  />
-                </DatabaseLoadingWrapper>
-              </DatabaseProvider>
-            </KeyboardProvider>
-          </SafeAreaProvider>
-        </PaperProvider>
-      </ThemeProvider>
-    </>
+    <ThemeProvider>
+      <PaperProvider>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <KeyboardProvider>
+            <DatabaseProvider>
+              <DatabaseLoadingWrapper>
+                <AppNavigator
+                  initialState={initialNavigationState}
+                  onStateChange={onNavigationStateChange}
+                />
+              </DatabaseLoadingWrapper>
+            </DatabaseProvider>
+          </KeyboardProvider>
+        </SafeAreaProvider>
+      </PaperProvider>
+    </ThemeProvider>
   )
 }

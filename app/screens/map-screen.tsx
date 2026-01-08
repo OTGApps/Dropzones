@@ -22,7 +22,8 @@ const INITIAL_REGION: Region = {
 export const MapScreen: FC = function MapScreen() {
   const {
     themed,
-    theme: { colors, themeContext },
+    theme: { colors },
+    themeContext,
   } = useAppTheme()
 
   const navigation = useNavigation()
