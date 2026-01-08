@@ -43,31 +43,6 @@ export const CREATE_METADATA_TABLE = `
 `
 
 /**
- * Migrates the database schema to add new columns if they don't exist.
- */
-async function migrateSchema(db: SQLite.SQLiteDatabase): Promise<void> {
-  // Check if the airport column exists
-  const columns = await db.getAllAsync<{ name: string }>(
-    "PRAGMA table_info(dropzones)",
-  )
-  const columnNames = columns.map((col) => col.name)
-
-  // Add missing columns
-  if (!columnNames.includes("airport")) {
-    console.log("Adding airport column...")
-    await db.execAsync("ALTER TABLE dropzones ADD COLUMN airport TEXT DEFAULT ''")
-  }
-  if (!columnNames.includes("country")) {
-    console.log("Adding country column...")
-    await db.execAsync("ALTER TABLE dropzones ADD COLUMN country TEXT DEFAULT ''")
-  }
-  if (!columnNames.includes("state")) {
-    console.log("Adding state column...")
-    await db.execAsync("ALTER TABLE dropzones ADD COLUMN state TEXT DEFAULT ''")
-  }
-}
-
-/**
  * Creates all tables and indexes in the database.
  */
 export async function createSchema(db: SQLite.SQLiteDatabase): Promise<void> {
@@ -77,7 +52,4 @@ export async function createSchema(db: SQLite.SQLiteDatabase): Promise<void> {
     ${CREATE_NAME_LETTER_INDEX};
     ${CREATE_METADATA_TABLE};
   `)
-
-  // Run migrations to add any new columns
-  await migrateSchema(db)
 }

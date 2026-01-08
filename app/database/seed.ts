@@ -57,24 +57,31 @@ function computeStateCode(latitude: number, longitude: number, name: string): st
  * Checks if the database needs to be reseeded based on version comparison.
  */
 async function shouldReseed(db: SQLite.SQLiteDatabase): Promise<boolean> {
+  const startTime = Date.now()
+  console.log("[DB] Checking if reseed is needed...")
+
   // Check stored version
+  const versionStart = Date.now()
   const stored = await db.getFirstAsync<{ value: string }>(
     "SELECT value FROM metadata WHERE key = 'data_version'",
   )
+  console.log(`[DB] Version query took ${Date.now() - versionStart}ms`)
   const storedVersion = stored?.value || "none"
   const localVersion = LOCAL_DATA_VERSION
 
   // Check if data exists
+  const countStart = Date.now()
   const countResult = await db.getFirstAsync<{ count: number }>(
     "SELECT COUNT(*) as count FROM dropzones",
   )
+  console.log(`[DB] Count query took ${Date.now() - countStart}ms`)
   const hasData = countResult && countResult.count > 0
 
   // Reseed if version differs OR if database is empty
   const needsReseed = !stored || stored.value !== localVersion || !hasData
 
   console.log(
-    `Version check: stored="${storedVersion}", local="${localVersion}", hasData=${hasData}, needsReseed=${needsReseed}`,
+    `[DB] Version check complete in ${Date.now() - startTime}ms: stored="${storedVersion}", local="${localVersion}", hasData=${hasData}, needsReseed=${needsReseed}`,
   )
 
   return needsReseed

@@ -108,13 +108,21 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
     }
   }
 
-  const remoteVersion = data.metadata.version || "unknown"
-  const hasUpdate = remoteVersion !== currentVersion
+  try {
+    const remoteVersion = data.metadata.version || "unknown"
+    const hasUpdate = remoteVersion !== currentVersion
 
-  return {
-    hasUpdate,
-    currentVersion,
-    remoteVersion,
+    return {
+      hasUpdate,
+      currentVersion,
+      remoteVersion,
+    }
+  } catch (e: Error | unknown) {
+    return {
+      hasUpdate: false,
+      currentVersion,
+      error: "Failed to check for updates",
+    }
   }
 }
 
