@@ -142,8 +142,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   )
 
   const listHeader = useMemo(() => {
-    const warningCard =
-      !headerHidden || headerHidden === null ? renderHeaderComponent() : null
+    const warningCard = !headerHidden || headerHidden === null ? renderHeaderComponent() : null
     return (
       <>
         {warningCard}
