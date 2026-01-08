@@ -1,5 +1,5 @@
 import { FC, useState, useRef, useEffect, useMemo, useCallback } from "react"
-import { ViewStyle, Platform } from "react-native"
+import { ViewStyle, TextStyle, Platform } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
@@ -22,7 +22,7 @@ const INITIAL_REGION: Region = {
 export const MapScreen: FC = function MapScreen() {
   const {
     themed,
-    theme: { colors },
+    theme: { colors, themeContext },
   } = useAppTheme()
 
   const navigation = useNavigation()
@@ -89,20 +89,27 @@ export const MapScreen: FC = function MapScreen() {
           description={dropzone.stateCode}
           tracksViewChanges={false}
         >
-          <Callout onPress={() => goToDetail(dropzone.anchor, dropzone.name)}>
-            <List.Item
-              style={Platform.OS === "ios" ? NO_PADDING_IOS : {}}
-              title={dropzone.name}
-              description={dropzone.stateCode}
-              onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
-              right={(props) => (
-                <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
-              )}
-            />
+          <Callout
+            onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
+            style={{ backgroundColor: colors.background }}
+          >
+            {Platform.OS === "ios" ? (
+              <List.Item
+                style={themed($calloutItem)}
+                titleStyle={themed($calloutTitle)}
+                descriptionStyle={themed($calloutDescription)}
+                title={dropzone.name}
+                description={dropzone.stateCode}
+                onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
+                right={(props) => (
+                  <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+                )}
+              />
+            ) : null}
           </Callout>
         </Marker>
       )) || [],
-    [dropzones, goToDetail, themed],
+    [colors.background, dropzones, goToDetail, themed],
   )
 
   return (
@@ -119,6 +126,7 @@ export const MapScreen: FC = function MapScreen() {
       showsScale={Platform.OS === "android"}
       rotateEnabled={true}
       pitchEnabled={true}
+      userInterfaceStyle={themeContext === "dark" ? "dark" : "light"}
     >
       {markers}
     </MapView>
@@ -130,6 +138,14 @@ const $map: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const NO_PADDING_IOS: ViewStyle = {
-  padding: 0,
-}
+const $calloutItem: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  padding: Platform.OS === "ios" ? 0 : spacing.sm,
+})
+
+const $calloutTitle: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.text,
+})
+
+const $calloutDescription: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.textDim,
+})
