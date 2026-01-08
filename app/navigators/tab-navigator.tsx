@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { View } from "react-native"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
@@ -25,10 +26,10 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         headerBackButtonDisplayMode: "minimal",
-        tabBarActiveTintColor: colors.tint,
-        tabBarInactiveTintColor: colors.tintInactive,
+        tabBarActiveTintColor: colors.palette.neutral100,
+        tabBarInactiveTintColor: colors.palette.primary200,
         tabBarStyle: {
-          backgroundColor: colors.palette.neutral100,
+          backgroundColor: colors.headerBackground,
         },
       }}
       initialRouteName="dropzones"
