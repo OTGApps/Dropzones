@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 const MenuItems = require("./menu-items.json")
 
@@ -131,6 +132,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
       data={MenuItems}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
     />
   )
 }

@@ -1,12 +1,13 @@
-import { FC, useState, useEffect, useCallback } from "react"
+import { FC, useState, useEffect, useCallback, useMemo } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { Button, Card, List } from "react-native-paper"
+import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"
@@ -23,6 +24,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   const navigation = useNavigation()
   const { aircraftSections: uniqueAircraftSorted } = useUniqueAircraft()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
+  const [searchQuery, setSearchQuery] = useState("")
   const {
     themed,
     theme: { colors },
@@ -37,21 +39,44 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
     }
   }, [])
 
+  // Handle search input
+  const handleSearch = useCallback((text: string) => {
+    setSearchQuery(text)
+  }, [])
+
+  // Filter aircraft based on search query
+  const filteredSections = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return uniqueAircraftSorted
+    }
+
+    const query = searchQuery.toLowerCase()
+    return uniqueAircraftSorted
+      .map((section) => ({
+        ...section,
+        data: section.data.filter((item) => item.name.toLowerCase().includes(query)),
+      }))
+      .filter((section) => section.data.length > 0)
+  }, [uniqueAircraftSorted, searchQuery])
+
   const renderItem = useCallback(
     ({ item, section }) => {
       const onPressed = () => {
         navigation.navigate("list-detail", {
-          item,
+          item: item.name,
           itemType: "aircraft",
-          title: item,
+          title: item.name,
         })
       }
       return (
         <List.Item
-          title={item}
+          title={item.name}
           onPress={onPressed}
           right={(props) => (
-            <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+            <View style={themed($rightContainer)}>
+              <Badge style={themed($badge)}>{item.count}</Badge>
+              <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+            </View>
           )}
         />
       )
@@ -97,17 +122,38 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
     [colors],
   )
 
+  const searchBar = useMemo(
+    () => (
+      <Searchbar
+        placeholder="Search Aircraft..."
+        value={searchQuery}
+        onChangeText={handleSearch}
+      />
+    ),
+    [searchQuery, handleSearch],
+  )
+
+  const listHeader = useMemo(() => {
+    const warningCard =
+      !headerHidden || headerHidden === null ? renderHeaderComponent() : null
+    return (
+      <>
+        {warningCard}
+        {searchBar}
+      </>
+    )
+  }, [headerHidden, renderHeaderComponent, searchBar])
+
   return (
     <View style={{ flex: 1 }}>
       <SectionList
         style={themed(FULL)}
-        sections={uniqueAircraftSorted}
+        sections={filteredSections}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
-        ListHeaderComponent={
-          !headerHidden || headerHidden === null || __DEV__ ? renderHeaderComponent : null
-        }
+        ItemSeparatorComponent={ListSeparator}
+        ListHeaderComponent={listHeader}
         removeClippedSubviews
       />
     </View>
@@ -122,4 +168,17 @@ const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 const $warningText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
   marginBottom: spacing.md,
   color: colors.text,
+})
+
+const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  marginRight: spacing.xs,
+})
+
+const $badge: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  marginRight: spacing.xs,
+  alignSelf: "center",
+  fontSize: 14,
 })

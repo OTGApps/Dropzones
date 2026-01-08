@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 import { useUniqueServices } from "../database"
 
@@ -47,6 +48,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
       data={uniqueServices}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews
     />
   )

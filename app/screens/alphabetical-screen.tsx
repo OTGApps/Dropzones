@@ -5,7 +5,7 @@ import { Searchbar } from "react-native-paper"
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow } from "../components"
+import { DropzoneListRow, ListSeparator } from "../components"
 import { useDropzoneSearch, type Dropzone } from "../database"
 
 const FULL: ViewStyle = {
@@ -86,6 +86,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
       keyExtractor={(item) => item.anchor.toString()}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
       ListHeaderComponent={listHeader}
     />
   )

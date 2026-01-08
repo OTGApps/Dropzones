@@ -1,20 +1,15 @@
 import { FC, useCallback } from "react"
-import { ViewStyle, FlatList, View } from "react-native"
+import { ViewStyle, FlatList } from "react-native"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-import { SpeedLimitSign, DropzoneListRow } from "../components"
+import { SpeedLimitSign, DropzoneListRow, ListSeparator } from "../components"
 import { useNearbyDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
   backgroundColor: colors.background,
-})
-
-const SEPARATOR: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  height: 1,
-  backgroundColor: colors.palette.neutral300,
 })
 
 export interface NearMeScreenProps {
@@ -39,8 +34,6 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
     [],
   )
 
-  const renderSeparator = useCallback(() => <View style={themed(SEPARATOR)} />, [themed])
-
   return (
     <FlatList
       key="list"
@@ -48,7 +41,7 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       renderItem={renderItem}
-      ItemSeparatorComponent={renderSeparator}
+      ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews
     />
   )

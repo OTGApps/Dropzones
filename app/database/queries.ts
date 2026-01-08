@@ -121,9 +121,26 @@ export async function getFilteredDropzones(
     let params: (string | number)[]
 
     if (itemType === "state") {
-      // Exact match for state
-      query = "SELECT * FROM dropzones WHERE state_code = ? ORDER BY name"
-      params = [item]
+      if (item.toLowerCase() === "international") {
+        // For international, get all dropzones that are NOT US states/territories
+        // US states are 2-letter codes: AL, AK, AZ, etc.
+        // US territories: PR, USVI
+        const usStateCodes = [
+          "al", "ak", "az", "ar", "ca", "co", "ct", "de", "fl", "ga",
+          "hi", "id", "il", "in", "ia", "ks", "ky", "la", "me", "md",
+          "ma", "mi", "mn", "ms", "mo", "mt", "ne", "nv", "nh", "nj",
+          "nm", "ny", "nc", "nd", "oh", "ok", "or", "pa", "pr", "ri",
+          "sc", "sd", "tn", "tx", "ut", "vt", "va", "wa", "wv", "wi",
+          "wy", "usvi"
+        ]
+        const placeholders = usStateCodes.map(() => "?").join(",")
+        query = `SELECT * FROM dropzones WHERE LOWER(state_code) NOT IN (${placeholders}) ORDER BY name`
+        params = usStateCodes
+      } else {
+        // Exact match for state
+        query = "SELECT * FROM dropzones WHERE state_code = ? ORDER BY name"
+        params = [item]
+      }
     } else {
       // For array fields, check if item exists in the JSON array
       // Using json_each to match both exact and partial matches
@@ -173,75 +190,113 @@ export async function getUniqueAircraft(db: SQLite.SQLiteDatabase): Promise<stri
 }
 
 /**
- * Gets unique aircraft organized into manufacturer sections.
+ * Gets unique aircraft organized into manufacturer sections with counts.
  */
 export async function getUniqueAircraftSorted(
   db: SQLite.SQLiteDatabase,
 ): Promise<AircraftSection[]> {
-  const allAircraft = await getUniqueAircraft(db)
-  const remaining = [...allAircraft]
+  return withTiming("getUniqueAircraftSorted", async () => {
+    const rows = await db.getAllAsync<{ aircraft: string }>("SELECT aircraft FROM dropzones")
 
-  const removeMatching = (predicate: (a: string) => boolean): string[] => {
-    const matched: string[] = []
-    for (let i = remaining.length - 1; i >= 0; i--) {
-      if (predicate(remaining[i])) {
-        matched.push(remaining[i])
-        remaining.splice(i, 1)
+    // Map to store aircraft names and their counts
+    const aircraftCounts = new Map<string, number>()
+
+    // Process all aircraft and count occurrences
+    for (const row of rows) {
+      const aircraftList: string[] = JSON.parse(row.aircraft)
+      const normalizedInThisDropzone = new Set<string>()
+
+      for (const plane of aircraftList) {
+        // Remove leading numbers (e.g., "2 Cessna 182" -> "Cessna 182")
+        let normalized = plane
+        if (plane.match(/^\d+ /)) {
+          normalized = plane.substring(plane.indexOf(" ") + 1)
+        }
+        // Remove trailing 's' for plurals
+        if (normalized.endsWith("s") && normalized.length > 1) {
+          normalized = normalized.slice(0, -1)
+        }
+        normalizedInThisDropzone.add(normalized)
+      }
+
+      // Count each unique aircraft once per dropzone
+      for (const aircraft of normalizedInThisDropzone) {
+        aircraftCounts.set(aircraft, (aircraftCounts.get(aircraft) || 0) + 1)
       }
     }
-    return matched.sort()
-  }
 
-  return [
-    {
-      title: "Antonov",
-      data: removeMatching((a) => a.toLowerCase().includes("antonov")),
-    },
-    {
-      title: "Atlas",
-      data: removeMatching((a) => a.toLowerCase().includes("atlas")),
-    },
-    {
-      title: "Beech",
-      data: [
-        ...removeMatching((a) => a.toLowerCase().includes("beech")),
-        ...removeMatching((a) => a.toLowerCase().includes("king air")),
-      ].sort(),
-    },
-    {
-      title: "de Havilland",
-      data: removeMatching((a) => a.toLowerCase().includes("otter")),
-    },
-    {
-      title: "Douglas",
-      data: [
-        ...removeMatching((a) => a.toLowerCase().includes("dc3")),
-        ...removeMatching((a) => a.toLowerCase().includes("dc9")),
-        ...removeMatching((a) => a.toLowerCase().includes("dc-3")),
-        ...removeMatching((a) => a.toLowerCase().includes("dc-9")),
-      ].sort(),
-    },
-    {
-      title: "Cessna",
-      data: removeMatching((a) => a.toLowerCase().includes("cessna")),
-    },
-    {
-      title: "PAC",
-      data: removeMatching((a) => a.toLowerCase().includes("pac")),
-    },
-    {
-      title: "Pilatus",
-      data: removeMatching((a) => a.toLowerCase().includes("pilatus")),
-    },
-    {
-      title: "Piper",
-      data: removeMatching((a) => a.toLowerCase().includes("piper")),
-    },
-    {
-      title: "Other",
-      data: remaining.sort(),
-    },
-  ].filter((section) => section.data.length > 0)
+    // Convert to array with counts
+    const allAircraft = Array.from(aircraftCounts.entries()).map(([name, count]) => ({
+      name,
+      count,
+    }))
+
+    const remaining = [...allAircraft]
+
+    const removeMatching = (
+      predicate: (a: { name: string; count: number }) => boolean,
+    ): Array<{ name: string; count: number }> => {
+      const matched: Array<{ name: string; count: number }> = []
+      for (let i = remaining.length - 1; i >= 0; i--) {
+        if (predicate(remaining[i])) {
+          matched.push(remaining[i])
+          remaining.splice(i, 1)
+        }
+      }
+      return matched.sort((a, b) => a.name.localeCompare(b.name))
+    }
+
+    return [
+      {
+        title: "Antonov",
+        data: removeMatching((a) => a.name.toLowerCase().includes("antonov")),
+      },
+      {
+        title: "Atlas",
+        data: removeMatching((a) => a.name.toLowerCase().includes("atlas")),
+      },
+      {
+        title: "Beech",
+        data: [
+          ...removeMatching((a) => a.name.toLowerCase().includes("beech")),
+          ...removeMatching((a) => a.name.toLowerCase().includes("king air")),
+        ].sort((a, b) => a.name.localeCompare(b.name)),
+      },
+      {
+        title: "de Havilland",
+        data: removeMatching((a) => a.name.toLowerCase().includes("otter")),
+      },
+      {
+        title: "Douglas",
+        data: [
+          ...removeMatching((a) => a.name.toLowerCase().includes("dc3")),
+          ...removeMatching((a) => a.name.toLowerCase().includes("dc9")),
+          ...removeMatching((a) => a.name.toLowerCase().includes("dc-3")),
+          ...removeMatching((a) => a.name.toLowerCase().includes("dc-9")),
+        ].sort((a, b) => a.name.localeCompare(b.name)),
+      },
+      {
+        title: "Cessna",
+        data: removeMatching((a) => a.name.toLowerCase().includes("cessna")),
+      },
+      {
+        title: "PAC",
+        data: removeMatching((a) => a.name.toLowerCase().includes("pac")),
+      },
+      {
+        title: "Pilatus",
+        data: removeMatching((a) => a.name.toLowerCase().includes("pilatus")),
+      },
+      {
+        title: "Piper",
+        data: removeMatching((a) => a.name.toLowerCase().includes("piper")),
+      },
+      {
+        title: "Other",
+        data: remaining.sort((a, b) => a.name.localeCompare(b.name)),
+      },
+    ].filter((section) => section.data.length > 0)
+  })
 }
 
 /**

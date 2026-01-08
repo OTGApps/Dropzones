@@ -5,7 +5,7 @@ import { Searchbar } from "react-native-paper"
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow } from "../components"
+import { DropzoneListRow, ListSeparator } from "../components"
 import { useFilteredDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
@@ -58,6 +58,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
       data={list}
       ListHeaderComponent={listHeader}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews
     />
   )

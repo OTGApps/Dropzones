@@ -71,7 +71,7 @@ export interface StateGroup {
  */
 export interface AircraftSection {
   title: string
-  data: string[]
+  data: Array<{ name: string; count: number }>
 }
 
 export type { LocationObject }

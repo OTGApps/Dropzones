@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 import { useUniqueTraining } from "../database"
 
@@ -56,6 +57,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
       data={uniqueTraining}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews
     />
   )

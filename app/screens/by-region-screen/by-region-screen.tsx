@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 import { useDropzonesByState } from "../../database"
 
@@ -46,6 +47,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
     />
   )
 }

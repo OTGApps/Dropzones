@@ -7,6 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { ListSeparator } from "@/components"
 
 import { States } from "./states"
 import { useDropzonesByState } from "../../database"
@@ -21,18 +22,32 @@ export const ByStateScreen: FC = function ByStateScreen() {
   const { stateGroups } = useDropzonesByState()
   const { themed } = useAppTheme()
 
-  // Create a lookup map for counts
-  const stateCountMap = useMemo(() => {
-    const map: Record<string, number> = {}
-    for (const group of stateGroups) {
-      map[group.stateCode] = group.count
-    }
-    return map
-  }, [stateGroups])
+  // Separate US states from international and combine international into one group
+  const processedData = useMemo(() => {
+    const stateCountMap: Record<string, number> = {}
+    const usStates: string[] = []
+    let internationalCount = 0
 
-  // Get sorted state codes (2-letter states first, then International)
-  const dataSource = useMemo(() => {
-    return stateGroups.map((g) => g.stateCode)
+    for (const group of stateGroups) {
+      const stateCode = group.stateCode.toLowerCase()
+      // Check if this is a mapped US state/territory
+      if (States[stateCode] && stateCode !== "international") {
+        usStates.push(group.stateCode)
+        stateCountMap[group.stateCode] = group.count
+      } else {
+        // Everything else goes to international
+        internationalCount += group.count
+      }
+    }
+
+    // Add international if there are any international dropzones
+    const dataSource = [...usStates]
+    if (internationalCount > 0) {
+      dataSource.push("international")
+      stateCountMap["international"] = internationalCount
+    }
+
+    return { dataSource, stateCountMap }
   }, [stateGroups])
 
   const renderItem = useCallback(
@@ -41,43 +56,43 @@ export const ByStateScreen: FC = function ByStateScreen() {
 
       return (
         <List.Item
-          title={thisState && thisState.fullName}
+          title={thisState.fullName}
           onPress={() =>
             navigation.navigate("list-detail", {
               item,
               itemType: "state",
-              title: States[item.toLowerCase()].fullName,
+              title: thisState.fullName,
             })
           }
-          left={(props) =>
-            thisState ? (
-              <Avatar.Image
-                {...props}
-                key={`state-image-${index}`}
-                source={thisState.image}
-                size={40}
-              />
-            ) : null
-          }
+          left={(props) => (
+            <Avatar.Image
+              {...props}
+              key={`state-image-${index}`}
+              source={thisState.image}
+              size={40}
+            />
+          )}
           right={(props) => (
             <View style={themed($rightContainer)}>
-              <Badge style={themed($badge)}>{stateCountMap[item] || 0}</Badge>
+              <Badge style={themed($badge)}>{processedData.stateCountMap[item] || 0}</Badge>
               <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
             </View>
           )}
         />
       )
     },
-    [navigation, themed, stateCountMap],
+    [navigation, themed, processedData.stateCountMap],
   )
+
 
   return (
     <FlatList
       style={themed(FULL)}
       removeClippedSubviews
-      data={dataSource}
+      data={processedData.dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
+      ItemSeparatorComponent={ListSeparator}
     />
   )
 }
