@@ -29,7 +29,9 @@ export interface UpdateApplyResult {
  */
 interface RemoteGeoJSON {
   type: "FeatureCollection"
-  version: string
+  metadata: {
+    version: string
+  }
   features: Array<{
     type: "Feature"
     properties: {
@@ -106,7 +108,7 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
     }
   }
 
-  const remoteVersion = data.version || "unknown"
+  const remoteVersion = data.metadata.version || "unknown"
   const hasUpdate = remoteVersion !== currentVersion
 
   return {
@@ -129,7 +131,7 @@ export async function applyUpdate(db: SQLite.SQLiteDatabase): Promise<UpdateAppl
     }
   }
 
-  if (!data.version) {
+  if (!data.metadata.version) {
     return {
       success: false,
       error: "Remote data does not contain a version field",
@@ -138,13 +140,13 @@ export async function applyUpdate(db: SQLite.SQLiteDatabase): Promise<UpdateAppl
 
   try {
     await seedDatabaseFromRemote(db, {
-      version: data.version,
+      version: data.metadata.version,
       features: data.features,
     })
 
     return {
       success: true,
-      newVersion: data.version,
+      newVersion: data.metadata.version,
       dropzoneCount: data.features.length,
     }
   } catch (error) {

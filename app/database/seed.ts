@@ -10,7 +10,8 @@ const dropzoneData = JSON.parse(dropzoneDataRaw)
 /**
  * Version from the bundled GeoJSON file
  */
-export const LOCAL_DATA_VERSION = dropzoneData.metadata?.version || dropzoneData.version || "unknown"
+export const LOCAL_DATA_VERSION =
+  dropzoneData.metadata?.version || dropzoneData.version || "unknown"
 
 interface GeoJSONFeature {
   properties: {
@@ -103,10 +104,12 @@ function normalizeToArray(value: string | string[] | undefined): string[] {
 async function insertDropzones(
   db: SQLite.SQLiteDatabase,
   features: GeoJSONFeature[],
+  onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
   let skipped = 0
   await db.withTransactionAsync(async () => {
-    for (const feature of features) {
+    for (let index = 0; index < features.length; index++) {
+      const feature = features[index]
       const props = feature.properties
       const [lon, lat] = feature.geometry?.coordinates || []
 
@@ -176,6 +179,11 @@ async function insertDropzones(
         nameFirstLetter,
         searchableText,
       )
+
+      // Report progress every 2 features or on the last feature
+      if (onProgress && (index % 2 === 0 || index === features.length - 1)) {
+        onProgress(index + 1, features.length)
+      }
     }
   })
 }
@@ -184,7 +192,10 @@ async function insertDropzones(
  * Seeds the database with dropzone data from the JSON file.
  * Checks the data version and reseeds if the version has changed.
  */
-export async function seedDatabase(db: SQLite.SQLiteDatabase): Promise<void> {
+export async function seedDatabase(
+  db: SQLite.SQLiteDatabase,
+  onProgress?: (current: number, total: number) => void,
+): Promise<void> {
   // Check if we need to reseed based on version or empty database
   const needsReseed = await shouldReseed(db)
 
@@ -200,7 +211,7 @@ export async function seedDatabase(db: SQLite.SQLiteDatabase): Promise<void> {
   await db.runAsync("DELETE FROM dropzones")
 
   const features = dropzoneData.features as GeoJSONFeature[]
-  await insertDropzones(db, features)
+  await insertDropzones(db, features, onProgress)
 
   // Update the stored version after successful seeding
   await updateDataVersion(db)
@@ -216,6 +227,7 @@ export async function seedDatabase(db: SQLite.SQLiteDatabase): Promise<void> {
 export async function seedDatabaseFromRemote(
   db: SQLite.SQLiteDatabase,
   remoteData: { version: string; features: GeoJSONFeature[] },
+  onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
   console.log(`Updating database from remote (version ${remoteData.version})...`)
   const startTime = Date.now()
@@ -223,7 +235,7 @@ export async function seedDatabaseFromRemote(
   // Clear existing data before reseeding
   await db.runAsync("DELETE FROM dropzones")
 
-  await insertDropzones(db, remoteData.features)
+  await insertDropzones(db, remoteData.features, onProgress)
 
   // Store the remote version
   await db.runAsync("INSERT OR REPLACE INTO metadata (key, value) VALUES ('data_version', ?)", [

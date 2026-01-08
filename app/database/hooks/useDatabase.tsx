@@ -17,12 +17,16 @@ interface DatabaseContextValue {
   db: SQLite.SQLiteDatabase | null
   isReady: boolean
   error: Error | null
+  progress: { current: number; total: number } | null
+  message: string | null
 }
 
 const DatabaseContext = createContext<DatabaseContextValue>({
   db: null,
   isReady: false,
   error: null,
+  progress: null,
+  message: null,
 })
 
 interface DatabaseProviderProps {
@@ -74,15 +78,27 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
   const [db, setDb] = useState<SQLite.SQLiteDatabase | null>(null)
   const [isReady, setIsReady] = useState(false)
   const [error, setError] = useState<Error | null>(null)
+  const [progress, setProgress] = useState<{ current: number; total: number } | null>(null)
+  const [message, setMessage] = useState<string | null>(null)
 
   useEffect(() => {
     async function initialize() {
       try {
         console.log("Initializing database...")
+        setMessage("Opening database...")
         const database = await getDatabase()
+
+        setMessage("Creating database schema...")
         await createSchema(database)
-        await seedDatabase(database)
+
+        setMessage("Loading dropzones...")
+        await seedDatabase(database, (current, total) => {
+          setProgress({ current, total })
+        })
+
         setDb(database)
+        setProgress(null)
+        setMessage(null)
         setIsReady(true)
         console.log("Database ready")
 
@@ -93,6 +109,8 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
       } catch (e) {
         console.error("Database initialization failed:", e)
         setError(e instanceof Error ? e : new Error(String(e)))
+        setProgress(null)
+        setMessage(null)
       }
     }
 
@@ -100,7 +118,9 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
   }, [])
 
   return (
-    <DatabaseContext.Provider value={{ db, isReady, error }}>{children}</DatabaseContext.Provider>
+    <DatabaseContext.Provider value={{ db, isReady, error, progress, message }}>
+      {children}
+    </DatabaseContext.Provider>
   )
 }
 

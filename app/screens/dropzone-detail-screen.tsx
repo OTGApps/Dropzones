@@ -3,7 +3,6 @@ import {
   View,
   ViewStyle,
   TextStyle,
-  Dimensions,
   Platform,
   Alert,
   Linking,
@@ -74,7 +73,9 @@ const BottomSheetZoomTracker: FC<{ onZoomChange: (zoom: number) => void }> = ({ 
   return null
 }
 
-export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(props) {
+export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function DropzoneDetailScreen(
+  props,
+) {
   const navigation = useNavigation()
   const {
     theme: { colors },
@@ -163,7 +164,7 @@ export const DropzoneDetailScreen: Component = function DropzoneDetailScreen(pro
       ...selectedDZ.coordinates,
       query: selectedDZ.name,
       end: selectedDZ.name,
-      navigate_mode: "preview",
+      travelType: "drive",
     })
   }
 

@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useState } from "react"
 import { Alert, Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
 import * as Application from "expo-application"
-import { ActivityIndicator, Card, List, Text } from "react-native-paper"
+import { ActivityIndicator, Card, List, ProgressBar, Text } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import Config from "@/config"
@@ -35,6 +35,9 @@ export const AboutScreen: FC = () => {
   const [isChecking, setIsChecking] = useState(false)
   const [dataVersion, setDataVersion] = useState(LOCAL_DATA_VERSION)
   const [lastChecked, setLastChecked] = useState<string | null>(null)
+  const [resetProgress, setResetProgress] = useState<{ current: number; total: number } | null>(
+    null,
+  )
 
   // Load the current data version from the database
   useEffect(() => {
@@ -95,7 +98,10 @@ export const AboutScreen: FC = () => {
           ],
         )
       } else {
-        Alert.alert("Up to Date", `Your dropzone data is up to date (version ${result.currentVersion}).`)
+        Alert.alert(
+          "Up to Date",
+          `Your dropzone data is up to date (version ${result.currentVersion}).`,
+        )
       }
     } finally {
       setIsChecking(false)
@@ -115,13 +121,16 @@ export const AboutScreen: FC = () => {
           style: "destructive",
           onPress: async () => {
             setIsChecking(true)
+            setResetProgress(null)
             try {
               // Delete all dropzones
               await db.runAsync("DELETE FROM dropzones")
               // Delete version metadata to force reseed
               await db.runAsync("DELETE FROM metadata WHERE key = 'data_version'")
-              // Reseed from local file
-              await seedDatabase(db)
+              // Reseed from local file with progress tracking
+              await seedDatabase(db, (current, total) => {
+                setResetProgress({ current, total })
+              })
               // Reload current version
               const result = await db.getFirstAsync<{ value: string }>(
                 "SELECT value FROM metadata WHERE key = 'data_version'",
@@ -129,11 +138,15 @@ export const AboutScreen: FC = () => {
               if (result?.value) {
                 setDataVersion(result.value)
               }
-              Alert.alert("Database Reset", "Successfully reset and reloaded dropzone data from local file.")
+              Alert.alert(
+                "Database Reset",
+                "Successfully reset and reloaded dropzone data from local file.",
+              )
             } catch (error) {
               Alert.alert("Reset Failed", error instanceof Error ? error.message : "Unknown error")
             } finally {
               setIsChecking(false)
+              setResetProgress(null)
             }
           },
         },
@@ -171,7 +184,13 @@ export const AboutScreen: FC = () => {
           </Text>
           <List.Item
             title="Check for Data Updates"
-            description={isChecking ? "Checking..." : formatDescription()}
+            description={
+              resetProgress
+                ? `Resetting database... ${resetProgress.current} / ${resetProgress.total} (${Math.round((resetProgress.current / resetProgress.total) * 100)}%)`
+                : isChecking
+                  ? "Checking..."
+                  : formatDescription()
+            }
             onPress={handleCheckForUpdates}
             onLongPress={handleResetDatabase}
             disabled={isChecking || !db}
@@ -182,7 +201,16 @@ export const AboutScreen: FC = () => {
             )}
             right={() =>
               isChecking ? (
-                <ActivityIndicator size="small" style={themed($activityIndicator)} />
+                resetProgress ? (
+                  <View style={themed($progressContainer)}>
+                    <ProgressBar
+                      progress={resetProgress.current / resetProgress.total}
+                      style={themed($progressBar)}
+                    />
+                  </View>
+                ) : (
+                  <ActivityIndicator size="small" style={themed($activityIndicator)} />
+                )
               ) : (
                 <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
               )
@@ -257,4 +285,16 @@ const $githubIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
 
 const $activityIndicator: ThemedStyle<ViewStyle> = () => ({
   alignSelf: "center",
+})
+
+const $progressContainer: ThemedStyle<ViewStyle> = () => ({
+  width: 100,
+  justifyContent: "center",
+  alignItems: "center",
+  alignSelf: "center",
+})
+
+const $progressBar: ThemedStyle<ViewStyle> = () => ({
+  width: "100%",
+  height: 4,
 })
