@@ -327,22 +327,31 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.phone && (
                 <List.Item
-                  title={selectedDZ.phone}
+                  title="Phone"
+                  description={selectedDZ.phone}
                   onPress={openPhone}
                   left={(props) => (
-                    <Icon name="phone" size={20} color={colors.text} style={themed($iconStyle)} />
+                    <Icon
+                      {...props}
+                      name="phone"
+                      size={20}
+                      color={colors.text}
+                      style={themed($iconStyle)}
+                    />
                   )}
                   right={(props) => (
-                    <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+                    <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
                 />
               )}
               {selectedDZ.email && (
                 <List.Item
-                  title={selectedDZ.email.toLowerCase()}
+                  title="Email"
+                  description={selectedDZ.email.toLowerCase()}
                   onPress={handleEmail}
                   left={(props) => (
                     <Icon
+                      {...props}
                       name="envelope"
                       size={20}
                       color={colors.text}
@@ -350,41 +359,33 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                     />
                   )}
                   right={(props) => (
-                    <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
-                  )}
-                />
-              )}
-              {selectedDZ.location && selectedDZ.location.length > 0 && (
-                <List.Item
-                  title={selectedDZ.location.join("\n")}
-                  onPress={openDrivingDirectons}
-                  left={(props) => (
-                    <Icon name="map" size={20} color={colors.text} style={themed($iconStyle)} />
-                  )}
-                  right={(props) => (
-                    <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+                    <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
                 />
               )}
               {selectedDZ.airport && (
                 <List.Item
-                  title={selectedDZ.airport}
+                  title="Location"
+                  description={selectedDZ.airport || selectedDZ.location.join(", ")}
+                  onPress={openDrivingDirectons}
                   left={(props) => (
-                    <Icon name="plane" size={20} color={colors.text} style={themed($iconStyle)} />
+                    <Icon
+                      {...props}
+                      name="map"
+                      size={20}
+                      color={colors.text}
+                      style={themed($iconStyle)}
+                    />
                   )}
-                />
-              )}
-              {(selectedDZ.country || selectedDZ.state) && (
-                <List.Item
-                  title={[selectedDZ.state, selectedDZ.country].filter(Boolean).join(", ")}
-                  left={(props) => (
-                    <Icon name="globe" size={20} color={colors.text} style={themed($iconStyle)} />
+                  right={(props) => (
+                    <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
                   )}
                 />
               )}
               {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
                 <List.Item
-                  title={selectedDZ.aircraft.slice().sort().join("\n")}
+                  title="Aircraft"
+                  description={selectedDZ.aircraft.slice().sort().join(", ")}
                   left={(props) => (
                     <Icon
                       name="fighter-jet"
@@ -397,9 +398,24 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.services && selectedDZ.services.length > 0 && (
                 <List.Item
-                  title={selectedDZ.services.slice().sort().join("\n")}
+                  title="Services"
+                  description={selectedDZ.services.slice().sort().join(", ")}
                   left={(props) => (
                     <Icon name="bath" size={20} color={colors.text} style={themed($iconStyle)} />
+                  )}
+                />
+              )}
+              {selectedDZ.training && selectedDZ.training.length > 0 && (
+                <List.Item
+                  title="Training Offered"
+                  description={selectedDZ.training.slice().sort().join(", ")}
+                  left={(props) => (
+                    <Icon
+                      name="graduation-cap"
+                      size={20}
+                      color={colors.text}
+                      style={themed($iconStyle)}
+                    />
                   )}
                 />
               )}
