@@ -32,7 +32,8 @@
           "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
         }
       ]
-    }
+    },
+    "appleTeamId": "DW9QQZR4ZL"
   },
   "web": {
     "favicon": "./assets/images/favicon.png",
@@ -65,9 +66,6 @@
     "tsconfigPaths": true
   },
   "extra": {
-    "ignite": {
-      "version": "UNKNOWN"
-    },
     "eas": {
       "projectId": "9ef197d8-34eb-4d05-90aa-a8f0fb7bea3c"
     }
