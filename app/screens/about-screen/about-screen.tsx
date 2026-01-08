@@ -1,9 +1,17 @@
-import { FC } from "react"
-import { Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
+import { FC, useCallback, useEffect, useState } from "react"
+import { Alert, Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
 import * as Application from "expo-application"
-import { Card, List, Text } from "react-native-paper"
+import { ActivityIndicator, Card, List, Text } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
+import Config from "@/config"
+import { useDatabase } from "@/database"
+import {
+  checkForUpdates,
+  applyUpdate,
+  getLastUpdateCheck,
+  setLastUpdateCheck,
+} from "@/services/data-update"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
@@ -22,6 +30,88 @@ export const AboutScreen: FC = () => {
     themed,
     theme: { colors },
   } = useAppTheme()
+  const { db } = useDatabase()
+
+  const [isChecking, setIsChecking] = useState(false)
+  const [dataVersion, setDataVersion] = useState(Config.dataVersion)
+  const [lastChecked, setLastChecked] = useState<string | null>(null)
+
+  // Load the current data version from the database
+  useEffect(() => {
+    async function loadDataVersion() {
+      if (!db) return
+      try {
+        const result = await db.getFirstAsync<{ value: string }>(
+          "SELECT value FROM metadata WHERE key = 'data_version'",
+        )
+        if (result?.value) {
+          setDataVersion(result.value)
+        }
+      } catch {
+        // Use config version as fallback
+      }
+    }
+    loadDataVersion()
+    setLastChecked(getLastUpdateCheck())
+  }, [db])
+
+  const handleCheckForUpdates = useCallback(async () => {
+    if (!db || isChecking) return
+
+    setIsChecking(true)
+    try {
+      const result = await checkForUpdates(db)
+      setLastUpdateCheck(new Date().toISOString())
+      setLastChecked(new Date().toISOString())
+
+      if (result.error) {
+        Alert.alert("Check Failed", result.error)
+        return
+      }
+
+      if (result.hasUpdate) {
+        Alert.alert(
+          "Update Available",
+          `New dropzone data is available (version ${result.remoteVersion}). Would you like to update now?`,
+          [
+            { text: "Later", style: "cancel" },
+            {
+              text: "Update",
+              onPress: async () => {
+                setIsChecking(true)
+                const updateResult = await applyUpdate(db)
+                setIsChecking(false)
+                if (updateResult.success) {
+                  setDataVersion(updateResult.newVersion || dataVersion)
+                  Alert.alert(
+                    "Update Complete",
+                    `Successfully updated to version ${updateResult.newVersion} with ${updateResult.dropzoneCount} dropzones.`,
+                  )
+                } else {
+                  Alert.alert("Update Failed", updateResult.error || "Unknown error occurred.")
+                }
+              },
+            },
+          ],
+        )
+      } else {
+        Alert.alert("Up to Date", `Your dropzone data is up to date (version ${result.currentVersion}).`)
+      }
+    } finally {
+      setIsChecking(false)
+    }
+  }, [db, isChecking, dataVersion])
+
+  const formatDescription = () => {
+    const versionLine = `Data version: ${dataVersion}`
+    if (!lastChecked) return `${versionLine}\nNever checked`
+    try {
+      const date = new Date(lastChecked)
+      return `${versionLine}\nLast checked: ${date.toLocaleDateString()}`
+    } catch {
+      return `${versionLine}\nNever checked`
+    }
+  }
 
   return (
     <ScrollView style={themed($container)}>
@@ -40,19 +130,34 @@ export const AboutScreen: FC = () => {
           <Text variant="bodyMedium" style={themed($versionText)}>
             Version {Application.nativeApplicationVersion} ({Application.nativeBuildVersion})
           </Text>
-          <Text variant="bodyMedium" style={themed($dataDateText)}>
-            Data updated: 9/4/2021
-          </Text>
+          <List.Item
+            title="Check for Data Updates"
+            description={isChecking ? "Checking..." : formatDescription()}
+            onPress={handleCheckForUpdates}
+            disabled={isChecking || !db}
+            left={() => (
+              <View style={themed($updateIconContainer)}>
+                <Icon name="refresh" size={24} color={colors.palette.neutral100} />
+              </View>
+            )}
+            right={() =>
+              isChecking ? (
+                <ActivityIndicator size="small" style={themed($activityIndicator)} />
+              ) : (
+                <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+              )
+            }
+          />
           <List.Item
             title="Dropzones is open source!"
             description="Go to Github to find out more"
             onPress={openGithub}
-            left={(props) => (
+            left={() => (
               <View style={themed($githubIconContainer)}>
                 <Icon name="github" size={24} color={colors.palette.neutral100} />
               </View>
             )}
-            right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+            right={() => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
           />
         </Card.Content>
       </Card>
@@ -88,9 +193,15 @@ const $versionText: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.text,
 })
 
-const $dataDateText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
-  color: colors.palette.neutral600,
-  marginTop: spacing.xxs,
+const $updateIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  width: 40,
+  height: 40,
+  borderRadius: 20,
+  backgroundColor: colors.palette.secondary500,
+  justifyContent: "center",
+  alignItems: "center",
+  marginRight: spacing.sm,
+  alignSelf: "center",
 })
 
 const $githubIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
@@ -101,5 +212,9 @@ const $githubIconContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
   justifyContent: "center",
   alignItems: "center",
   marginRight: spacing.sm,
+  alignSelf: "center",
+})
+
+const $activityIndicator: ThemedStyle<ViewStyle> = () => ({
   alignSelf: "center",
 })
