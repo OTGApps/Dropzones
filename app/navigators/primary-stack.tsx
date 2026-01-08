@@ -42,7 +42,7 @@ const PrimaryStack = () => {
           headerShown: true,
           gestureEnabled: true,
           headerStyle: {
-            backgroundColor: colors.tint,
+            backgroundColor: colors.headerBackground,
           },
           headerTintColor: colors.palette.neutral100,
           headerTitleStyle: {

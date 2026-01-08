@@ -44,7 +44,7 @@ export function PrimaryNavigator() {
         headerBackButtonDisplayMode: "minimal",
         gestureEnabled: true,
         headerStyle: {
-          backgroundColor: colors.tint,
+          backgroundColor: colors.headerBackground,
         },
         headerTintColor: colors.palette.neutral100,
         headerTitleStyle: {
