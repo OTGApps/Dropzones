@@ -6,8 +6,8 @@ import { List } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 import { $chevronRight } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useDropzonesByState } from "../../database"
 
@@ -34,7 +34,9 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
           itemType: "state",
         })
       }
-      right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+      right={(props) => (
+        <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+      )}
     />
   )
 

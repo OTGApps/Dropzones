@@ -33,7 +33,9 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
             title: item,
           })
         }
-        right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+        right={(props) => (
+          <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+        )}
       />
     ),
     [navigation, themed],

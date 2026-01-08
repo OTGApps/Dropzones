@@ -96,7 +96,7 @@ export const MapScreen: FC = function MapScreen() {
               description={dropzone.stateCode}
               onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
               right={(props) => (
-                <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+                <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
               )}
             />
           </Callout>

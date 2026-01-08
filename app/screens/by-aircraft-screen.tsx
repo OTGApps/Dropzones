@@ -61,11 +61,13 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         <List.Item
           title={item}
           onPress={onPressed}
-          right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+          right={(props) => (
+            <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+          )}
         />
       )
     },
-    [navigation],
+    [navigation, themed],
   )
 
   const hideHeaderComponent = () => {

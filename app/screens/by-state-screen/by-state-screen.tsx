@@ -62,7 +62,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
           right={(props) => (
             <View style={themed($rightContainer)}>
               <Badge style={themed($badge)}>{stateCountMap[item] || 0}</Badge>
-              <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+              <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
             </View>
           )}
         />

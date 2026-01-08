@@ -107,12 +107,18 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
             : undefined
         }
         left={(props) => (
-          <Icon color={colors.tint} name={item.iconName} size={20} style={themed($leftIcon)} />
+          <Icon
+            {...props}
+            name={item.iconName}
+            color={colors.tint}
+            size={20}
+            style={themed($leftIcon)}
+          />
         )}
         right={(props) => (
           <View style={themed($rightContainer)}>
             {rightEl}
-            <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+            <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
           </View>
         )}
       />

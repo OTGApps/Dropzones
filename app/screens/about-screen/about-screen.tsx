@@ -199,7 +199,7 @@ export const AboutScreen: FC = () => {
                 <Icon name="refresh" size={24} color={colors.palette.neutral100} />
               </View>
             )}
-            right={() =>
+            right={(props) =>
               isChecking ? (
                 resetProgress ? (
                   <View style={themed($progressContainer)}>
@@ -212,7 +212,7 @@ export const AboutScreen: FC = () => {
                   <ActivityIndicator size="small" style={themed($activityIndicator)} />
                 )
               ) : (
-                <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+                <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
               )
             }
           />
@@ -225,7 +225,9 @@ export const AboutScreen: FC = () => {
                 <Icon name="github" size={24} color={colors.palette.neutral100} />
               </View>
             )}
-            right={() => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+            right={() => (
+              <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+            )}
           />
         </Card.Content>
       </Card>

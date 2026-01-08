@@ -46,7 +46,7 @@ const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
       right={(props) => (
         <>
           {rightElement}
-          <Icon name="chevron-right" size={16} style={themed($chevronRight)} />
+          <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
         </>
       )}
     />

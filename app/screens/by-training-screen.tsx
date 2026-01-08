@@ -18,10 +18,12 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 const keyExtractor = (item, index) => index.toString()
 
 const TRAINING_TITLES = {
-  iad: "Instructor Assisted Deployment",
-  aff: "Assisted Free Fall",
-  sl: "Static Line",
-  tandem: "Tandem",
+  "iad": "Instructor Assisted Deployment",
+  "aff": "Assisted Free Fall",
+  "sl": "Static Line",
+  "tandem": "Tandem",
+  "instructor assisted deployment": "Instructor Assisted Deployment",
+  "static line": "Static Line",
 }
 
 export const ByTrainingScreen: FC = function ByTrainingScreen() {
@@ -40,7 +42,9 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
             title: TRAINING_TITLES[item.toLowerCase()],
           })
         }
-        right={(props) => <Icon name="chevron-right" size={16} style={themed($chevronRight)} />}
+        right={(props) => (
+          <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+        )}
       />
     ),
     [navigation, themed],
