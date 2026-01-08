@@ -43,13 +43,37 @@ export const CREATE_METADATA_TABLE = `
 `
 
 /**
+ * Checks if the database schema exists.
+ */
+async function schemaExists(db: SQLite.SQLiteDatabase): Promise<boolean> {
+  const result = await db.getFirstAsync<{ count: number }>(
+    "SELECT COUNT(*) as count FROM sqlite_master WHERE type='table' AND name='dropzones'",
+  )
+  return result !== null && result.count > 0
+}
+
+/**
  * Creates all tables and indexes in the database.
+ * Only runs if the schema doesn't already exist.
  */
 export async function createSchema(db: SQLite.SQLiteDatabase): Promise<void> {
+  const exists = await schemaExists(db)
+
+  if (exists) {
+    console.log("[DB] Schema already exists, skipping creation")
+    return
+  }
+
+  console.log("[DB] Creating database schema...")
+  const startTime = Date.now()
+
   await db.execAsync(`
     ${CREATE_DROPZONES_TABLE};
     ${CREATE_STATE_INDEX};
     ${CREATE_NAME_LETTER_INDEX};
     ${CREATE_METADATA_TABLE};
   `)
+
+  const elapsed = Date.now() - startTime
+  console.log(`[DB] Schema created in ${elapsed}ms`)
 }

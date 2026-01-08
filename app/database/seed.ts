@@ -113,8 +113,16 @@ async function insertDropzones(
   features: GeoJSONFeature[],
   onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
+  console.log(`[DB] Starting to insert ${features.length} dropzones...`)
+  const startTime = Date.now()
   let skipped = 0
+  let insertCount = 0
+
+  const transactionStart = Date.now()
   await db.withTransactionAsync(async () => {
+    console.log(`[DB] Transaction started in ${Date.now() - transactionStart}ms`)
+    const batchStart = Date.now()
+
     for (let index = 0; index < features.length; index++) {
       const feature = features[index]
       const props = feature.properties
@@ -186,13 +194,29 @@ async function insertDropzones(
         nameFirstLetter,
         searchableText,
       )
+      insertCount++
 
       // Report progress every 2 features or on the last feature
       if (onProgress && (index % 2 === 0 || index === features.length - 1)) {
         onProgress(index + 1, features.length)
       }
+
+      // Log progress every 50 inserts
+      if (insertCount % 50 === 0) {
+        const elapsed = Date.now() - batchStart
+        const rate = (insertCount / elapsed) * 1000
+        console.log(
+          `[DB] Inserted ${insertCount}/${features.length} dropzones (${rate.toFixed(1)} rows/sec)`,
+        )
+      }
     }
   })
+
+  const elapsed = Date.now() - startTime
+  const rate = (insertCount / elapsed) * 1000
+  console.log(
+    `[DB] Insert complete: ${insertCount} inserted, ${skipped} skipped in ${elapsed}ms (${rate.toFixed(1)} rows/sec)`,
+  )
 }
 
 /**
@@ -203,28 +227,37 @@ export async function seedDatabase(
   db: SQLite.SQLiteDatabase,
   onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
+  const totalStart = Date.now()
+
   // Check if we need to reseed based on version or empty database
   const needsReseed = await shouldReseed(db)
 
   if (!needsReseed) {
-    console.log(`Database up to date (version ${LOCAL_DATA_VERSION})`)
+    console.log(`[DB] Database up to date (version ${LOCAL_DATA_VERSION})`)
     return
   }
 
-  console.log(`Seeding database with dropzone data (version ${LOCAL_DATA_VERSION})...`)
+  console.log(`[DB] Seeding database with dropzone data (version ${LOCAL_DATA_VERSION})...`)
   const startTime = Date.now()
 
   // Clear existing data before reseeding
+  const deleteStart = Date.now()
   await db.runAsync("DELETE FROM dropzones")
+  console.log(`[DB] Cleared existing data in ${Date.now() - deleteStart}ms`)
 
   const features = dropzoneData.features as GeoJSONFeature[]
   await insertDropzones(db, features, onProgress)
 
   // Update the stored version after successful seeding
+  const versionStart = Date.now()
   await updateDataVersion(db)
+  console.log(`[DB] Updated version metadata in ${Date.now() - versionStart}ms`)
 
   const elapsed = Date.now() - startTime
-  console.log(`Database seeded with ${features.length} dropzones in ${elapsed}ms`)
+  const totalElapsed = Date.now() - totalStart
+  console.log(
+    `[DB] ✅ Database seeded with ${features.length} dropzones in ${elapsed}ms (total: ${totalElapsed}ms)`,
+  )
 }
 
 /**
@@ -236,19 +269,25 @@ export async function seedDatabaseFromRemote(
   remoteData: { version: string; features: GeoJSONFeature[] },
   onProgress?: (current: number, total: number) => void,
 ): Promise<void> {
-  console.log(`Updating database from remote (version ${remoteData.version})...`)
+  console.log(`[DB] Updating database from remote (version ${remoteData.version})...`)
   const startTime = Date.now()
 
   // Clear existing data before reseeding
+  const deleteStart = Date.now()
   await db.runAsync("DELETE FROM dropzones")
+  console.log(`[DB] Cleared existing data in ${Date.now() - deleteStart}ms`)
 
   await insertDropzones(db, remoteData.features, onProgress)
 
   // Store the remote version
+  const versionStart = Date.now()
   await db.runAsync("INSERT OR REPLACE INTO metadata (key, value) VALUES ('data_version', ?)", [
     remoteData.version,
   ])
+  console.log(`[DB] Updated version metadata in ${Date.now() - versionStart}ms`)
 
   const elapsed = Date.now() - startTime
-  console.log(`Database updated with ${remoteData.features.length} dropzones in ${elapsed}ms`)
+  console.log(
+    `[DB] ✅ Database updated with ${remoteData.features.length} dropzones in ${elapsed}ms`,
+  )
 }
