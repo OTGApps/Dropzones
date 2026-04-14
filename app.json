@@ -9,14 +9,11 @@
   "updates": {
     "fallbackToCacheTimeout": 0
   },
-  "newArchEnabled": true,
-  "jsEngine": "hermes",
   "assetBundlePatterns": ["**/*"],
   "android": {
     "package": "io.otgapps.dropzones",
     "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
     "allowBackup": false,
-    "edgeToEdgeEnabled": true,
     "config": {
       "googleMaps": {
         "apiKey": "AIzaSyDRsjdrHQu1hxIInW6yH2k34Jfrn80hcsU"
