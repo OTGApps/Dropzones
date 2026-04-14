@@ -39,7 +39,7 @@ export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 /**
  * Wrapper component that shows LoadingScreen while database is initializing.
  */
-function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): JSX.Element | null {
+function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): React.JSX.Element | null {
   const { isReady, progress, message } = useDatabase()
 
   if (!isReady) {

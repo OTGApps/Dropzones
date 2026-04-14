@@ -21,13 +21,11 @@ const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
   const { item, rightElement, index, subtitle } = props
 
   const pressed = useCallback(() => {
-    navigation.navigate(
-      "dropzone-detail" as never,
-      {
-        anchor: props.item.anchor.toString(),
-        title: props.item.name,
-      } as never,
-    )
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ;(navigation as any).navigate("dropzone-detail", {
+      anchor: props.item.anchor.toString(),
+      title: props.item.name,
+    })
   }, [navigation, props.item.anchor, props.item.name])
 
   // Generate subtitle from airport/country/state if not explicitly provided
