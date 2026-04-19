@@ -18,6 +18,9 @@
       "googleMaps": {
         "apiKey": "AIzaSyDRsjdrHQu1hxIInW6yH2k34Jfrn80hcsU"
       }
+    },
+    "androidNavigationBar": {
+      "enforceContrast": false
     }
   },
   "ios": {
@@ -51,15 +54,6 @@
         "imageWidth": 300,
         "resizeMode": "contain",
         "backgroundColor": "#000000"
-      }
-    ],
-    [
-      "react-native-edge-to-edge",
-      {
-        "android": {
-          "parentTheme": "Light",
-          "enforceNavigationBarContrast": false
-        }
       }
     ],
     "expo-build-properties"
