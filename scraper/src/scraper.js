@@ -420,7 +420,8 @@ export class DZScraper {
     if (dz.PhysicalAddressLine1) location.push(dz.PhysicalAddressLine1)
     if (dz.PhysicalAddressLine2) location.push(dz.PhysicalAddressLine2)
 
-    const cityStateZip = [dz.PhysicalCity, dz.PhysicalState, dz.PhysicalZip]
+    const physicalState = this.stateAbbreviations[dz.PhysicalState] || dz.PhysicalState
+    const cityStateZip = [dz.PhysicalCity, physicalState, dz.PhysicalZip]
       .filter(Boolean)
       .join(", ")
 
