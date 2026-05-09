@@ -1,13 +1,13 @@
 import { FC, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
+import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import Icon from "@expo/vector-icons/FontAwesome"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { useUniqueServices } from "../database"
 

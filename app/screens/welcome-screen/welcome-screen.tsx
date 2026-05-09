@@ -1,14 +1,14 @@
 import { FC, useState, useEffect } from "react"
 import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
+import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import Icon from "@expo/vector-icons/FontAwesome"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 const MenuItems = require("./menu-items.json")
 

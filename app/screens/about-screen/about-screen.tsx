@@ -1,8 +1,8 @@
 import { FC, useCallback, useEffect, useState } from "react"
 import { Alert, Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
 import * as Application from "expo-application"
-import { ActivityIndicator, Card, List, ProgressBar, Text } from "react-native-paper"
 import Icon from "@expo/vector-icons/FontAwesome"
+import { ActivityIndicator, Card, List, ProgressBar, Text } from "react-native-paper"
 
 import { useDatabase, seedDatabase, LOCAL_DATA_VERSION } from "@/database"
 import {

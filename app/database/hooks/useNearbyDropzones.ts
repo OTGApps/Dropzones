@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import type { LocationObject } from "expo-location"
-import type { DropzoneWithDistance } from "../types"
+
 import { getAllDropzones } from "../queries"
+import type { DropzoneWithDistance } from "../types"
 import { useDatabase } from "./useDatabase"
 import distanceCalculator from "../../utils/lat-long-to-km"
 

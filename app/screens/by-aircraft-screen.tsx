@@ -1,13 +1,13 @@
 import { FC, useState, useEffect, useCallback, useMemo } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
+import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
-import Icon from "@expo/vector-icons/FontAwesome"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight, $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"

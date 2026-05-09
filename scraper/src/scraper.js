@@ -271,7 +271,9 @@ export class DZScraper {
       }
     }
 
-    console.log(`\nCaching complete: ${downloaded} rendered, ${skipped} cached, ${deleted} deleted, ${failed} failed.`)
+    console.log(
+      `\nCaching complete: ${downloaded} rendered, ${skipped} cached, ${deleted} deleted, ${failed} failed.`,
+    )
   }
 
   /**
@@ -434,9 +436,7 @@ export class DZScraper {
     if (dz.PhysicalAddressLine2) location.push(dz.PhysicalAddressLine2)
 
     const physicalState = this.stateAbbreviations[dz.PhysicalState] || dz.PhysicalState
-    const cityStateZip = [dz.PhysicalCity, physicalState, dz.PhysicalZip]
-      .filter(Boolean)
-      .join(", ")
+    const cityStateZip = [dz.PhysicalCity, physicalState, dz.PhysicalZip].filter(Boolean).join(", ")
 
     if (cityStateZip) location.push(cityStateZip)
     if (dz.PhysicalCountry && dz.PhysicalCountry !== "US") {
