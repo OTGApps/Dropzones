@@ -1,4 +1,5 @@
 import type * as SQLite from "expo-sqlite"
+
 import type { Dropzone, DropzoneRow, StateGroup, AircraftSection } from "./types"
 
 /**
@@ -17,6 +18,14 @@ function withTiming<T>(queryName: string, fn: () => Promise<T>): Promise<T> {
  * Transforms a database row into a Dropzone object.
  * Parses JSON array fields and restructures coordinates.
  */
+function safeParseArray(json: string): string[] {
+  try {
+    return JSON.parse(json)
+  } catch {
+    return []
+  }
+}
+
 function rowToDropzone(row: DropzoneRow): Dropzone {
   return {
     anchor: row.anchor,
@@ -25,10 +34,10 @@ function rowToDropzone(row: DropzoneRow): Dropzone {
     description: row.description,
     phone: row.phone,
     website: row.website,
-    aircraft: JSON.parse(row.aircraft),
-    location: JSON.parse(row.location),
-    services: JSON.parse(row.services),
-    training: JSON.parse(row.training),
+    aircraft: safeParseArray(row.aircraft),
+    location: safeParseArray(row.location),
+    services: safeParseArray(row.services),
+    training: safeParseArray(row.training),
     coordinates: {
       latitude: row.latitude,
       longitude: row.longitude,
@@ -213,7 +222,7 @@ export async function getFilteredDropzones(
       const normalizedSearchTerm = item.toLowerCase()
 
       const matchingDropzones = allRows.filter((row) => {
-        const aircraftList: string[] = JSON.parse(row.aircraft)
+        const aircraftList = safeParseArray(row.aircraft)
         return aircraftList.some((plane) => {
           const normalized = normalizeAircraftName(plane)
           return normalized.toLowerCase() === normalizedSearchTerm
@@ -248,18 +257,9 @@ export async function getUniqueAircraft(db: SQLite.SQLiteDatabase): Promise<stri
     const aircraftSet = new Set<string>()
 
     for (const row of rows) {
-      const aircraftList: string[] = JSON.parse(row.aircraft)
+      const aircraftList = safeParseArray(row.aircraft)
       for (const plane of aircraftList) {
-        // Remove leading numbers (e.g., "2 Cessna 182" -> "Cessna 182")
-        let normalized = plane
-        if (plane.match(/^\d+ /)) {
-          normalized = plane.substring(plane.indexOf(" ") + 1)
-        }
-        // Remove trailing 's' for plurals
-        if (normalized.endsWith("s") && normalized.length > 1) {
-          normalized = normalized.slice(0, -1)
-        }
-        aircraftSet.add(normalized)
+        aircraftSet.add(normalizeAircraftName(plane))
       }
     }
 
@@ -281,20 +281,11 @@ export async function getUniqueAircraftSorted(
 
     // Process all aircraft and count occurrences
     for (const row of rows) {
-      const aircraftList: string[] = JSON.parse(row.aircraft)
+      const aircraftList = safeParseArray(row.aircraft)
       const normalizedInThisDropzone = new Set<string>()
 
       for (const plane of aircraftList) {
-        // Remove leading numbers (e.g., "2 Cessna 182" -> "Cessna 182")
-        let normalized = plane
-        if (plane.match(/^\d+ /)) {
-          normalized = plane.substring(plane.indexOf(" ") + 1)
-        }
-        // Remove trailing 's' for plurals
-        if (normalized.endsWith("s") && normalized.length > 1) {
-          normalized = normalized.slice(0, -1)
-        }
-        normalizedInThisDropzone.add(normalized)
+        normalizedInThisDropzone.add(normalizeAircraftName(plane))
       }
 
       // Count each unique aircraft once per dropzone

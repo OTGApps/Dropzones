@@ -156,7 +156,7 @@ async function insertDropzones(
 
           // Pre-compute derived fields
           const stateCode = props.state
-          const nameFirstLetter = props.name[0].toUpperCase()
+          const nameFirstLetter = props.name?.[0]?.toUpperCase() ?? "#"
           const searchableText = [
             props.name,
             props.description || "",
