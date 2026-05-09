@@ -1,13 +1,13 @@
 import { FC, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
+import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import Icon from "@expo/vector-icons/FontAwesome"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { useUniqueTraining } from "../database"
 
@@ -16,7 +16,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item: string) => item
 
 const TRAINING_TITLES = {
   "iad": "Instructor Assisted Deployment",
@@ -33,14 +33,14 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
-    ({ item }) => (
+    ({ item }: { item: string }) => (
       <List.Item
-        title={TRAINING_TITLES[item.toLowerCase()]}
+        title={TRAINING_TITLES[item.toLowerCase() as keyof typeof TRAINING_TITLES] ?? item}
         onPress={() =>
           navigation.navigate("list-detail", {
             item,
             itemType: "training",
-            title: TRAINING_TITLES[item.toLowerCase()],
+            title: TRAINING_TITLES[item.toLowerCase() as keyof typeof TRAINING_TITLES] ?? item,
           })
         }
         right={(props) => (

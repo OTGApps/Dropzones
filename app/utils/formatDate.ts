@@ -11,7 +11,7 @@ type Options = Parameters<typeof format>[2]
 
 let dateFnsLocale: Locale
 export const loadDateFnsLocale = () => {
-  const primaryTag = i18n.language.split("-")[0]
+  const primaryTag = (i18n.language ?? "en").split("-")[0]
   switch (primaryTag) {
     case "en":
       dateFnsLocale = require("date-fns/locale/en-US").default

@@ -1,8 +1,8 @@
 import { FC, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
+import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
-import Icon from "@expo/vector-icons/FontAwesome"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
@@ -89,7 +89,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
       style={themed(FULL)}
       removeClippedSubviews
       data={processedData.dataSource}
-      keyExtractor={(item, idx) => idx.toString()}
+      keyExtractor={(item) => item}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
     />

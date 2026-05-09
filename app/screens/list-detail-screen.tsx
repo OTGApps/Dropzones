@@ -8,6 +8,7 @@ import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow, ListSeparator } from "../components"
 import { useFilteredDropzones } from "../database"
+import type { Dropzone } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -17,7 +18,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 export interface ListDetailScreenProps {
   route: any
 }
-const keyExtractor = (_item, index) => index.toString()
+const keyExtractor = (item: Dropzone) => item.anchor.toString()
 
 export const ListDetailScreen: FC = function ListDetailScreen(props) {
   const { route } = props as ListDetailScreenProps
