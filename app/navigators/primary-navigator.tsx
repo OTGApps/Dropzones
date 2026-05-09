@@ -1,5 +1,5 @@
+import type { TextStyle } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import _ from "lodash"
 
 import { useAppTheme } from "@/theme/context"
 
@@ -48,8 +48,7 @@ export function PrimaryNavigator() {
         },
         headerTintColor: colors.palette.neutral100,
         headerTitleStyle: {
-          // @ts-ignore
-          fontWeight: "bold",
+          fontWeight: "bold" as TextStyle["fontWeight"],
         },
       }}
     >
@@ -62,17 +61,17 @@ export function PrimaryNavigator() {
       />
       <Stack.Screen
         name="list-detail"
-        options={({ route }) => ({ title: _.get(route, "params.title", "Detail") })}
+        options={({ route }) => ({ title: (route.params as any)?.title ?? "Detail" })}
         component={ListDetailScreen}
       />
       <Stack.Screen
         name="near-me"
-        options={({ route }) => ({ title: _.get(route, "params.item", "Dropzones Near Me") })}
+        options={({ route }) => ({ title: (route.params as any)?.item ?? "Dropzones Near Me" })}
         component={NearMeScreen}
       />
       <Stack.Screen
         name="dropzone-detail"
-        options={({ route }) => ({ title: _.get(route, "params.title", "Dropzone Detail") })}
+        options={({ route }) => ({ title: (route.params as any)?.title ?? "Dropzone Detail" })}
         component={DropzoneDetailScreen}
       />
       <Stack.Screen

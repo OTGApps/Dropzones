@@ -1,6 +1,5 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { View } from "react-native"
 import Icon from "@expo/vector-icons/FontAwesome"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { useAppTheme } from "@/theme/context"
 
@@ -10,8 +9,6 @@ import PrimaryStack from "./primary-stack"
 export type NavigatorParamList = {
   dropzones: undefined
   map: undefined
-  Home: undefined
-  Profile: undefined
 }
 
 const Tab = createBottomTabNavigator<NavigatorParamList>()
