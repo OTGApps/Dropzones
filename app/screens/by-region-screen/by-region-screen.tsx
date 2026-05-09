@@ -3,7 +3,7 @@ import { ViewStyle, FlatList } from "react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { List } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
+import Icon from "@expo/vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
