@@ -42,7 +42,7 @@ export function load<T>(key: string): T | null {
     almostThere = loadString(key)
     return JSON.parse(almostThere ?? "") as T
   } catch {
-    return (almostThere as T) ?? null
+    return null
   }
 }
 
