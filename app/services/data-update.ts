@@ -79,6 +79,7 @@ async function fetchRemoteData(): Promise<{ data: RemoteGeoJSON | null; error?: 
       headers: {
         Accept: "application/json",
       },
+      signal: AbortSignal.timeout(15_000),
     })
 
     if (!response.ok) {
@@ -86,6 +87,11 @@ async function fetchRemoteData(): Promise<{ data: RemoteGeoJSON | null; error?: 
     }
 
     const data = (await response.json()) as RemoteGeoJSON
+
+    if (!data?.metadata?.version || !Array.isArray(data?.features)) {
+      return { data: null, error: "Remote data has unexpected structure" }
+    }
+
     return { data }
   } catch (error) {
     return { data: null, error: error instanceof Error ? error.message : "Unknown error" }
@@ -117,7 +123,7 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
       currentVersion,
       remoteVersion,
     }
-  } catch (e: Error | unknown) {
+  } catch {
     return {
       hasUpdate: false,
       currentVersion,
