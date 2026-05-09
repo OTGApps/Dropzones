@@ -6,7 +6,7 @@ import { useAppTheme } from "@/theme/context"
 import { $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow, ListSeparator } from "../components"
+import { DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useDropzoneSearch, type Dropzone } from "../database"
 
 const FULL: ViewStyle = {
@@ -96,6 +96,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
       ListHeaderComponent={listHeader}
+      ListEmptyComponent={<ListEmpty />}
     />
   )
 }
