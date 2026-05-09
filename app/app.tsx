@@ -19,6 +19,7 @@ if (__DEV__) {
 import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
+import { View, Text, ViewStyle, TextStyle } from "react-native"
 import { useFonts } from "expo-font"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { PaperProvider } from "react-native-paper"
@@ -29,7 +30,8 @@ import { DatabaseProvider, useDatabase } from "./database"
 import { initI18n } from "./i18n"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
-import { ThemeProvider } from "./theme/context"
+import { ThemeProvider, useAppTheme } from "./theme/context"
+import type { ThemedStyle } from "./theme/types"
 import { customFontsToLoad } from "./theme/typography"
 import { loadDateFnsLocale } from "./utils/formatDate"
 import * as storage from "./utils/storage"
@@ -39,8 +41,23 @@ export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 /**
  * Wrapper component that shows LoadingScreen while database is initializing.
  */
-function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): React.JSX.Element | null {
-  const { isReady, progress, message } = useDatabase()
+function DatabaseLoadingWrapper({
+  children,
+}: {
+  children: React.ReactNode
+}): React.JSX.Element | null {
+  const { isReady, error, progress, message } = useDatabase()
+  const { themed } = useAppTheme()
+
+  if (error) {
+    return (
+      <View style={themed($dbErrorContainer)}>
+        <Text style={themed($dbErrorTitle)}>Failed to initialize database</Text>
+        <Text style={themed($dbErrorMessage)}>{error.message}</Text>
+        <Text style={themed($dbErrorHint)}>Please restart the app.</Text>
+      </View>
+    )
+  }
 
   if (!isReady) {
     return <LoadingScreen message={message} progress={progress} />
@@ -48,6 +65,31 @@ function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): Re
 
   return <>{children}</>
 }
+
+const $dbErrorContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  padding: spacing.lg,
+})
+
+const $dbErrorTitle: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  fontSize: 18,
+  fontWeight: "bold",
+  marginBottom: spacing.sm,
+  textAlign: "center",
+  color: colors.text,
+})
+
+const $dbErrorMessage: ThemedStyle<TextStyle> = ({ colors }) => ({
+  textAlign: "center",
+  color: colors.textDim,
+})
+
+const $dbErrorHint: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  marginTop: spacing.md,
+  color: colors.textDim,
+})
 
 /**
  * This is the root component of our app.
@@ -65,7 +107,10 @@ export function App() {
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
 
   useEffect(() => {
-    Promise.all([initI18n().then(() => setIsI18nInitialized(true)), loadDateFnsLocale()])
+    initI18n().then(() => {
+      setIsI18nInitialized(true)
+      loadDateFnsLocale()
+    })
   }, [])
 
   // Before we show the app, we have to wait for our state to be ready.
