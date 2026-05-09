@@ -225,6 +225,19 @@ export class DZScraper {
   async cacheDetailPages(dropzones) {
     fs.mkdirSync(this.dropzoneDir, { recursive: true })
 
+    const activeIds = new Set(dropzones.map((dz) => String(dz.Id)))
+    const existingFiles = fs.readdirSync(this.dropzoneDir).filter((f) => f.endsWith(".html"))
+    let deleted = 0
+    for (const file of existingFiles) {
+      const id = file.replace(".html", "")
+      if (!activeIds.has(id)) {
+        fs.unlinkSync(path.join(this.dropzoneDir, file))
+        console.log(`Deleted stale cache: ${file}`)
+        deleted++
+      }
+    }
+    if (deleted > 0) console.log()
+
     let downloaded = 0
     let skipped = 0
     let failed = 0
@@ -258,7 +271,7 @@ export class DZScraper {
       }
     }
 
-    console.log(`\nCaching complete: ${downloaded} rendered, ${skipped} cached, ${failed} failed.`)
+    console.log(`\nCaching complete: ${downloaded} rendered, ${skipped} cached, ${deleted} deleted, ${failed} failed.`)
   }
 
   /**
