@@ -49,7 +49,6 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
-      removeClippedSubviews
     />
   )
 }

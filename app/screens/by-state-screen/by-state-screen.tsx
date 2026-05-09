@@ -87,7 +87,6 @@ export const ByStateScreen: FC = function ByStateScreen() {
   return (
     <FlatList
       style={themed(FULL)}
-      removeClippedSubviews
       data={processedData.dataSource}
       keyExtractor={(item) => item}
       renderItem={renderItem}

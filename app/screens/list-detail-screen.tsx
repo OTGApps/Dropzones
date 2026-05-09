@@ -69,7 +69,6 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
       ListHeaderComponent={listHeader}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
-      removeClippedSubviews
     />
   )
 }

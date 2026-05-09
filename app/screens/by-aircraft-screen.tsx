@@ -161,7 +161,6 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         renderSectionHeader={renderSectionHeader}
         ItemSeparatorComponent={ListSeparator}
         ListHeaderComponent={listHeader}
-        removeClippedSubviews
       />
     </View>
   )
