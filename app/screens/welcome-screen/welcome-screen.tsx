@@ -12,10 +12,6 @@ import { ThemedStyle } from "@/theme/types"
 
 const MenuItems = require("./menu-items.json")
 
-const FULL: ViewStyle = {
-  flex: 1,
-}
-
 export const WelcomeScreen: FC = function WelcomeScreen() {
   const {
     themed,
@@ -128,13 +124,17 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
 
   return (
     <FlatList
-      style={themed(FULL)}
+      style={themed($full)}
       data={MenuItems}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
     />
   )
+}
+
+const $full: ViewStyle = {
+  flex: 1,
 }
 
 const $headerIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({

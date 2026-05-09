@@ -7,14 +7,10 @@ import { ThemedStyle } from "@/theme/types"
 import { SpeedLimitSign, DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useNearbyDropzones } from "../database"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 export interface NearMeScreenProps {
   route: any
 }
+
 const keyExtractor = (item, index) => index.toString()
 
 export const NearMeScreen: FC = function NearMeScreen(props) {
@@ -37,7 +33,7 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
   return (
     <FlatList
       key="list"
-      style={themed(FULL)}
+      style={themed($full)}
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       ListEmptyComponent={<ListEmpty message="No dropzones found nearby" />}
@@ -46,3 +42,8 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})

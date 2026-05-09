@@ -5,21 +5,6 @@ import { View, Animated, StyleSheet, ViewStyle, TextStyle } from "react-native"
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-const CONTAINER: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  flex: 1,
-  alignItems: "center",
-  justifyContent: "center",
-  padding: spacing.xl,
-  gap: spacing.md,
-})
-
-const MESSAGE: ThemedStyle<TextStyle> = ({ colors, typography }) => ({
-  color: colors.textDim,
-  fontFamily: typography.primary.normal,
-  fontSize: 16,
-  textAlign: "center",
-})
-
 interface ListEmptyProps {
   message?: string
 }
@@ -38,22 +23,18 @@ export const ListEmpty: FC<ListEmptyProps> = function ListEmpty({
 
   useEffect(() => {
     Animated.parallel([
-      // Text fades in immediately
       Animated.timing(textOpacity, {
         toValue: 1,
         duration: 300,
         useNativeDriver: true,
       }),
       Animated.sequence([
-        // Plane springs in from the left
         Animated.spring(planeX, {
           toValue: 0,
           tension: 60,
           friction: 7,
           useNativeDriver: true,
         }),
-        Animated.delay(100),
-        // Plane exits right as sad face springs in from the left
         Animated.parallel([
           Animated.timing(planeX, {
             toValue: 400,
@@ -72,10 +53,13 @@ export const ListEmpty: FC<ListEmptyProps> = function ListEmpty({
   }, [planeX, sadFaceX, textOpacity])
 
   return (
-    <View style={themed(CONTAINER)}>
-      <View style={styles.iconContainer}>
+    <View style={themed($container)}>
+      <View style={$iconContainer}>
         <Animated.View
-          style={[StyleSheet.absoluteFill, { transform: [{ translateX: planeX }, { rotate: "45deg" }] }]}
+          style={[
+            StyleSheet.absoluteFill,
+            { transform: [{ translateX: planeX }, { rotate: "45deg" }] },
+          ]}
         >
           <Icon name="plane" size={128} color={colors.textDim} />
         </Animated.View>
@@ -83,14 +67,27 @@ export const ListEmpty: FC<ListEmptyProps> = function ListEmpty({
           <Icon name="frown-o" size={128} color={colors.textDim} />
         </Animated.View>
       </View>
-      <Animated.Text style={[themed(MESSAGE), { opacity: textOpacity }]}>{message}</Animated.Text>
+      <Animated.Text style={[themed($message), { opacity: textOpacity }]}>{message}</Animated.Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  iconContainer: {
-    width: 128,
-    height: 128,
-  },
+const $iconContainer: ViewStyle = {
+  width: 128,
+  height: 128,
+}
+
+const $container: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  padding: spacing.xl,
+  gap: spacing.md,
+})
+
+const $message: ThemedStyle<TextStyle> = ({ colors, typography }) => ({
+  color: colors.textDim,
+  fontFamily: typography.primary.normal,
+  fontSize: 16,
+  textAlign: "center",
 })

@@ -13,11 +13,6 @@ import { ThemedStyle } from "@/theme/types"
 import { useDropzonesByState } from "../../database"
 import { States } from "../by-state-screen/states"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 export interface ByRegionScreenProps {
   navigation: NativeStackNavigationProp<ParamListBase>
 }
@@ -47,7 +42,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
 
   return (
     <FlatList
-      style={themed(FULL)}
+      style={themed($full)}
       data={dataSource}
       keyExtractor={(item) => item}
       renderItem={renderItem}
@@ -55,3 +50,8 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})

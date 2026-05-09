@@ -12,11 +12,6 @@ import { ThemedStyle } from "@/theme/types"
 import { States } from "./states"
 import { useDropzonesByState } from "../../database"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 export const ByStateScreen: FC = function ByStateScreen() {
   const navigation = useNavigation()
   const { stateGroups } = useDropzonesByState()
@@ -86,7 +81,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
 
   return (
     <FlatList
-      style={themed(FULL)}
+      style={themed($full)}
       data={processedData.dataSource}
       keyExtractor={(item) => item}
       renderItem={renderItem}
@@ -94,6 +89,11 @@ export const ByStateScreen: FC = function ByStateScreen() {
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})
 
 const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   flexDirection: "row",

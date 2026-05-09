@@ -9,27 +9,11 @@ import { ThemedStyle } from "@/theme/types"
 import { DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useDropzoneSearch, type Dropzone } from "../database"
 
-const FULL: ViewStyle = {
-  flex: 1,
-}
-
-const HEADER_STYLE: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.palette.neutral300,
-})
-
-const HEADER_TEXT_STYLE: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
-  color: colors.palette.neutral900,
-  margin: spacing.sm,
-  fontWeight: "bold",
-})
-
 export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   const [searchQuery, setSearchQuery] = useState("")
   const { results: dropzones, search } = useDropzoneSearch()
   const { themed } = useAppTheme()
 
-  // Handle search input
   const handleSearch = useCallback(
     (text: string) => {
       setSearchQuery(text)
@@ -38,8 +22,6 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
     [search],
   )
 
-  // groupBy to extract section headers and reduce to generate new array
-  // Memoized to prevent recalculation on every render
   const dataSource = useMemo(() => {
     const grouped: Record<string, Dropzone[]> = {}
     for (const dz of dropzones) {
@@ -78,8 +60,8 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
 
   const renderSectionHeader = useCallback(
     ({ section: { title } }) => (
-      <View style={themed(HEADER_STYLE)}>
-        <Text style={themed(HEADER_TEXT_STYLE)}>{title}</Text>
+      <View style={themed($headerStyle)}>
+        <Text style={themed($headerTextStyle)}>{title}</Text>
       </View>
     ),
     [themed],
@@ -87,7 +69,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
 
   return (
     <SectionList
-      style={FULL}
+      style={$full}
       sections={dataSource}
       extraData={dropzones}
       stickySectionHeadersEnabled
@@ -100,3 +82,18 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
     />
   )
 }
+
+const $full: ViewStyle = {
+  flex: 1,
+}
+
+const $headerStyle: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.palette.neutral300,
+})
+
+const $headerTextStyle: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  color: colors.palette.neutral900,
+  margin: spacing.sm,
+  fontWeight: "bold",
+})

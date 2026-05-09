@@ -10,14 +10,10 @@ import { DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useFilteredDropzones } from "../database"
 import type { Dropzone } from "../database"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 export interface ListDetailScreenProps {
   route: any
 }
+
 const keyExtractor = (item: Dropzone) => item.anchor.toString()
 
 export const ListDetailScreen: FC = function ListDetailScreen(props) {
@@ -27,7 +23,6 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
   const [search, setSearch] = useState("")
   const { themed } = useAppTheme()
 
-  // Filter dropzones based on search
   const list = useMemo(() => {
     if (!search) return dropzones
     return dropzones.filter(({ searchableText }) => {
@@ -63,7 +58,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
   return (
     <FlatList
       key="list"
-      style={themed(FULL)}
+      style={themed($full)}
       keyExtractor={keyExtractor}
       data={list}
       ListHeaderComponent={listHeader}
@@ -73,3 +68,8 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})

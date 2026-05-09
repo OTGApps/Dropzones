@@ -11,11 +11,6 @@ import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueTraining } from "../database"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 const keyExtractor = (item: string) => item
 
 const TRAINING_TITLES = {
@@ -53,7 +48,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
 
   return (
     <FlatList
-      style={themed(FULL)}
+      style={themed($full)}
       data={uniqueTraining}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
@@ -61,3 +56,8 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})

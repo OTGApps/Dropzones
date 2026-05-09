@@ -11,11 +11,6 @@ import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueServices } from "../database"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 const keyExtractor = (item, index) => index.toString()
 
 export const ByServicesScreen: FC = function ByServicesScreen() {
@@ -44,7 +39,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
 
   return (
     <FlatList
-      style={themed(FULL)}
+      style={themed($full)}
       data={uniqueServices}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
@@ -52,3 +47,8 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
     />
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})

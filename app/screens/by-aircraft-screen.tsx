@@ -12,11 +12,6 @@ import { ThemedStyle } from "@/theme/types"
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"
 
-const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
-  flex: 1,
-  backgroundColor: colors.background,
-})
-
 const keyExtractor = (item, index) => index.toString()
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
@@ -154,7 +149,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   return (
     <View style={{ flex: 1 }}>
       <SectionList
-        style={themed(FULL)}
+        style={themed($full)}
         sections={filteredSections}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
@@ -165,6 +160,11 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
     </View>
   )
 }
+
+const $full: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  flex: 1,
+  backgroundColor: colors.background,
+})
 
 const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.md,
