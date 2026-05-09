@@ -6,7 +6,7 @@ import { useAppTheme } from "@/theme/context"
 import { $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow, ListSeparator } from "../components"
+import { DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useFilteredDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
@@ -66,6 +66,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
       keyExtractor={keyExtractor}
       data={list}
       ListHeaderComponent={listHeader}
+      ListEmptyComponent={<ListEmpty />}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews

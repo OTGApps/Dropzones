@@ -4,7 +4,7 @@ import { ViewStyle, FlatList } from "react-native"
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-import { SpeedLimitSign, DropzoneListRow, ListSeparator } from "../components"
+import { SpeedLimitSign, DropzoneListRow, ListEmpty, ListSeparator } from "../components"
 import { useNearbyDropzones } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
@@ -40,6 +40,7 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
       style={themed(FULL)}
       keyExtractor={keyExtractor}
       data={sortedFromUser}
+      ListEmptyComponent={<ListEmpty message="No dropzones found nearby" />}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
       removeClippedSubviews
