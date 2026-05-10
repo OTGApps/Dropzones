@@ -44,7 +44,8 @@ export function useDropzoneSearch(): UseDropzoneSearchResult {
       }
     }
 
-    performSearch()
+    const timer = setTimeout(performSearch, query.trim() === "" ? 0 : 300)
+    return () => clearTimeout(timer)
   }, [db, isReady, query])
 
   const search = useCallback((newQuery: string) => {

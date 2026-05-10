@@ -82,7 +82,7 @@ async function updateDataVersion(db: SQLite.SQLiteDatabase): Promise<void> {
  * Using smaller batches (25) to ensure memory stays under control on low-end devices.
  */
 const BATCH_SIZE = 25 // Insert 25 dropzones per transaction
-const GC_DELAY_MS = 200 // Delay between batches to allow garbage collection
+const GC_DELAY_MS = 50 // Delay between batches to allow garbage collection
 
 /**
  * Normalizes a field that could be a string, array, or undefined into an array.

@@ -74,13 +74,16 @@ async function getCurrentVersion(db: SQLite.SQLiteDatabase): Promise<string> {
  * Fetches the remote GeoJSON data
  */
 async function fetchRemoteData(): Promise<{ data: RemoteGeoJSON | null; error?: string }> {
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), 15_000)
   try {
     const response = await fetch(Config.dataUpdateUrl, {
       headers: {
         Accept: "application/json",
       },
-      signal: AbortSignal.timeout(15_000),
+      signal: controller.signal,
     })
+    clearTimeout(timeoutId)
 
     if (!response.ok) {
       return { data: null, error: `HTTP ${response.status}: ${response.statusText}` }
@@ -94,6 +97,7 @@ async function fetchRemoteData(): Promise<{ data: RemoteGeoJSON | null; error?: 
 
     return { data }
   } catch (error) {
+    clearTimeout(timeoutId)
     return { data: null, error: error instanceof Error ? error.message : "Unknown error" }
   }
 }

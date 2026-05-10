@@ -216,20 +216,31 @@ export async function getFilteredDropzones(
       const rows = await db.getAllAsync<DropzoneRow>(query, ...params)
       return rows.map(rowToDropzone)
     } else if (itemType === "aircraft") {
-      // For aircraft, we need to use the same normalization logic as the counting
-      // to ensure the counts match the filtered results
-      const allRows = await db.getAllAsync<DropzoneRow>("SELECT * FROM dropzones ORDER BY name")
+      // Match normalized aircraft names using SQL json_each.
+      // We strip leading counts ("2 Cessna 182" → "Cessna 182") and trailing 's'
+      // via TRIM/REPLACE in SQL to match the JS normalization in normalizeAircraftName.
+      // Because SQLite can't do regex in a single pass we do a broader SQL filter
+      // then re-check with the full JS normalization to keep counts consistent.
+      const rows = await db.getAllAsync<DropzoneRow>(
+        `SELECT DISTINCT d.* FROM dropzones d
+         WHERE EXISTS (
+           SELECT 1 FROM json_each(d.aircraft)
+           WHERE LOWER(TRIM(SUBSTR(json_each.value, INSTR(json_each.value, ' ') + 1))) = ?
+              OR LOWER(json_each.value) = ?
+         )
+         ORDER BY d.name`,
+        item.toLowerCase(),
+        item.toLowerCase(),
+      )
       const normalizedSearchTerm = item.toLowerCase()
-
-      const matchingDropzones = allRows.filter((row) => {
-        const aircraftList = safeParseArray(row.aircraft)
-        return aircraftList.some((plane) => {
-          const normalized = normalizeAircraftName(plane)
-          return normalized.toLowerCase() === normalizedSearchTerm
+      return rows
+        .filter((row) => {
+          const aircraftList = safeParseArray(row.aircraft)
+          return aircraftList.some(
+            (plane) => normalizeAircraftName(plane).toLowerCase() === normalizedSearchTerm,
+          )
         })
-      })
-
-      return matchingDropzones.map(rowToDropzone)
+        .map(rowToDropzone)
     } else {
       // For services and training, use the original logic
       query = `
