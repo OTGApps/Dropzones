@@ -3,6 +3,7 @@ import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import Icon from "@expo/vector-icons/FontAwesome"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
+import { KeyboardAvoidingView } from "react-native-keyboard-controller"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
@@ -147,7 +148,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   }, [headerHidden, renderHeaderComponent, searchBar])
 
   return (
-    <View style={{ flex: 1 }}>
+    <KeyboardAvoidingView style={{ flex: 1 }}>
       <SectionList
         style={themed($full)}
         sections={filteredSections}
@@ -157,7 +158,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         ItemSeparatorComponent={ListSeparator}
         ListHeaderComponent={listHeader}
       />
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 

@@ -1,10 +1,6 @@
 import { ReactNode, useRef, useState } from "react"
 import {
-  KeyboardAvoidingView,
-  KeyboardAvoidingViewProps,
   LayoutChangeEvent,
-  Platform,
-  ScrollView,
   ScrollViewProps,
   StyleProp,
   View,
@@ -15,6 +11,8 @@ import { SystemBars, SystemBarsProps, SystemBarStyle } from "react-native-edge-t
 import {
   KeyboardAwareScrollView,
   KeyboardAwareScrollViewRef,
+  KeyboardAvoidingView,
+  KeyboardAvoidingViewProps,
 } from "react-native-keyboard-controller"
 
 import { useAppTheme } from "@/theme/context"
@@ -92,8 +90,6 @@ interface AutoScreenProps extends Omit<ScrollScreenProps, "preset"> {
 }
 
 export type ScreenProps = ScrollScreenProps | FixedScreenProps | AutoScreenProps
-
-const isIos = Platform.OS === "ios"
 
 type ScreenPreset = "fixed" | "scroll" | "auto"
 
@@ -271,7 +267,6 @@ export function Screen(props: ScreenProps) {
       />
 
       <KeyboardAvoidingView
-        behavior={isIos ? "padding" : "height"}
         keyboardVerticalOffset={keyboardOffset}
         {...KeyboardAvoidingViewProps}
         style={[$styles.flex1, KeyboardAvoidingViewProps?.style]}

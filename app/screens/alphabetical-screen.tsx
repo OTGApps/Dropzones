@@ -1,6 +1,7 @@
 import { FC, useState, useCallback, useMemo } from "react"
 import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
 import { Searchbar } from "react-native-paper"
+import { KeyboardAvoidingView } from "react-native-keyboard-controller"
 
 import { useAppTheme } from "@/theme/context"
 import { $searchbar } from "@/theme/styles"
@@ -68,18 +69,20 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   )
 
   return (
-    <SectionList
-      style={$full}
-      sections={dataSource}
-      extraData={dropzones}
-      stickySectionHeadersEnabled
-      keyExtractor={(item) => item.anchor.toString()}
-      renderSectionHeader={renderSectionHeader}
-      renderItem={renderItem}
-      ItemSeparatorComponent={ListSeparator}
-      ListHeaderComponent={listHeader}
-      ListEmptyComponent={<ListEmpty />}
-    />
+    <KeyboardAvoidingView style={$full}>
+      <SectionList
+        style={$full}
+        sections={dataSource}
+        extraData={dropzones}
+        stickySectionHeadersEnabled
+        keyExtractor={(item) => item.anchor.toString()}
+        renderSectionHeader={renderSectionHeader}
+        renderItem={renderItem}
+        ItemSeparatorComponent={ListSeparator}
+        ListHeaderComponent={listHeader}
+        ListEmptyComponent={<ListEmpty />}
+      />
+    </KeyboardAvoidingView>
   )
 }
 

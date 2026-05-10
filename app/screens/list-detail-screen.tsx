@@ -1,6 +1,7 @@
 import { FC, useState, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList } from "react-native"
 import { Searchbar } from "react-native-paper"
+import { KeyboardAvoidingView } from "react-native-keyboard-controller"
 
 import { useAppTheme } from "@/theme/context"
 import { $searchbar } from "@/theme/styles"
@@ -56,16 +57,18 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
   )
 
   return (
-    <FlatList
-      key="list"
-      style={themed($full)}
-      keyExtractor={keyExtractor}
-      data={list}
-      ListHeaderComponent={listHeader}
-      ListEmptyComponent={<ListEmpty />}
-      renderItem={renderItem}
-      ItemSeparatorComponent={ListSeparator}
-    />
+    <KeyboardAvoidingView style={themed($full)}>
+      <FlatList
+        key="list"
+        style={themed($full)}
+        keyExtractor={keyExtractor}
+        data={list}
+        ListHeaderComponent={listHeader}
+        ListEmptyComponent={<ListEmpty />}
+        renderItem={renderItem}
+        ItemSeparatorComponent={ListSeparator}
+      />
+    </KeyboardAvoidingView>
   )
 }
 
