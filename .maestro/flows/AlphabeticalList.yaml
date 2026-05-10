@@ -1,0 +1,46 @@
+# flow: Alphabetical List
+# intent:
+#   Navigate to the alphabetical list, verify dropzones load, test the search
+#   functionality, and navigate into a dropzone detail screen.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Alphabetical"
+- assertVisible: "Alphabetical"
+- waitForAnimationToEnd
+
+# Search bar should be visible
+- assertVisible: "Search Dropzones..."
+
+# Scroll down to verify list has items loaded
+- scrollUntilVisible:
+    element:
+      text: "Skydive Perris"
+    direction: DOWN
+    timeout: 10000
+    speed: 40
+
+- assertVisible: "Skydive Perris"
+
+# Test search functionality — type a query and verify results filter
+- tapOn: "Search Dropzones..."
+- inputText: "Skydive Perris"
+- waitForAnimationToEnd
+- assertVisible: "Skydive Perris"
+
+# Clear search and results should return
+- eraseText: 100
+- waitForAnimationToEnd
+
+# Navigate into a dropzone detail
+- tapOn: "Search Dropzones..."
+- inputText: "Jumptown"
+- waitForAnimationToEnd
+- tapOn: "Jumptown"
+- waitForAnimationToEnd
+
+# Detail screen should show the DZ name
+- assertVisible: "Jumptown"

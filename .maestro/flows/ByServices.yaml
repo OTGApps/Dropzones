@@ -1,0 +1,23 @@
+# flow: By Services
+# intent:
+#   Navigate the By Services Offered screen, verify services are listed,
+#   and drill into a service's dropzone list.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Services Offered"
+- assertVisible: "By Services Offered"
+- waitForAnimationToEnd
+
+# Common services should be visible
+- assertVisible: "Rigging"
+
+# Tap into a service to see DZs that offer it
+- tapOn: "Rigging"
+- waitForAnimationToEnd
+
+# The filtered dropzone list should load with a search bar
+- assertVisible: "Search Dropzones..."

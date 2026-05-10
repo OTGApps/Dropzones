@@ -1,0 +1,26 @@
+# flow: By Training
+# intent:
+#   Navigate the By Training Offered screen, verify training types are listed,
+#   and drill into a training type's dropzone list.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Training Capibilities"
+- assertVisible: "By Training Offered"
+- waitForAnimationToEnd
+
+# All four training types should be visible (display titles from TRAINING_TITLES map)
+- assertVisible: "Assisted Free Fall"
+- assertVisible: "Tandem"
+- assertVisible: "Static Line"
+- assertVisible: "Instructor Assisted Deployment"
+
+# Tap into Tandem to see DZs that offer it
+- tapOn: "Tandem"
+- waitForAnimationToEnd
+
+# The filtered dropzone list should load with a search bar
+- assertVisible: "Search Dropzones..."

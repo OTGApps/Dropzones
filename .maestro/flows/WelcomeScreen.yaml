@@ -1,0 +1,27 @@
+# flow: Welcome Screen
+# intent:
+#   Verify the home screen loads correctly with all menu items visible
+#   and that navigation header controls are present.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+# Header should show "Find Dropzones"
+- assertVisible: "Find Dropzones"
+
+# Info button should be present in the header
+- assertVisible:
+    id: "info-circle"
+
+# All 6 menu items should be visible
+- assertVisible: "Near Me"
+- assertVisible: "Alphabetical"
+- assertVisible: "By State"
+- assertVisible: "Aircraft Type"
+- assertVisible: "Services Offered"
+- assertVisible: "Training Capibilities"
+
+# Subtitles should also be visible
+- assertVisible: "Find the DZs closest to you right now!"
+- assertVisible: "The whole kit and caboodle!"

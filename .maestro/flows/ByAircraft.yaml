@@ -1,0 +1,41 @@
+# flow: By Aircraft
+# intent:
+#   Navigate the By Aircraft screen, dismiss the data warning card,
+#   verify aircraft types are listed, and drill into a type's dropzone list.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Aircraft Type"
+- assertVisible: "By Aircraft"
+- waitForAnimationToEnd
+
+# The data warning card appears on first visit — dismiss it
+- runFlow:
+    when:
+      visible: "DATA WARNING:"
+    commands:
+      - tapOn: "OK"
+      - waitForAnimationToEnd
+
+# Aircraft list should be present with a search bar
+- assertVisible: "Search Aircraft..."
+
+# Cessna 182 is the most common aircraft at DZs — scroll until visible
+- scrollUntilVisible:
+    element:
+      text: "Cessna 182"
+    direction: DOWN
+    timeout: 10000
+    speed: 40
+
+- assertVisible: "Cessna 182"
+
+# Tap into a dropzone list for Cessna 182
+- tapOn: "Cessna 182"
+- waitForAnimationToEnd
+
+# The filtered dropzone list should load
+- assertVisible: "Search Dropzones..."

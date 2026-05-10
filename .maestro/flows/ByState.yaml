@@ -1,0 +1,32 @@
+# flow: By State
+# intent:
+#   Navigate the By State screen, verify US states are listed with dropzone counts,
+#   tap into California, verify the dropzone list loads, and open a detail screen.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "By State"
+- assertVisible: "By State"
+- waitForAnimationToEnd
+
+# California has 16 DZs and should be visible
+- assertVisible: "California"
+
+# Tap California to see its dropzones
+- tapOn: "California"
+- assertVisible: "California"
+- waitForAnimationToEnd
+
+# The list of CA dropzones should load — Skydive Perris is a well-known CA DZ
+- assertVisible: "Skydive Perris"
+
+# Search bar should be present on the list-detail screen
+- assertVisible: "Search Dropzones..."
+
+# Tap into a dropzone detail
+- tapOn: "Skydive Perris"
+- waitForAnimationToEnd
+- assertVisible: "Skydive Perris"

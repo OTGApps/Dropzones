@@ -1,0 +1,22 @@
+# flow: Map Tab
+# intent:
+#   Switch to the Map tab and verify the map view loads. The map tab shows
+#   all dropzones as pins on a map of the US.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+
+# Tap the Map tab in the bottom tab bar
+- tapOn: "Map"
+- waitForAnimationToEnd
+
+# Tab label should now be active
+- assertVisible: "Map"
+
+# Switch back to the Dropzones tab
+- tapOn: "Dropzones"
+- waitForAnimationToEnd
+- assertVisible: "Find Dropzones"
