@@ -1,0 +1,16 @@
+# flow: App Launch
+# intent: Smoke test — verifies the app launches cleanly and the home menu
+# shows all expected navigation items and both tab bar entries.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- assertVisible: "Near Me"
+- assertVisible: "Alphabetical"
+- assertVisible: "By State"
+- assertVisible: "Aircraft Type"
+- assertVisible: "Services Offered"
+- assertVisible: "Training Capibilities"
+- assertVisible: "Dropzones"
+- assertVisible: "Map"

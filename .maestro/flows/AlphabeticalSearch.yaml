@@ -1,0 +1,16 @@
+# flow: Alphabetical Search
+# intent: Navigate to the alphabetical list, search for a specific dropzone by name,
+# open the detail screen, dismiss the disclaimer, and verify the detail loaded.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- tapOn: "Alphabetical"
+- assertVisible: "Alphabetical"
+- tapOn:
+    text: "Search Dropzones..."
+- inputText: "Skydive Perris"
+- assertVisible: "Skydive Perris"
+- tapOn: "Skydive Perris"
+- runFlow: ../shared/_DismissDisclaimer.yaml
+- assertVisible: "Skydive Perris"

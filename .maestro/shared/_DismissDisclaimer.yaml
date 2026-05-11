@@ -1,0 +1,11 @@
+# Shared flow: _DismissDisclaimer
+# intent: Conditionally dismiss the data-accuracy disclaimer alert that appears
+# on the first visit to any dropzone detail screen after a fresh app launch.
+# The alert fires 500ms after navigation, so the default Maestro timeout handles the delay.
+appId: ${MAESTRO_APP_ID}
+---
+- runFlow:
+    when:
+      visible: "Disclaimer:"
+    commands:
+      - tapOn: "Got it!"

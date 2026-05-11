@@ -1,0 +1,8 @@
+# flow: Map Tab
+# intent: Switch to the Map tab and verify the map screen header is visible.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- tapOn: "Map"
+- assertVisible: "Dropzone Map"

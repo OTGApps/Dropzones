@@ -37,7 +37,7 @@ jobs:
     image: latest
     params:
       build_id: ${{ needs.android_repack.outputs.build_id || needs.android_build.outputs.build_id }}
-      flow_path: ['maestro.yaml']
+      flow_path: ['.maestro/flows']
 
   ios_get_build:
     needs: [fingerprint]
@@ -71,4 +71,4 @@ jobs:
     image: latest
     params:
       build_id: ${{ needs.ios_repack.outputs.build_id || needs.ios_build.outputs.build_id }}
-      flow_path: ['maestro.yaml']
+      flow_path: ['.maestro/flows']

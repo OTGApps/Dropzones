@@ -1,0 +1,25 @@
+# flow: Browse By State
+# intent: Navigate to the By State list, select California, search within the state's
+# dropzone list, open a dropzone detail, and verify it loaded.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- tapOn: "By State"
+- assertVisible: "By State"
+- scrollUntilVisible:
+    element:
+      text: "California"
+    direction: DOWN
+    timeout: 10000
+    speed: 40
+    visibilityPercentage: 100
+- tapOn: "California"
+- assertVisible: "California"
+- tapOn:
+    text: "Search Dropzones..."
+- inputText: "Skydive Perris"
+- assertVisible: "Skydive Perris"
+- tapOn: "Skydive Perris"
+- runFlow: ../shared/_DismissDisclaimer.yaml
+- assertVisible: "Skydive Perris"
