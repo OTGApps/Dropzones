@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $badge, $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { States } from "./states"
@@ -103,9 +103,3 @@ const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginRight: spacing.xs,
 })
 
-const $badge: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
-  marginRight: spacing.xs,
-  alignSelf: "center",
-  fontSize: 14,
-  backgroundColor: colors.palette.primary500,
-})

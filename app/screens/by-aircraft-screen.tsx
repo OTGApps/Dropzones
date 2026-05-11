@@ -5,7 +5,7 @@ import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
 import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight, $searchbar } from "@/theme/styles"
+import { $badge, $chevronRight, $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 import { ListSeparator } from "@/components"
 
@@ -184,9 +184,3 @@ const $rightContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginRight: spacing.xs,
 })
 
-const $badge: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
-  marginRight: spacing.xs,
-  alignSelf: "center",
-  fontSize: 14,
-  backgroundColor: colors.palette.primary500,
-})

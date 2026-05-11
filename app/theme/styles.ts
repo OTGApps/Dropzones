@@ -33,3 +33,10 @@ export const $chevronRight: ThemedStyle<TextStyle> = ({ colors }) => ({
 export const $searchbar: ThemedStyle<ViewStyle> = () => ({
   borderRadius: 0,
 })
+
+export const $badge: ThemedStyle<ViewStyle> = ({ spacing, colors }) => ({
+  marginRight: spacing.xs,
+  alignSelf: "center",
+  fontSize: 14,
+  backgroundColor: colors.palette.primary500,
+})

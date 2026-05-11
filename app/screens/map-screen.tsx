@@ -48,7 +48,7 @@ export const MapScreen: FC = function MapScreen() {
     if (showsUserLocation === false) {
       setInitialZoomDone(false)
     }
-  }, [navigation, showsUserLocation, colors])
+  }, [navigation, showsUserLocation])
 
   const goToDetail = useCallback(
     (anchor: string, title: string) => {
@@ -127,7 +127,7 @@ export const MapScreen: FC = function MapScreen() {
       showsScale={Platform.OS === "android"}
       rotateEnabled={true}
       pitchEnabled={true}
-      userInterfaceStyle={themeContext === "dark" ? "dark" : "light"}
+      userInterfaceStyle={themeContext}
     >
       {markers}
     </MapView>

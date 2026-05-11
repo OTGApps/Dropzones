@@ -28,7 +28,7 @@ export const AppNavigator = (props: NavigationProps) => {
 
   return (
     <>
-      <SystemBars style={themeContext === "dark" ? "dark" : "light"} />
+      <SystemBars style={themeContext} />
 
       <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
         <ErrorBoundary catchErrors={Config.catchErrors}>
