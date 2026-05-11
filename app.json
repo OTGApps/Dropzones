@@ -65,7 +65,13 @@
         }
       }
     ],
-    "expo-build-properties"
+    "expo-build-properties",
+    [
+      "react-native-vector-icons",
+      {
+        "fonts": ["FontAwesome.ttf"]
+      }
+    ]
   ],
   "experiments": {
     "tsconfigPaths": true
