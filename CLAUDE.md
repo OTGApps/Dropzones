@@ -67,7 +67,7 @@ Dropzone data originates from USPA's website, scraped by the Node.js scraper in 
 - **Theme access**: Always use `const { theme, themed } = useAppTheme()` in components; `themed()` accepts style objects or functions receiving the theme
 - **Database access**: All DB operations go through hooks in `app/database/hooks/`; raw queries live only in `app/database/queries.ts`
 - **Storage**: `react-native-mmkv` for key-value persistence; wrapped by `app/utils/storage`
-- **Icons**: `react-native-vector-icons` (FontAwesome)
+- **Icons**: `@expo/vector-icons` (FontAwesome)
 
 ### Data Update Mechanism
 
