@@ -4,7 +4,7 @@
   "scheme": "dropzones",
   "description": "USPA Dropzone Finder",
   "orientation": "portrait",
-  "icon": "./assets/images/icon.png",
+  "icon": "./assets/images/icon-light.png",
   "userInterfaceStyle": "automatic",
   "updates": {
     "fallbackToCacheTimeout": 0
@@ -20,24 +20,20 @@
       }
     },
     "adaptiveIcon": {
-      "foregroundImage": "./assets/images/adaptive-icon.png",
-      "backgroundColor": "#000000"
+      "backgroundImage": "./assets/images/splash-light.png",
+      "foregroundImage": "./assets/images/icon-bg-light.png"
     }
   },
   "ios": {
+    "icon": {
+      "dark": "./assets/images/icon-dark.png",
+      "light": "./assets/images/icon-light.png"
+    },
     "supportsTablet": true,
     "bundleIdentifier": "io.otgapps.dropzones",
     "infoPlist": {
       "NSLocationWhenInUseUsageDescription": "We use your location to find your closest USPA member dropzone.",
       "ITSAppUsesNonExemptEncryption": false
-    },
-    "privacyManifests": {
-      "NSPrivacyAccessedAPITypes": [
-        {
-          "NSPrivacyAccessedAPIType": "NSPrivacyAccessedAPICategoryUserDefaults",
-          "NSPrivacyAccessedAPITypeReasons": ["CA92.1"]
-        }
-      ]
     },
     "appleTeamId": "DW9QQZR4ZL"
   },
@@ -46,21 +42,22 @@
     "bundler": "metro"
   },
   "plugins": [
+    "expo-sqlite",
     "expo-localization",
     "expo-font",
     [
       "expo-splash-screen",
       {
-        "image": "./assets/images/adaptive-icon.png",
+        "image": "./assets/images/splash-light.png",
         "imageWidth": 300,
         "resizeMode": "contain",
         "backgroundColor": "#000000",
-        "dark": {
-          "backgroundColor": "#000000",
-          "image": "./assets/images/adaptive-icon.png"
-        },
         "android": {
-          "resizeMode": "native"
+          "backgroundColor": "#1a73e8",
+          "dark": {
+            "image": "./assets/images/splash-dark.png",
+            "backgroundColor": "#000000"
+          }
         }
       }
     ],

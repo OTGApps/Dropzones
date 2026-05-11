@@ -18,8 +18,6 @@ const packageJson = require("./package.json")
  * https://docs.expo.dev/workflow/configuration/#configuration-resolution-rules
  */
 module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
-  const existingPlugins = config.plugins ?? []
-
   return {
     ...config,
     version: packageJson.version,
@@ -40,6 +38,5 @@ module.exports = ({ config }: ConfigContext): Partial<ExpoConfig> => {
         ],
       },
     },
-    plugins: [...existingPlugins, "expo-sqlite"],
   }
 }
