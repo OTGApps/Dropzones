@@ -1,7 +1,7 @@
 # flow: By Training
 # intent:
-#   Navigate the By Training Offered screen, verify training types are listed,
-#   and drill into a training type's dropzone list.
+#   Navigate the By Training Offered screen, verify training types are listed, drill
+#   into a training type's dropzone list, and navigate to a dropzone detail screen.
 
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
@@ -24,3 +24,23 @@ onFlowStart:
 
 # The filtered dropzone list should load with a search bar
 - assertVisible: "Search Dropzones..."
+
+# Search for a known Tandem DZ, assert the correct result appears, then tap it
+- tapOn: "Search Dropzones..."
+- inputText: "Jumptown"
+- waitForAnimationToEnd
+- assertVisible: "Jumptown"
+- tapOn: "Jumptown"
+- waitForAnimationToEnd
+
+# Disclaimer shows on first visit — wait for the 500ms delay then conditionally dismiss
+- runFlow:
+    when:
+      visible: "Got it!"
+    commands:
+      - tapOn: "Got it!"
+      - waitForAnimationToEnd
+
+# Detail screen — bottom sheet should show DZ name and website
+- assertVisible: "Jumptown"
+- assertVisible: "jumptown.com"

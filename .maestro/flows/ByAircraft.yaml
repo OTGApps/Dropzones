@@ -1,7 +1,7 @@
 # flow: By Aircraft
 # intent:
-#   Navigate the By Aircraft screen, dismiss the data warning card,
-#   verify aircraft types are listed, and drill into a type's dropzone list.
+#   Navigate the By Aircraft screen, dismiss the data warning card, verify aircraft
+#   types are listed, drill into a type's dropzone list, and navigate to a detail screen.
 
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
@@ -33,9 +33,29 @@ onFlowStart:
 
 - assertVisible: "Cessna 182"
 
-# Tap into a dropzone list for Cessna 182
+# Tap into the dropzone list for Cessna 182
 - tapOn: "Cessna 182"
 - waitForAnimationToEnd
 
-# The filtered dropzone list should load
+# The filtered dropzone list should load with a search bar
 - assertVisible: "Search Dropzones..."
+
+# Search for a known Cessna 182 DZ, assert the correct result appears, then tap it
+- tapOn: "Search Dropzones..."
+- inputText: "Skydive Chicago"
+- waitForAnimationToEnd
+- assertVisible: "Skydive Chicago, Inc."
+- tapOn: "Skydive Chicago"
+- waitForAnimationToEnd
+
+# Disclaimer shows on first visit — wait for the 500ms delay then conditionally dismiss
+- runFlow:
+    when:
+      visible: "Got it!"
+    commands:
+      - tapOn: "Got it!"
+      - waitForAnimationToEnd
+
+# Detail screen — bottom sheet should show DZ name and website
+- assertVisible: "Skydive Chicago"
+- assertVisible: "skydivechicago.com"

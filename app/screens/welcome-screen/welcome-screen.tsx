@@ -61,6 +61,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
           color={colors.palette.neutral100}
           onPress={() => navigation.navigate("about")}
           style={themed($headerIcon)}
+          testID="info-circle"
         />
       ),
     })

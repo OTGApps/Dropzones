@@ -1,7 +1,7 @@
 # flow: By State
 # intent:
-#   Navigate the By State screen, verify US states are listed with dropzone counts,
-#   tap into California, verify the dropzone list loads, and open a detail screen.
+#   Navigate the By State screen, verify US states are listed, tap into California,
+#   scroll to Skydive Perris, and navigate all the way to its detail screen.
 
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
@@ -12,7 +12,7 @@ onFlowStart:
 - assertVisible: "By State"
 - waitForAnimationToEnd
 
-# California has 16 DZs and should be visible
+# California has 16 DZs and should be visible without scrolling
 - assertVisible: "California"
 
 # Tap California to see its dropzones
@@ -20,13 +20,31 @@ onFlowStart:
 - assertVisible: "California"
 - waitForAnimationToEnd
 
-# The list of CA dropzones should load — Skydive Perris is a well-known CA DZ
-- assertVisible: "Skydive Perris"
-
 # Search bar should be present on the list-detail screen
 - assertVisible: "Search Dropzones..."
 
-# Tap into a dropzone detail
+# Skydive Perris is near the bottom of the CA list — scroll to it
+- scrollUntilVisible:
+    element:
+      text: "Skydive Perris"
+    direction: DOWN
+    timeout: 10000
+    speed: 60
+
+- assertVisible: "Skydive Perris"
+
+# Tap into the Skydive Perris detail screen
 - tapOn: "Skydive Perris"
 - waitForAnimationToEnd
+
+# Disclaimer shows on first visit — wait for the 500ms delay then conditionally dismiss
+- runFlow:
+    when:
+      visible: "Got it!"
+    commands:
+      - tapOn: "Got it!"
+      - waitForAnimationToEnd
+
+# Detail screen — bottom sheet should show DZ name and website
 - assertVisible: "Skydive Perris"
+- assertVisible: "skydiveperris.com"
