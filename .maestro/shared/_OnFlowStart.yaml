@@ -34,6 +34,22 @@ appId: ${MAESTRO_APP_ID}
       visible: 'Development servers'
     commands:
       # this regex allows for different hosts and ports
-      - tapOn: "http://.*:.*" 
+      - tapOn: "http://.*:.*"
       - waitForAnimationToEnd
       - tapOn: "Close" # dismiss the bottom sheet
+
+# Dismiss the Expo dev client "floating button" tutorial if it appears after fresh install
+- runFlow:
+    when:
+      visible: 'Continue'
+    commands:
+      - waitForAnimationToEnd
+      - tapOn: "Continue"
+
+# If tapping Continue opened the dev menu, close it
+- runFlow:
+    when:
+      visible: 'Reload'
+    commands:
+      - waitForAnimationToEnd
+      - tapOn: "Close"

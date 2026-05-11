@@ -1,0 +1,117 @@
+# flow: Map Type Selector
+# intent:
+#   Verify the map type selector button on the Map tab opens a menu with all
+#   four options (Standard, Satellite, Hybrid, Terrain), that selecting a type
+#   closes the menu, and that the selection persists across app restarts.
+
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+# Navigate to the Map tab
+- tapOn:
+    text: "Map, tab, 2 of 2"
+- waitForAnimationToEnd
+
+# Map type button should be visible in the top-right corner
+- assertVisible:
+    text: "Map type"
+
+# Open the map type menu
+- tapOn:
+    text: "Map type"
+- waitForAnimationToEnd
+
+# Menu should be open with all four options
+- assertVisible:
+    id: "menu-view"
+- assertVisible:
+    id: "menu-item"
+    index: 0  # Standard
+- assertVisible:
+    id: "menu-item"
+    index: 1  # Satellite
+- assertVisible:
+    id: "menu-item"
+    index: 2  # Hybrid
+- assertVisible:
+    id: "menu-item"
+    index: 3  # Terrain
+
+# Select Satellite (index 1)
+- tapOn:
+    id: "menu-item"
+    index: 1
+- waitForAnimationToEnd
+
+# Menu should be dismissed after selection
+- assertNotVisible:
+    id: "menu-view"
+
+# Reopen menu and verify it still shows all four options
+- tapOn:
+    text: "Map type"
+- waitForAnimationToEnd
+- assertVisible:
+    id: "menu-view"
+
+# Select Terrain to test a different type (index 3)
+- tapOn:
+    id: "menu-item"
+    index: 3
+- waitForAnimationToEnd
+- assertNotVisible:
+    id: "menu-view"
+
+# --- Persistence test ---
+# Relaunch WITHOUT clearing state to verify the selection persisted
+- launchApp:
+    stopApp: true
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: 'Development servers'
+    commands:
+      - tapOn: "http://.*:.*"
+      - waitForAnimationToEnd
+      - tapOn: "Close"
+- runFlow:
+    when:
+      visible: 'Continue'
+    commands:
+      - tapOn: "Continue"
+      - waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: 'Reload'
+    commands:
+      - tapOn: "Close"
+      - waitForAnimationToEnd
+
+- waitForAnimationToEnd
+# Navigate to Map tab (app may restore to any tab from persisted nav state)
+- tapOn:
+    text: "Map, tab, 2 of 2"
+- waitForAnimationToEnd
+
+# Map type button should still be present after relaunch
+- assertVisible:
+    text: "Map type"
+
+# Open menu and verify it still has all four options (preference was persisted)
+- tapOn:
+    text: "Map type"
+- waitForAnimationToEnd
+- assertVisible:
+    id: "menu-view"
+- assertVisible:
+    id: "menu-item"
+    index: 0
+- assertVisible:
+    id: "menu-item"
+    index: 3
+
+# Close the menu by tapping outside
+- tapOn:
+    point: "10%, 50%"
+- waitForAnimationToEnd

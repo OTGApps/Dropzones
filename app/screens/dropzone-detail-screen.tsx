@@ -15,7 +15,7 @@ import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
-import { List, Button, Text } from "react-native-paper"
+import { List, Button, Text, Menu } from "react-native-paper"
 import { useAnimatedReaction, interpolate, Extrapolate, runOnJS } from "react-native-reanimated"
 
 import { useAppTheme } from "@/theme/context"
@@ -25,6 +25,7 @@ import { ThemedStyle } from "@/theme/types"
 import { useDropzone } from "../database"
 import { delay } from "../utils/delay"
 import { load, save } from "../utils/storage"
+import { MAP_TYPES, useMapType } from "../utils/useMapType"
 
 const DISCLAIMER_BYPASS_KEY = "@bypassDisclaimer"
 const showDisclaimerAlert = async () => {
@@ -89,6 +90,17 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   const mapRef = useRef<MapView>(null)
   const snapPoints = useMemo(() => ["5%", "75%"], [])
 
+  const { mapType, changeMapType } = useMapType()
+  const [mapTypeMenuVisible, setMapTypeMenuVisible] = useState(false)
+
+  const handleMapTypeChange = useCallback(
+    (type: Parameters<typeof changeMapType>[0]) => {
+      changeMapType(type)
+      setMapTypeMenuVisible(false)
+    },
+    [changeMapType],
+  )
+
   // State to track the current zoom level based on bottom sheet position
   const [zoomMultiplier, setZoomMultiplier] = useState(1)
   // State to track the current sheet position for conditional map interactions
@@ -122,7 +134,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
 
   // Zoom out button handler
   const handleZoomOut = useCallback(() => {
-    setManualZoom((prev) => prev / 1.5)
+    setManualZoom((prev) => Math.max(prev / 1.5, 0.1)) // Min 0.1x zoom
   }, [])
 
   // Animate zoom controls fade in/out based on sheet position
@@ -265,7 +277,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           ref={mapRef}
           style={themed($fullScreenMap)}
           initialRegion={regionToDisplay}
-          mapType={"satellite"}
+          mapType={mapType}
           scrollEnabled={sheetIndex === 0}
           zoomEnabled={sheetIndex === 0}
           rotateEnabled={sheetIndex === 0}
@@ -286,6 +298,43 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
             <Icon name="minus" size={20} color="#fff" />
           </TouchableOpacity>
         </Animated.View>
+
+        {/* Map type selector */}
+        <View style={themed($mapTypeButtonContainer)}>
+          <Menu
+            visible={mapTypeMenuVisible}
+            onDismiss={() => setMapTypeMenuVisible(false)}
+            anchor={
+              <TouchableOpacity
+                onPress={() => setMapTypeMenuVisible(true)}
+                style={themed($zoomButton)}
+                activeOpacity={0.7}
+                accessibilityLabel="Map type"
+              >
+                <Icon
+                  name={MAP_TYPES.find((t) => t.value === mapType)?.icon as any}
+                  size={18}
+                  color="#fff"
+                />
+              </TouchableOpacity>
+            }
+          >
+            {MAP_TYPES.map((type) => (
+              <Menu.Item
+                key={type.value}
+                onPress={() => handleMapTypeChange(type.value)}
+                title={type.label}
+                leadingIcon={
+                  mapType === type.value
+                    ? "check"
+                    : ({ size, color }) => (
+                        <Icon name={type.icon as any} size={size} color={color} />
+                      )
+                }
+              />
+            ))}
+          </Menu>
+        </View>
 
         <BottomSheet
           ref={bottomSheetRef}
@@ -500,6 +549,12 @@ const $zoomControls: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   top: spacing.xl,
   left: spacing.md,
   gap: spacing.xs,
+})
+
+const $mapTypeButtonContainer: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  position: "absolute",
+  top: spacing.xl,
+  right: spacing.md,
 })
 
 const $zoomButton: ThemedStyle<ViewStyle> = ({ colors }) => ({
