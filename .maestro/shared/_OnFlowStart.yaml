@@ -43,13 +43,13 @@ appId: ${MAESTRO_APP_ID}
     when:
       visible: 'Continue'
     commands:
-      - waitForAnimationToEnd
       - tapOn: "Continue"
+      - waitForAnimationToEnd
 
 # If tapping Continue opened the dev menu, close it
 - runFlow:
     when:
       visible: 'Reload'
     commands:
-      - waitForAnimationToEnd
       - tapOn: "Close"
+      - waitForAnimationToEnd

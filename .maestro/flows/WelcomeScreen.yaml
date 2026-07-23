@@ -20,7 +20,7 @@ onFlowStart:
 - assertVisible: "By State"
 - assertVisible: "Aircraft Type"
 - assertVisible: "Services Offered"
-- assertVisible: "Training Capibilities"
+- assertVisible: "Training Capabilities"
 
 # Subtitles should also be visible
 - assertVisible: "Find the DZs closest to you right now!"
