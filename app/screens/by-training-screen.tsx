@@ -58,7 +58,6 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
-      removeClippedSubviews
     />
   )
 }

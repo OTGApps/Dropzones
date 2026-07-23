@@ -89,11 +89,10 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
 
   return (
     <SectionList
-      removeClippedSubviews
       style={FULL}
       sections={dataSource}
       extraData={dropzones}
-      stickySectionHeadersEnabled
+      stickySectionHeadersEnabled={false}
       keyExtractor={(item) => item.anchor.toString()}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}

@@ -42,7 +42,6 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
       data={sortedFromUser}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
-      removeClippedSubviews
     />
   )
 }
