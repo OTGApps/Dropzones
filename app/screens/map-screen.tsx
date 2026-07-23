@@ -6,7 +6,6 @@ import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-
 import { List } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useDropzones } from "../database"
@@ -90,27 +89,27 @@ export const MapScreen: FC = function MapScreen() {
           description={dropzone.stateCode}
           tracksViewChanges={false}
         >
-          <Callout
-            onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
-            style={{ backgroundColor: colors.background }}
-          >
-            {Platform.OS === "ios" ? (
-              <List.Item
-                style={themed($calloutItem)}
-                titleStyle={themed($calloutTitle)}
-                descriptionStyle={themed($calloutDescription)}
-                title={dropzone.name}
-                description={dropzone.stateCode}
-                onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
-                right={(props) => (
-                  <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
-                )}
-              />
-            ) : null}
+          <Callout tooltip onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}>
+            <List.Item
+              style={themed($calloutItem)}
+              titleStyle={themed($calloutTitle)}
+              descriptionStyle={themed($calloutDescription)}
+              title={dropzone.name}
+              description={dropzone.stateCode}
+              onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
+              right={(props) => (
+                <Icon
+                  {...props}
+                  name="chevron-right"
+                  size={16}
+                  style={themed($calloutChevronRight)}
+                />
+              )}
+            />
           </Callout>
         </Marker>
       )) || [],
-    [colors.background, dropzones, goToDetail, themed],
+    [dropzones, goToDetail, themed],
   )
 
   return (
@@ -139,8 +138,18 @@ const $map: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const $calloutItem: ThemedStyle<ViewStyle> = ({ spacing }) => ({
-  padding: Platform.OS === "ios" ? 0 : spacing.sm,
+const $calloutItem: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  minWidth: 200,
+  paddingVertical: spacing.xs,
+  paddingHorizontal: spacing.sm,
+  backgroundColor: colors.background,
+  borderRadius: spacing.xs,
+})
+
+const $calloutChevronRight: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+  alignSelf: "center",
+  color: colors.textDim,
+  marginLeft: spacing.sm,
 })
 
 const $calloutTitle: ThemedStyle<TextStyle> = ({ colors }) => ({

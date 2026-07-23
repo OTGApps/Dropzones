@@ -8,7 +8,7 @@ import { List } from "react-native-paper"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useDropzonesByState } from "../../database"
@@ -30,6 +30,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   const renderItem = ({ item }: { item: string }) => (
     <List.Item
       title={item}
+      style={themed($listItemChevronRight)}
       onPress={() =>
         props.navigation.navigate("list-detail", {
           item,

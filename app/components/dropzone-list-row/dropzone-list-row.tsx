@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 
 import type { Dropzone } from "../../database"
 
@@ -39,6 +39,7 @@ const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
       key={"listItem-" + index}
       title={item.name}
       description={displaySubtitle || undefined}
+      style={themed($listItemChevronRight)}
       onPress={pressed}
       right={(props) => (
         <>

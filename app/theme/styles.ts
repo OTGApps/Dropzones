@@ -27,6 +27,15 @@ export const $chevronRight: ThemedStyle<TextStyle> = ({ colors }) => ({
 })
 
 /**
+ * Shared themed style for List.Item rows ending in a chevron-right icon.
+ * Overrides Paper's default paddingRight: 24 on the row container, which
+ * otherwise leaves excess space to the right of the chevron.
+ */
+export const $listItemChevronRight: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  paddingRight: spacing.sm,
+})
+
+/**
  * Shared themed style for searchbar components.
  * Removes rounded corners for consistent appearance in dark mode.
  */

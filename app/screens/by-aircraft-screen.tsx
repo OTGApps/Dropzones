@@ -7,7 +7,7 @@ import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
 
 import { ListSeparator, Screen } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight, $searchbar, $styles } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight, $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import type { AircraftSection } from "../database"
@@ -73,6 +73,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         <List.Item
           title={item.name}
           onPress={onPressed}
+          style={themed($listItemChevronRight)}
           right={(props) => (
             <View style={themed($rightContainer)}>
               <Badge style={themed($badge)}>{item.count}</Badge>

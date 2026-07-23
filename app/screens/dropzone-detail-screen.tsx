@@ -19,7 +19,7 @@ import { List, Button, Text } from "react-native-paper"
 import { useAnimatedReaction, interpolate, Extrapolate, runOnJS } from "react-native-reanimated"
 
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useDropzone } from "../database"
@@ -333,6 +333,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Phone"
                   description={selectedDZ.phone}
+                  style={themed($listItemChevronRight)}
                   onPress={openPhone}
                   left={(props) => (
                     <Icon
@@ -352,6 +353,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Email"
                   description={selectedDZ.email.toLowerCase()}
+                  style={themed($listItemChevronRight)}
                   onPress={handleEmail}
                   left={(props) => (
                     <Icon
@@ -371,6 +373,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Location"
                   description={selectedDZ.airport || selectedDZ.location.join(", ")}
+                  style={themed($listItemChevronRight)}
                   onPress={openDrivingDirectons}
                   left={(props) => (
                     <Icon

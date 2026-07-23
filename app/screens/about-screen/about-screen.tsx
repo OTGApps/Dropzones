@@ -12,7 +12,7 @@ import {
   setLastUpdateCheck,
 } from "@/services/data-update"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 const openWeb = (website: string) => {
@@ -183,6 +183,7 @@ export const AboutScreen: FC = () => {
           </Text>
           <List.Item
             title="Check for Data Updates"
+            style={themed($listItemChevronRight)}
             description={
               resetProgress
                 ? `Resetting database... ${resetProgress.current} / ${resetProgress.total} (${Math.round((resetProgress.current / resetProgress.total) * 100)}%)`
@@ -218,6 +219,7 @@ export const AboutScreen: FC = () => {
           <List.Item
             title="Dropzones is open source!"
             description="Go to Github to find out more"
+            style={themed($listItemChevronRight)}
             onPress={openGithub}
             left={() => (
               <View style={themed($githubIconContainer)}>

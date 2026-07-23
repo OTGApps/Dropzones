@@ -7,7 +7,7 @@ import { List } from "react-native-paper"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueTraining } from "../database"
@@ -37,6 +37,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
     ({ item }: { item: string }) => (
       <List.Item
         title={TRAINING_TITLES[item.toLowerCase()]}
+        style={themed($listItemChevronRight)}
         onPress={() =>
           navigation.navigate("list-detail", {
             item,

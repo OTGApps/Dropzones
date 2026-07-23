@@ -7,7 +7,7 @@ import { List, Avatar, Badge } from "react-native-paper"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight } from "@/theme/styles"
+import { $chevronRight, $listItemChevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { States } from "./states"
@@ -58,6 +58,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
       return (
         <List.Item
           title={thisState.fullName}
+          style={themed($listItemChevronRight)}
           onPress={() =>
             navigation.navigate("list-detail", {
               item,

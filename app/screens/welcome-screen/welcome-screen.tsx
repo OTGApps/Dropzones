@@ -156,6 +156,7 @@ const $headerIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
 
 const $listItem: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   paddingLeft: spacing.md,
+  paddingRight: spacing.sm,
 })
 
 const $leftIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
