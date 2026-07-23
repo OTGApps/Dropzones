@@ -1,12 +1,13 @@
 import { FC, useState, useCallback, useMemo } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle } from "react-native"
+import { LegendList } from "@legendapp/list/react-native"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
-import { $searchbar } from "@/theme/styles"
+import { $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow, ListSeparator } from "../components"
+import { DropzoneListRow, ListSeparator, Screen } from "../components"
 import { useFilteredDropzones, type Dropzone } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
@@ -62,14 +63,17 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
   )
 
   return (
-    <FlatList
-      key="list"
-      style={themed(FULL)}
-      keyExtractor={keyExtractor}
-      data={list}
-      ListHeaderComponent={listHeader}
-      renderItem={renderItem}
-      ItemSeparatorComponent={ListSeparator}
-    />
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+      <LegendList
+        key="list"
+        style={themed(FULL)}
+        keyExtractor={keyExtractor}
+        data={list}
+        ListHeaderComponent={listHeader}
+        renderItem={renderItem}
+        ItemSeparatorComponent={ListSeparator}
+        recycleItems
+      />
+    </Screen>
   )
 }

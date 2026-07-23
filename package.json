@@ -37,6 +37,7 @@
     "@expo/metro-runtime": "~57.0.7",
     "@expo/vector-icons": "^15.1.1",
     "@gorhom/bottom-sheet": "^5.2.14",
+    "@legendapp/list": "^3.3.3",
     "@react-native-masked-view/masked-view": "~0.3.2",
     "@react-navigation/bottom-tabs": "^7.18.13",
     "@react-navigation/native": "^7.3.13",
@@ -110,7 +111,7 @@
     "reactotron-react-js": "^3.3.17",
     "reactotron-react-native": "^5.2.0",
     "reactotron-react-native-mmkv": "^0.2.9",
-    "ts-jest": "^29.4.12",
+    "ts-jest": "29.4.11",
     "tsx": "^4.23.1",
     "typescript": "~6.0.3"
   },

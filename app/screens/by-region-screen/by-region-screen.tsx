@@ -1,6 +1,7 @@
 import { FunctionComponent, useMemo } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { LegendList } from "@legendapp/list/react-native"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { List } from "react-native-paper"
@@ -42,12 +43,13 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   )
 
   return (
-    <FlatList
+    <LegendList
       style={themed(FULL)}
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
+      recycleItems
     />
   )
 }

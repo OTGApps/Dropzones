@@ -1,6 +1,7 @@
 import { FC, useCallback, useMemo } from "react"
-import { ViewStyle, FlatList, View } from "react-native"
+import { ViewStyle, View } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { LegendList } from "@legendapp/list/react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
 
@@ -85,13 +86,13 @@ export const ByStateScreen: FC = function ByStateScreen() {
   )
 
   return (
-    <FlatList
+    <LegendList
       style={themed(FULL)}
-
       data={processedData.dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
+      recycleItems
     />
   )
 }

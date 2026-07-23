@@ -1,6 +1,7 @@
 import { FC, useCallback } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { LegendList } from "@legendapp/list/react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 
@@ -52,12 +53,13 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   )
 
   return (
-    <FlatList
+    <LegendList
       style={themed(FULL)}
       data={uniqueTraining}
       keyExtractor={keyExtractor}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
+      recycleItems
     />
   )
 }

@@ -1,12 +1,13 @@
 import { FC, useState, useEffect, useCallback, useMemo } from "react"
-import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
+import { ViewStyle, TextStyle, View, Text } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { SectionList } from "@legendapp/list/section-list"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
 
-import { ListSeparator } from "@/components"
+import { ListSeparator, Screen } from "@/components"
 import { useAppTheme } from "@/theme/context"
-import { $chevronRight, $searchbar } from "@/theme/styles"
+import { $chevronRight, $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import type { AircraftSection } from "../database"
@@ -145,7 +146,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   }, [headerHidden, renderHeaderComponent, searchBar])
 
   return (
-    <View style={themed(FULL)}>
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
       <SectionList
         style={themed(FULL)}
         sections={filteredSections}
@@ -154,8 +155,10 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         renderSectionHeader={renderSectionHeader}
         ItemSeparatorComponent={ListSeparator}
         ListHeaderComponent={listHeader}
+        stickySectionHeadersEnabled={false}
+        recycleItems
       />
-    </View>
+    </Screen>
   )
 }
 

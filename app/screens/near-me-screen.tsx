@@ -1,5 +1,6 @@
 import { FC, useCallback } from "react"
-import { ViewStyle, FlatList } from "react-native"
+import { ViewStyle } from "react-native"
+import { LegendList } from "@legendapp/list/react-native"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -35,13 +36,14 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
   )
 
   return (
-    <FlatList
+    <LegendList
       key="list"
       style={themed(FULL)}
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
+      recycleItems
     />
   )
 }

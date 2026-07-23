@@ -2,3 +2,9 @@ allowBuilds:
   esbuild: true
   puppeteer: true
   unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - expo
+  - expo-*
+  - "@expo/*"
+  - babel-preset-expo

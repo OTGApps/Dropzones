@@ -1,7 +1,8 @@
 import { ComponentProps, FC, useState, useEffect } from "react"
-import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
+import { View, ViewStyle, TextStyle, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { LegendList } from "@legendapp/list/react-native"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 
@@ -137,12 +138,13 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
   }
 
   return (
-    <FlatList
+    <LegendList
       style={themed(FULL)}
       data={MenuItems}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
+      recycleItems
     />
   )
 }

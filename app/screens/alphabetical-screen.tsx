@@ -1,12 +1,13 @@
 import { FC, useState, useCallback, useMemo } from "react"
-import { View, ViewStyle, TextStyle, SectionList, Text } from "react-native"
+import { View, ViewStyle, TextStyle, Text } from "react-native"
+import { SectionList } from "@legendapp/list/section-list"
 import { Searchbar } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
-import { $searchbar } from "@/theme/styles"
+import { $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-import { DropzoneListRow, ListSeparator } from "../components"
+import { DropzoneListRow, ListSeparator, Screen } from "../components"
 import { useDropzoneSearch, type Dropzone } from "../database"
 
 const FULL: ViewStyle = {
@@ -88,16 +89,19 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   )
 
   return (
-    <SectionList
-      style={FULL}
-      sections={dataSource}
-      extraData={dropzones}
-      stickySectionHeadersEnabled={false}
-      keyExtractor={(item) => item.anchor.toString()}
-      renderSectionHeader={renderSectionHeader}
-      renderItem={renderItem}
-      ItemSeparatorComponent={ListSeparator}
-      ListHeaderComponent={listHeader}
-    />
+    <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
+      <SectionList
+        style={FULL}
+        sections={dataSource}
+        extraData={dropzones}
+        stickySectionHeadersEnabled={false}
+        keyExtractor={(item) => item.anchor.toString()}
+        renderSectionHeader={renderSectionHeader}
+        renderItem={renderItem}
+        ItemSeparatorComponent={ListSeparator}
+        ListHeaderComponent={listHeader}
+        recycleItems
+      />
+    </Screen>
   )
 }
