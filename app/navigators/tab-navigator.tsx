@@ -1,4 +1,3 @@
-import { View } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 

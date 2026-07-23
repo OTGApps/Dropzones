@@ -54,6 +54,13 @@ module.exports = {
     "react-native/no-raw-text": 0,
     // reactotron
     "reactotron/no-tron-in-production": "error",
+    // react-hooks: these two rules (added by eslint-config-expo's react-hooks bump) are
+    // React Compiler-readiness checks, not correctness checks. This codebase doesn't use
+    // React Compiler, and both rules flag standard, safe patterns used throughout: setting
+    // loading state at the top of a data-fetching effect, and reading a stable ref/Animated
+    // value's `.current` at initialization.
+    "react-hooks/set-state-in-effect": 0,
+    "react-hooks/refs": 0,
     // eslint-config-standard overrides
     "comma-dangle": 0,
     "no-global-assign": 0,

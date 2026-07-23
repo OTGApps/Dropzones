@@ -51,9 +51,7 @@ export interface Theme {
  */
 export type ThemedStyle<T> = (theme: Theme) => T
 export type ThemedStyleArray<T> = (
-  | ThemedStyle<T>
-  | StyleProp<T>
-  | (StyleProp<T> | ThemedStyle<T>)[]
+  ThemedStyle<T> | StyleProp<T> | (StyleProp<T> | ThemedStyle<T>)[]
 )[]
 
 /**
