@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react"
+import { ComponentProps, FC, useState, useEffect } from "react"
 import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
 import { FontAwesome as Icon } from "@expo/vector-icons"
@@ -10,7 +10,15 @@ import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
-const MenuItems = require("./menu-items.json")
+type MenuItem = {
+  id: number
+  title: string
+  subtitle: string
+  iconName: ComponentProps<typeof Icon>["name"]
+  screen: "near-me" | "alphabetical" | "by-state" | "by-aircraft" | "by-services" | "by-training"
+}
+
+const MenuItems: MenuItem[] = require("./menu-items.json")
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -48,7 +56,9 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
         Alert.alert("Error", errorMsg)
         setErrorMsg(null)
       } else {
-        if (__DEV__) console.tron.log("opening the near me screen.", location)
+        if (__DEV__) {
+          console.tron.log("opening the near me screen.", location)
+        }
         navigation.navigate("near-me", {
           location,
         })
@@ -75,7 +85,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     getLocation()
   }
 
-  const rightElement = (item) => {
+  const rightElement = (item: MenuItem) => {
     switch (item.screen) {
       case "near-me":
         return loading ? <ActivityIndicator /> : null
@@ -84,7 +94,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     }
   }
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }: { item: MenuItem; index: number }) => {
     const rightEl = rightElement(item)
 
     return (

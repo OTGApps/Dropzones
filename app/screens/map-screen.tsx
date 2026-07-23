@@ -28,7 +28,7 @@ export const MapScreen: FC = function MapScreen() {
 
   const navigation = useNavigation()
   const { dropzones } = useDropzones()
-  const [showsUserLocation, setShowsUserLocation] = useState(false)
+  const [showsUserLocation, _setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
   const mapRef = useRef<MapView>(null)
 
@@ -91,7 +91,7 @@ export const MapScreen: FC = function MapScreen() {
           tracksViewChanges={false}
         >
           <Callout
-            onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
+            onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
             style={{ backgroundColor: colors.background }}
           >
             {Platform.OS === "ios" ? (
@@ -101,7 +101,7 @@ export const MapScreen: FC = function MapScreen() {
                 descriptionStyle={themed($calloutDescription)}
                 title={dropzone.name}
                 description={dropzone.stateCode}
-                onPress={() => goToDetail(dropzone.anchor, dropzone.name)}
+                onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
                 right={(props) => (
                   <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
                 )}

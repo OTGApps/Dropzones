@@ -1,39 +1,35 @@
 import { ComponentProps } from "react"
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import {
-  CompositeScreenProps,
-  NavigationContainer,
-  NavigatorScreenParams,
-} from "@react-navigation/native"
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import type { LocationObject } from "expo-location"
+import { NavigationContainer } from "@react-navigation/native"
 
-// Demo Tab Navigator types
-export type DemoTabParamList = {
-  DemoCommunity: undefined
-  DemoShowroom: { queryIndex?: string; itemIndex?: string }
-  DemoDebug: undefined
-  DemoPodcastList: undefined
+// Every screen name reachable via navigation.navigate() anywhere in the app,
+// across the tab/stack navigators (tab-navigator, primary-stack, primary-navigator,
+// map-stack, map-navigator).
+export type AppRootParamList = {
+  "dropzones": undefined
+  "map": undefined
+  "primaryStack": undefined
+  "mapStack": undefined
+  "about": undefined
+  "welcome": undefined
+  "alphabetical": undefined
+  "list-detail": { item: string; itemType: string; title: string }
+  "near-me": { location: LocationObject | null }
+  "dropzone-detail": { anchor: string; title: string }
+  "by-state": undefined
+  "by-aircraft": undefined
+  "by-services": undefined
+  "by-training": undefined
 }
 
-// App Stack Navigator types
-export type AppStackParamList = {
-  Welcome: undefined
-  Login: undefined
-  Demo: NavigatorScreenParams<DemoTabParamList>
-  // 🔥 Your screens go here
-  // IGNITE_GENERATOR_ANCHOR_APP_STACK_PARAM_LIST
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace -- required by react-navigation's global RootParamList augmentation pattern
+  namespace ReactNavigation {
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    interface RootParamList extends AppRootParamList {}
+  }
 }
-
-export type AppStackScreenProps<T extends keyof AppStackParamList> = NativeStackScreenProps<
-  AppStackParamList,
-  T
->
-
-export type DemoTabScreenProps<T extends keyof DemoTabParamList> = CompositeScreenProps<
-  BottomTabScreenProps<DemoTabParamList, T>,
-  AppStackScreenProps<keyof AppStackParamList>
->
 
 export interface NavigationProps extends Partial<
-  ComponentProps<typeof NavigationContainer<AppStackParamList>>
+  ComponentProps<typeof NavigationContainer<AppRootParamList>>
 > {}

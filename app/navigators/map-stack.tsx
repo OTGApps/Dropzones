@@ -17,7 +17,7 @@ const MapStack = () => {
       screenOptions={{
         headerShown: false,
         gestureEnabled: true,
-        stackPresentation: "modal",
+        presentation: "modal",
       }}
     >
       <Stack.Screen
