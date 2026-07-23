@@ -20,6 +20,7 @@ import "./utils/gestureHandler"
 
 import { useEffect, useState } from "react"
 import { useFonts } from "expo-font"
+import * as SplashScreen from "expo-splash-screen"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { PaperProvider } from "react-native-paper"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -36,6 +37,10 @@ import * as storage from "./utils/storage"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
 
+// The native auto-hide (triggered off RCTContentDidAppearNotification) doesn't
+// fire reliably under the New Architecture, so we hide it manually once ready.
+SplashScreen.preventAutoHideAsync()
+
 /**
  * Wrapper component that shows LoadingScreen while database is initializing.
  */
@@ -45,6 +50,12 @@ function DatabaseLoadingWrapper({
   children: React.ReactNode
 }): React.JSX.Element | null {
   const { isReady, progress, message } = useDatabase()
+
+  useEffect(() => {
+    if (isReady) {
+      SplashScreen.hideAsync()
+    }
+  }, [isReady])
 
   if (!isReady) {
     return <LoadingScreen message={message} progress={progress} />
