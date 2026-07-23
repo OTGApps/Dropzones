@@ -16,9 +16,9 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item: string, index: number) => index.toString()
 
-const TRAINING_TITLES = {
+const TRAINING_TITLES: Record<string, string> = {
   "iad": "Instructor Assisted Deployment",
   "aff": "Assisted Free Fall",
   "sl": "Static Line",
@@ -33,7 +33,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
-    ({ item }) => (
+    ({ item }: { item: string }) => (
       <List.Item
         title={TRAINING_TITLES[item.toLowerCase()]}
         onPress={() =>

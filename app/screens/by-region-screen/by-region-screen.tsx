@@ -26,7 +26,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   const dataSource = useMemo(() => stateGroups.map((g) => g.stateCode), [stateGroups])
   const { themed } = useAppTheme()
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: { item: string }) => (
     <List.Item
       title={item}
       onPress={() =>

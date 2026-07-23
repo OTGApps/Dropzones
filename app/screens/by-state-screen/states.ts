@@ -1,4 +1,4 @@
-export const States = {
+export const States: Record<string, { fullName: string; image?: any }> = {
   al: {
     fullName: "Alabama",
     image: require("./flags/alabama.png"),

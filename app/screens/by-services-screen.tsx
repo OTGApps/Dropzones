@@ -16,7 +16,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item: string, index: number) => index.toString()
 
 export const ByServicesScreen: FC = function ByServicesScreen() {
   const navigation = useNavigation()
@@ -24,7 +24,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
-    ({ item }) => (
+    ({ item }: { item: string }) => (
       <List.Item
         title={item}
         onPress={() =>

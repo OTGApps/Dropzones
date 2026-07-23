@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useState } from "react"
-import { Alert, Linking, ScrollView, View, ViewStyle, TextStyle } from "react-native"
+import { Alert, Linking, ScrollView, View, ViewStyle, TextStyle, ImageStyle } from "react-native"
 import * as Application from "expo-application"
 import { FontAwesome as Icon } from "@expo/vector-icons"
 import { ActivityIndicator, Card, List, ProgressBar, Text } from "react-native-paper"
@@ -244,7 +244,7 @@ const $logoCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.lg,
 })
 
-const $logoCover: ThemedStyle<ViewStyle> = ({ colors }) => ({
+const $logoCover: ThemedStyle<ImageStyle> = ({ colors }) => ({
   backgroundColor: colors.palette.neutral100,
 })
 

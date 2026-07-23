@@ -61,7 +61,7 @@ const BottomSheetZoomTracker: FC<{ onZoomChange: (zoom: number) => void }> = ({ 
 
   useAnimatedReaction(
     () => animatedIndex.value,
-    (index, previousIndex) => {
+    (index, _previousIndex) => {
       // Interpolate zoom: at index 0 (5% handle-only) -> zoom 2.5, at index 1 (75%) -> zoom 1
       const zoom = interpolate(index, [0, 1], [2.5, 1], Extrapolate.CLAMP)
       runOnJS(onZoomChange)(zoom)
@@ -140,8 +140,10 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
       const { coordinates } = selectedDZ
       // Apply manual zoom when sheet is collapsed (index 0)
       const effectiveZoom = sheetIndex === 0 ? zoomMultiplier * manualZoom : zoomMultiplier
-      const latitudeDelta = Platform.select({ ios: 0.044, android: 0.005 }) / effectiveZoom
-      const longitudeDelta = Platform.select({ ios: 0.055, android: 0.015 }) / effectiveZoom
+      const latitudeDelta =
+        (Platform.select({ ios: 0.044, android: 0.005 }) ?? 0.044) / effectiveZoom
+      const longitudeDelta =
+        (Platform.select({ ios: 0.055, android: 0.015 }) ?? 0.055) / effectiveZoom
       // Interpolate offset: zoom 2.5 -> 0 offset (centered), zoom 1 -> 0.6 offset (high)
       const offsetMultiplier = ((2.5 - zoomMultiplier) / 1.5) * 0.6
       const latitudeOffset = latitudeDelta * offsetMultiplier
@@ -179,7 +181,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           size={22}
           color={colors.palette.neutral100}
           onPress={openDrivingDirectons}
-          style={{ marginRight: 15 }}
+          style={themed($headerIcon)}
         />
       ),
     })
@@ -187,9 +189,10 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
     const focusListener = navigation.addListener("focus", showDisclaimerAlert)
     // Return the focuslistener so it gets removed and we don't cause a memory leak.
     return focusListener
-  }, [navigation, openDrivingDirectons, colors])
+  }, [navigation, openDrivingDirectons, colors, themed])
 
   const openWebsite = async () => {
+    if (!selectedDZ) return
     const { website } = selectedDZ
     const supported = await Linking.canOpenURL(website)
     if (supported) {
@@ -202,6 +205,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   }
 
   const openPhone = async () => {
+    if (!selectedDZ) return
     const { phone } = selectedDZ
 
     const callSkyGods = `tel:${phone}`
@@ -222,6 +226,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   // }
 
   const handleEmail = async () => {
+    if (!selectedDZ) return
     const { email } = selectedDZ
     const subject = encodeURIComponent("Question for " + selectedDZ.name)
     const mailtoUrl = `mailto:${email}?subject=${subject}`
@@ -244,8 +249,8 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   // Offset the map center based on sheet position
   // At 5% (handle-only, zoom 2.5x): marker centered (offset = 0)
   // At 75% (expanded, zoom 1x): marker offset to be visible above sheet (offset = 0.6)
-  const latitudeDelta = Platform.select({ ios: 0.044, android: 0.005 }) / zoomMultiplier
-  const longitudeDelta = Platform.select({ ios: 0.055, android: 0.015 }) / zoomMultiplier
+  const latitudeDelta = (Platform.select({ ios: 0.044, android: 0.005 }) ?? 0.044) / zoomMultiplier
+  const longitudeDelta = (Platform.select({ ios: 0.055, android: 0.015 }) ?? 0.055) / zoomMultiplier
   // Interpolate offset: zoom 2.5 -> 0 offset (centered), zoom 1 -> 0.6 offset (high)
   const offsetMultiplier = ((2.5 - zoomMultiplier) / 1.5) * 0.6
   const latitudeOffset = latitudeDelta * offsetMultiplier
@@ -385,7 +390,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Aircraft"
                   description={selectedDZ.aircraft.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={(_props) => (
                     <Icon
                       name="fighter-jet"
                       size={20}
@@ -399,7 +404,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Services"
                   description={selectedDZ.services.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={(_props) => (
                     <Icon name="bath" size={20} color={colors.text} style={themed($iconStyle)} />
                   )}
                 />
@@ -408,7 +413,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Training Offered"
                   description={selectedDZ.training.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={(_props) => (
                     <Icon
                       name="graduation-cap"
                       size={20}
@@ -455,6 +460,10 @@ const $descriptionText: ThemedStyle<TextStyle> = ({ colors }) => ({
 const $iconStyle: ThemedStyle<TextStyle> = ({ spacing }) => ({
   alignSelf: "flex-start",
   marginRight: spacing.sm,
+})
+
+const $headerIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  marginRight: spacing.md,
 })
 
 const $noPadding: ViewStyle = {

@@ -51,7 +51,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
   }, [stateGroups])
 
   const renderItem = useCallback(
-    ({ item, index }) => {
+    ({ item, index }: { item: string; index: number }) => {
       const thisState = States[item.toLowerCase()]
 
       return (
