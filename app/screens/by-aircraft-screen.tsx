@@ -149,6 +149,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
       <SectionList
         style={themed(FULL)}
+        estimatedItemSize={56}
         sections={filteredSections}
         keyExtractor={keyExtractor}
         renderItem={renderItem}

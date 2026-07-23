@@ -46,6 +46,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
   return (
     <LegendList
       style={themed(FULL)}
+      estimatedItemSize={56}
       data={uniqueServices}
       keyExtractor={keyExtractor}
       renderItem={renderItem}

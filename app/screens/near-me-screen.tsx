@@ -39,6 +39,7 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
     <LegendList
       key="list"
       style={themed(FULL)}
+      estimatedItemSize={72}
       keyExtractor={keyExtractor}
       data={sortedFromUser}
       renderItem={renderItem}

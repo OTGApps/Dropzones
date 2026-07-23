@@ -45,6 +45,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   return (
     <LegendList
       style={themed(FULL)}
+      estimatedItemSize={56}
       data={dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}

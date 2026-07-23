@@ -88,6 +88,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
   return (
     <LegendList
       style={themed(FULL)}
+      estimatedItemSize={64}
       data={processedData.dataSource}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}

@@ -55,6 +55,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   return (
     <LegendList
       style={themed(FULL)}
+      estimatedItemSize={56}
       data={uniqueTraining}
       keyExtractor={keyExtractor}
       renderItem={renderItem}

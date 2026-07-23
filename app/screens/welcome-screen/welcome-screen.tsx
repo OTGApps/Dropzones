@@ -140,6 +140,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
   return (
     <LegendList
       style={themed(FULL)}
+      estimatedItemSize={72}
       data={MenuItems}
       keyExtractor={(item, idx) => idx.toString()}
       renderItem={renderItem}

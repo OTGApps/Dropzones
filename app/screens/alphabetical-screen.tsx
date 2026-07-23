@@ -92,6 +92,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
     <Screen preset="fixed" contentContainerStyle={$styles.flex1}>
       <SectionList
         style={FULL}
+        estimatedItemSize={72}
         sections={dataSource}
         extraData={dropzones}
         stickySectionHeadersEnabled={false}

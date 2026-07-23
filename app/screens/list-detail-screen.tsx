@@ -67,6 +67,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
       <LegendList
         key="list"
         style={themed(FULL)}
+        estimatedItemSize={72}
         keyExtractor={keyExtractor}
         data={list}
         ListHeaderComponent={listHeader}
