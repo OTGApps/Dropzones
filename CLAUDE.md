@@ -66,9 +66,6 @@ Navigation state persists via `useNavigationPersistence` (`app/navigators/naviga
 ### Path aliases
 `@/*` → `app/*`, `@assets/*` → `assets/*` (see `tsconfig.json`). Use these instead of relative `../../` imports.
 
-### Leftover Ignite boilerplate (not wired up)
-`app/context/AuthContext.tsx`, `app/context/EpisodeContext.tsx`, `app/screens/DemoShowroomScreen/`, and the `.maestro/flows/Login.yaml` / `FavoritePodcast.yaml` flows are unreferenced template scaffolding from Ignite's default "auth + podcast API" example app. They are not part of the dropzone app's actual navigation graph or feature set — don't treat them as existing functionality to extend.
-
 ## Conventions (from `.eslintrc.js`)
 
 - Import React hooks/types as named exports (`import { useState } from "react"`), never `import React from "react"`.
