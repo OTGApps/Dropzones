@@ -1,9 +1,9 @@
 import { FC, useState, useRef, useEffect, useMemo, useCallback } from "react"
 import { ViewStyle, TextStyle, Platform } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"

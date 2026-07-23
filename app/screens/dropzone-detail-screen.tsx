@@ -9,6 +9,7 @@ import {
   Animated,
   TouchableOpacity,
 } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
@@ -16,7 +17,6 @@ import MapView, { Marker } from "react-native-maps"
 import openMap from "react-native-open-maps"
 import { List, Button, Text } from "react-native-paper"
 import { useAnimatedReaction, interpolate, Extrapolate, runOnJS } from "react-native-reanimated"
-import Icon from "react-native-vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"

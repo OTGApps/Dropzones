@@ -1,8 +1,8 @@
 import { FC, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
 
 import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
