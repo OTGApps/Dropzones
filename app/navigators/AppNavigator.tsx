@@ -22,13 +22,14 @@ import TabNavigator from "./tab-navigator"
 const exitRoutes = Config.exitRoutes
 
 export const AppNavigator = (props: NavigationProps) => {
-  const { navigationTheme, themeContext } = useAppTheme()
+  const { navigationTheme } = useAppTheme()
 
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 
   return (
     <>
-      <SystemBars style={themeContext === "dark" ? "dark" : "light"} />
+      {/* Header background is always dark (colors.headerBackground), so status bar content is always light */}
+      <SystemBars style="light" />
 
       <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
         <ErrorBoundary catchErrors={Config.catchErrors}>

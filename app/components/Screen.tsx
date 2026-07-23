@@ -243,7 +243,6 @@ function ScreenWithScrolling(props: ScreenProps) {
 export function Screen(props: ScreenProps) {
   const {
     theme: { colors },
-    themeContext,
   } = useAppTheme()
   const {
     backgroundColor,
@@ -265,7 +264,7 @@ export function Screen(props: ScreenProps) {
       ]}
     >
       <SystemBars
-        style={systemBarStyle || (themeContext === "dark" ? "light" : "dark")}
+        style={systemBarStyle || "light"}
         {...SystemBarsProps}
       />
 
