@@ -36,6 +36,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   const renderItem = useCallback(
     ({ item }: { item: string }) => (
       <List.Item
+        testID={`training-item-${item.toLowerCase().replace(/\s+/g, "-")}`}
         title={TRAINING_TITLES[item.toLowerCase()]}
         style={themed($listItemChevronRight)}
         onPress={() =>

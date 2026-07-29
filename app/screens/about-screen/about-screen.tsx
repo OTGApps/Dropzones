@@ -182,6 +182,7 @@ export const AboutScreen: FC = () => {
             Version {Application.nativeApplicationVersion} ({Application.nativeBuildVersion})
           </Text>
           <List.Item
+            testID="about-check-updates-item"
             title="Check for Data Updates"
             style={themed($listItemChevronRight)}
             description={
@@ -217,6 +218,7 @@ export const AboutScreen: FC = () => {
             }
           />
           <List.Item
+            testID="about-github-item"
             title="Dropzones is open source!"
             description="Go to Github to find out more"
             style={themed($listItemChevronRight)}

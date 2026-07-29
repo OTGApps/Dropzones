@@ -76,40 +76,87 @@ export const MapScreen: FC = function MapScreen() {
     }
   }
 
+  const dropzonePoints = useMemo(
+    () =>
+      dropzones?.map((dropzone) => ({
+        type: "Feature" as const,
+        geometry: {
+          type: "Point" as const,
+          coordinates: [dropzone.coordinates.longitude, dropzone.coordinates.latitude],
+        },
+        properties: { dropzone },
+      })) || [],
+    [dropzones],
+  )
+
+  const [points] = useClusterer<{ dropzone: Dropzone }>(dropzonePoints, mapDimensions, region, {
+    radius: CLUSTER_RADIUS,
+  })
+
   const markers = useMemo(
     () =>
-      dropzones?.map((dropzone) => (
-        <Marker
-          key={dropzone.anchor}
-          coordinate={{
-            latitude: dropzone.coordinates.latitude,
-            longitude: dropzone.coordinates.longitude,
-          }}
-          title={dropzone.name}
-          description={dropzone.stateCode}
-          tracksViewChanges={false}
-        >
-          <Callout tooltip onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}>
-            <List.Item
-              style={themed($calloutItem)}
-              titleStyle={themed($calloutTitle)}
-              descriptionStyle={themed($calloutDescription)}
-              title={dropzone.name}
-              description={dropzone.stateCode}
-              onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
-              right={(props) => (
-                <Icon
-                  {...props}
-                  name="chevron-right"
-                  size={16}
-                  style={themed($calloutChevronRight)}
-                />
-              )}
-            />
-          </Callout>
-        </Marker>
-      )) || [],
-    [dropzones, goToDetail, themed],
+      points.map((point) => {
+        const [longitude, latitude] = point.geometry.coordinates
+        const coordinate = { latitude: latitude!, longitude: longitude! }
+
+        if (isClusterFeature(point)) {
+          return (
+            <Marker
+              key={`cluster-${point.properties.cluster_id}`}
+              testID={`map-cluster-${point.properties.cluster_id}`}
+              coordinate={coordinate}
+              onPress={() =>
+                mapRef.current?.animateToRegion(
+                  {
+                    ...coordinate,
+                    latitudeDelta: region.latitudeDelta / 2,
+                    longitudeDelta: region.longitudeDelta / 2,
+                  },
+                  300,
+                )
+              }
+            >
+              <View style={themed($clusterMarker)}>
+                <Text style={themed($clusterMarkerText)}>{point.properties.point_count}</Text>
+              </View>
+            </Marker>
+          )
+        }
+
+        const { dropzone } = point.properties
+        return (
+          <Marker
+            key={dropzone.anchor}
+            identifier={dropzone.anchor.toString()}
+            testID={`map-marker-${dropzone.anchor}`}
+            coordinate={coordinate}
+            title={dropzone.name}
+            description={dropzone.stateCode}
+            tracksViewChanges={false}
+          >
+            <Callout tooltip onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}>
+              <List.Item
+                testID={`map-callout-${dropzone.anchor}`}
+                style={themed($calloutItem)}
+                titleStyle={themed($calloutTitle)}
+                descriptionStyle={themed($calloutDescription)}
+                title={dropzone.name}
+                description={dropzone.stateCode}
+                onPress={() => goToDetail(dropzone.anchor.toString(), dropzone.name)}
+                right={(props) => (
+                  <Icon
+                    {...props}
+                    name="chevron-right"
+                    size={16}
+                    style={themed($calloutChevronRight)}
+                  />
+                )}
+              />
+            </Callout>
+          </Marker>
+        )
+      }),
+    [points, region, goToDetail, themed],
   )
 
   return (

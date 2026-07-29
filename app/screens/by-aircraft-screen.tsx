@@ -71,6 +71,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
       }
       return (
         <List.Item
+          testID={`aircraft-item-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
           title={item.name}
           onPress={onPressed}
           style={themed($listItemChevronRight)}
@@ -102,7 +103,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
           </Text>
         </Card.Content>
         <Card.Actions>
-          <Button mode="outlined" onPress={hideHeaderComponent}>
+          <Button testID="aircraft-warning-dismiss" mode="outlined" onPress={hideHeaderComponent}>
             OK
           </Button>
         </Card.Actions>
@@ -120,6 +121,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   const searchBar = useMemo(
     () => (
       <Searchbar
+        testID="aircraft-search-input"
         placeholder="Search Aircraft..."
         value={searchQuery}
         onChangeText={handleSearch}

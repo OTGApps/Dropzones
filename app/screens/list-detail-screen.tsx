@@ -46,6 +46,7 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
     () => (
       <Searchbar
         key="list-search"
+        testID="list-detail-search-input"
         placeholder="Search Dropzones..."
         value={search}
         onChangeText={(value) => setSearch(value)}

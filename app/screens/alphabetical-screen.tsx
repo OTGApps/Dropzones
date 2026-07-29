@@ -63,6 +63,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   const listHeader = useMemo(
     () => (
       <Searchbar
+        testID="alphabetical-search-input"
         placeholder="Search Dropzones..."
         value={searchQuery}
         onChangeText={handleSearch}
