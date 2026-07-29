@@ -1,0 +1,38 @@
+# flow: Map
+# intent: Zoom the map into Skydive Perris's cluster (anchor 100778), open its
+# marker's callout by testID, and confirm it navigates to that dropzone's
+# detail screen. The zoom tap point is computed from the INITIAL_REGION in
+# map-screen.tsx (lat 39.828 / lon -98.579, 50deg delta) against Perris, CA's
+# real coordinates - it lands on/near the marker, but cluster boundaries are
+# runtime-computed so the point taps may need nudging per device size.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Map"
+- waitForAnimationToEnd
+
+# --- zoom into the SoCal cluster until Skydive Perris's marker separates out ---
+- tapOn:
+    point: "32%, 62%"
+- waitForAnimationToEnd
+- tapOn:
+    point: "32%, 62%"
+- waitForAnimationToEnd
+- tapOn:
+    point: "32%, 62%"
+- waitForAnimationToEnd
+
+# --- once resolved to an individual marker, target it by testID ---
+- tapOn:
+    id: "map-marker-100778"
+- tapOn:
+    id: "map-callout-100778"
+- waitForAnimationToEnd
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+
+- back
+- tapOn: "Dropzones"
+- assertVisible: "Find Dropzones"

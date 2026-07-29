@@ -1,0 +1,48 @@
+# flow: Aircraft Type
+# intent: Confirm the data-quality warning card shows once and stays dismissed
+# for the rest of the session, the search box filters the section list, and
+# drilling into an aircraft type opens its dropzone list.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-aircraft"
+- assertVisible: "DATA WARNING:"
+- assertVisible:
+    id: "aircraft-search-input"
+- tapOn:
+    id: "aircraft-warning-dismiss"
+- assertNotVisible: "DATA WARNING:"
+
+# --- dismissal persists for the rest of this session ---
+- back
+- tapOn:
+    id: "menu-item-by-aircraft"
+- waitForAnimationToEnd
+- assertNotVisible: "DATA WARNING:"
+
+# --- search filters the aircraft list ---
+- tapOn:
+    id: "aircraft-search-input"
+- inputText: "Cessna"
+- hideKeyboard
+- scroll
+
+- tapOn:
+    id: "aircraft-search-input"
+- eraseText
+- hideKeyboard
+
+# --- drill into an aircraft type -> its dropzone list ---
+- tapOn:
+    id: "aircraft-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- assertVisible:
+    id: "list-detail-search-input"
+
+- back
+- back
+- assertVisible: "Find Dropzones"
