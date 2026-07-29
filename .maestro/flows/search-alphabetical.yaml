@@ -38,6 +38,6 @@ onFlowStart:
 - assertVisible: "Skydive Perris"
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"

@@ -18,7 +18,7 @@ onFlowStart:
     commands:
       - tapOn: "While using the app"
 - waitForAnimationToEnd
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- Alphabetical -> dropzone detail ---
 - assertVisible: "Find Dropzones"
@@ -31,15 +31,15 @@ onFlowStart:
     id: "dropzone-item-.*"
     index: 0
 - waitForAnimationToEnd
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 
 # --- By State -> list-detail -> dropzone detail ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-by-state"
 - scroll
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- Aircraft Type (SectionList with warning card + search) ---
 - assertVisible: "Find Dropzones"
@@ -48,28 +48,28 @@ onFlowStart:
 - assertVisible:
     id: "aircraft-search-input"
 - scroll
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- Services Offered ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-by-services"
 - scroll
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- Training Capibilities ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-by-training"
 - scroll
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- About screen ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "header-about-button"
 - assertVisible: "USPA Dropzone Finder"
-- back
+- runFlow: ../shared/_Back.yaml
 
 # --- Map tab ---
 - assertVisible: "Find Dropzones"

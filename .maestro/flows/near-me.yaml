@@ -34,6 +34,6 @@ onFlowStart:
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
 - assertNotVisible: "Dropzones Near Me"
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"
