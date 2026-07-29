@@ -17,7 +17,7 @@ onFlowStart:
 - assertNotVisible: "DATA WARNING:"
 
 # --- dismissal persists for the rest of this session ---
-- back
+- runFlow: ../shared/_Back.yaml
 - tapOn:
     id: "menu-item-by-aircraft"
 - waitForAnimationToEnd
@@ -43,6 +43,6 @@ onFlowStart:
 - assertVisible:
     id: "list-detail-search-input"
 
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"

@@ -45,5 +45,5 @@ onFlowStart:
 - waitForAnimationToEnd
 - assertVisible: "USPA Dropzone Finder"
 
-- back
+- runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"

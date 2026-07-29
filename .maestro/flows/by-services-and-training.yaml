@@ -23,9 +23,9 @@ onFlowStart:
 - waitForAnimationToEnd
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
-- back
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 
 # --- Training Capabilities ---
 - assertVisible: "Find Dropzones"
@@ -43,7 +43,7 @@ onFlowStart:
 - waitForAnimationToEnd
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
-- back
-- back
-- back
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"
