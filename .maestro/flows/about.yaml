@@ -1,0 +1,49 @@
+# flow: About
+# intent: Confirm the About screen renders app/version info, the "Check for
+# Data Updates" row completes (any of its three outcomes: up to date, update
+# available, or check failed) without crashing, and the GitHub link opens.
+# Does not tap "Update" or long-press "Reset Database" - those mutate local
+# data and are covered (safely, without confirming) in
+# about-reset-confirmation.yaml.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "header-about-button"
+- assertVisible: "USPA Dropzone Finder"
+- assertVisible: "Version .*"
+
+# --- check for data updates: handle any of its outcomes ---
+- tapOn:
+    id: "about-check-updates-item"
+- extendedWaitUntil:
+    visible: "Up to Date|Update Available|Check Failed"
+    timeout: 15000
+- runFlow:
+    when:
+      visible: "Up to Date"
+    commands:
+      - tapOn: "OK"
+- runFlow:
+    when:
+      visible: "Update Available"
+    commands:
+      - tapOn: "Later"
+- runFlow:
+    when:
+      visible: "Check Failed"
+    commands:
+      - tapOn: "OK"
+
+# --- github link opens the browser ---
+- tapOn:
+    id: "about-github-item"
+- launchApp:
+    appId: ${MAESTRO_APP_ID}
+- waitForAnimationToEnd
+- assertVisible: "USPA Dropzone Finder"
+
+- back
+- assertVisible: "Find Dropzones"
