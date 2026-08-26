@@ -1,14 +1,21 @@
 import { FC, useState, useRef, useEffect, useMemo, useCallback } from "react"
-import { ViewStyle, TextStyle, Platform } from "react-native"
+import { View, ViewStyle, TextStyle, Platform, LayoutChangeEvent, Dimensions } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
+import { isClusterFeature, useClusterer } from "react-native-clusterer"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
-import { List } from "react-native-paper"
+import { List, Text } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
-import { useDropzones } from "../database"
+import { Dropzone, useDropzones } from "../database"
+
+// Cluster radius, in pixels, before nearby dropzones merge into one marker.
+// Prevents overlapping pins where tapping one can register on a neighbor.
+const CLUSTER_RADIUS = 50
+
+const INITIAL_MAP_DIMENSIONS = Dimensions.get("window")
 
 // Initial map region centered on the USA
 const INITIAL_REGION: Region = {
@@ -29,7 +36,16 @@ export const MapScreen: FC = function MapScreen() {
   const { dropzones } = useDropzones()
   const [showsUserLocation, _setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
+  const [region, setRegion] = useState<Region>(INITIAL_REGION)
+  const [mapDimensions, setMapDimensions] = useState<{ width: number; height: number }>(
+    INITIAL_MAP_DIMENSIONS,
+  )
   const mapRef = useRef<MapView>(null)
+
+  const onMapLayout = useCallback((e: LayoutChangeEvent) => {
+    const { width, height } = e.nativeEvent.layout
+    setMapDimensions({ width, height })
+  }, [])
 
   useEffect(() => {
     // navigation.setOptions({
@@ -164,6 +180,8 @@ export const MapScreen: FC = function MapScreen() {
       ref={mapRef}
       provider={Platform.OS === "android" ? PROVIDER_GOOGLE : undefined}
       initialRegion={INITIAL_REGION}
+      onLayout={onMapLayout}
+      onRegionChangeComplete={setRegion}
       style={themed($map)}
       showsUserLocation={showsUserLocation}
       followsUserLocation={false}
@@ -205,4 +223,20 @@ const $calloutTitle: ThemedStyle<TextStyle> = ({ colors }) => ({
 
 const $calloutDescription: ThemedStyle<TextStyle> = ({ colors }) => ({
   color: colors.textDim,
+})
+
+const $clusterMarker: ThemedStyle<ViewStyle> = ({ colors }) => ({
+  width: 36,
+  height: 36,
+  borderRadius: 18,
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: colors.tint,
+  borderWidth: 2,
+  borderColor: colors.background,
+})
+
+const $clusterMarkerText: ThemedStyle<TextStyle> = ({ colors }) => ({
+  color: colors.palette.neutral100,
+  fontWeight: "bold",
 })
