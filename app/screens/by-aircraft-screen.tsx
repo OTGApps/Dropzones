@@ -2,7 +2,7 @@ import { FC, useState, useEffect, useCallback, useMemo } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight, $searchbar } from "@/theme/styles"

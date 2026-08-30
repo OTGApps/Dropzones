@@ -3,7 +3,7 @@ import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "
 import * as Location from "expo-location"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import Icon from "react-native-vector-icons/FontAwesome"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
