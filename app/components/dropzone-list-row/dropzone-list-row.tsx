@@ -3,7 +3,7 @@ import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 
-import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
+import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 

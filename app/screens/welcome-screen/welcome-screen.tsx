@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
 
 import { ListSeparator } from "@/components"
-import type { ParamlessRoute, PrimaryNavigationProp } from "@/navigators/primary-navigator"
+import type { ParamlessRoute, PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"

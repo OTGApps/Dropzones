@@ -15,7 +15,7 @@ import { useClusterer, isClusterFeature, type Supercluster } from "react-native-
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
 
-import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
+import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"

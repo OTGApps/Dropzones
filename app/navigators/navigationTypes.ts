@@ -1,11 +1,12 @@
 import { ComponentProps } from "react"
+import type { LocationObject } from "expo-location"
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import {
   CompositeScreenProps,
   NavigationContainer,
   NavigatorScreenParams,
 } from "@react-navigation/native"
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack"
 
 // Demo Tab Navigator types
 export type DemoTabParamList = {
@@ -37,3 +38,25 @@ export type DemoTabScreenProps<T extends keyof DemoTabParamList> = CompositeScre
 export interface NavigationProps extends Partial<
   ComponentProps<typeof NavigationContainer<AppStackParamList>>
 > {}
+
+// Primary Stack Navigator types
+export type PrimaryParamList = {
+  "welcome": undefined
+  "alphabetical": undefined
+  "map": undefined
+  "list-detail": { item: string; itemType: string; title: string }
+  "near-me": { location: LocationObject }
+  "dropzone-detail": { anchor: string; title: string }
+  "by-state": undefined
+  "by-aircraft": undefined
+  "by-services": undefined
+  "by-training": undefined
+  "about": undefined
+}
+
+export type PrimaryNavigationProp = NativeStackNavigationProp<PrimaryParamList>
+
+/** Routes that take no params — safe targets for dynamic `navigate(name)` calls. */
+export type ParamlessRoute = {
+  [K in keyof PrimaryParamList]: PrimaryParamList[K] extends undefined ? K : never
+}[keyof PrimaryParamList]
