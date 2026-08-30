@@ -46,7 +46,6 @@
     "bundler": "metro"
   },
   "plugins": [
-    "expo-status-bar",
     "expo-localization",
     "expo-font",
     [
