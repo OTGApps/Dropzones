@@ -24,6 +24,18 @@
     "Email": "info@skydivevancouver.com"
   },
   {
+    "Id": "100356",
+    "Latitude": "44.401717",
+    "Longitude": "-76.240203",
+    "AccountName": "Skydive Gananoque",
+    "AirportName": "Gananoque Municipal Airport",
+    "PhysicalCity": "Gananoque",
+    "PhysicalState": "ON",
+    "PhysicalCountry": "Canada",
+    "PhoneDZ": "(844) JUMP-GAN",
+    "Email": "info@skydivegan.com"
+  },
+  {
     "Id": "100357",
     "Latitude": "43.827326",
     "Longitude": "13.034089",
@@ -54,7 +66,7 @@
     "AccountName": "Pepperell Skydiving Center",
     "AirportName": "Pepperell Airport (26MA)",
     "PhysicalCity": "Pepperell",
-    "PhysicalState": "MA",
+    "PhysicalState": "Massachusetts",
     "PhysicalCountry": "US",
     "PhoneDZ": "(978) 433-9222",
     "Email": "manifest@skyjump.com"
@@ -66,7 +78,7 @@
     "AccountName": "Skydive New England",
     "AirportName": "Skydive New England Airport (ME64)",
     "PhysicalCity": "Lebanon",
-    "PhysicalState": "ME",
+    "PhysicalState": "Maine",
     "PhysicalCountry": "US",
     "PhoneDZ": "(207) 339-1520",
     "Email": "info@skydivenewengland.com"
@@ -78,7 +90,7 @@
     "AccountName": "Malone Parachute Club",
     "AirportName": "Franklin County Airport (FSO)",
     "PhysicalCity": "Swanton",
-    "PhysicalState": "VT",
+    "PhysicalState": "Vermont",
     "PhysicalCountry": "US",
     "PhoneDZ": "(802) 309-8067",
     "Email": "dickvt4@gmail.com"
@@ -102,22 +114,10 @@
     "AccountName": "Connecticut Parachutists, Inc.",
     "AirportName": "Ellington Airport (7B9)",
     "PhysicalCity": "Ellington",
-    "PhysicalState": "CT",
+    "PhysicalState": "Connecticut",
     "PhysicalCountry": "US",
     "PhoneDZ": "(860) 871-0021",
     "Email": "cpi@skydivect.com"
-  },
-  {
-    "Id": "100490",
-    "Latitude": "41.674253",
-    "Longitude": "-74.150233",
-    "AccountName": "Blue Sky Ranch",
-    "AirportName": "Gardiner Airport (5NY5)",
-    "PhysicalCity": "Gardiner",
-    "PhysicalState": "NY",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(845) 255-9538",
-    "Email": "skydivetheranch@gmail.com"
   },
   {
     "Id": "100501",
@@ -186,9 +186,9 @@
     "AccountName": "Flying Tigers SPC",
     "AirportName": "Anderson Regional Airport (AND)",
     "PhysicalCity": "Anderson",
-    "PhysicalState": "SC",
+    "PhysicalState": "South Carolina",
     "PhysicalCountry": "US",
-    "PhoneDZ": "(864) 350-8279",
+    "PhoneDZ": "(864) 444-1487",
     "Email": "jimburriss6@gmail.com"
   },
   {
@@ -209,8 +209,8 @@
     "Longitude": "-81.27934",
     "AccountName": "Skydive DeLand, Inc.",
     "AirportName": "DeLand Municipal Airport (DED)",
-    "PhysicalCity": "Deland",
-    "PhysicalState": "FL",
+    "PhysicalCity": "DeLand",
+    "PhysicalState": "Florida",
     "PhysicalCountry": "US",
     "PhoneDZ": "(386) 738-3539",
     "Email": "info@skydivedeland.com"
@@ -246,7 +246,7 @@
     "AccountName": "Aerohio Skydiving Center",
     "AirportName": "Ashland County Airport",
     "PhysicalCity": "Ashland ",
-    "PhysicalState": "OH",
+    "PhysicalState": "Ohio",
     "PhysicalCountry": "US",
     "PhoneDZ": "(330) 714-6349",
     "Email": "info@aerohio.com"
@@ -268,11 +268,11 @@
     "Latitude": "40.97406",
     "Longitude": "-81.100708",
     "AccountName": "Canton Air Sports",
-    "AirportName": "Barber Airfield",
+    "AirportName": "Lee Airfield",
     "PhysicalCity": "Alliance",
-    "PhysicalState": "OH",
+    "PhysicalState": "Ohio",
     "PhysicalCountry": "US",
-    "PhoneDZ": "(330) 685-0816",
+    "PhoneDZ": "(330) 823-0370",
     "Email": "jump@cantonairsports.com"
   },
   {
@@ -306,7 +306,7 @@
     "AccountName": "Skydive Milwaukee/Sky Knights Sport Parachute Club",
     "AirportName": "East Troy Municipal Airport (57C)",
     "PhysicalCity": "East Troy",
-    "PhysicalState": "WI",
+    "PhysicalState": "Wisconsin",
     "PhysicalCountry": "US",
     "PhoneDZ": "(800) 38-CHUTE",
     "Email": "jump@skydivemilwaukee.com"
@@ -342,7 +342,7 @@
     "AccountName": "Skydive Adventures",
     "AirportName": "Quentin Aanenson Airport (LYV)",
     "PhysicalCity": "Luverne",
-    "PhysicalState": "MN",
+    "PhysicalState": "Minnesota",
     "PhysicalCountry": "US",
     "PhoneDZ": "(605) 274-9970",
     "Email": "info@skydiveadventures.net"
@@ -366,7 +366,7 @@
     "AccountName": "Skydive Chicago, Inc.",
     "AirportName": "Skydive Chicago Airport (8N2)",
     "PhysicalCity": "Ottawa",
-    "PhysicalState": "IL",
+    "PhysicalState": "Illinois",
     "PhysicalCountry": "US",
     "PhoneDZ": "(815) 433-0000",
     "Email": "info@skydivechicago.com"
@@ -444,6 +444,18 @@
     "Email": "jump@skydiveaz.com"
   },
   {
+    "Id": "100771",
+    "Latitude": "35.94944",
+    "Longitude": "-114.85795",
+    "AccountName": "Skydive Las Vegas",
+    "AirportName": "Boulder City Municipal Airport (BVU)",
+    "PhysicalCity": "Boulder City",
+    "PhysicalState": "Nevada",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(702) SKY-DIVE",
+    "Email": "jump@skydivelasvegas.com"
+  },
+  {
     "Id": "100778",
     "Latitude": "33.7646389",
     "Longitude": "-117.2190000",
@@ -490,18 +502,6 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(530) 753-2651",
     "Email": "manifest@skydanceskydiving.com"
-  },
-  {
-    "Id": "100798",
-    "Latitude": "45.1462331",
-    "Longitude": "-122.6175886",
-    "AccountName": "Skydive Oregon, Inc.",
-    "AirportName": "Skydive Oregon Airport (OL05)",
-    "PhysicalCity": "Molalla",
-    "PhysicalState": "OR",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(503) 829-3483",
-    "Email": "skydive@skydiveoregon.com"
   },
   {
     "Id": "100802",
@@ -636,6 +636,18 @@
     "Email": "jump@skydiveoc.com"
   },
   {
+    "Id": "101605",
+    "Latitude": "35.977351",
+    "Longitude": "139.520933",
+    "AccountName": "Skydive Nippon",
+    "AirportName": "Honda Airport",
+    "PhysicalCity": "Saitama",
+    "PhysicalState": "Ken",
+    "PhysicalCountry": "Japan",
+    "PhoneDZ": "+818035208668",
+    "Email": "info@skydivemtfuji.com"
+  },
+  {
     "Id": "101662",
     "Latitude": "21.65357",
     "Longitude": "-158.20630",
@@ -702,7 +714,7 @@
     "AccountName": "Skydive City Zephyrhills",
     "AirportName": "Zephyrhills Municipal Airport (ZPH)",
     "PhysicalCity": "Zephyrhills",
-    "PhysicalState": "FL",
+    "PhysicalState": "Florida",
     "PhysicalCountry": "US",
     "PhoneDZ": "(813) 783-9399",
     "Email": "info@skydivecity.com"
@@ -774,7 +786,7 @@
     "AccountName": "Skydive Monterey Bay",
     "AirportName": "Marina Municipal Airport (OAR)",
     "PhysicalCity": "Marina",
-    "PhysicalState": "CA",
+    "PhysicalState": "California",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(831)384-3483",
     "Email": "office@skydivemontereybay.com"
@@ -786,7 +798,7 @@
     "AccountName": "Skydive Cincinnati",
     "AirportName": "Red Stewart Airfield (40I)",
     "PhysicalCity": "Waynesville",
-    "PhysicalState": "OH",
+    "PhysicalState": "Ohio",
     "PhysicalCountry": "US",
     "PhoneDZ": "(513) 282-3725",
     "Email": "info@skydivecincinnati.com"
@@ -846,7 +858,7 @@
     "AccountName": "DZONE Skydiving-Boise",
     "AirportName": "Parma Municipal Airport",
     "PhysicalCity": "Parma",
-    "PhysicalState": "ID",
+    "PhysicalState": "Idaho",
     "PhysicalCountry": "US",
     "PhoneDZ": "(208) 455-0000",
     "Email": "hello@boise.dzoneskydiving.com"
@@ -942,7 +954,7 @@
     "AccountName": "Skylark Skydive",
     "AirportName": "Skylark Field Airport",
     "PhysicalCity": "Killeen",
-    "PhysicalState": "TX",
+    "PhysicalState": "Texas",
     "PhysicalCountry": "US",
     "PhoneDZ": "(254) 947-3483",
     "Email": "info@skydiveskylark.com"
@@ -954,10 +966,10 @@
     "AccountName": "Skydive Newport",
     "AirportName": "Newport State Airport (UUU)",
     "PhysicalCity": "Middletown",
-    "PhysicalState": "RI",
+    "PhysicalState": "Rhode Island",
     "PhysicalCountry": "US",
     "PhoneDZ": "(401) 845-0393",
-    "Email": "marc@skydivenewport.com"
+    "Email": "chris@skydivenewport.com"
   },
   {
     "Id": "159183",
@@ -1002,7 +1014,7 @@
     "AccountName": "Midwest Freefall Sport Parachute Club, Inc.",
     "AirportName": "Kunstman Airfield",
     "PhysicalCity": "Ray",
-    "PhysicalState": "MI",
+    "PhysicalState": "Michigan",
     "PhysicalCountry": "US",
     "PhoneDZ": "(586) 752-5867",
     "Email": "skydive@midwestfreefall.com"
@@ -1014,7 +1026,7 @@
     "AccountName": "iSkydive America – Charlevoix",
     "AirportName": "Charlevoix Municipal Airport",
     "PhysicalCity": "Charlevoix",
-    "PhysicalState": "MI",
+    "PhysicalState": "Michigan",
     "PhysicalCountry": "US",
     "PhoneDZ": "(231) 242-8822",
     "Email": "Charlevoix@iskydive.com"
@@ -1033,8 +1045,8 @@
   },
   {
     "Id": "182972",
-    "Latitude": "44.6989N",
-    "Longitude": "10.6625E",
+    "Latitude": "44.6989",
+    "Longitude": "10.6625",
     "AccountName": "Body Fly University BFU",
     "AirportName": "Tricolore Airport",
     "PhysicalCity": "Reggio Emilia",
@@ -1050,7 +1062,7 @@
     "AccountName": "Skydive Mesquite",
     "AirportName": "Mesquite Municipal Airport (67L)",
     "PhysicalCity": "Mesquite",
-    "PhysicalState": "NV",
+    "PhysicalState": "Nevada",
     "PhysicalCountry": "US",
     "PhoneDZ": "(877) 2GO-JUMP",
     "Email": "skydive@skydivemesquite.com"
@@ -1098,7 +1110,7 @@
     "AccountName": "Skydive Midwest",
     "AirportName": "Sylvania Airport (C89)",
     "PhysicalCity": "Sturtevant",
-    "PhysicalState": "WI",
+    "PhysicalState": "Wisconsin",
     "PhysicalCountry": "US",
     "PhoneDZ": "(262) 886-3480",
     "Email": "info@skydivemidwest.com"
@@ -1122,7 +1134,7 @@
     "AccountName": "Skydive Philadelphia",
     "AirportName": "Pennridge Airport (CKZ)",
     "PhysicalCity": "Perkasie",
-    "PhysicalState": "PA",
+    "PhysicalState": "Pennsylvania",
     "PhysicalCountry": "US",
     "PhoneDZ": "(215) 258-2255",
     "Email": "skydivephilly@gmail.com"
@@ -1158,7 +1170,7 @@
     "AccountName": "SEMO Skydiving",
     "AirportName": "Cairo Regional Airport (CIR)",
     "PhysicalCity": "Cairo",
-    "PhysicalState": "MO",
+    "PhysicalState": "Illinois",
     "PhysicalCountry": "US",
     "PhoneDZ": "(573) 275-2986",
     "Email": "info@semoskydiving.com"
@@ -1194,7 +1206,7 @@
     "AccountName": "iSkydive America – Detroit ",
     "AirportName": "Maple Grove Airport (65G)",
     "PhysicalCity": "Fowlerville",
-    "PhysicalState": "MI",
+    "PhysicalState": "Michigan",
     "PhysicalCountry": "US",
     "PhoneDZ": "(517) 219-4709",
     "Email": "detroit@iskydiveamerica.com"
@@ -1236,6 +1248,18 @@
     "Email": "webmaster@skydivefujioka.jp"
   },
   {
+    "Id": "205432",
+    "Latitude": "35.77230",
+    "Longitude": "-115.32910",
+    "AccountName": "Sin City Skydiving",
+    "AirportName": "Jean Sport Aviation Center (0L7)",
+    "PhysicalCity": "Jean",
+    "PhysicalState": "NV",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(702) 300-8508",
+    "Email": "jump@sincityskydiving.com"
+  },
+  {
     "Id": "206689",
     "Latitude": "32.9359444",
     "Longitude": "-111.4265278",
@@ -1248,28 +1272,28 @@
     "Email": "mcoleman@cpsworld.com"
   },
   {
-    "Id": "212405",
-    "Latitude": "32.9548889",
-    "Longitude": "-111.7668333",
-    "AccountName": "Phoenix Skydive Center",
-    "AirportName": "Casa Grande Municipal Airport (CGZ)",
-    "PhysicalCity": "Casa Grande",
-    "PhysicalState": "AZ",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "520-840-9095",
-    "Email": "phoenixskydivecenter@gmail.com"
-  },
-  {
     "Id": "213955",
     "Latitude": "39.53024",
     "Longitude": "-84.39281",
     "AccountName": "Start Skydiving",
     "AirportName": "Middletown Regional Airport (MWO)",
     "PhysicalCity": "Middletown ",
-    "PhysicalState": "OH",
+    "PhysicalState": "Ohio",
     "PhysicalCountry": "US",
     "PhoneDZ": "(513) 422-5867",
     "Email": "info@startskydiving.com"
+  },
+  {
+    "Id": "214239",
+    "Latitude": "39.71768",
+    "Longitude": "-3.431951",
+    "AccountName": "Skydive Madrid",
+    "AirportName": "Airfield El Quijote, Lillo (Toledo)",
+    "PhysicalCity": "Lillo",
+    "PhysicalState": "Toledo",
+    "PhysicalCountry": "Spain",
+    "PhoneDZ": "+34 911299376",
+    "Email": "info@skydivemadrid.es"
   },
   {
     "Id": "214253",
@@ -1302,7 +1326,7 @@
     "AccountName": "West Tennessee Skydiving",
     "AirportName": "Wings Field ",
     "PhysicalCity": "Whiteville",
-    "PhysicalState": "TN",
+    "PhysicalState": "Tennessee",
     "PhysicalCountry": "US",
     "PhoneDZ": "(901) 759-3483",
     "Email": "michaelmullins@skydivekingair.com"
@@ -1344,6 +1368,18 @@
     "Email": "thaiskysales@gmail.com"
   },
   {
+    "Id": "225481",
+    "Latitude": "50.955",
+    "Longitude": "16.767778",
+    "AccountName": "Olimpic Skydive",
+    "AirportName": "Miroslawice Airport",
+    "PhysicalCity": "Sobotka",
+    "PhysicalState": "",
+    "PhysicalCountry": "Poland",
+    "PhoneDZ": "+48 570603597",
+    "Email": "info@olimpic-skydive.pl"
+  },
+  {
     "Id": "228310",
     "Latitude": "38.7759715",
     "Longitude": "-122.9924166",
@@ -1373,8 +1409,8 @@
     "Longitude": "-119.07928",
     "AccountName": "iSkydive America – Los Angeles",
     "AirportName": "Camarillo Airport (CMA)",
-    "PhysicalCity": "Camarillo",
-    "PhysicalState": "CA",
+    "PhysicalCity": "Oxnard",
+    "PhysicalState": "California",
     "PhysicalCountry": "US",
     "PhoneDZ": "(805) 322-4763",
     "Email": "LA@iskydive.com"
@@ -1414,6 +1450,18 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(716) 597-7393",
     "Email": "tim@timuuu.com"
+  },
+  {
+    "Id": "235724",
+    "Latitude": "17.52099",
+    "Longitude": "103.54985",
+    "AccountName": "Bird's Paradise Drop Zone",
+    "AirportName": "Bird's Paradise Airpark",
+    "PhysicalCity": "Sawang Daen Din",
+    "PhysicalState": "Sakon Nakhon",
+    "PhysicalCountry": "Thailand",
+    "PhoneDZ": "+669619056590",
+    "Email": "info@bpd.co.th"
   },
   {
     "Id": "237463",
@@ -1470,10 +1518,10 @@
     "AccountName": "Skydive Surfcity-Santa Cruz",
     "AirportName": "Watsonville Municipal Airport (WVI)",
     "PhysicalCity": "Watsonville",
-    "PhysicalState": "CA",
+    "PhysicalState": "California",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(831)435-5169",
-    "Email": "info@skydivesantacruz.co"
+    "Email": "office@skydivesantacruz.co"
   },
   {
     "Id": "245007",
@@ -1506,7 +1554,7 @@
     "AccountName": "Skydive Phoenix",
     "AirportName": "Hidden Valley Airport (AZ43)",
     "PhysicalCity": "Maricopa",
-    "PhysicalState": "AZ",
+    "PhysicalState": "Arizona",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(480)557-5867",
     "Email": "skydivephoenix@gmail.com"
@@ -1662,10 +1710,10 @@
     "AccountName": "No Limits Skydiving - West Point",
     "AirportName": "Middle Penninsula Regional Airport (FYJ)",
     "PhysicalCity": "Mattaponi",
-    "PhysicalState": "VA",
+    "PhysicalState": "Virginia",
     "PhysicalCountry": "US",
     "PhoneDZ": "(866) 553-2915",
-    "Email": "aerialadv@aol.com"
+    "Email": "nolimitsskydiving@gmail.com"
   },
   {
     "Id": "255694",
@@ -1678,18 +1726,6 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(305) 396-8806",
     "Email": "info@skydivekeywest.com"
-  },
-  {
-    "Id": "257523",
-    "Latitude": "35.0606667",
-    "Longitude": "-85.5853056",
-    "AccountName": "Chattanooga Skydiving Company",
-    "AirportName": "Marion Coutny Airport-Brown Field (AFT)",
-    "PhysicalCity": "Jasper",
-    "PhysicalState": "TN",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(855) 776-5867",
-    "Email": "855projump@gmail.com"
   },
   {
     "Id": "257537",
@@ -1716,16 +1752,28 @@
     "Email": "info@paraquedismoskycompany.com.br"
   },
   {
+    "Id": "257800",
+    "Latitude": "42.49788",
+    "Longitude": "-88.96847",
+    "AccountName": "Skydive The Rock",
+    "AirportName": "Beloit Airport (44C)",
+    "PhysicalCity": "Beloit",
+    "PhysicalState": "WI",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(312) 757-4454",
+    "Email": "info@skydivetherock.com"
+  },
+  {
     "Id": "258774",
-    "Latitude": "37.135314",
-    "Longitude": "-93.554361",
+    "Latitude": "37.2310697",
+    "Longitude": "-93.9290734",
     "AccountName": "Ozarks Skydive Center",
     "AirportName": "Kingsley Field (MO9)",
     "PhysicalCity": "Miller",
-    "PhysicalState": "MO",
+    "PhysicalState": "Missouri",
     "PhysicalCountry": "US",
     "PhoneDZ": "(417) 882-5867",
-    "Email": "ozarksskydive@gmail.com"
+    "Email": "ozarkskydivecenter@gmail.com"
   },
   {
     "Id": "260335",
@@ -1749,7 +1797,7 @@
     "PhysicalState": "CA",
     "PhysicalCountry": "US",
     "PhoneDZ": "(760) 390-5867",
-    "Email": "office@gojump-oceanside.com"
+    "Email": "office@gojump-america.com"
   },
   {
     "Id": "265807",
@@ -1782,7 +1830,7 @@
     "AccountName": "Skydive Chelan",
     "AirportName": "Lake Chelan Airport (S10)",
     "PhysicalCity": "Chelan",
-    "PhysicalState": "WA",
+    "PhysicalState": "Washington",
     "PhysicalCountry": "US",
     "PhoneDZ": "(509) 881-0687",
     "Email": "info@skydivechelan.com"
@@ -1926,10 +1974,22 @@
     "AccountName": "Skydive Paraclete XP",
     "AirportName": "PK Airpark (5W4)",
     "PhysicalCity": "Raeford",
-    "PhysicalState": "NC",
+    "PhysicalState": "North Carolina",
     "PhysicalCountry": "US",
     "PhoneDZ": "(910) 904-0000",
     "Email": "info@skydiveparacletexp.com"
+  },
+  {
+    "Id": "301744",
+    "Latitude": "47.982739",
+    "Longitude": "3.773903",
+    "AccountName": "ParisJump",
+    "AirportName": "Aerodrome de St Florentin Cheu",
+    "PhysicalCity": "Yonne",
+    "PhysicalState": "",
+    "PhysicalCountry": "France",
+    "PhoneDZ": "+33 658637799",
+    "Email": "contact@parisjump.com"
   },
   {
     "Id": "301745",
@@ -1962,10 +2022,22 @@
     "AccountName": "Pacific Northwest Skydiving Center",
     "AirportName": "Mulino State Airport (4S9)",
     "PhysicalCity": "Mulino",
-    "PhysicalState": "OR",
+    "PhysicalState": "Oregon",
     "PhysicalCountry": "US",
     "PhoneDZ": "(503) 759-4455",
     "Email": "pnwskydiving@gmail.com"
+  },
+  {
+    "Id": "301754",
+    "Latitude": "37.149444",
+    "Longitude": "-8.583889",
+    "AccountName": "Skydive Algarve",
+    "AirportName": "Aerodromo Municipal De Portimao",
+    "PhysicalCity": "Portimao-Alvor",
+    "PhysicalState": "",
+    "PhysicalCountry": "Portugal",
+    "PhoneDZ": "+351 282496581",
+    "Email": "info@skydivealgarve.com"
   },
   {
     "Id": "301761",
@@ -1998,7 +2070,7 @@
     "AccountName": "Jump TN",
     "AirportName": "Greeneville Municipal Airport (GCY)",
     "PhysicalCity": "Greeneville",
-    "PhysicalState": "TN",
+    "PhysicalState": "Tennessee",
     "PhysicalCountry": "US",
     "PhoneDZ": "(423) 765-5111",
     "Email": "info@jumptn.com"
@@ -2136,16 +2208,40 @@
     "Email": "matthewgiddings333@hotmail.com"
   },
   {
+    "Id": "301810",
+    "Latitude": "28.076319",
+    "Longitude": "76.201852",
+    "AccountName": "Skyhigh India",
+    "AirportName": "Narnaul Airport",
+    "PhysicalCity": "Haryana",
+    "PhysicalState": "",
+    "PhysicalCountry": "India",
+    "PhoneDZ": "+91 9818890885",
+    "Email": "rudra@skyhighindia.com"
+  },
+  {
     "Id": "301811",
     "Latitude": "36.561483",
     "Longitude": "-114.4406",
     "AccountName": "Fyrosity®",
     "AirportName": "Perkins Field Airport (U08)",
     "PhysicalCity": "Overton",
-    "PhysicalState": "NV",
+    "PhysicalState": "Nevada",
     "PhysicalCountry": "US",
     "PhoneDZ": "(702) 720-6250",
     "Email": "hello@fyrosity.com"
+  },
+  {
+    "Id": "301818",
+    "Latitude": "41.765278",
+    "Longitude": "1.8625",
+    "AccountName": "Skydive BCN",
+    "AirportName": "Aerodromo Barcelona Bages",
+    "PhysicalCity": "Sant Fruitos de Bages",
+    "PhysicalState": "",
+    "PhysicalCountry": "Spain",
+    "PhoneDZ": "+34 675026046",
+    "Email": "info@saltamos.es"
   },
   {
     "Id": "301821",
@@ -2230,18 +2326,6 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(479) 270-8855",
     "Email": "dzo@fayettefall.com"
-  },
-  {
-    "Id": "301843",
-    "Latitude": "33.4204",
-    "Longitude": "-112.6862",
-    "AccountName": "Skydive Buckeye",
-    "AirportName": "Buckeye Municipal (BXK)",
-    "PhysicalCity": "Buckeye",
-    "PhysicalState": "AZ",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(623) 980-4888",
-    "Email": "info@skydivebuckeye.com"
   },
   {
     "Id": "301846",
@@ -2366,7 +2450,7 @@
   {
     "Id": "334209",
     "Latitude": "32.410721",
-    "Longitude": " -111.220379",
+    "Longitude": "-111.220379",
     "AccountName": "Skydive Marana",
     "AirportName": "Marana Regional Airport",
     "PhysicalCity": "Marana",
@@ -2406,22 +2490,22 @@
     "AccountName": "Rattlesnake Mountain Skydiving",
     "AirportName": "Prosser Airport",
     "PhysicalCity": "Prosser",
-    "PhysicalState": "WA",
+    "PhysicalState": "Washington",
     "PhysicalCountry": "US",
     "PhoneDZ": "509-788-8686",
     "Email": "jon@rattlesnakemountainskydiving.com"
   },
   {
-    "Id": "336767",
-    "Latitude": "19.148736987709405",
-    "Longitude": "98.98805778225413",
-    "AccountName": "Skydive Thailand",
-    "AirportName": "Phusanfah Airfield",
-    "PhysicalCity": "Chiang Mai",
-    "PhysicalState": "",
-    "PhysicalCountry": "Thailand",
-    "PhoneDZ": "+66 0972314295",
-    "Email": "fly@skydivethailand.com"
+    "Id": "337250",
+    "Latitude": "42.96421",
+    "Longitude": "-79.79060",
+    "AccountName": "Skydive Ontario",
+    "AirportName": "Cayuga East Airport",
+    "PhysicalCity": "Cayuga",
+    "PhysicalState": "ON",
+    "PhysicalCountry": "Canada",
+    "PhoneDZ": "(416) SKY-DIVE",
+    "Email": "skydiveontario@gmail.com"
   },
   {
     "Id": "337776",
@@ -2463,10 +2547,10 @@
     "Id": "338705",
     "Latitude": "43.26396",
     "Longitude": "-78.96603",
-    "AccountName": "Skydive The Falls",
+    "AccountName": "Skydive The Falls (Youngstown)",
     "AirportName": "Windsor Shear Airport",
     "PhysicalCity": "Youngstown",
-    "PhysicalState": "NY",
+    "PhysicalState": "New York",
     "PhysicalCountry": "US",
     "PhoneDZ": "716-783-1100",
     "Email": "info@skydivethefalls.com"
@@ -2508,6 +2592,18 @@
     "Email": "skydiveffadventure@gmail.com"
   },
   {
+    "Id": "340494",
+    "Latitude": "37.193403",
+    "Longitude": "127.743597",
+    "AccountName": "Skydive Korea",
+    "AirportName": "Chung-Ju Airport",
+    "PhysicalCity": "Chungju-si, Chungcheongbuk-do",
+    "PhysicalState": "",
+    "PhysicalCountry": "Republic of Korea",
+    "PhoneDZ": "+82 15888715 ",
+    "Email": "skyadv_contact@naver.com"
+  },
+  {
     "Id": "340983",
     "Latitude": "49.3085",
     "Longitude": "6.6691",
@@ -2526,7 +2622,7 @@
     "AccountName": "DZONE Skydiving-Bozeman",
     "AirportName": "9S5 - Pogreba Field",
     "PhysicalCity": "Three Forks",
-    "PhysicalState": "MT",
+    "PhysicalState": "Montana",
     "PhysicalCountry": "US",
     "PhoneDZ": "406-586-5867",
     "Email": "hello@dzoneskydiving.com"
@@ -2565,7 +2661,7 @@
     "PhysicalState": "",
     "PhysicalCountry": "Thailand",
     "PhoneDZ": "+66 624 614 654",
-    "Email": "Account@dropzonethai.com"
+    "Email": "manager@dropzonethai.com"
   },
   {
     "Id": "346979",
@@ -2610,7 +2706,7 @@
     "AccountName": "Crystal Coast Skydiving",
     "AirportName": "Michael J Smith Field",
     "PhysicalCity": "Beaufort",
-    "PhysicalState": "NC",
+    "PhysicalState": "North Carolina",
     "PhysicalCountry": "US",
     "PhoneDZ": "(252) 528-6281",
     "Email": "jump@crystalcoastskydiving.com"
@@ -2641,8 +2737,8 @@
   },
   {
     "Id": "355511",
-    "Latitude": "25°19'33\"N",
-    "Longitude": "99°57'30\"W",
+    "Latitude": "25.325833",
+    "Longitude": "-99.958333",
     "AccountName": "Skydive Paracaidismo Nuevo Leon",
     "AirportName": "Aeródromo MTM (Montemorelos)",
     "PhysicalCity": "Allende, Nuevo León",
@@ -2754,7 +2850,7 @@
     "AccountName": "iSkydive America – New York City",
     "AirportName": "Greenwood Lake Airport",
     "PhysicalCity": "West Milford",
-    "PhysicalState": "NJ",
+    "PhysicalState": "New Jersey",
     "PhysicalCountry": "US",
     "PhoneDZ": "(973) 659-4736",
     "Email": "nyc@iSkydive.com"
@@ -2808,6 +2904,18 @@
     "Email": "info@skydivepharaohs.com"
   },
   {
+    "Id": "367987",
+    "Latitude": "23.17535",
+    "Longitude": "47.4131",
+    "AccountName": "Federacao Paulista De Paraquedismo",
+    "AirportName": "Aeroporto De Boituva",
+    "PhysicalCity": "Boituva",
+    "PhysicalState": "Sao Paulo",
+    "PhysicalCountry": "Brazil",
+    "PhoneDZ": "+55 11999461610",
+    "Email": "marcelo@consultoriaandrade.com.br"
+  },
+  {
     "Id": "368800",
     "Latitude": "42.565594",
     "Longitude": "-75.54071",
@@ -2838,7 +2946,7 @@
     "AccountName": "High Sky Adventure Parachute Club",
     "AirportName": "Fremont County Airport",
     "PhysicalCity": "Penrose",
-    "PhysicalState": "CO",
+    "PhysicalState": "Colorado",
     "PhysicalCountry": "US",
     "PhoneDZ": "(719) 337-8143",
     "Email": "freefaller1949@yahoo.com"
@@ -2934,7 +3042,7 @@
     "AccountName": "Pegasus Skydive Center",
     "AirportName": "Pegasus Air Park",
     "PhysicalCity": "Saylorsburg",
-    "PhysicalState": "PA",
+    "PhysicalState": "Pennsylvania",
     "PhysicalCountry": "US",
     "PhoneDZ": "(570) 569-0015",
     "Email": "info@skydivepegasus.com"
@@ -2964,6 +3072,18 @@
     "Email": "wadaira2@icloud.com"
   },
   {
+    "Id": "375604",
+    "Latitude": "-12.39157",
+    "Longitude": "-76.75940",
+    "AccountName": "Paracaidismo Paracondor Peru",
+    "AirportName": "Lib Mandi",
+    "PhysicalCity": "Lima",
+    "PhysicalState": "",
+    "PhysicalCountry": "Peru",
+    "PhoneDZ": "+51 969775659",
+    "Email": "daniel_castillo_85@hotmail.com"
+  },
+  {
     "Id": "376654",
     "Latitude": "45.311331",
     "Longitude": "8.423242",
@@ -2974,18 +3094,6 @@
     "PhysicalCountry": "Italy",
     "PhoneDZ": "+39 3392023993",
     "Email": "info@vzone.it"
-  },
-  {
-    "Id": "376917",
-    "Latitude": "35.66138",
-    "Longitude": "-95.35850",
-    "AccountName": "Skydive Cherokee",
-    "AirportName": "Davis Field",
-    "PhysicalCity": "Muskogee",
-    "PhysicalState": "OK",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(918) 759-3483",
-    "Email": "918skydive@gmail.com"
   },
   {
     "Id": "377885",
@@ -3024,6 +3132,18 @@
     "Email": "omarbenizi@hotmail.fr"
   },
   {
+    "Id": "377889",
+    "Latitude": "18.51072",
+    "Longitude": "108.69738",
+    "AccountName": "Skydive Sanya",
+    "AirportName": "Yinggehai Airport",
+    "PhysicalCity": "Sanya, Hainan",
+    "PhysicalState": "Hainan",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+86 15669500548",
+    "Email": "twt18689900900@163.com"
+  },
+  {
     "Id": "377890",
     "Latitude": "45.91198",
     "Longitude": "-73.67241",
@@ -3048,13 +3168,25 @@
     "Email": "info@parachutemontreal.com"
   },
   {
+    "Id": "377896",
+    "Latitude": "13.69119",
+    "Longitude": "-89.112908",
+    "AccountName": "Skydive El Salvador",
+    "AirportName": "Aerpuerto Internacional de Ilopango",
+    "PhysicalCity": "Ilopango",
+    "PhysicalState": "San Salvador/El Salvador",
+    "PhysicalCountry": "El Salvador",
+    "PhoneDZ": "+50360648238",
+    "Email": "info@skydiveelsalvador.com.sv"
+  },
+  {
     "Id": "377901",
     "Latitude": "38.5793889",
     "Longitude": "-121.8569444",
     "AccountName": "Air Bears - Skydiving Club at Berkeley",
     "AirportName": "Yolo County Airport",
     "PhysicalCity": "Davis",
-    "PhysicalState": "CA",
+    "PhysicalState": "California",
     "PhysicalCountry": "US",
     "PhoneDZ": "858-775-7437",
     "Email": "airbearssc@gmail.com"
@@ -3072,16 +3204,16 @@
     "Email": "paracaidismoskydivemty@gmail.com"
   },
   {
-    "Id": "377905",
-    "Latitude": "44.742000",
-    "Longitude": "-85.57932",
-    "AccountName": "Skydive TC",
-    "AirportName": "Cherry Capital Airport",
-    "PhysicalCity": "Traverse City",
-    "PhysicalState": "MI",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(231) 649-6663",
-    "Email": "manifest@skydivetc.com"
+    "Id": "377913",
+    "Latitude": "43.39682",
+    "Longitude": "45.69611",
+    "AccountName": "Goodsky",
+    "AirportName": "Grozny",
+    "PhysicalCity": "Gudermes",
+    "PhysicalState": "Chechen republic",
+    "PhysicalCountry": "Russian Federation",
+    "PhoneDZ": "+79284903077",
+    "Email": "s.porubaev@mail.ru"
   },
   {
     "Id": "377914",
@@ -3142,6 +3274,30 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(520) 723-8820",
     "Email": "mcoleman@cpsworld.com"
+  },
+  {
+    "Id": "377928",
+    "Latitude": "40.183611",
+    "Longitude": "44.61689",
+    "AccountName": "SKYDIVE ARMENIA&nbsp;",
+    "AirportName": "Jrvezh Helipad",
+    "PhysicalCity": "Jrvezh",
+    "PhysicalState": "Kotayk",
+    "PhysicalCountry": "Armenia",
+    "PhoneDZ": "+374 44888333",
+    "Email": "info@armheli.com"
+  },
+  {
+    "Id": "377931",
+    "Latitude": "37.4104",
+    "Longitude": "115.3427",
+    "AccountName": "Yan Huang Skydive",
+    "AirportName": "Heng Shui Tao Cheng  Airport",
+    "PhysicalCity": "衡水市",
+    "PhysicalState": "He Nan",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+86 15601225057",
+    "Email": "wjm_skydive@hotmail.com"
   },
   {
     "Id": "377934",
@@ -3222,7 +3378,7 @@
     "AccountName": "Skydive Kansas City",
     "AirportName": "Butler Memorial Airport (BUM)",
     "PhysicalCity": "Butler",
-    "PhysicalState": "MO",
+    "PhysicalState": "Missouri",
     "PhysicalCountry": "US",
     "PhoneDZ": "(816) 524-5867",
     "Email": "jump@skydivekc.com"
@@ -3282,7 +3438,7 @@
     "AccountName": "Skydive Skydown",
     "AirportName": "Caldwell Executive Airport",
     "PhysicalCity": "Caldwell",
-    "PhysicalState": "ID",
+    "PhysicalState": "Idaho",
     "PhysicalCountry": "US",
     "PhoneDZ": "(208) 455-2359",
     "Email": "info@skydiveskydown.com"
@@ -3300,13 +3456,25 @@
     "Email": "info@skydivevancouverisland.com"
   },
   {
+    "Id": "377973",
+    "Latitude": "-23.295503914735686",
+    "Longitude": "-47.69122116303023",
+    "AccountName": "Skydive Thru Quero Saltar",
+    "AirportName": "Airfield Boituva",
+    "PhysicalCity": "Boituva ",
+    "PhysicalState": "São Paulo ",
+    "PhysicalCountry": "Brazil",
+    "PhoneDZ": "+ 55 11997765735",
+    "Email": "vicentegomes@querosaltar.com.br"
+  },
+  {
     "Id": "377976",
     "Latitude": "28.804871",
     "Longitude": "-82.067804",
     "AccountName": "Florida Skydive",
     "AirportName": "Central Florida Airpark",
     "PhysicalCity": "Coleman",
-    "PhysicalState": "FL",
+    "PhysicalState": "Florida",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(352)913-5441",
     "Email": "jump@floridaskydive.co"
@@ -3324,6 +3492,18 @@
     "Email": "skydiv@bk.ru"
   },
   {
+    "Id": "377979",
+    "Latitude": "5.99525",
+    "Longitude": "80.32172",
+    "AccountName": "Eagles' Skydive Drop Zone Koggala, Sri Lanka",
+    "AirportName": "Air Force Station Koggala",
+    "PhysicalCity": "Galle",
+    "PhysicalState": "Sri Lanka",
+    "PhysicalCountry": "Sri Lanka",
+    "PhoneDZ": "+94 772229155",
+    "Email": "eaglesskydive@airforce.lk"
+  },
+  {
     "Id": "377985",
     "Latitude": "21.590620881426382",
     "Longitude": "111.890731093291",
@@ -3332,8 +3512,8 @@
     "PhysicalCity": "Yangjiang",
     "PhysicalState": "Guangdong",
     "PhysicalCountry": "China",
-    "PhoneDZ": "+86 602869144",
-    "Email": "523284372@qq.com"
+    "PhoneDZ": "+8615306346846",
+    "Email": "huangfang.apex@gmail.com"
   },
   {
     "Id": "377987",
@@ -3348,18 +3528,6 @@
     "Email": "info@skydivelaceleste.com"
   },
   {
-    "Id": "377988",
-    "Latitude": "44.6729567127188",
-    "Longitude": "-121.14785416911039",
-    "AccountName": "Skydive Bend",
-    "AirportName": "Madras Municipal Airport",
-    "PhysicalCity": "Madras",
-    "PhysicalState": "OR",
-    "PhysicalCountry": "US",
-    "PhoneDZ": "(541) 777-3009",
-    "Email": "info@skydivingbend.com"
-  },
-  {
     "Id": "377993",
     "Latitude": "39.33962",
     "Longitude": "-103.69099",
@@ -3370,6 +3538,18 @@
     "PhysicalCountry": "US",
     "PhoneDZ": "(303) 434-4300",
     "Email": "info@skydivecolorado.co"
+  },
+  {
+    "Id": "377995",
+    "Latitude": "10.8821123",
+    "Longitude": "-75.0326625",
+    "AccountName": "Epico Skydive",
+    "AirportName": "Aerodromo Los Campanos",
+    "PhysicalCity": "Barranquilla",
+    "PhysicalState": "",
+    "PhysicalCountry": "Colombia",
+    "PhoneDZ": "+57 311 837 82 22",
+    "Email": "info@vuelaepico.co"
   },
   {
     "Id": "377997",
@@ -3390,7 +3570,7 @@
     "AccountName": "Skydive Missoula",
     "AirportName": "Stevensville Montana Airport - 32S",
     "PhysicalCity": "Stevensville",
-    "PhysicalState": "MT",
+    "PhysicalState": "Montana",
     "PhysicalCountry": "US",
     "PhoneDZ": "(406) 201-9131",
     "Email": "info@skydivemissoula.com"
@@ -3420,13 +3600,61 @@
     "Email": "newyork@gojump-america.com"
   },
   {
+    "Id": "378011",
+    "Latitude": "47.06767",
+    "Longitude": "29.09466",
+    "AccountName": "DZM Skydive MoldAVIA",
+    "AirportName": "Aerodromul Vadul-lui-Voda",
+    "PhysicalCity": "Vaduleni",
+    "PhysicalState": "",
+    "PhysicalCountry": "Moldova",
+    "PhoneDZ": "+373 69498565",
+    "Email": "aeroskydive@gmail.com"
+  },
+  {
+    "Id": "378013",
+    "Latitude": "18.672725616559234",
+    "Longitude": "110.34810413020143",
+    "AccountName": "Wanning Coffee Skydiving",
+    "AirportName": "Wanning Xinglong Airport",
+    "PhysicalCity": "Wanning ",
+    "PhysicalState": "Hainan",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+861530634684",
+    "Email": "huangfang.apex@gmail.com"
+  },
+  {
+    "Id": "378014",
+    "Latitude": "-23.29650",
+    "Longitude": "-47.68605",
+    "AccountName": "Martinfly Paraquedismo",
+    "AirportName": "Aeroporto De Boituva",
+    "PhysicalCity": "Boituva",
+    "PhysicalState": "SP",
+    "PhysicalCountry": "Brazil",
+    "PhoneDZ": "+55 11957370234",
+    "Email": "martinflypqd@gmail.com"
+  },
+  {
+    "Id": "378016",
+    "Latitude": "34.414555",
+    "Longitude": "108.73507",
+    "AccountName": "Xi'An BlueSky Skydive",
+    "AirportName": "Xi'An Lantain Airport",
+    "PhysicalCity": "Xi'An",
+    "PhysicalState": "Shaanxi Province",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+19 542777657",
+    "Email": "weilai19930704@gmail.com"
+  },
+  {
     "Id": "378017",
     "Latitude": "40.07005",
     "Longitude": "-74.17180",
     "AccountName": "iSkydive America - Philadelphia",
     "AirportName": "Lake Wood Airport",
     "PhysicalCity": "Lakewood",
-    "PhysicalState": "NJ",
+    "PhysicalState": "New Jersey",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(305) 235-3483",
     "Email": "philly@iskydive.com"
@@ -3450,7 +3678,7 @@
     "AccountName": "Southwest Skydive LLC",
     "AirportName": "Dona Ana County International Jetport",
     "PhysicalCity": "Santa Teresa",
-    "PhysicalState": "NM",
+    "PhysicalState": "New Mexico",
     "PhysicalCountry": "US",
     "PhoneDZ": "(915) 248-4009",
     "Email": "contact@southwestskydive.com"
@@ -3510,7 +3738,7 @@
     "AccountName": "iSkydive Charleston SC",
     "AirportName": "Berkeley County Airport",
     "PhysicalCity": "Moncks Corner",
-    "PhysicalState": "SC",
+    "PhysicalState": "South Carolina",
     "PhysicalCountry": "US",
     "PhoneDZ": "+1(843)944-2832",
     "Email": "charleston@iskydive.com"
@@ -3526,5 +3754,161 @@
     "PhysicalCountry": "China",
     "PhoneDZ": "+08613570497747",
     "Email": "646903320@qq.com"
+  },
+  {
+    "Id": "378041",
+    "Latitude": "33.66242",
+    "Longitude": "135.36051",
+    "AccountName": "Nanki Shirahama Sky Resort Ocean Skydiving",
+    "AirportName": "Nanki Shirahama Airport",
+    "PhysicalCity": "Wakayama Prefecture",
+    "PhysicalState": "",
+    "PhysicalCountry": "Japan",
+    "PhoneDZ": "+817052605995",
+    "Email": "hello@ecoprojectskydiving.com"
+  },
+  {
+    "Id": "378042",
+    "Latitude": "43.10133",
+    "Longitude": "-78.95125",
+    "AccountName": "Skydive The Falls (Downtown Niagara)",
+    "AirportName": "Niagara Falls International Airport",
+    "PhysicalCity": "Niagara Falls",
+    "PhysicalState": "NY",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(716) 783-1100",
+    "Email": "info@skydivethefalls.com"
+  },
+  {
+    "Id": "378044",
+    "Latitude": "6.44042",
+    "Longitude": "79.99341",
+    "AccountName": "Skydive Sri Lanka",
+    "AirportName": "Bentota Beach",
+    "PhysicalCity": "Kaluwamodara",
+    "PhysicalState": "Bentota",
+    "PhysicalCountry": "Sri Lanka",
+    "PhoneDZ": "+94760261100",
+    "Email": "info@skydivesrilanka.com"
+  },
+  {
+    "Id": "378046",
+    "Latitude": "48.178569",
+    "Longitude": "-114.303741",
+    "AccountName": "Skydive Glacier Country LLC",
+    "AirportName": "Kalispell City Airport",
+    "PhysicalCity": "Kalispell",
+    "PhysicalState": "MT",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "+14064077092",
+    "Email": "info@skydiveglaciercountry.com"
+  },
+  {
+    "Id": "378047",
+    "Latitude": "36.17724",
+    "Longitude": "-86.88290",
+    "AccountName": "Go Skydive Nashville",
+    "AirportName": "June C. Tune Airport (KJWN)",
+    "PhysicalCity": "Nashville",
+    "PhysicalState": "TN",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(615) 588-7885",
+    "Email": "contact@goskydivenashville.com"
+  },
+  {
+    "Id": "378049",
+    "Latitude": "35.70030",
+    "Longitude": "-85.84259",
+    "AccountName": "Middle Tennessee Skydiving",
+    "AirportName": "Warren County Memorial",
+    "PhysicalCity": "McMinnville ",
+    "PhysicalState": "Tennessee",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "+1 (629) 262-8151",
+    "Email": "MiddleTennesseeskydiving@gmail.com"
+  },
+  {
+    "Id": "378051",
+    "Latitude": "18.3998585",
+    "Longitude": "109.7679401",
+    "AccountName": "Skydive Have Fun",
+    "AirportName": "",
+    "PhysicalCity": "Sanya",
+    "PhysicalState": "Sanya Hainan",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+86 15091919776",
+    "Email": "skydivehavefun@outlook.com"
+  },
+  {
+    "Id": "378052",
+    "Latitude": "30.46930",
+    "Longitude": "-87.54740",
+    "AccountName": "Emerald Coast Skydive",
+    "AirportName": "Defuniak Springs Municipal Airport",
+    "PhysicalCity": "DeFuniak Springs",
+    "PhysicalState": "FL",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "(850) 307-7771",
+    "Email": "byron_b@methodendeavors.com"
+  },
+  {
+    "Id": "378054",
+    "Latitude": "53.07253",
+    "Longitude": "-7.89869",
+    "AccountName": "Skydivethru Ireland",
+    "AirportName": "Birr Airfield (EIBR)",
+    "PhysicalCity": "Birr",
+    "PhysicalState": "CO. Offaly",
+    "PhysicalCountry": "Ireland",
+    "PhoneDZ": "+353894098150",
+    "Email": "info@skydivethru.ie"
+  },
+  {
+    "Id": "378068",
+    "Latitude": "-12.08618",
+    "Longitude": "-76.99385",
+    "AccountName": "PARACAIDISMO VOLAMOS PERU",
+    "AirportName": "Aerodromo Revalora",
+    "PhysicalCity": "San Vincente de Canete",
+    "PhysicalState": "Lima",
+    "PhysicalCountry": "Peru",
+    "PhoneDZ": "+51941197391",
+    "Email": "volamos.pe@gmail.com"
+  },
+  {
+    "Id": "378070",
+    "Latitude": "43.368941",
+    "Longitude": "-103.392553",
+    "AccountName": "Skydive South Dakota",
+    "AirportName": "Hot Springs Municipal Airport",
+    "PhysicalCity": "Hot Springs ",
+    "PhysicalState": "South Dakota ",
+    "PhysicalCountry": "US",
+    "PhoneDZ": "+1 (605) 215-0266",
+    "Email": "info@skydivesouthdakota.com"
+  },
+  {
+    "Id": "378071",
+    "Latitude": "18.386154",
+    "Longitude": "109.754839",
+    "AccountName": "Skydive Tarhe",
+    "AirportName": "",
+    "PhysicalCity": "SanYa",
+    "PhysicalState": "HaiNan",
+    "PhysicalCountry": "China",
+    "PhoneDZ": "+86 17724361773",
+    "Email": "yinanskydiver@icloud.com"
+  },
+  {
+    "Id": "378074",
+    "Latitude": "44.937222",
+    "Longitude": "7.430277",
+    "AccountName": "SKY DREAM CENTER",
+    "AirportName": "Aviosuperficie Cumiana (Airfield registered with Italian Civil Aviation Authority ENAO)",
+    "PhysicalCity": "Cumiana",
+    "PhysicalState": "TO",
+    "PhysicalCountry": "Italy",
+    "PhoneDZ": "+39 3389378846",
+    "Email": "info@skydreamcenter.it"
   }
 ]
