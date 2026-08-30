@@ -15,6 +15,8 @@ import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
+import { DisplayModePicker } from "./DisplayModePicker"
+
 const openWeb = (website: string) => {
   Linking.canOpenURL(website).then((supported) => {
     if (supported) {
@@ -230,6 +232,11 @@ export const AboutScreen: FC = () => {
           />
         </Card.Content>
       </Card>
+      <Card style={themed($settingsCard)}>
+        <Card.Content>
+          <DisplayModePicker />
+        </Card.Content>
+      </Card>
     </ScrollView>
   )
 }
@@ -246,6 +253,11 @@ const $logoCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
 
 const $logoCover: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.palette.neutral100,
+})
+
+const $settingsCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+  marginHorizontal: spacing.md,
+  marginBottom: spacing.lg,
 })
 
 const $cardTitle: ThemedStyle<TextStyle> = () => ({

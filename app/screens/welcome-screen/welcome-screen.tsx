@@ -62,13 +62,13 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
         <Icon
           name={"info-circle"}
           size={22}
-          color={colors.palette.neutral100}
+          color={colors.headerText}
           onPress={() => navigation.navigate("about")}
           style={themed($headerIcon)}
         />
       ),
     })
-  }, [colors.palette.neutral100, navigation, themed])
+  }, [colors.headerText, navigation, themed])
 
   const openNearMeScreen = () => {
     setLoading(true)

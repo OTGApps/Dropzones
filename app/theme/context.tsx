@@ -33,6 +33,8 @@ export type ThemeContextType = {
   setThemeContextOverride: (newTheme: ThemeContextModeT) => void
   theme: Theme
   themeContext: ImmutableThemeContextModeT
+  // The user's explicit selection: "light" / "dark", or undefined when following the OS theme.
+  themeSchemeOverride: ThemeContextModeT
   themed: ThemedFnT
 }
 
@@ -128,10 +130,14 @@ export const ThemeProvider: FC<PropsWithChildren<ThemeProviderProps>> = ({
     [theme],
   )
 
+  const themeSchemeOverride: ThemeContextModeT =
+    themeScheme === "dark" ? "dark" : themeScheme === "light" ? "light" : undefined
+
   const value = {
     navigationTheme,
     theme,
     themeContext,
+    themeSchemeOverride,
     setThemeContextOverride,
     themed,
   }

@@ -177,7 +177,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
         <Icon
           name={"car"}
           size={22}
-          color={colors.palette.neutral100}
+          color={colors.headerText}
           onPress={openDrivingDirectons}
           style={{ marginRight: 15 }}
         />

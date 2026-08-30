@@ -27,7 +27,7 @@ export function MapNavigator() {
         headerStyle: {
           backgroundColor: colors.headerBackground,
         },
-        headerTintColor: colors.palette.neutral100,
+        headerTintColor: colors.headerText,
         headerTitleStyle: {
           fontWeight: "bold",
         },

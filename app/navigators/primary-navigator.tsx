@@ -46,7 +46,7 @@ export function PrimaryNavigator() {
         headerStyle: {
           backgroundColor: colors.headerBackground,
         },
-        headerTintColor: colors.palette.neutral100,
+        headerTintColor: colors.headerText,
         headerTitleStyle: {
           // @ts-ignore
           fontWeight: "bold",

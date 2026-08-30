@@ -18,8 +18,9 @@ if (__DEV__) {
 }
 import "./utils/gestureHandler"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, type PropsWithChildren } from "react"
 import { useFonts } from "expo-font"
+import * as SplashScreen from "expo-splash-screen"
 import { KeyboardProvider } from "react-native-keyboard-controller"
 import { PaperProvider } from "react-native-paper"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
@@ -29,12 +30,18 @@ import { DatabaseProvider, useDatabase } from "./database"
 import { initI18n } from "./i18n"
 import { AppNavigator } from "./navigators/AppNavigator"
 import { useNavigationPersistence } from "./navigators/navigationUtilities"
-import { ThemeProvider } from "./theme/context"
+import { ThemeProvider, useAppTheme } from "./theme/context"
+import { darkPaperTheme, lightPaperTheme } from "./theme/paperTheme"
 import { customFontsToLoad } from "./theme/typography"
 import { loadDateFnsLocale } from "./utils/formatDate"
 import * as storage from "./utils/storage"
 
 export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
+
+// Keep the native splash screen visible until the app shell (fonts, i18n, nav
+// state) is ready. Database load progress is shown afterwards by LoadingScreen.
+SplashScreen.preventAutoHideAsync()
+SplashScreen.setOptions({ duration: 300, fade: true })
 
 /**
  * Wrapper component that shows LoadingScreen while database is initializing.
@@ -47,6 +54,18 @@ function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): JS
   }
 
   return <>{children}</>
+}
+
+/**
+ * Feeds the active app theme into react-native-paper so its components match light / dark mode.
+ */
+function ThemedPaperProvider({ children }: PropsWithChildren) {
+  const { themeContext } = useAppTheme()
+  return (
+    <PaperProvider theme={themeContext === "dark" ? darkPaperTheme : lightPaperTheme}>
+      {children}
+    </PaperProvider>
+  )
 }
 
 /**
@@ -68,20 +87,25 @@ export function App() {
     Promise.all([initI18n().then(() => setIsI18nInitialized(true)), loadDateFnsLocale()])
   }, [])
 
-  // Before we show the app, we have to wait for our state to be ready.
-  // In the meantime, don't render anything. This will be the background
-  // color set in native by rootView's background color.
-  // In iOS: application:didFinishLaunchingWithOptions:
-  // In Android: https://stackoverflow.com/a/45838109/204044
-  // You can replace with your own loading component if you wish.
-  if (!isNavigationStateRestored || !isI18nInitialized || (!areFontsLoaded && !fontLoadError)) {
+  const isAppShellReady =
+    isNavigationStateRestored && isI18nInitialized && (areFontsLoaded || !!fontLoadError)
+
+  useEffect(() => {
+    if (isAppShellReady) {
+      SplashScreen.hideAsync()
+    }
+  }, [isAppShellReady])
+
+  // Before the app shell is ready, keep rendering nothing so the native splash
+  // screen stays up (we prevented its auto-hide above).
+  if (!isAppShellReady) {
     return null
   }
 
   // otherwise, we're ready to render the app
   return (
     <ThemeProvider>
-      <PaperProvider>
+      <ThemedPaperProvider>
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
           <KeyboardProvider>
             <DatabaseProvider>
@@ -94,7 +118,7 @@ export function App() {
             </DatabaseProvider>
           </KeyboardProvider>
         </SafeAreaProvider>
-      </PaperProvider>
+      </ThemedPaperProvider>
     </ThemeProvider>
   )
 }

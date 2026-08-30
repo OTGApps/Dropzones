@@ -48,4 +48,8 @@ export const colors = {
   error: palette.angry500,
   errorBackground: palette.angry100,
   headerBackground: palette.primary100,
+  // The header / tab bar sit on the dark-blue `headerBackground` in both themes, so these
+  // mirror the light theme's values (white foreground, light-blue inactive tint).
+  headerText: palette.neutral900,
+  tabBarInactive: palette.primary500,
 } as const

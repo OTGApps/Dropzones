@@ -86,4 +86,13 @@ export const colors = {
    * Header background color.
    */
   headerBackground: palette.primary600,
+  /**
+   * Foreground (title / icon) color for the header and tab bar. These always sit on the
+   * dark-blue `headerBackground`, so this stays light in both themes.
+   */
+  headerText: palette.neutral100,
+  /**
+   * Inactive tab bar item color.
+   */
+  tabBarInactive: palette.primary200,
 } as const

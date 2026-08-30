@@ -26,8 +26,8 @@ const TabNavigator = () => {
       screenOptions={{
         headerShown: false,
         headerBackButtonDisplayMode: "minimal",
-        tabBarActiveTintColor: colors.palette.neutral100,
-        tabBarInactiveTintColor: colors.palette.primary200,
+        tabBarActiveTintColor: colors.headerText,
+        tabBarInactiveTintColor: colors.tabBarInactive,
         tabBarStyle: {
           backgroundColor: colors.headerBackground,
         },
