@@ -9,6 +9,7 @@ import {
   LayoutChangeEvent,
 } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import * as Location from "expo-location"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
 import { FontAwesome as Icon } from "@expo/vector-icons"
@@ -132,10 +133,16 @@ export const MapScreen: FC = function MapScreen() {
   const mapRef = useRef<MapView>(null)
 
   useEffect(() => {
-    if (showsUserLocation === false) {
-      setInitialZoomDone(false)
+    let ignore = false
+    Location.requestForegroundPermissionsAsync()
+      .then(({ status }) => {
+        if (!ignore && status === "granted") setShowsUserLocation(true)
+      })
+      .catch(() => {})
+    return () => {
+      ignore = true
     }
-  }, [navigation, showsUserLocation, colors])
+  }, [])
 
   const goToDetail = useCallback(
     (anchor: number, title: string) => {

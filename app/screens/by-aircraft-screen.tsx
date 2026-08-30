@@ -17,7 +17,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (item: { name: string }) => item.name
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
 export const ByAircraftScreen: FC = function ByAircraftScreen() {

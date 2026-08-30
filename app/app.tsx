@@ -109,7 +109,10 @@ export function App() {
   const [isI18nInitialized, setIsI18nInitialized] = useState(false)
 
   useEffect(() => {
-    Promise.all([initI18n().then(() => setIsI18nInitialized(true)), loadDateFnsLocale()])
+    initI18n().then(() => {
+      setIsI18nInitialized(true)
+      loadDateFnsLocale()
+    })
   }, [])
 
   const isAppShellReady =

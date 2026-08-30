@@ -15,7 +15,7 @@ interface UseNearbyDropzonesResult {
  * Hook to get all dropzones sorted by distance from a location.
  */
 export function useNearbyDropzones(location: LocationObject | null): UseNearbyDropzonesResult {
-  const { db, isReady } = useDatabase()
+  const { db, isReady, dataVersion } = useDatabase()
   const [dropzones, setDropzones] = useState<DropzoneWithDistance[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -25,12 +25,14 @@ export function useNearbyDropzones(location: LocationObject | null): UseNearbyDr
       setIsLoading(false)
       return
     }
+    let ignore = false
 
     setIsLoading(true)
     setError(null)
 
     getAllDropzones(db)
       .then((dzs) => {
+        if (ignore) return
         // Compute distances in JavaScript
         const withDistance: DropzoneWithDistance[] = dzs.map((dz) => ({
           ...dz,
@@ -47,9 +49,17 @@ export function useNearbyDropzones(location: LocationObject | null): UseNearbyDr
 
         setDropzones(withDistance)
       })
-      .catch((e) => setError(e instanceof Error ? e : new Error(String(e))))
-      .finally(() => setIsLoading(false))
-  }, [db, isReady, location?.coords.latitude, location?.coords.longitude])
+      .catch((e) => {
+        if (!ignore) setError(e instanceof Error ? e : new Error(String(e)))
+      })
+      .finally(() => {
+        if (!ignore) setIsLoading(false)
+      })
+
+    return () => {
+      ignore = true
+    }
+  }, [db, isReady, dataVersion, location?.coords.latitude, location?.coords.longitude])
 
   return { dropzones, isLoading, error }
 }

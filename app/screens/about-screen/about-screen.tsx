@@ -31,7 +31,7 @@ export const AboutScreen: FC = () => {
     themed,
     theme: { colors },
   } = useAppTheme()
-  const { db } = useDatabase()
+  const { db, bumpDataVersion } = useDatabase()
 
   const [isChecking, setIsChecking] = useState(false)
   const [dataVersion, setDataVersion] = useState(LOCAL_DATA_VERSION)
@@ -83,10 +83,11 @@ export const AboutScreen: FC = () => {
               text: "Update",
               onPress: async () => {
                 setIsChecking(true)
-                const updateResult = await applyUpdate(db)
+                const updateResult = await applyUpdate(db, result.data)
                 setIsChecking(false)
                 if (updateResult.success) {
                   setDataVersion(updateResult.newVersion || dataVersion)
+                  bumpDataVersion()
                   Alert.alert(
                     "Update Complete",
                     `Successfully updated to version ${updateResult.newVersion} with ${updateResult.dropzoneCount} dropzones.`,
@@ -107,7 +108,7 @@ export const AboutScreen: FC = () => {
     } finally {
       setIsChecking(false)
     }
-  }, [db, isChecking, dataVersion])
+  }, [db, isChecking, dataVersion, bumpDataVersion])
 
   const handleResetDatabase = useCallback(async () => {
     if (!db || isChecking) return
@@ -139,6 +140,7 @@ export const AboutScreen: FC = () => {
               if (result?.value) {
                 setDataVersion(result.value)
               }
+              bumpDataVersion()
               Alert.alert(
                 "Database Reset",
                 "Successfully reset and reloaded dropzone data from local file.",
@@ -153,7 +155,10 @@ export const AboutScreen: FC = () => {
         },
       ],
     )
-  }, [db, isChecking])
+  }, [db, isChecking, bumpDataVersion])
+
+  const resetPct =
+    resetProgress && resetProgress.total > 0 ? resetProgress.current / resetProgress.total : 0
 
   const formatDescription = () => {
     const versionLine = `Data version: ${dataVersion}`
@@ -187,7 +192,7 @@ export const AboutScreen: FC = () => {
             title="Check for Data Updates"
             description={
               resetProgress
-                ? `Resetting database... ${resetProgress.current} / ${resetProgress.total} (${Math.round((resetProgress.current / resetProgress.total) * 100)}%)`
+                ? `Resetting database... ${resetProgress.current} / ${resetProgress.total} (${Math.round(resetPct * 100)}%)`
                 : isChecking
                   ? "Checking..."
                   : formatDescription()
@@ -204,10 +209,7 @@ export const AboutScreen: FC = () => {
               isChecking ? (
                 resetProgress ? (
                   <View style={themed($progressContainer)}>
-                    <ProgressBar
-                      progress={resetProgress.current / resetProgress.total}
-                      style={themed($progressBar)}
-                    />
+                    <ProgressBar progress={resetPct} style={themed($progressBar)} />
                   </View>
                 ) : (
                   <ActivityIndicator size="small" style={themed($activityIndicator)} />

@@ -22,7 +22,7 @@ function rowToDropzone(row: DropzoneRow): Dropzone {
     anchor: row.anchor,
     name: row.name,
     email: row.email,
-    description: row.description,
+    description: row.description ?? "",
     phone: row.phone,
     website: row.website,
     aircraft: JSON.parse(row.aircraft),

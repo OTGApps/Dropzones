@@ -133,8 +133,8 @@ async function insertDropzones(
           const [lon, lat] = feature.geometry?.coordinates || []
           const globalIndex = batchStart + i
 
-          // Skip features without valid coordinates
-          if (!lon || !lat) {
+          // Skip features without valid coordinates (0 is a valid coordinate)
+          if (lon == null || lat == null) {
             console.warn(`Skipping feature ${props.anchor} (${props.name}) - missing coordinates`)
             batchSkipped++
             continue
@@ -153,7 +153,7 @@ async function insertDropzones(
 
           // Pre-compute derived fields
           const stateCode = props.state
-          const nameFirstLetter = props.name[0].toUpperCase()
+          const nameFirstLetter = (props.name?.trim()?.[0] ?? "#").toUpperCase()
           const searchableText = [
             props.name,
             props.description || "",
@@ -170,9 +170,15 @@ async function insertDropzones(
           const services = normalizeToArray(props.services)
           const training = normalizeToArray(props.training)
 
-          // Ensure anchor is a number
+          // Ensure anchor is a valid number (it's the primary key)
           const anchor =
             typeof props.anchor === "string" ? parseInt(props.anchor, 10) : props.anchor
+
+          if (anchor == null || Number.isNaN(anchor)) {
+            console.warn(`Skipping feature (${props.name}) - missing or invalid anchor`)
+            batchSkipped++
+            continue
+          }
 
           await db.runAsync(
             `INSERT INTO dropzones (
@@ -182,7 +188,7 @@ async function insertDropzones(
               state_code, name_first_letter, searchable_text
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             anchor,
-            props.name,
+            props.name || "",
             props.email || "",
             props.description || "",
             props.phone || "",

@@ -168,13 +168,18 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
 
   const openWebsite = async () => {
     const { website } = selectedDZ
-    const supported = await Linking.canOpenURL(website)
-    if (supported) {
-      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-      // by some browser in the mobile
-      await Linking.openURL(website)
-    } else {
-      Alert.alert(`Don't know how to open this URL: ${website}`)
+    if (!website) return
+    try {
+      const supported = await Linking.canOpenURL(website)
+      if (supported) {
+        // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+        // by some browser in the mobile
+        await Linking.openURL(website)
+      } else {
+        Alert.alert("Can't open link", `Don't know how to open this URL: ${website}`)
+      }
+    } catch {
+      Alert.alert("Can't open link", `Don't know how to open this URL: ${website}`)
     }
   }
 
@@ -212,8 +217,16 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   }
 
   // Handle loading and missing dropzone - after all hooks
-  if (isLoading || !selectedDZ) {
+  if (isLoading) {
     return null
+  }
+
+  if (!selectedDZ) {
+    return (
+      <View style={themed($notFoundContainer)}>
+        <Text style={themed($descriptionText)}>Dropzone not found.</Text>
+      </View>
+    )
   }
 
   const { coordinates } = selectedDZ
@@ -284,19 +297,21 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               >
                 {selectedDZ.name}
               </Button>
-              <Button
-                mode="text"
-                icon="open-in-new"
-                labelStyle={themed($sectionSubtitleText)}
-                style={themed($noPadding)}
-                onPress={openWebsite}
-              >
-                {selectedDZ.website}
-              </Button>
+              {!!selectedDZ.website && (
+                <Button
+                  mode="text"
+                  icon="open-in-new"
+                  labelStyle={themed($sectionSubtitleText)}
+                  style={themed($noPadding)}
+                  onPress={openWebsite}
+                >
+                  {selectedDZ.website}
+                </Button>
+              )}
             </View>
 
             <View style={themed($contentContainer)}>
-              {selectedDZ.description.length > 0 && (
+              {!!selectedDZ.description && selectedDZ.description.length > 0 && (
                 <View style={themed($contentSection)}>
                   <Text style={themed($descriptionText)}>{selectedDZ.description}</Text>
                 </View>
@@ -427,6 +442,14 @@ const $descriptionText: ThemedStyle<TextStyle> = ({ colors }) => ({
   fontSize: 18,
   lineHeight: 26,
   color: colors.text,
+})
+
+const $notFoundContainer: ThemedStyle<ViewStyle> = ({ colors, spacing }) => ({
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  padding: spacing.lg,
+  backgroundColor: colors.background,
 })
 
 const $iconStyle: ThemedStyle<TextStyle> = ({ spacing }) => ({

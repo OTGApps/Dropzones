@@ -23,38 +23,18 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
   } = useAppTheme()
 
   const navigation = useNavigation()
-  const [location, setLocation] = useState<Location.LocationObject | null>(null)
-  const [errorMsg, setErrorMsg] = useState<string | null>(null)
-  // This boolean state is used when getting a user's location.
-  // It disables all the rows from interaction and shows a loading icon
-  // on the near-me menu item.
+  // This boolean state shows a loading icon on the near-me menu item while
+  // we resolve the user's location.
   const [loading, setLoading] = useState(false)
 
-  const getLocation = async () => {
+  const getLocation = async (): Promise<Location.LocationObject | null> => {
     const { status } = await Location.requestForegroundPermissionsAsync()
     if (status !== "granted") {
-      setErrorMsg("Permission to access location was denied")
-      return
+      return null
     }
 
-    const loc = await Location.getCurrentPositionAsync({})
-    setLocation(loc)
+    return Location.getCurrentPositionAsync({})
   }
-
-  useEffect(() => {
-    if (loading) {
-      setLoading(false)
-      if (errorMsg) {
-        Alert.alert("Error", errorMsg)
-        setErrorMsg(null)
-      } else {
-        if (__DEV__) console.tron.log("opening the near me screen.", location)
-        navigation.navigate("near-me", {
-          location,
-        })
-      }
-    }
-  }, [location, errorMsg])
 
   useEffect(() => {
     navigation.setOptions({
@@ -70,9 +50,23 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     })
   }, [colors.headerText, navigation, themed])
 
-  const openNearMeScreen = () => {
+  const openNearMeScreen = async () => {
     setLoading(true)
-    getLocation()
+    try {
+      const loc = await getLocation()
+      if (loc) {
+        navigation.navigate("near-me", { location: loc })
+      } else {
+        Alert.alert("Location denied", "Permission to access your location was denied.")
+      }
+    } catch {
+      Alert.alert(
+        "Location unavailable",
+        "Could not get your location. Check that location services are enabled.",
+      )
+    } finally {
+      setLoading(false)
+    }
   }
 
   const rightElement = (item) => {

@@ -15,7 +15,7 @@ interface UseDropzoneSearchResult {
  * Returns all dropzones when query is empty.
  */
 export function useDropzoneSearch(): UseDropzoneSearchResult {
-  const { db, isReady } = useDatabase()
+  const { db, isReady, dataVersion } = useDatabase()
   const [results, setResults] = useState<Dropzone[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -23,28 +23,29 @@ export function useDropzoneSearch(): UseDropzoneSearchResult {
 
   useEffect(() => {
     if (!db || !isReady) return
+    let ignore = false
 
     setIsLoading(true)
     setError(null)
 
     const performSearch = async () => {
       try {
-        if (query.trim() === "") {
-          const all = await getAllDropzones(db)
-          setResults(all)
-        } else {
-          const searchResults = await searchDropzones(db, query)
-          setResults(searchResults)
-        }
+        const next =
+          query.trim() === "" ? await getAllDropzones(db) : await searchDropzones(db, query)
+        if (!ignore) setResults(next)
       } catch (e) {
-        setError(e instanceof Error ? e : new Error(String(e)))
+        if (!ignore) setError(e instanceof Error ? e : new Error(String(e)))
       } finally {
-        setIsLoading(false)
+        if (!ignore) setIsLoading(false)
       }
     }
 
     performSearch()
-  }, [db, isReady, query])
+
+    return () => {
+      ignore = true
+    }
+  }, [db, isReady, query, dataVersion])
 
   const search = useCallback((newQuery: string) => {
     setQuery(newQuery)

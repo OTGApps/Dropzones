@@ -14,7 +14,7 @@ interface UseDropzoneResult {
  * Hook to fetch a single dropzone by its anchor ID.
  */
 export function useDropzone(anchor: number | string): UseDropzoneResult {
-  const { db, isReady } = useDatabase()
+  const { db, isReady, dataVersion } = useDatabase()
   const [dropzone, setDropzone] = useState<Dropzone | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
@@ -23,15 +23,26 @@ export function useDropzone(anchor: number | string): UseDropzoneResult {
 
   useEffect(() => {
     if (!db || !isReady) return
+    let ignore = false
 
     setIsLoading(true)
     setError(null)
 
     getDropzoneById(db, anchorNum)
-      .then(setDropzone)
-      .catch((e) => setError(e instanceof Error ? e : new Error(String(e))))
-      .finally(() => setIsLoading(false))
-  }, [db, isReady, anchorNum])
+      .then((r) => {
+        if (!ignore) setDropzone(r)
+      })
+      .catch((e) => {
+        if (!ignore) setError(e instanceof Error ? e : new Error(String(e)))
+      })
+      .finally(() => {
+        if (!ignore) setIsLoading(false)
+      })
+
+    return () => {
+      ignore = true
+    }
+  }, [db, isReady, anchorNum, dataVersion])
 
   return { dropzone, isLoading, error }
 }

@@ -33,21 +33,24 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
-    ({ item }) => (
-      <List.Item
-        title={TRAINING_TITLES[item.toLowerCase()]}
-        onPress={() =>
-          navigation.navigate("list-detail", {
-            item,
-            itemType: "training",
-            title: TRAINING_TITLES[item.toLowerCase()],
-          })
-        }
-        right={(props) => (
-          <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
-        )}
-      />
-    ),
+    ({ item }) => {
+      const title = TRAINING_TITLES[item.toLowerCase()] ?? item
+      return (
+        <List.Item
+          title={title}
+          onPress={() =>
+            navigation.navigate("list-detail", {
+              item,
+              itemType: "training",
+              title,
+            })
+          }
+          right={(props) => (
+            <Icon {...props} name="chevron-right" size={16} style={themed($chevronRight)} />
+          )}
+        />
+      )
+    },
     [navigation, themed],
   )
 

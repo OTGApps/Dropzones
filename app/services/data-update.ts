@@ -12,6 +12,8 @@ export interface UpdateCheckResult {
   currentVersion: string
   remoteVersion?: string
   error?: string
+  /** The fetched remote payload, so a follow-up applyUpdate doesn't download it again. */
+  data?: RemoteGeoJSON
 }
 
 /**
@@ -116,6 +118,7 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
       hasUpdate,
       currentVersion,
       remoteVersion,
+      data,
     }
   } catch (e: Error | unknown) {
     return {
@@ -129,8 +132,13 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
 /**
  * Downloads and applies the remote update
  */
-export async function applyUpdate(db: SQLite.SQLiteDatabase): Promise<UpdateApplyResult> {
-  const { data, error } = await fetchRemoteData()
+export async function applyUpdate(
+  db: SQLite.SQLiteDatabase,
+  prefetched?: RemoteGeoJSON,
+): Promise<UpdateApplyResult> {
+  const { data, error } = prefetched
+    ? { data: prefetched, error: undefined }
+    : await fetchRemoteData()
 
   if (error || !data) {
     return {

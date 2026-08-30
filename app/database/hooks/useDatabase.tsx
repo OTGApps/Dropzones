@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react"
 import type * as SQLite from "expo-sqlite"
 
 import {
@@ -19,6 +19,10 @@ interface DatabaseContextValue {
   error: Error | null
   progress: { current: number; total: number } | null
   message: string | null
+  /** Bumped whenever the underlying dropzone data changes (remote update, manual reset). */
+  dataVersion: number
+  /** Call after mutating dropzone data so mounted queries re-run. */
+  bumpDataVersion: () => void
 }
 
 const DatabaseContext = createContext<DatabaseContextValue>({
@@ -27,6 +31,8 @@ const DatabaseContext = createContext<DatabaseContextValue>({
   error: null,
   progress: null,
   message: null,
+  dataVersion: 0,
+  bumpDataVersion: () => {},
 })
 
 interface DatabaseProviderProps {
@@ -37,7 +43,10 @@ interface DatabaseProviderProps {
  * Performs an automatic update check in the background.
  * Silently applies updates without prompting the user.
  */
-async function performAutoUpdateCheck(database: SQLite.SQLiteDatabase): Promise<void> {
+async function performAutoUpdateCheck(
+  database: SQLite.SQLiteDatabase,
+  onDataChanged?: () => void,
+): Promise<void> {
   const launchCount = incrementLaunchCount()
   console.log(`App launch count: ${launchCount}`)
 
@@ -57,11 +66,12 @@ async function performAutoUpdateCheck(database: SQLite.SQLiteDatabase): Promise<
   if (result.hasUpdate) {
     console.log(`Update available: ${result.currentVersion} -> ${result.remoteVersion}`)
     console.log("Applying update in background...")
-    const updateResult = await applyUpdate(database)
+    const updateResult = await applyUpdate(database, result.data)
     if (updateResult.success) {
       console.log(
         `Update complete: version ${updateResult.newVersion} with ${updateResult.dropzoneCount} dropzones`,
       )
+      onDataChanged?.()
     } else {
       console.log(`Update failed: ${updateResult.error}`)
     }
@@ -80,6 +90,9 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
   const [error, setError] = useState<Error | null>(null)
   const [progress, setProgress] = useState<{ current: number; total: number } | null>(null)
   const [message, setMessage] = useState<string | null>(null)
+  const [dataVersion, setDataVersion] = useState(0)
+
+  const bumpDataVersion = useCallback(() => setDataVersion((v) => v + 1), [])
 
   useEffect(() => {
     async function initialize() {
@@ -103,7 +116,7 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
         console.log("Database ready")
 
         // Perform automatic update check in background (don't await)
-        performAutoUpdateCheck(database).catch((e) => {
+        performAutoUpdateCheck(database, bumpDataVersion).catch((e) => {
           console.error("Auto update check failed:", e)
         })
       } catch (e) {
@@ -115,10 +128,12 @@ export function DatabaseProvider({ children }: DatabaseProviderProps) {
     }
 
     initialize()
-  }, [])
+  }, [bumpDataVersion])
 
   return (
-    <DatabaseContext.Provider value={{ db, isReady, error, progress, message }}>
+    <DatabaseContext.Provider
+      value={{ db, isReady, error, progress, message, dataVersion, bumpDataVersion }}
+    >
       {children}
     </DatabaseContext.Provider>
   )

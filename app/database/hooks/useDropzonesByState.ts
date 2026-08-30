@@ -13,22 +13,33 @@ interface UseDropzonesByStateResult {
  * Hook to get dropzone counts grouped by state.
  */
 export function useDropzonesByState(): UseDropzonesByStateResult {
-  const { db, isReady } = useDatabase()
+  const { db, isReady, dataVersion } = useDatabase()
   const [stateGroups, setStateGroups] = useState<StateGroup[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     if (!db || !isReady) return
+    let ignore = false
 
     setIsLoading(true)
     setError(null)
 
     getDropzonesByState(db)
-      .then(setStateGroups)
-      .catch((e) => setError(e instanceof Error ? e : new Error(String(e))))
-      .finally(() => setIsLoading(false))
-  }, [db, isReady])
+      .then((r) => {
+        if (!ignore) setStateGroups(r)
+      })
+      .catch((e) => {
+        if (!ignore) setError(e instanceof Error ? e : new Error(String(e)))
+      })
+      .finally(() => {
+        if (!ignore) setIsLoading(false)
+      })
+
+    return () => {
+      ignore = true
+    }
+  }, [db, isReady, dataVersion])
 
   return { stateGroups, isLoading, error }
 }
@@ -43,22 +54,33 @@ interface UseDropzonesGroupedByStateResult {
  * Hook to get all dropzones grouped by state (full objects).
  */
 export function useDropzonesGroupedByState(): UseDropzonesGroupedByStateResult {
-  const { db, isReady } = useDatabase()
+  const { db, isReady, dataVersion } = useDatabase()
   const [groupedDropzones, setGroupedDropzones] = useState<Record<string, Dropzone[]>>({})
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     if (!db || !isReady) return
+    let ignore = false
 
     setIsLoading(true)
     setError(null)
 
     getDropzonesGroupedByState(db)
-      .then(setGroupedDropzones)
-      .catch((e) => setError(e instanceof Error ? e : new Error(String(e))))
-      .finally(() => setIsLoading(false))
-  }, [db, isReady])
+      .then((r) => {
+        if (!ignore) setGroupedDropzones(r)
+      })
+      .catch((e) => {
+        if (!ignore) setError(e instanceof Error ? e : new Error(String(e)))
+      })
+      .finally(() => {
+        if (!ignore) setIsLoading(false)
+      })
+
+    return () => {
+      ignore = true
+    }
+  }, [db, isReady, dataVersion])
 
   return { groupedDropzones, isLoading, error }
 }
