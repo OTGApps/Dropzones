@@ -1,8 +1,9 @@
 import { FC, useCallback, memo } from "react"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
+import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 
@@ -16,18 +17,15 @@ export interface DropzoneListRowProps {
 }
 
 const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   const { themed } = useAppTheme()
   const { item, rightElement, index, subtitle } = props
 
   const pressed = useCallback(() => {
-    navigation.navigate(
-      "dropzone-detail" as never,
-      {
-        anchor: props.item.anchor.toString(),
-        title: props.item.name,
-      } as never,
-    )
+    navigation.navigate("dropzone-detail", {
+      anchor: props.item.anchor.toString(),
+      title: props.item.name,
+    })
   }, [navigation, props.item.anchor, props.item.name])
 
   // Generate subtitle from airport/country/state if not explicitly provided

@@ -1,4 +1,8 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import type { LocationObject } from "expo-location"
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack"
 import _ from "lodash"
 
 import { useAppTheme } from "@/theme/context"
@@ -21,9 +25,9 @@ export type PrimaryParamList = {
   "welcome": undefined
   "alphabetical": undefined
   "map": undefined
-  "list-detail": undefined
-  "near-me": undefined
-  "dropzone-detail": undefined
+  "list-detail": { item: string; itemType: string; title: string }
+  "near-me": { location: LocationObject }
+  "dropzone-detail": { anchor: string; title: string }
   "by-state": undefined
   "by-aircraft": undefined
   "by-services": undefined
@@ -31,6 +35,13 @@ export type PrimaryParamList = {
   "about": undefined
   // flagged: undefined
 }
+
+export type PrimaryNavigationProp = NativeStackNavigationProp<PrimaryParamList>
+
+/** Routes that take no params — safe targets for dynamic `navigate(name)` calls. */
+export type ParamlessRoute = {
+  [K in keyof PrimaryParamList]: PrimaryParamList[K] extends undefined ? K : never
+}[keyof PrimaryParamList]
 
 const Stack = createNativeStackNavigator<PrimaryParamList>()
 

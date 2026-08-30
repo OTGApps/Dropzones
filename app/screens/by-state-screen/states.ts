@@ -1,4 +1,9 @@
-export const States = {
+interface StateInfo {
+  fullName: string
+  image?: number
+}
+
+export const States: Record<string, StateInfo> = {
   al: {
     fullName: "Alabama",
     image: require("./flags/alabama.png"),

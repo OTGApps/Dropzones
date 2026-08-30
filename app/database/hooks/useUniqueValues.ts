@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import type { AircraftSection } from "../types"
+
 import { getUniqueAircraftSorted, getUniqueServices, getUniqueTraining } from "../queries"
+import type { AircraftSection } from "../types"
 import { useDatabase } from "./useDatabase"
 
 interface UseUniqueAircraftResult {

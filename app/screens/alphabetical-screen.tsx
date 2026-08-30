@@ -53,7 +53,9 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   }, [dropzones])
 
   const renderItem = useCallback(
-    ({ item, index }) => <DropzoneListRow item={item as Dropzone} index={index} />,
+    ({ item, index }: { item: Dropzone; index: number }) => (
+      <DropzoneListRow item={item} index={index} />
+    ),
     [],
   )
 
@@ -77,7 +79,7 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
   )
 
   const renderSectionHeader = useCallback(
-    ({ section: { title } }) => (
+    ({ section: { title } }: { section: { title: string } }) => (
       <View style={themed(HEADER_STYLE)}>
         <Text style={themed(HEADER_TEXT_STYLE)}>{title}</Text>
       </View>

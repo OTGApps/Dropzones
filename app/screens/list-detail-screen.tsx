@@ -7,7 +7,7 @@ import { $searchbar } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
 
 import { DropzoneListRow, ListEmpty, ListSeparator } from "../components"
-import { useFilteredDropzones } from "../database"
+import { useFilteredDropzones, type Dropzone } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -17,7 +17,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 export interface ListDetailScreenProps {
   route: any
 }
-const keyExtractor = (_item, index) => index.toString()
+const keyExtractor = (_item: Dropzone, index: number) => index.toString()
 
 export const ListDetailScreen: FC = function ListDetailScreen(props) {
   const { route } = props as ListDetailScreenProps
@@ -35,7 +35,9 @@ export const ListDetailScreen: FC = function ListDetailScreen(props) {
   }, [dropzones, search])
 
   const renderItem = useCallback(
-    ({ item, index }) => <DropzoneListRow item={item} index={index} />,
+    ({ item, index }: { item: Dropzone; index: number }) => (
+      <DropzoneListRow item={item} index={index} />
+    ),
     [],
   )
 

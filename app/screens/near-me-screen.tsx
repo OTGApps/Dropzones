@@ -5,7 +5,7 @@ import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
 
 import { SpeedLimitSign, DropzoneListRow, ListEmpty, ListSeparator } from "../components"
-import { useNearbyDropzones } from "../database"
+import { useNearbyDropzones, type DropzoneWithDistance } from "../database"
 
 const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   flex: 1,
@@ -15,7 +15,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 export interface NearMeScreenProps {
   route: any
 }
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (_item: DropzoneWithDistance, index: number) => index.toString()
 
 export const NearMeScreen: FC = function NearMeScreen(props) {
   const { route } = props as NearMeScreenProps
@@ -24,7 +24,7 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
   const { dropzones: sortedFromUser } = useNearbyDropzones(location)
 
   const renderItem = useCallback(
-    ({ item, index }) => (
+    ({ item, index }: { item: DropzoneWithDistance; index: number }) => (
       <DropzoneListRow
         item={item}
         index={index}

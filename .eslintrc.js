@@ -97,4 +97,10 @@ module.exports = {
     ],
     "import/newline-after-import": 1,
   },
+  overrides: [
+    {
+      files: ["scraper/**/*.js"],
+      env: { node: true, browser: true },
+    },
+  ],
 }

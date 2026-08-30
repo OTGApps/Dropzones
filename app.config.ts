@@ -1,4 +1,4 @@
-import { ExpoConfig, ConfigContext } from "@expo/config"
+import { ExpoConfig, ConfigContext } from "expo/config"
 
 /**
  * Use tsx/cjs here so we can use TypeScript for our Config Plugins

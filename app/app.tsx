@@ -47,7 +47,11 @@ SplashScreen.setOptions({ duration: 300, fade: true })
 /**
  * Wrapper component that shows LoadingScreen while database is initializing.
  */
-function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): JSX.Element | null {
+function DatabaseLoadingWrapper({
+  children,
+}: {
+  children: React.ReactNode
+}): React.JSX.Element | null {
   const { isReady, progress, message } = useDatabase()
   const overlayOpacity = useRef(new Animated.Value(1)).current
   const [isOverlayMounted, setIsOverlayMounted] = useState(true)

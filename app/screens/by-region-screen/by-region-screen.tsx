@@ -1,14 +1,14 @@
 import { FunctionComponent, useMemo } from "react"
 import { ViewStyle, FlatList } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { ParamListBase } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { List } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
+import { ListSeparator } from "@/components"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { useDropzonesByState } from "../../database"
 
@@ -26,7 +26,7 @@ export const ByRegionScreen: FunctionComponent<ByRegionScreenProps> = (props) =>
   const dataSource = useMemo(() => stateGroups.map((g) => g.stateCode), [stateGroups])
   const { themed } = useAppTheme()
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: { item: string }) => (
     <List.Item
       title={item}
       onPress={() =>

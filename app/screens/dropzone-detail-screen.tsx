@@ -9,13 +9,13 @@ import {
   Animated,
   TouchableOpacity,
 } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"
 import openMap from "react-native-open-maps"
 import { List, Button, Text } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
@@ -156,7 +156,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           size={22}
           color={colors.headerText}
           onPress={openDrivingDirectons}
-          style={{ marginRight: 15 }}
+          style={themed($headerCarIcon)}
         />
       ),
     })
@@ -164,9 +164,10 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
     const focusListener = navigation.addListener("focus", showDisclaimerAlert)
     // Return the focuslistener so it gets removed and we don't cause a memory leak.
     return focusListener
-  }, [navigation, openDrivingDirectons, colors])
+  }, [navigation, openDrivingDirectons, colors, themed])
 
   const openWebsite = async () => {
+    if (!selectedDZ) return
     const { website } = selectedDZ
     if (!website) return
     try {
@@ -184,6 +185,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   }
 
   const openPhone = async () => {
+    if (!selectedDZ) return
     const { phone } = selectedDZ
 
     const callSkyGods = `tel:${phone}`
@@ -204,6 +206,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   // }
 
   const handleEmail = async () => {
+    if (!selectedDZ) return
     const { email } = selectedDZ
     const subject = encodeURIComponent("Question for " + selectedDZ.name)
     const mailtoUrl = `mailto:${email}?subject=${subject}`
@@ -377,7 +380,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Aircraft"
                   description={selectedDZ.aircraft.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={() => (
                     <Icon
                       name="fighter-jet"
                       size={20}
@@ -391,7 +394,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Services"
                   description={selectedDZ.services.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={() => (
                     <Icon name="bath" size={20} color={colors.text} style={themed($iconStyle)} />
                   )}
                 />
@@ -400,7 +403,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
                 <List.Item
                   title="Training Offered"
                   description={selectedDZ.training.slice().sort().join(", ")}
-                  left={(props) => (
+                  left={() => (
                     <Icon
                       name="graduation-cap"
                       size={20}
@@ -420,6 +423,10 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
 
 const $container: ThemedStyle<ViewStyle> = () => ({
   flex: 1,
+})
+
+const $headerCarIcon: ThemedStyle<TextStyle> = ({ spacing }) => ({
+  marginRight: spacing.md,
 })
 
 const $fullScreenMap: ViewStyle = {

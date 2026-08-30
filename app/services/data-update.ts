@@ -120,7 +120,7 @@ export async function checkForUpdates(db: SQLite.SQLiteDatabase): Promise<Update
       remoteVersion,
       data,
     }
-  } catch (e: Error | unknown) {
+  } catch {
     return {
       hasUpdate: false,
       currentVersion,

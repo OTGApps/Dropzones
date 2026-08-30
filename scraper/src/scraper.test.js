@@ -34,20 +34,23 @@ test("buildLocationArray abbreviates a full US state name", () => {
 
 test("buildLocationArray leaves a non-US region name alone", () => {
   assert.deepEqual(
-    scraper.buildLocationArray({ PhysicalCity: "Roma", PhysicalState: "Lazio", PhysicalCountry: "Italy" }),
+    scraper.buildLocationArray({
+      PhysicalCity: "Roma",
+      PhysicalState: "Lazio",
+      PhysicalCountry: "Italy",
+    }),
     ["Roma, Lazio", "Italy"],
   )
 })
 
 test("buildLocationArray omits a US country but appends a non-US one", () => {
-  assert.deepEqual(
-    scraper.buildLocationArray({ PhysicalCity: "Roma", PhysicalCountry: "Italy" }),
-    ["Roma", "Italy"],
-  )
-  assert.deepEqual(
-    scraper.buildLocationArray({ PhysicalCity: "Eloy", PhysicalCountry: "US" }),
-    ["Eloy"],
-  )
+  assert.deepEqual(scraper.buildLocationArray({ PhysicalCity: "Roma", PhysicalCountry: "Italy" }), [
+    "Roma",
+    "Italy",
+  ])
+  assert.deepEqual(scraper.buildLocationArray({ PhysicalCity: "Eloy", PhysicalCountry: "US" }), [
+    "Eloy",
+  ])
 })
 
 test("normalizeFeature trims the name", () => {

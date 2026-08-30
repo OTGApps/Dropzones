@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import type { Dropzone, StateGroup } from "../types"
+
 import { getDropzonesByState, getDropzonesGroupedByState } from "../queries"
+import type { Dropzone, StateGroup } from "../types"
 import { useDatabase } from "./useDatabase"
 
 interface UseDropzonesByStateResult {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
-import type { Dropzone } from "../types"
+
 import { getFilteredDropzones } from "../queries"
+import type { Dropzone } from "../types"
 import { useDatabase } from "./useDatabase"
 
 type ItemType = "state" | "aircraft" | "services" | "training"

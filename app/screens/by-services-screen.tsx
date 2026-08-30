@@ -1,13 +1,14 @@
 import { FC, useCallback } from "react"
 import { ViewStyle, FlatList } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
+import { ListSeparator } from "@/components"
+import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
 import { useUniqueServices } from "../database"
 
@@ -16,15 +17,15 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
   backgroundColor: colors.background,
 })
 
-const keyExtractor = (item, index) => index.toString()
+const keyExtractor = (_item: string, index: number) => index.toString()
 
 export const ByServicesScreen: FC = function ByServicesScreen() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   const { services: uniqueServices } = useUniqueServices()
   const { themed } = useAppTheme()
 
   const renderItem = useCallback(
-    ({ item }) => (
+    ({ item }: { item: string }) => (
       <List.Item
         title={item}
         onPress={() =>

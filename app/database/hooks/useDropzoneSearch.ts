@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react"
-import type { Dropzone } from "../types"
+
 import { searchDropzones, getAllDropzones } from "../queries"
+import type { Dropzone } from "../types"
 import { useDatabase } from "./useDatabase"
 
 interface UseDropzoneSearchResult {

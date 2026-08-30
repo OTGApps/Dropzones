@@ -1,10 +1,11 @@
 import { FC, useCallback, useMemo } from "react"
 import { ViewStyle, FlatList, View } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List, Avatar, Badge } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { ListSeparator } from "@/components"
+import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
@@ -18,7 +19,7 @@ const FULL: ThemedStyle<ViewStyle> = ({ colors }) => ({
 })
 
 export const ByStateScreen: FC = function ByStateScreen() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   const { stateGroups } = useDropzonesByState()
   const { themed } = useAppTheme()
 
@@ -31,7 +32,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
     for (const group of stateGroups) {
       const stateCode = group.stateCode.toLowerCase()
       // Check if this is a mapped US state/territory
-      if (States[stateCode] && stateCode !== "international") {
+      if (States[stateCode as keyof typeof States] && stateCode !== "international") {
         usStates.push(group.stateCode)
         stateCountMap[group.stateCode] = group.count
       } else {
@@ -51,8 +52,9 @@ export const ByStateScreen: FC = function ByStateScreen() {
   }, [stateGroups])
 
   const renderItem = useCallback(
-    ({ item, index }) => {
-      const thisState = States[item.toLowerCase()]
+    ({ item, index }: { item: string; index: number }) => {
+      const thisState = States[item.toLowerCase() as keyof typeof States]
+      if (!thisState) return null
 
       return (
         <List.Item
@@ -64,14 +66,16 @@ export const ByStateScreen: FC = function ByStateScreen() {
               title: thisState.fullName,
             })
           }
-          left={(props) => (
-            <Avatar.Image
-              {...props}
-              key={`state-image-${index}`}
-              source={thisState.image}
-              size={40}
-            />
-          )}
+          left={(props) =>
+            thisState.image ? (
+              <Avatar.Image
+                {...props}
+                key={`state-image-${index}`}
+                source={thisState.image}
+                size={40}
+              />
+            ) : null
+          }
           right={(props) => (
             <View style={themed($rightContainer)}>
               <Badge style={themed($badge)}>{processedData.stateCountMap[item] || 0}</Badge>

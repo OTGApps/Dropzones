@@ -1,13 +1,14 @@
 import { FC, useState, useEffect, useCallback, useMemo } from "react"
 import { ViewStyle, TextStyle, SectionList, View, Text } from "react-native"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { Button, Card, List, Badge, Searchbar } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
-import { useAppTheme } from "@/theme/context"
-import { $chevronRight, $searchbar } from "@/theme/styles"
-import { ThemedStyle } from "@/theme/types"
 import { ListSeparator } from "@/components"
+import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
+import { useAppTheme } from "@/theme/context"
+import { $chevronRight, $searchbar, $styles } from "@/theme/styles"
+import { ThemedStyle } from "@/theme/types"
 
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"
@@ -21,14 +22,11 @@ const keyExtractor = (item: { name: string }) => item.name
 const HIDE_HEADER_COMPONENT_KEY = "@aircraftHasSeenWarning"
 
 export const ByAircraftScreen: FC = function ByAircraftScreen() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   const { aircraftSections: uniqueAircraftSorted } = useUniqueAircraft()
   const [headerHidden, setHeaderHidden] = useState<boolean | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
-  const {
-    themed,
-    theme: { colors },
-  } = useAppTheme()
+  const { themed } = useAppTheme()
 
   useEffect(() => {
     const hidden = load<boolean>(HIDE_HEADER_COMPONENT_KEY)
@@ -60,7 +58,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   }, [uniqueAircraftSorted, searchQuery])
 
   const renderItem = useCallback(
-    ({ item, section }) => {
+    ({ item }: { item: { name: string; count: number } }) => {
       const onPressed = () => {
         navigation.navigate("list-detail", {
           item: item.name,
@@ -94,7 +92,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
         <Card.Title title="DATA WARNING:" />
         <Card.Content>
           <Text style={themed($warningText)}>
-            We've tried to clean up the data as much as possible, but USPA member dropzones are
+            We&apos;ve tried to clean up the data as much as possible, but USPA member dropzones are
             allowed to enter their own data, resulting in a lot of inconsistent names and spelling
             mistakes.
           </Text>
@@ -109,17 +107,10 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   }, [themed])
 
   const renderSectionHeader = useCallback(
-    ({ section: { title } }) => (
-      <List.Subheader
-        style={{
-          backgroundColor: colors.palette.neutral300,
-          fontWeight: "bold",
-        }}
-      >
-        {title}
-      </List.Subheader>
+    ({ section: { title } }: { section: { title: string } }) => (
+      <List.Subheader style={themed($sectionHeader)}>{title}</List.Subheader>
     ),
-    [colors],
+    [themed],
   )
 
   const searchBar = useMemo(
@@ -152,7 +143,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   }, [headerHidden, renderHeaderComponent, searchBar])
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={$styles.flex1}>
       <SectionList
         style={themed(FULL)}
         sections={filteredSections}
@@ -165,6 +156,11 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
     </View>
   )
 }
+
+const $sectionHeader: ThemedStyle<TextStyle> = ({ colors }) => ({
+  backgroundColor: colors.palette.neutral300,
+  fontWeight: "bold",
+})
 
 const $warningCard: ThemedStyle<ViewStyle> = ({ spacing }) => ({
   marginBottom: spacing.md,

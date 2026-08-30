@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react"
-import Icon from "@expo/vector-icons/FontAwesome"
 import { View, Animated, StyleSheet, ViewStyle, TextStyle } from "react-native"
+import Icon from "@expo/vector-icons/FontAwesome"
 
 import { useAppTheme } from "@/theme/context"
 import { ThemedStyle } from "@/theme/types"
@@ -75,7 +75,10 @@ export const ListEmpty: FC<ListEmptyProps> = function ListEmpty({
     <View style={themed(CONTAINER)}>
       <View style={styles.iconContainer}>
         <Animated.View
-          style={[StyleSheet.absoluteFill, { transform: [{ translateX: planeX }, { rotate: "45deg" }] }]}
+          style={[
+            StyleSheet.absoluteFill,
+            { transform: [{ translateX: planeX }, { rotate: "45deg" }] },
+          ]}
         >
           <Icon name="plane" size={128} color={colors.textDim} />
         </Animated.View>
@@ -90,7 +93,7 @@ export const ListEmpty: FC<ListEmptyProps> = function ListEmpty({
 
 const styles = StyleSheet.create({
   iconContainer: {
-    width: 128,
     height: 128,
+    width: 128,
   },
 })

@@ -8,13 +8,14 @@ import {
   Dimensions,
   LayoutChangeEvent,
 } from "react-native"
-import { useNavigation } from "@react-navigation/native"
 import * as Location from "expo-location"
+import { FontAwesome as Icon } from "@expo/vector-icons"
+import { useNavigation } from "@react-navigation/native"
+import { useClusterer, isClusterFeature, type Supercluster } from "react-native-clusterer"
 import MapView, { Marker, Callout, Region, PROVIDER_GOOGLE } from "react-native-maps"
 import { List } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
-import { useClusterer, isClusterFeature, type Supercluster } from "react-native-clusterer"
 
+import type { PrimaryNavigationProp } from "@/navigators/primary-navigator"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
@@ -121,7 +122,7 @@ export const MapScreen: FC = function MapScreen() {
     themeContext,
   } = useAppTheme()
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   const { dropzones } = useDropzones()
   const [showsUserLocation, setShowsUserLocation] = useState(false)
   const [initialZoomDone, setInitialZoomDone] = useState(false)
@@ -146,13 +147,10 @@ export const MapScreen: FC = function MapScreen() {
 
   const goToDetail = useCallback(
     (anchor: number, title: string) => {
-      navigation.navigate(
-        "dropzone-detail" as never,
-        {
-          anchor: anchor.toString(),
-          title,
-        } as never,
-      )
+      navigation.navigate("dropzone-detail", {
+        anchor: anchor.toString(),
+        title,
+      })
     },
     [navigation],
   )

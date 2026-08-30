@@ -1,16 +1,25 @@
-import { FC, useState, useEffect } from "react"
+import { FC, useState, useEffect, type ComponentProps } from "react"
 import { View, ViewStyle, TextStyle, FlatList, ActivityIndicator, Alert } from "react-native"
 import * as Location from "expo-location"
+import { FontAwesome as Icon } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 import { List } from "react-native-paper"
-import { FontAwesome as Icon } from "@expo/vector-icons"
 
+import { ListSeparator } from "@/components"
+import type { ParamlessRoute, PrimaryNavigationProp } from "@/navigators/primary-navigator"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
-import { ListSeparator } from "@/components"
 
-const MenuItems = require("./menu-items.json")
+interface MenuItem {
+  id: number
+  title: string
+  subtitle: string
+  iconName: ComponentProps<typeof Icon>["name"]
+  screen: string
+}
+
+const MenuItems: MenuItem[] = require("./menu-items.json")
 
 const FULL: ViewStyle = {
   flex: 1,
@@ -22,7 +31,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     theme: { colors },
   } = useAppTheme()
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<PrimaryNavigationProp>()
   // This boolean state shows a loading icon on the near-me menu item while
   // we resolve the user's location.
   const [loading, setLoading] = useState(false)
@@ -69,7 +78,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     }
   }
 
-  const rightElement = (item) => {
+  const rightElement = (item: MenuItem) => {
     switch (item.screen) {
       case "near-me":
         return loading ? <ActivityIndicator /> : null
@@ -78,7 +87,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
     }
   }
 
-  const renderItem = ({ item, index }) => {
+  const renderItem = ({ item }: { item: MenuItem }) => {
     const rightEl = rightElement(item)
 
     return (
@@ -95,7 +104,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
                     openNearMeScreen()
                     break
                   default:
-                    navigation.navigate(item.screen)
+                    navigation.navigate(item.screen as ParamlessRoute)
                     break
                 }
               }

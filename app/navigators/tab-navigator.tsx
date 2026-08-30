@@ -1,10 +1,10 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { FontAwesome as Icon } from "@expo/vector-icons"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { useAppTheme } from "@/theme/context"
 
-import { PrimaryNavigator } from "./primary-navigator"
 import { MapNavigator } from "./map-navigator"
+import { PrimaryNavigator } from "./primary-navigator"
 
 export type NavigatorParamList = {
   dropzones: undefined

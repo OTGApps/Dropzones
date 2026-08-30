@@ -5,8 +5,8 @@ import { TOptions } from "i18next"
 
 import { isRTL, TxKeyPath } from "@/i18n"
 import { translate } from "@/i18n/translate"
-import type { ThemedStyle, ThemedStyleArray } from "@/theme/types"
 import { useAppTheme } from "@/theme/context"
+import type { ThemedStyle, ThemedStyleArray } from "@/theme/types"
 import { typography } from "@/theme/typography"
 
 type Sizes = keyof typeof $sizeStyles
