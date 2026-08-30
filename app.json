@@ -4,23 +4,24 @@
   "scheme": "dropzones",
   "description": "USPA Dropzone Finder",
   "orientation": "portrait",
-  "icon": "./assets/images/adaptive-icon.png",
+  "icon": "./assets/images/icon.png",
   "userInterfaceStyle": "automatic",
   "updates": {
     "fallbackToCacheTimeout": 0
   },
-  "newArchEnabled": true,
-  "jsEngine": "hermes",
   "assetBundlePatterns": ["**/*"],
   "android": {
     "package": "io.otgapps.dropzones",
     "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"],
     "allowBackup": false,
-    "edgeToEdgeEnabled": true,
     "config": {
       "googleMaps": {
         "apiKey": "AIzaSyDRsjdrHQu1hxIInW6yH2k34Jfrn80hcsU"
       }
+    },
+    "adaptiveIcon": {
+      "foregroundImage": "./assets/images/adaptive-icon.png",
+      "backgroundColor": "#000000"
     }
   },
   "ios": {
@@ -45,6 +46,7 @@
     "bundler": "metro"
   },
   "plugins": [
+    "expo-status-bar",
     "expo-localization",
     "expo-font",
     [
@@ -53,20 +55,22 @@
         "image": "./assets/images/adaptive-icon.png",
         "imageWidth": 300,
         "resizeMode": "contain",
-        "backgroundColor": "#000000"
-      }
-    ],
-    [
-      "react-native-edge-to-edge",
-      {
+        "backgroundColor": "#000000",
+        "dark": {
+          "backgroundColor": "#000000",
+          "image": "./assets/images/adaptive-icon.png"
+        },
         "android": {
-          "parentTheme": "Light",
-          "enforceNavigationBarContrast": false
+          "resizeMode": "native"
         }
       }
     ],
+
     "expo-build-properties"
   ],
+  "buildCacheProvider": {
+    "plugin": "expo-build-disk-cache"
+  },
   "experiments": {
     "tsconfigPaths": true
   },
