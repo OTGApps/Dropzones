@@ -1,10 +1,7 @@
 import type * as SQLite from "expo-sqlite"
 
-// @ts-expect-error - babel-plugin-inline-import handles .geojson files
-import dropzoneDataRaw from "../../assets/dropzones.geojson"
-
-// Parse the inlined JSON string
-const dropzoneData = JSON.parse(dropzoneDataRaw)
+// @ts-expect-error - Metro resolves .geojson as a JSON module (see metro.transformer.js)
+import dropzoneData from "../../assets/dropzones.geojson"
 
 /**
  * Version from the bundled GeoJSON file

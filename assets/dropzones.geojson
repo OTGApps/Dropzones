@@ -1,9 +1,9 @@
 {
   "type": "FeatureCollection",
   "metadata": {
-    "version": "2026.01.07.3",
-    "generatedAt": "2026-01-08T01:33:13.119Z",
-    "count": 294
+    "version": "2026.08.29.4",
+    "generatedAt": "2026-08-30T04:38:19.087Z",
+    "count": 318
   },
   "features": [
     {
@@ -63,6 +63,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-122.316166, 49.095278]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna 182", "1 Cessna 206"],
+        "airport": "Gananoque Municipal Airport",
+        "anchor": 100356,
+        "country": "Canada",
+        "description": "Skydive Gananoque Gananoque Municipal Airport, Gananoque, ON Canada 258 Airport Rd Gananoque ON K7G 2V3 Canada 35 km NE of Kingston 10 km to nearest hotel http://www.skydivegan.com/ info@skydivegan.com International 1 C-182, 1 C-206 Located in the scenic Thousand Islands area of Eastern Ontario. Skydive Gananoque (pronounced GAN-AN-OCK-WAY) is mid-way between Montreal and Toronto and a 20 minute drive from the Canada/U.S. border of upstate New York. Open every weekend and holidays April -October. Coaching available (freestyle, style & accuracy and RW). Weekday jumping available by appointment.",
+        "email": "info@skydivegan.com",
+        "location": ["Gananoque, ON", "Canada"],
+        "name": "Skydive Gananoque",
+        "phone": "(844) JUMP-GAN",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
+        "state": "ON",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.skydivegan.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.240203, 44.401717]
       }
     },
     {
@@ -128,11 +150,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Pac 750"],
+        "aircraft": ["1 Pac 750xl"],
         "airport": "Pepperell Airport (26MA)",
         "anchor": 100477,
         "country": "US",
-        "description": "Pepperell Skydiving Center Pepperell Airport (26MA), Pepperell, MA US 165 Nashua Rd Pepperell MA 01463-1457 US 40 miles NW of Boston 5 miles to nearest hotel http://www.skyjump.com/ manifest@skyjump.com New England Region 1 PAC 750 We are close to Boston and easy to reach from any New England metro area. New England Boogie with Skyvan. Free load organizers every weekend. Take Rt 3 to Exit 5W (Rt 111 West) in Nashua, N.H. Go west 5 miles to Pepperell Airport on the left. Only 15 minutes from the SkyVenture New Hampshire wind tunnel. Parachute shop and master rigger at airport. Open til October 31st.",
+        "description": "Pepperell Skydiving Center Pepperell Airport (26MA), Pepperell, Massachusetts US 165 Nashua Rd Pepperell Massachusetts 01463-1457 US 40 miles NW of Boston 5 miles to nearest hotel http://www.skyjump.com/ manifest@skyjump.com New England Region 1 PAC 750XL We are close to Boston and easy to reach from any New England metro area. New England Boogie with Skyvan. Free load organizers every weekend. Take Rt 3 to Exit 5W (Rt 111 West) in Nashua, N.H. Go west 5 miles to Pepperell Airport on the left. Only 15 minutes from the SkyVenture New Hampshire wind tunnel. Parachute shop and master rigger at airport. Open til October 31st.",
         "email": "manifest@skyjump.com",
         "location": ["Pepperell, MA"],
         "name": "Pepperell Skydiving Center",
@@ -154,7 +176,7 @@
         "airport": "Skydive New England Airport (ME64)",
         "anchor": 100478,
         "country": "US",
-        "description": "Skydive New England Skydive New England Airport (ME64), Lebanon, ME US 40 Skydive Ln. Lebanon ME 04027-4359 US 65 miles N of Boston 5 miles to nearest hotel http://www.skydivenewengland.com/ info@skydivenewengland.com New England Region 2x Cessna 208B Caravans New England's largest and bestest DZ sitting on a 240 acre private airport! Open five days a week (TH-M) from April20 to Nov03. Flying two Cessna 208B Caravans. On-site camping, private airport, bunkhouses, showers/bathrooms, covered packing, video rooms and on-site restaurant. Offering Tandem/AFF training, as well as FF and RW organizing every weekend!",
+        "description": "Skydive New England Skydive New England Airport (ME64), Lebanon, Maine US 40 Skydive Ln. Lebanon Maine 04027-4359 US 65 miles N of Boston 5 miles to nearest hotel http://www.skydivenewengland.com/ info@skydivenewengland.com New England Region 2x Cessna 208B Caravans New England's largest and bestest DZ sitting on a 240 acre private airport! Open five days a week (TH-M) from April20 to Nov03. Flying two Cessna 208B Caravans. On-site camping, private airport, bunkhouses, showers/bathrooms, covered packing, video rooms and on-site restaurant. Offering Tandem/AFF training, as well as FF and RW organizing every weekend!",
         "email": "info@skydivenewengland.com",
         "location": ["Lebanon, ME"],
         "name": "Skydive New England",
@@ -184,7 +206,7 @@
         "airport": "Franklin County Airport (FSO)",
         "anchor": 100481,
         "country": "US",
-        "description": "Malone Parachute Club Franklin County Airport (FSO), Swanton, VT US 629 Airport Rd Swanton VT 05488-8623 US 30 miles N of Burlington 5 miles to nearest hotel http://www.maloneparachuteclub.com/ dickvt4@gmail.com New England Region 2 Cessna 182 Open select weekends April - October. Check out the calendar on www.Skydive-Vermont.com. 30 minutes from Burlington, VT and 45 minutes from Montreal, Quebec. With 52 years of operation, we are a family-oriented, not-for-profit organization.",
+        "description": "Malone Parachute Club Franklin County Airport (FSO), Swanton, Vermont US 629 Airport Rd Swanton Vermont 05488-8623 US 30 miles N of Burlington 5 miles to nearest hotel http://www.maloneparachuteclub.com/ dickvt4@gmail.com New England Region 2 Cessna 182 Open select weekends April - October. Check out the calendar on www.Skydive-Vermont.com. 30 minutes from Burlington, VT and 45 minutes from Montreal, Quebec. With 53 years of operation, we are a family-oriented, not-for-profit organization.",
         "email": "dickvt4@gmail.com",
         "location": ["Swanton, VT"],
         "name": "Malone Parachute Club",
@@ -228,14 +250,14 @@
         "airport": "Ellington Airport (7B9)",
         "anchor": 100483,
         "country": "US",
-        "description": "Connecticut Parachutists, Inc. Ellington Airport (7B9), Ellington, CT US 360 Somers Rd Ellington CT 06029-2628 US 12 miles NE of Hartford 5 miles to nearest hotel http://www.skydivect.com/ cpi@skydivect.com New England Region 1 Cessna 208 Caravan, 1 Cessna 182 One of New England's premier skydiving centers. Open Saturday and Sunday, year-round. Freeflying, RW, CRW, Wingsuit and accuracy. Covered packing areas, bonfire pit and great skydiving! Check out our website for featured events. Come learn, fun jump or take a tandem at CPI. Home of Champions.",
+        "description": "Connecticut Parachutists, Inc. Ellington Airport (7B9), Ellington, Connecticut US 360 Somers Rd Ellington Connecticut 06029-2628 US 12 miles NE of Hartford 5 miles to nearest hotel http://www.skydivect.com/ cpi@skydivect.com New England Region 1 Cessna 208 Caravan, 1 Cessna 182 One of New England's premier skydiving centers. Open Saturday and Sunday, year-round with select weekdays throughout the summer season. Freeflying, RW, CRW, Wingsuit and accuracy. Covered packing areas, bonfire pit and great skydiving! Check out our website for featured events. Come learn, fun jump or take a tandem at Skydive CPI. Home of Champions.",
         "email": "cpi@skydivect.com",
         "location": ["Ellington, CT"],
         "name": "Connecticut Parachutists, Inc.",
         "phone": "(860) 871-0021",
         "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
         "state": "CT",
-        "training": ["AFF", "Tandem", "Instructor Assisted Deployment"],
+        "training": ["AFF", "Tandem"],
         "website": "http://www.skydivect.com/"
       },
       "geometry": {
@@ -330,7 +352,7 @@
           "Showers"
         ],
         "state": "VA",
-        "training": ["AFF", "Tandem"],
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
         "website": "http://www.skydivesuffolk.com/"
       },
       "geometry": {
@@ -367,11 +389,11 @@
         "airport": "Anderson Regional Airport (AND)",
         "anchor": 100534,
         "country": "US",
-        "description": "Flying Tigers SPC Anderson Regional Airport (AND), Anderson, SC US 5805 Airport Rd Anderson SC 29626-5303 US 2 miles W of Anderson 3 miles to nearest hotel http://www.ftspc.com/ jimburriss6@gmail.com Mid-Atlantic Region 1 Cessna 182 A small friendly drop zone with great views of the lakes and mountains. We're just a short drive from Greenville, SC and have plenty of great restaurants and hotels nearby. We welcome all and are open on the weekends!",
+        "description": "Flying Tigers SPC Anderson Regional Airport (AND), Anderson, South Carolina US 5805 Airport Rd Anderson South Carolina 29626-5303 US 2 miles W of Anderson 3 miles to nearest hotel http://www.ftspc.com/ jimburriss6@gmail.com Mid-Atlantic Region 1 Cessna 182 A small friendly drop zone with great views of the lakes and mountains. We're just a short drive from Greenville, SC and have plenty of great restaurants and hotels nearby. We welcome all and are open on the weekends!",
         "email": "jimburriss6@gmail.com",
         "location": ["Anderson, SC"],
         "name": "Flying Tigers SPC",
-        "phone": "(864) 350-8279",
+        "phone": "(864) 444-1487",
         "services": ["Packing Service", "Rigging", "Restaurant"],
         "state": "SC",
         "training": ["AFF", "Static Line"],
@@ -407,13 +429,13 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Skyvan", "1 Super Twin Otter", "1 Pac 750xl", "1 Cessna 208 Caravan"],
+        "aircraft": ["1 Super Twin Otter", "1 Pac 750xl", "1 Cessna 208 Caravan"],
         "airport": "DeLand Municipal Airport (DED)",
         "anchor": 100546,
         "country": "US",
-        "description": "Skydive DeLand, Inc. DeLand Municipal Airport (DED), Deland, FL US 1600 Flightline blvd Deland FL 32724 US 45 miles N of Orlando 1 mile to nearest hotel http://www.skydivedeland.com/ info@skydivedeland.com Southeast Region 1 Skyvan, 1 Super Twin Otter, 1 PAC 750XL, 1 Caravan United Parachute Technologies (RWS) tandem examiners on site. Home of Skydive University. Facilities for teams, groups and individuals of all experience levels. Extensive parachute manufacturing support for all skydiving equipment. Fitness facilities on airport. The Perfect Spot Restaurant & Bar (full-service with video theater). Upgraded aircraft. Open full time 365 days per year.",
+        "description": "Skydive DeLand, Inc. DeLand Municipal Airport (DED), DeLand, Florida US 1600 Flightline blvd DeLand Florida 32724 US 45 miles N of Orlando 1 mile to nearest hotel http://www.skydivedeland.com/ info@skydivedeland.com Southeast Region 1 Super Twin Otter, 1 PAC 750XL, 1 Caravan United Parachute Technologies (RWS) tandem examiners on site. Home of Skydive University. Facilities for teams, groups and individuals of all experience levels. Extensive parachute manufacturing support for all skydiving equipment. Fitness facilities on airport. The Perfect Spot Restaurant & Bar (full-service with video theater). Upgraded aircraft. Open full time 365 days per year.",
         "email": "info@skydivedeland.com",
-        "location": ["Deland, FL"],
+        "location": ["DeLand, FL"],
         "name": "Skydive DeLand, Inc.",
         "phone": "(386) 738-3539",
         "services": [
@@ -491,7 +513,7 @@
         "airport": "Ashland County Airport",
         "anchor": 100603,
         "country": "US",
-        "description": "Aerohio Skydiving Center Ashland County Airport, Ashland , OH US 701G Township Rd 1102 Ashland OH 44805 US 5 miles NE of Ashland 5 miles to nearest hotel http://www.aerohio.com/ info@aerohio.com Mid-Eastern Region 1 Dehavilland Twin Otter Aerohio offers a small DZ atmosphere with large DZ facilities and staff. Centrally located, making us one of the closest to the Akon, Columbus and Cleveland areas. Open Tuesday-Sunday.",
+        "description": "Aerohio Skydiving Center Ashland County Airport, Ashland , Ohio US 701G Township Rd 1102 Ashland Ohio 44805 US 5 miles NE of Ashland 5 miles to nearest hotel http://www.aerohio.com/ info@aerohio.com Mid-Eastern Region 1 Dehavilland Twin Otter AerOhio Skydiving offers a small Drop Zone atmosphere with large Drop Zone facilities and staff. Centrally located, making us one of the closest to the Akron, Columbus and Cleveland areas. We are open Tuesday-Sunday. AerOhio Skydiving is a full service, professional skydiving center specializing in first time tandem jumpers as well as new solo jumpers learning to skydive with our state of the art Accelerated Freefall training progression. Our program features a customized online first jump training course with videos and quizzes as well as VR canopy training providing low-stress, canopy flight and navigation practice over Ashland County Airport. We can help you to get licensed as a skydiver with the United States Parachute Association following our training progression that well exceeds industry standards! Our new custom built hangar, equipment and airplanes are top notch and very well maintained and our instructional staff receive the highest reviews from our customers. Safety and customer service are our number one priorities. We hope you will join us in the sky very soon!",
         "email": "info@aerohio.com",
         "location": ["Ashland , OH"],
         "name": "Aerohio Skydiving Center",
@@ -532,14 +554,14 @@
       "type": "Feature",
       "properties": {
         "aircraft": ["1 Cessna 182 Or A Cessna 180"],
-        "airport": "Barber Airfield",
+        "airport": "Lee Airfield",
         "anchor": 100606,
         "country": "US",
-        "description": "Canton Air Sports Barber Airfield, Alliance, OH US 14008 Union Ave NE Alliance OH 44601-9312 US 26 miles E of Akron 5 miles to nearest hotel http://cantonairsports.com/ jump@cantonairsports.com Mid-Eastern Region 1 Cessna 182 or a Cessna 180 Beautiful Drop Zone located East of Columbus, OH. Situated on a private airport with minimal traffic and wide open landing area. Scenic view of Deer Lake Reservoir, Mainly open on weekends, but open several weekdays as well. Give us a call and join us for some skydiving anytime!",
+        "description": "Canton Air Sports Lee Airfield, Alliance, Ohio US 14008 Union Ave NE Alliance Ohio 44601-9312 US 26 miles E of Akron 5 miles to nearest hotel http://cantonairsports.com/ jump@cantonairsports.com Mid-Eastern Region 1 Cessna 182 or a Cessna 180 Beautiful Drop Zone located East of Columbus, OH. Situated on a private airport with minimal traffic and wide open landing area. Scenic view of Deer Lake Reservoir, Mainly open on weekends, but open several weekdays as well. Give us a call and join us for some skydiving anytime!",
         "email": "jump@cantonairsports.com",
         "location": ["Alliance, OH"],
         "name": "Canton Air Sports",
-        "phone": "(330) 685-0816",
+        "phone": "(330) 823-0370",
         "services": [
           "Packing Service",
           "Rigging",
@@ -586,7 +608,7 @@
         "airport": "Knoxville Municipal Airport (OXV)",
         "anchor": 100624,
         "country": "US",
-        "description": "Des Moines Skydivers Knoxville Municipal Airport (OXV), Knoxville, Iowa US 790 S Lincoln Street Knoxville Iowa 50138 US 35 miles SE of Des Moines 1 mile to nearest hotel http://www.desmoinesskydivers.com/ manager@desmoinesskydivers.com Central Region 1 Cessna 182 Only 30 minutes from I-35 and I-80. Open weekends and some weekdays--call the dropzone for jumping information. Full facilities including showers, A/C and heated hangar, campground, gear rental and student as well as experienced jumper training. Only club owned and operated DZ in Iowa. Turbine aircraft available May-October. Home of the Couch Freaks.",
+        "description": "Des Moines Skydivers Knoxville Municipal Airport (OXV), Knoxville, IA US 790 S Lincoln Street Knoxville IA 50138 US 35 miles SE of Des Moines 1 mile to nearest hotel http://www.desmoinesskydivers.com/ manager@desmoinesskydivers.com Central Region 1 Cessna 182 Only 30 minutes from I-35 and I-80. Open weekends and some weekdays--call the dropzone for jumping information. Full facilities including showers, A/C and heated hangar, campground, gear rental and student as well as experienced jumper training. Only club owned and operated DZ in Iowa. Turbine aircraft available May-October. Home of the Couch Freaks.",
         "email": "manager@desmoinesskydivers.com",
         "location": ["Knoxville, IA"],
         "name": "Des Moines Skydivers",
@@ -604,11 +626,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 182", "1 Pac 750"],
+        "aircraft": ["1 Cessna 182"],
         "airport": "East Troy Municipal Airport (57C)",
         "anchor": 100639,
         "country": "US",
-        "description": "Skydive Milwaukee/Sky Knights Sport Parachute Club East Troy Municipal Airport (57C), East Troy, WI US W1341 County Road L East Troy WI 53120-2128 US 20 miles SW of Milwaukee 1 mile to nearest hotel http://www.skydivemilwaukee.com/ jump@skydivemilwaukee.com North Central Region 1 Cessna 182, 1 PAC 750 Open Tuesday through Sunday and located just 40 minutes from Milwaukee. Right off I-43 at the East Troy Municipal airport. AFF and Tandem instruction available. Rental gear available for licensed skydivers.",
+        "description": "Skydive Milwaukee/Sky Knights Sport Parachute Club East Troy Municipal Airport (57C), East Troy, Wisconsin US W1341 County Road L East Troy Wisconsin 53120-2128 US 20 miles SW of Milwaukee 1 mile to nearest hotel http://www.skydivemilwaukee.com/ jump@skydivemilwaukee.com North Central Region 1 Cessna 182 Open Tuesday through Sunday and located just 40 minutes from Milwaukee. Right off I-43 at the East Troy Municipal airport. AFF and Tandem instruction available. Rental gear available for licensed skydivers.",
         "email": "jump@skydivemilwaukee.com",
         "location": ["East Troy, WI"],
         "name": "Skydive Milwaukee/Sky Knights Sport Parachute Club",
@@ -674,7 +696,7 @@
         "airport": "Quentin Aanenson Airport (LYV)",
         "anchor": 100658,
         "country": "US",
-        "description": "Skydive Adventures Quentin Aanenson Airport (LYV), Luverne, MN US 941 US-75 Luverne MN 56156 US 30 miles E of Sioux Falls 1 mile to nearest hotel http://www.skydiveadventures.net/ info@skydiveadventures.net North Central Region 1 Cessna 206 Open Saturdays and Sundays, year-round. From Sioux Falls, take I-90 East to Hwy 75 (Luverne, MN Exit). Go one mile south to Quentin Aanenson Airport. Small club DZ with Big Energy.",
+        "description": "Skydive Adventures Quentin Aanenson Airport (LYV), Luverne, Minnesota US 941 US-75 Luverne Minnesota 56156 US 30 miles E of Sioux Falls 1 mile to nearest hotel http://www.skydiveadventures.net/ info@skydiveadventures.net North Central Region 1 Cessna 206 Open Saturdays and Sundays, spring to late fall. From Sioux Falls, take I-90 East to Hwy 75 (Luverne, MN Exit). Go one mile south to Quentin Aanenson Airport. Small club DZ with Big Energy.",
         "email": "info@skydiveadventures.net",
         "location": ["Luverne, MN"],
         "name": "Skydive Adventures",
@@ -718,7 +740,7 @@
         "airport": "Skydive Chicago Airport (8N2)",
         "anchor": 100665,
         "country": "US",
-        "description": "Skydive Chicago, Inc. Skydive Chicago Airport (8N2), Ottawa, IL US 3215 E 1969th Rd Ottawa IL 61350-9408 US 70 miles SW of Chicago 1.5 miles to nearest hotel http://www.skydivechicago.com/ info@skydivechicago.com Central Region 1 Cessna 182, 1 Cessna 208, 3 Twin Otters, 2 Skyvan We are passionate about skydiving and would love to show you the sport we all enjoy so much. Whether its your first jump or your 5th championship we can handle your needs. Join us for SDC Summerfest, Rookiefest, or any of our world class events. We look forward seeing your smiling face high above the earth.",
+        "description": "Skydive Chicago, Inc. Skydive Chicago Airport (8N2), Ottawa, Illinois US 3215 E 1969th Rd Ottawa Illinois 61350-9408 US 70 miles SW of Chicago 1.5 miles to nearest hotel http://www.skydivechicago.com/ info@skydivechicago.com Central Region 1 Cessna 182, 1 Cessna 208, 3 Twin Otters, 2 Skyvan We are passionate about skydiving and would love to show you the sport we all enjoy so much. Whether its your first jump or your 5th championship we can handle your needs. Join us for SDC Summerfest, Rookiefest, or any of our world class events. We look forward seeing your smiling face high above the earth.",
         "email": "info@skydivechicago.com",
         "location": ["Ottawa, IL"],
         "name": "Skydive Chicago, Inc.",
@@ -871,6 +893,28 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["2 Cessna 206s"],
+        "airport": "Boulder City Municipal Airport (BVU)",
+        "anchor": 100771,
+        "country": "US",
+        "description": "Skydive Las Vegas Boulder City Municipal Airport (BVU), Boulder City, Nevada US 1401 Airport Rd Boulder City Nevada 89005 US 20 miles SE of Las Vegas 1 mile to nearest hotel http://www.skydivelasvegas.com/ jump@skydivelasvegas.com Western Region 2 Cessna 206 Welcome to Las Vegas' premier student skydiving center specializing in student tandem training. Your experience at Skydive Las Vegas will be second-to-none!",
+        "email": "jump@skydivelasvegas.com",
+        "location": ["Boulder City, NV"],
+        "name": "Skydive Las Vegas",
+        "phone": "(702) SKY-DIVE",
+        "services": [],
+        "state": "NV",
+        "training": ["Tandem"],
+        "website": "http://www.skydivelasvegas.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-114.85795, 35.94944]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["5 Skyvans", "3 Super Twin Otters", "1 Douglas Dc9-21"],
         "airport": "Perris Valley Airport (L65)",
         "anchor": 100778,
@@ -968,7 +1012,6 @@
           "Rigging",
           "Equipment Rental",
           "Camping",
-          "Bunkhouse",
           "Showers",
           "Pro Shop"
         ],
@@ -979,28 +1022,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-121.8569444, 38.5793889]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "aircraft": ["1 850hp Cessna", "1 208 Caravans"],
-        "airport": "Skydive Oregon Airport (OL05)",
-        "anchor": 100798,
-        "country": "US",
-        "description": "Skydive Oregon, Inc. Skydive Oregon Airport (OL05), Molalla, OR US 12150 Oregon 211 Molalla OR 97038 US 20 miles S of Portland 2 miles to nearest hotel http://www.skydiveoregon.com/ skydive@skydiveoregon.com Northwest Region 1 850HP Cessna, 208 Caravan Welcome to Tandem Skydive Oregon, where we have been offering professional skydiving instruction since 1988.",
-        "email": "skydive@skydiveoregon.com",
-        "location": ["Molalla, OR"],
-        "name": "Skydive Oregon, Inc.",
-        "phone": "(503) 829-3483",
-        "services": [],
-        "state": "OR",
-        "training": ["Tandem"],
-        "website": "http://www.skydiveoregon.com/"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-122.6175886, 45.1462331]
       }
     },
     {
@@ -1284,6 +1305,28 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Cessna 208 Caravan Caravan"],
+        "airport": "Honda Airport",
+        "anchor": 101605,
+        "country": "Japan",
+        "description": "Skydive Nippon Honda Airport, Saitama, Ken Japan Yamagayato 496, Kawajima - Cho Saitama Ken 350-0126 Japan 40 km NW of Tokyo Metropolitan Area 3 km to nearest hotel http://www.skydivenippon.com/ info@skydivemtfuji.com International 1 Cessna 208B Caravan Open four days per week. Jumps from 13,000 feet AGL. Located in Saitama, the closest drop zone to Tokyo. On clear days, Mount Fuji is visible. Fun jumpers are welcome, along with various courses and special events.",
+        "email": "info@skydivemtfuji.com",
+        "location": ["Saitama, Ken", "Japan"],
+        "name": "Skydive Nippon",
+        "phone": "+818035208668",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
+        "state": "Ken",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "http://www.skydivenippon.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [139.520933, 35.977351]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna Supervan"],
         "airport": "Kawaihapai (Dillingham Airfield - HDH)",
         "anchor": 101662,
@@ -1415,11 +1458,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["2 Super Otters", "1 Cessna 182"],
+        "aircraft": ["2 Super Otters", "2 Cessna 208 Caravans", "1 Cessna 182"],
         "airport": "Zephyrhills Municipal Airport (ZPH)",
         "anchor": 105454,
         "country": "US",
-        "description": "Skydive City Zephyrhills Zephyrhills Municipal Airport (ZPH), Zephyrhills, FL US 4241 Sky Dive Ln Zephyrhills FL 33542-5827 US 22 miles NE of Tampa 2 miles to nearest hotel http://www.skydivecity.com/ info@skydivecity.com Southeast Region 2 Super Otter, Cessna 182 Florida's Skydiving Resort. Full amenities year-round. Food, laundry, camping, and RV slots (with or without trailer rental) by the night for events, Paragone rigging, awesome packing mat, Sunshine Factory gear sales, SkydiveRatings.com ratings school, Sunset bar, cafe, fire pit, swoop pond, internet and more.",
+        "description": "Skydive City Zephyrhills Zephyrhills Municipal Airport (ZPH), Zephyrhills, Florida US 4241 Sky Dive Ln Zephyrhills Florida 33542-5827 US 22 miles NE of Tampa 2 miles to nearest hotel http://www.skydivecity.com/ info@skydivecity.com Southeast Region 2 Super Otter, 2 Cessna Caravan, Cessna 182 Florida's Skydiving Resort. Full amenities year-round. Food, laundry, camping, and RV slots (with or without trailer rental) by the night for events, Paragone rigging, awesome packing mat, Sunshine Factory gear sales, SkydiveRatings.com ratings school, Sunset bar, cafe, fire pit, swoop pond, internet and more.",
         "email": "info@skydivecity.com",
         "location": ["Zephyrhills, FL"],
         "name": "Skydive City Zephyrhills",
@@ -1561,16 +1604,16 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 King Air 200"],
+        "aircraft": ["2 King Air 200s"],
         "airport": "Marina Municipal Airport (OAR)",
         "anchor": 118530,
         "country": "US",
-        "description": "Skydive Monterey Bay Marina Municipal Airport (OAR), Marina, CA US 721 Neeson Rd Marina CA 93933-5108 US 50 miles S of San Jose 1 mile to nearest hotel http://www.skydivemontereybay.com/ office@skydivemontereybay.com Pacific Region 1 King Air 200 18,000' everyday. Super King Air 200, seats 21. Monterey Bay & Santa Cruz beautiful ocean views. Open seven days a week, year round.",
+        "description": "Skydive Monterey Bay Marina Municipal Airport (OAR), Marina, California US 721 Neeson Rd Marina California 93933-5108 US 50 miles S of San Jose 1 mile to nearest hotel http://www.skydivemontereybay.com/ office@skydivemontereybay.com Pacific Region 2 King Air 200 18,000' everyday. Super King Air 200, seats 21. Monterey Bay & Santa Cruz beautiful ocean views. Open seven days a week, year round.",
         "email": "office@skydivemontereybay.com",
         "location": ["Marina, CA"],
         "name": "Skydive Monterey Bay",
         "phone": "+1(831)384-3483",
-        "services": ["Rigging", "Equipment Rental"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
         "state": "CA",
         "training": ["AFF", "Tandem"],
         "website": "http://www.skydivemontereybay.com/"
@@ -1587,12 +1630,19 @@
         "airport": "Red Stewart Airfield (40I)",
         "anchor": 118679,
         "country": "US",
-        "description": "Skydive Cincinnati Red Stewart Airfield (40I), Waynesville, OH US 4499 N State Route 42 Waynesville OH 45068 US 38 miles NE of Downtown Cincinnati 5 miles to nearest hotel http://www.skydivecincinnati.com/ info@skydivecincinnati.com Mid-Eastern Region Cessna Turbo 206, Cessna 205 Skydive Cincinnati is a long established (1969) family owned and operated DZ. We are located on our private family airport in Waynesville, Ohio and pretty much have everything you could want for a favorite hangout spot. Free camping, pool parties, great vibes and very welcoming atmosphere for all! We hope to make your acquaintance this season! FMI please email info@skydivecincinnati.com",
+        "description": "Skydive Cincinnati Red Stewart Airfield (40I), Waynesville, Ohio US 4499 N State Route 42 Waynesville Ohio 45068 US 38 miles NE of Downtown Cincinnati 5 miles to nearest hotel http://www.skydivecincinnati.com/ info@skydivecincinnati.com Mid-Eastern Region Cessna Turbo 206, Cessna 205 Skydive Cincinnati is a long established (1969) family owned and operated DZ. We are located on our private family airport in Waynesville, Ohio and pretty much have everything you could want for a favorite hangout spot. Free camping, on-site AirBnB for large groups, pool parties, great vibes and very welcoming atmosphere for all! We hope to make your acquaintance this season! FMI please email info@skydivecincinnati.com.",
         "email": "info@skydivecincinnati.com",
         "location": ["Waynesville, OH"],
         "name": "Skydive Cincinnati",
         "phone": "(513) 282-3725",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Swimming Pool"],
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Swimming Pool"
+        ],
         "state": "OH",
         "training": ["AFF", "Tandem", "Static Line"],
         "website": "http://www.skydivecincinnati.com/"
@@ -1649,11 +1699,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["2 Cessna 182s", "1 King Air C90"],
+        "aircraft": ["2 Cessna 182s", "1 King Air A90"],
         "airport": "Ed Carlson Memorial Field/Winlock Airport (TDO)",
         "anchor": 119092,
         "country": "US",
-        "description": "Skydive Toledo Ed Carlson Memorial Field/Winlock Airport (TDO), Toledo, WA US 5219 Jackson Hwy Toledo WA 98591-9741 US 60 miles N of Portland 13 miles to nearest hotel http://www.skydivetoledo.com/ info@skydivetoledo.com Northwest Region 2 Cessna 182, King Air C90 Up jumper friendly drop zone located between Portland, Oregon and Olympia, Washington. View of Mt. St. Helens, Mt. Rainier and the Cascade Range along with the Columbia River and the Pacific Ocean. Jumpers are welcome to stay on the drop zone during the season and participate in bonfires and BBQs on the weekends. Jumping a King Air from 14,500 feet daily. Occasional ocean jumps and beach landings as well. Join us!",
+        "description": "Skydive Toledo Ed Carlson Memorial Field/Winlock Airport (TDO), Toledo, WA US 5219 Jackson Hwy Toledo WA 98591-9741 US 60 miles N of Portland 13 miles to nearest hotel http://www.skydivetoledo.com/ info@skydivetoledo.com Northwest Region 2 Cessna 182, King Air A90 Up jumper friendly drop zone located between Portland, Oregon and Olympia, Washington. View of Mt. St. Helens, Mt. Rainier and the Cascade Range along with the Columbia River and the Pacific Ocean. Jumpers are welcome to stay on the drop zone during the season and participate in bonfires and BBQs on the weekends. Jumping a King Air from 14,500 feet daily. Occasional ocean jumps and beach landings as well. Join us!",
         "email": "info@skydivetoledo.com",
         "location": ["Toledo, WA"],
         "name": "Skydive Toledo",
@@ -1664,6 +1714,7 @@
           "Equipment Rental",
           "Camping",
           "Bunkhouse",
+          "Swimming Pool",
           "Showers"
         ],
         "state": "WA",
@@ -1704,12 +1755,12 @@
         "airport": "Parma Municipal Airport",
         "anchor": 128994,
         "country": "US",
-        "description": "DZONE Skydiving-Boise Parma Municipal Airport, Parma, ID US 1113 Airport Road Parma ID 83660 US 20 miles W of Boise 10 miles to nearest hotel https://dzoneskydiving.com/idaho-boise/ hello@boise.dzoneskydiving.com Northwest Region 1-2 Super Cessna 182 (310hp 17-minute climb time) DZONE® Skydiving - Feel the Freedom!®",
+        "description": "DZONE Skydiving-Boise Parma Municipal Airport, Parma, Idaho US 1113 Airport Road Parma Idaho 83660 US 20 miles W of Boise 10 miles to nearest hotel https://dzoneskydiving.com/idaho-boise/ hello@boise.dzoneskydiving.com Northwest Region 1-2 Super Cessna 182 (310hp 17-minute climb time) DZONE® Skydiving - Feel the Freedom!®",
         "email": "hello@boise.dzoneskydiving.com",
         "location": ["Parma, ID"],
         "name": "DZONE Skydiving-Boise",
         "phone": "(208) 455-0000",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
         "state": "ID",
         "training": ["AFF", "Tandem"],
         "website": "https://dzoneskydiving.com/idaho-boise/"
@@ -1777,7 +1828,7 @@
         "airport": "Homestead General Aviation Airport (X51)",
         "anchor": 138230,
         "country": "US",
-        "description": "iSkydive America – Miami Homestead General Aviation Airport (X51), Homestead, FL US 28730 SW 217th Ave Homestead FL 33030-7611 US 20 miles SW of Miami 5 miles to nearest hotel http://www.iskydive.com/miami miami@iskydive.com Southeast Region Two PAC 750s and a Cessna 182 (Summertime only one PAC 750) Welcome to iSkydive Miami. We are one of the closest full-service DZs to Miami, South Beach and Ft. Lauderdale. We offer competitive rates and a great service. Shuttle service is available for South Beach and Bayside pickups, so come jump with us out of our 15-place Turbine PAC 750 and enjoy our modern indoor air-conditioned facilities for a fantastic holiday. We look forward to seeing you at iSkydive Miami.",
+        "description": "iSkydive America – Miami Homestead General Aviation Airport (X51), Homestead, FL US 28730 SW 217th Ave Homestead FL 33030-7611 US 20 miles SW of Miami 5 miles to nearest hotel http://www.iskydive.com/miami miami@iskydive.com Southeast Region Two PAC 750s and a Cessna 182 (Summertime only one PAC 750) Welcome to iSkydive Miami. We are the closest full-service DZ to Miami, South Beach and Ft. Lauderdale. We offer competitive rates and a great service. Shuttle service is available for South Beach and Bayside pickups, so come jump with us out of our 15-place Turbine PAC 750 and enjoy our modern indoor air-conditioned facilities for a fantastic holiday. We look forward to seeing you at iSkydive Miami.",
         "email": "miami@iskydive.com",
         "location": ["Homestead, FL"],
         "name": "iSkydive America – Miami",
@@ -1895,14 +1946,14 @@
         "airport": "Skylark Field Airport",
         "anchor": 152570,
         "country": "US",
-        "description": "Skylark Skydive Skylark Field Airport, Killeen, TX US 1517 Stonetree Dr Killeen TX 76543 US 60 miles N of Austin 1 mile to nearest hotel https://www.skydiveskylark.com/ info@skydiveskylark.com Southwest Region 2 Cessna 182 A fun place to skydive, first time or 1,000th! come have fun. We want all skydivers to be safe and have fun! 30 minutes North of Austin, 40 minutes South of Waco, in Killeen and seconds off I-35! Amazing staff and a freindly environment. (254) 947-3483",
+        "description": "Skylark Skydive Skylark Field Airport, Killeen, Texas US 1517 Stonetree Dr Killeen Texas 76543 US 60 miles N of Austin 1 mile to nearest hotel https://www.skydiveskylark.com/ info@skydiveskylark.com Southwest Region 2 Cessna 182 Tandem Dropzone with availability for D-license and pro rated jumpers only.",
         "email": "info@skydiveskylark.com",
         "location": ["Killeen, TX"],
         "name": "Skylark Skydive",
         "phone": "(254) 947-3483",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
         "state": "TX",
-        "training": ["AFF", "Tandem"],
+        "training": ["Tandem"],
         "website": "https://www.skydiveskylark.com/"
       },
       "geometry": {
@@ -1917,8 +1968,8 @@
         "airport": "Newport State Airport (UUU)",
         "anchor": 153827,
         "country": "US",
-        "description": "Skydive Newport Newport State Airport (UUU), Middletown, RI US 211 Airport Access Rd Middletown RI 02842 US 25 miles SE of Providence 1/2 mile to nearest hotel http://www.skydivenewport.com/ marc@skydivenewport.com New England Region 2 Cessna 182 Open seven days a week from April 1 to end of October. 45 minutes from Providence, one hour from Boston. Coastal beauty, great night life. Tandem jumps only.",
-        "email": "marc@skydivenewport.com",
+        "description": "Skydive Newport Newport State Airport (UUU), Middletown, Rhode Island US 211 Airport Access Rd Middletown Rhode Island 02842 US 25 miles SE of Providence 1/2 mile to nearest hotel http://www.skydivenewport.com/ chris@skydivenewport.com New England Region 2 Cessna 182 Open seven days a week from April 1 to end of October. 45 minutes from Providence, one hour from Boston. Coastal beauty, great night life. Tandem jumps only.",
+        "email": "chris@skydivenewport.com",
         "location": ["Middletown, RI"],
         "name": "Skydive Newport",
         "phone": "(401) 845-0393",
@@ -2019,7 +2070,7 @@
         "airport": "Kunstman Airfield",
         "anchor": 178560,
         "country": "US",
-        "description": "Midwest Freefall Sport Parachute Club, Inc. Kunstman Airfield, Ray, MI US 62912 Kunstman Rd Ray MI 48096-3050 US 20 miles NE of Detroit 7 miles to nearest hotel http://www.midwestfreefall.com/ skydive@midwestfreefall.com Mid-Eastern Region 1 Cessna 182, 1 Cessna 208B Blackhawk A small, casual DZ with a country atmosphere and nice turbine aircraft. Only a few miles from metro Detroit. Located just southeast of Romeo, Michigan, on the Kunstman Airfield at 29 Mile and Kunstman Rd. USPA membership required. Check website for hours and special events.",
+        "description": "Midwest Freefall Sport Parachute Club, Inc. Kunstman Airfield, Ray, Michigan US 62912 Kunstman Rd Ray Michigan 48096-3050 US 20 miles NE of Detroit 7 miles to nearest hotel http://www.midwestfreefall.com/ skydive@midwestfreefall.com Mid-Eastern Region 1 Cessna 182, 1 Cessna 208B Blackhawk A small, casual DZ with a country atmosphere and nice turbine aircraft. Only a few miles from metro Detroit. Located just southeast of Romeo, Michigan, on the Kunstman Airfield at 29 Mile and Kunstman Rd. USPA membership required. Check website for hours and special events.",
         "email": "skydive@midwestfreefall.com",
         "location": ["Ray, MI"],
         "name": "Midwest Freefall Sport Parachute Club, Inc.",
@@ -2041,7 +2092,7 @@
         "airport": "Charlevoix Municipal Airport",
         "anchor": 179778,
         "country": "US",
-        "description": "iSkydive America – Charlevoix Charlevoix Municipal Airport, Charlevoix, MI US 111 Airport Dr Charlevoix MI 49720-8904 US 37 miles N of Traverse City 1/4 mile to nearest hotel http://www.skydivecharlevoix.com/ Charlevoix@iskydive.com Mid-Eastern Region 2 Cessna 182s Jump in beautiful Northern Michigan at the Charlevoix Municipal Airport. Enjoy amazing views of Grand Traverse Bay, the Beaver Island Archipelago, Little Traverse Bay and entire tip of the Mitt from as high as two miles above the ground. We specialize in first time tandem jumpers but experienced jumpers are also welcome with advance notice.",
+        "description": "iSkydive America – Charlevoix Charlevoix Municipal Airport, Charlevoix, Michigan US 111 Airport Dr Charlevoix Michigan 49720-8904 US 37 miles N of Traverse City 1/4 mile to nearest hotel http://www.skydivecharlevoix.com/ Charlevoix@iskydive.com Mid-Eastern Region 2 Cessna 182s Jump in beautiful Northern Michigan at the Charlevoix Municipal Airport. Enjoy amazing views of Grand Traverse Bay, the Beaver Island Archipelago, Little Traverse Bay and entire tip of the Mitt from as high as two miles above the ground. We specialize in first time jumpers for AFF And Tandem but experienced jumpers are always welcome (advanced notice preferred for experienced jumpers).",
         "email": "Charlevoix@iskydive.com",
         "location": ["Charlevoix, MI"],
         "name": "iSkydive America – Charlevoix",
@@ -2065,11 +2116,11 @@
         "country": "US",
         "description": "Skydive Airtight Skiatook Municipal Airport (2F6), Skiatook, Ok US 1651 S Lombard Ln Skiatook Ok 74070-1759 US 20 miles N of Tulsa 5 miles to nearest hotel http://www.skydiveairtight.com/ info@skydiveairtight.com Southwest Region 1 Cessna 182 Open six days a week, year around. From Tulsa take Hwy 75 N to 146 St. N. Go west 5 miles. Air conditioned and locked hanger.",
         "email": "info@skydiveairtight.com",
-        "location": ["Skiatook, Ok"],
+        "location": ["Skiatook, OK"],
         "name": "Skydive Airtight",
         "phone": "(918) 396-PULL",
         "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
-        "state": "Ok",
+        "state": "OK",
         "training": ["AFF", "Tandem", "Instructor Assisted Deployment"],
         "website": "http://www.skydiveairtight.com/"
       },
@@ -2114,7 +2165,7 @@
         "airport": "Mesquite Municipal Airport (67L)",
         "anchor": 183847,
         "country": "US",
-        "description": "Skydive Mesquite Mesquite Municipal Airport (67L), Mesquite, NV US 1200 Kittyhawk Dr Mesquite NV 89027 US 77 miles N of Las Vegas 1/2 mile to nearest hotel http://www.skydivemesquite.com/ skydive@skydivemesquite.com Western Region 1 Cessna 182 Located one hour northeast on I-15 from Las Vegas and 1/2 hour south from St. George, Utah. Caravan all winter. Indoor packing area. Open all weekends. Weekdays by appointment. Freefly, Wingsuit or RW, all welcome. If you want to fun jump near Las Vegas, this is the place to be.",
+        "description": "Skydive Mesquite Mesquite Municipal Airport (67L), Mesquite, Nevada US 1200 Kittyhawk Dr Mesquite Nevada 89027 US 77 miles N of Las Vegas 1/2 mile to nearest hotel http://www.skydivemesquite.com/ skydive@skydivemesquite.com Western Region 1 Cessna 182 Located one hour northeast on I-15 from Las Vegas and 1/2 hour south from St. George, Utah. Caravan all winter. Indoor packing area. Open all weekends. Weekdays by appointment. Freefly, Wingsuit or RW, all welcome. If you want to fun jump near Las Vegas, this is the place to be.",
         "email": "skydive@skydivemesquite.com",
         "location": ["Mesquite, NV"],
         "name": "Skydive Mesquite",
@@ -2180,7 +2231,7 @@
         "airport": "Canyonlands Field Airport /Moab Airport (CNY)",
         "anchor": 190455,
         "country": "US",
-        "description": "Skydive Moab Canyonlands Field Airport /Moab Airport (CNY), Moab, UT US 114 W Aviation Way Moab UT 84532 US 80 miles W of Grand Junction, CO 15 miles to nearest hotel http://www.skydivemoab.com/ INFO@SKYDIVEMOAB.COM Mountain Region 2 Cessna 182, 1 Supervan 900 Located 16 miles north of Moab. Experienced jumpers and students with log books welcome, as well as first-time jumpers. Summer and winter schedules vary. Please call ahead. Jumping is by appointment only. Spectacular views! Rigging services also available.",
+        "description": "Skydive Moab Canyonlands Field Airport /Moab Airport (CNY), Moab, UT US 114 W Aviation Way Moab UT 84532-0995 US 80 miles W of Grand Junction, CO 15 miles to nearest hotel http://www.skydivemoab.com/ INFO@SKYDIVEMOAB.COM Mountain Region 2 Cessna 182, 1 Supervan 900 Located 16 miles north of Moab. Experienced jumpers and students with log books welcome, as well as first-time jumpers. Summer and winter schedules vary. Please call ahead. Jumping is by appointment only. Spectacular views! Rigging services also available.",
         "email": "INFO@SKYDIVEMOAB.COM",
         "location": ["Moab, UT"],
         "name": "Skydive Moab",
@@ -2198,11 +2249,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Super Twin Otter"],
+        "aircraft": ["1 Super Twin Otter", "1 Grand Caravan", "1 Quest Kodiak", "1 Cessna 182."],
         "airport": "Sylvania Airport (C89)",
         "anchor": 192783,
         "country": "US",
-        "description": "Skydive Midwest Sylvania Airport (C89), Sturtevant, WI US 13851 56th Rd Sturtevant WI 53177-2139 US 50 miles N of Chicago 1 mile to nearest hotel http://sdmw.com/ info@skydivemidwest.com North Central Region 1 Super Twin Otter Open seven days a week. April-November. From Chicago take I-94 north to Exit 335, turn left. When you reach South Sylvania Ave. turn right. From Milwaukee take I-94 south to Exit 333 turn right on Hwy 20 then left on S Sylvania. We offer tandem, AFF and video services as well as canopy course, rating courses and events.",
+        "description": "Skydive Midwest Sylvania Airport (C89), Sturtevant, Wisconsin US 13851 56th Rd Sturtevant Wisconsin 53177-2139 US 50 miles N of Chicago 1 mile to nearest hotel https://skydivemidwest.com/ info@skydivemidwest.com North Central Region Super Twin Otter, Grand Caravan, Quest Kodiak, Cessna 182. Open seven days a week. April-November. From Chicago take I-94 north to Exit 335, turn left. When you reach South Sylvania Ave. turn right. From Milwaukee take I-94 south to Exit 333 turn right on Hwy 20 then left on S Sylvania. We offer tandem, AFF and video services as well as canopy course, rating courses and events.",
         "email": "info@skydivemidwest.com",
         "location": ["Sturtevant, WI"],
         "name": "Skydive Midwest",
@@ -2218,7 +2269,7 @@
         ],
         "state": "WI",
         "training": ["AFF", "Tandem"],
-        "website": "http://sdmw.com/"
+        "website": "https://skydivemidwest.com/"
       },
       "geometry": {
         "type": "Point",
@@ -2232,7 +2283,7 @@
         "airport": "Pennridge Airport (CKZ)",
         "anchor": 193301,
         "country": "US",
-        "description": "Skydive Philadelphia Pennridge Airport (CKZ), Perkasie, PA US 1300 Schoolhouse Rd Perkasie PA 18944-2110 US 10 miles N of Philadelphia 1.5 miles to nearest hotel http://www.skydivephiladelphia.com/ skydivephilly@gmail.com Eastern Region 1 Cessna Caravan 208 Skydive Philadelphia is located in Perkasie, Pennsylvania, just a short drive from one of Philadelphia’s busiest full-service turbine drop zones. This premier skydiving center offers an ideal location for thrill-seekers and seasoned jumpers alike, with easy access from Philadelphia, New York, and New Jersey. Situated in the scenic Bucks County countryside, the drop zone provides stunning aerial views of the surrounding region, including rolling hills and distant city skylines, making it a standout choice for skydiving enthusiasts.Open six days a week from April to November, Skydive Philadelphia caters to a wide range of visitors, offering first-time tandem jumps, comprehensive skydiving lessons, and a welcoming community for expert jumpers. The facility is equipped with top-notch amenities, including a padded indoor packing area, creeping space for practice, lockers, and rental equipment, ensuring a comfortable and convenient experience. Additionally, Master Rigging Services are available on-site for those needing expert gear maintenance or customization. Whether you're a beginner or a pro, Skydive Philadelphia combines accessibility, professional services, and a vibrant atmosphere to deliver an exceptional skydiving adventure.",
+        "description": "Skydive Philadelphia Pennridge Airport (CKZ), Perkasie, Pennsylvania US 1300 Schoolhouse Rd Perkasie Pennsylvania 18944-2110 US 10 miles N of Philadelphia 1.5 miles to nearest hotel http://www.skydivephiladelphia.com/ skydivephilly@gmail.com Eastern Region Cessna Caravan 208 Skydive Philadelphia is located in Perkasie, Pennsylvania, just a short drive from one of Philadelphia’s busiest full-service turbine drop zones. This premier skydiving center offers an ideal location for thrill-seekers and seasoned jumpers alike, with easy access from Philadelphia, New York, and New Jersey. Situated in the scenic Bucks County countryside, the drop zone provides stunning aerial views of the surrounding region, including rolling hills and distant city skylines, making it a standout choice for skydiving enthusiasts.Open six days a week from April to November, Skydive Philadelphia caters to a wide range of visitors, offering first-time tandem jumps, comprehensive skydiving lessons, and a welcoming community for expert jumpers. The facility is equipped with top-notch amenities, including a padded indoor packing area, creeping space for practice, lockers, and rental equipment, ensuring a comfortable and convenient experience. Additionally, Master Rigging Services are available on-site for those needing expert gear maintenance or customization. Whether you're a beginner or a pro, Skydive Philadelphia combines accessibility, professional services, and a vibrant atmosphere to deliver an exceptional skydiving adventure.",
         "email": "skydivephilly@gmail.com",
         "location": ["Perkasie, PA"],
         "name": "Skydive Philadelphia",
@@ -2298,13 +2349,13 @@
         "airport": "Cairo Regional Airport (CIR)",
         "anchor": 201082,
         "country": "US",
-        "description": "SEMO Skydiving Cairo Regional Airport (CIR), Cairo, MO US 1522 Airport Road Cairo MO 62914 US 30 miles SE of Cape Girardeau 3 miles to nearest hotel https://www.semoskydiving.com/ info@semoskydiving.com Central Region 1 Cessna 205 Small friendly DZ, open weekends year-round. Indoor packing and spacious landing area. Located 30 miles southeast of Cape Girardeau, MO, just off I-57.",
+        "description": "SEMO Skydiving Cairo Regional Airport (CIR), Cairo, Illinois US 1522 Airport Road Cairo Illinois 62914 US 30 miles SE of Cape Girardeau 3 miles to nearest hotel https://www.semoskydiving.com/ info@semoskydiving.com Central Region 1 Cessna 205 Small friendly DZ, open weekends year-round. Indoor packing and spacious landing area. Located 30 miles southeast of Cape Girardeau, MO, just off I-57.",
         "email": "info@semoskydiving.com",
-        "location": ["Cairo, MO"],
+        "location": ["Cairo, IL"],
         "name": "SEMO Skydiving",
         "phone": "(573) 275-2986",
         "services": ["Packing Service", "Equipment Rental", "Camping"],
-        "state": "MO",
+        "state": "IL",
         "training": ["Instructor Assisted Deployment"],
         "website": "https://www.semoskydiving.com/"
       },
@@ -2316,11 +2367,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 C Cessna 208 Caravan Blackhawk"],
+        "aircraft": ["1 Cessna 208 Caravan Texas Turbine Caravan"],
         "airport": "Danielson Airport (LZD)",
         "anchor": 201509,
         "country": "US",
-        "description": "Skydive Danielson Danielson Airport (LZD), Danielson, CT US 41 Airport Rd Danielson CT 06239-1411 US 28 miles W of Providence 2 miles to nearest hotel http://www.skydivedanielson.com/ info@skydivedanielson.com New England Region Cessna 208B Blackhawk Caravan Open 7 days a week! April-October. Tri-State corner MA/CT/RI. We cater to AFF students and licensed skydivers. Come visit, we look forward to jumping with you!",
+        "description": "Skydive Danielson Danielson Airport (LZD), Danielson, CT US 41 Airport Rd Danielson CT 06239-1411 US 28 miles W of Providence 2 miles to nearest hotel http://www.skydivedanielson.com/ info@skydivedanielson.com New England Region Cessna 208B Texas Turbine Caravan Open 7 days a week! April-October. Tri-State corner MA/CT/RI. We cater to AFF students and licensed skydivers. Come visit, we look forward to jumping with you!",
         "email": "info@skydivedanielson.com",
         "location": ["Danielson, CT"],
         "name": "Skydive Danielson",
@@ -2364,7 +2415,7 @@
         "airport": "Maple Grove Airport (65G)",
         "anchor": 202337,
         "country": "US",
-        "description": "iSkydive America – Detroit Maple Grove Airport (65G), Fowlerville, MI US 6080 West Sherwood Rd Fowlerville MI 48836 US 12 miles E of Fowlerville 3 miles to nearest hotel https://iskydive.com/detroit/ detroit@iskydiveamerica.com Mid-Eastern Region 1 Cessna 182 - N1903X We are a small, friendly and fun Cessna Drop Zone. Open Thursday-Monday with other weekdays by appointment. Experienced jumpers welcome but call prior to arrival. We have a large grass landing area for students and fun jumpers. We are located in Fowlerville only a short distance from Lansing and Detroit. We specialize in first time tandem jumpers and offer AFF jumps too.",
+        "description": "iSkydive America – Detroit Maple Grove Airport (65G), Fowlerville, Michigan US 6080 West Sherwood Rd Fowlerville Michigan 48836 US 12 miles E of Fowlerville 3 miles to nearest hotel https://iskydive.com/detroit/ detroit@iskydiveamerica.com Mid-Eastern Region 1 Cessna 182 - N1903X We are a small, friendly and fun Cessna Drop Zone. Open Thursday-Monday with other weekdays by appointment. Experienced jumpers welcome but call prior to arrival. We have a large grass landing area for students and fun jumpers. We are located in Fowlerville only a short distance from Lansing and Detroit. We specialize in first time tandem and AFF jumps.",
         "email": "detroit@iskydiveamerica.com",
         "location": ["Fowlerville, MI"],
         "name": "iSkydive America – Detroit",
@@ -2421,7 +2472,7 @@
         "location": ["Cushing, OK"],
         "name": "Oklahoma Skydiving Center",
         "phone": "(918) 225-2222",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
         "state": "OK",
         "training": ["AFF", "Tandem"],
         "website": "http://www.skydiveok.com/"
@@ -2456,23 +2507,23 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 182"],
-        "airport": "Casa Grande Municipal Airport (CGZ)",
-        "anchor": 212405,
+        "aircraft": ["2 Cessna 206s"],
+        "airport": "Jean Sport Aviation Center (0L7)",
+        "anchor": 205432,
         "country": "US",
-        "description": "Phoenix Skydive Center Casa Grande Municipal Airport (CGZ), Casa Grande, AZ US 3225 N Lear Ave Casa Grande AZ 85122-7950 US 30 miles S of Phoenix 5 miles to nearest hotel http://www.phoenixskydivecenter.com/ phoenixskydivecenter@gmail.com Mountain Region 1 Cessna 182 Open seven days a week year round. From Phoenix, take I-10 south to exit 185 (Pinal Ave); turn right onto Pinal Ave and then left to the drop zone. From Tucson, take I-10 north to exit 185 (Pinal Ave); then turn left onto Pinal Ave and then let to the drop zone.",
-        "email": "phoenixskydivecenter@gmail.com",
-        "location": ["Casa Grande, AZ"],
-        "name": "Phoenix Skydive Center",
-        "phone": "520-840-9095",
-        "services": ["Rigging"],
-        "state": "AZ",
+        "description": "Sin City Skydiving Jean Sport Aviation Center (0L7), Jean, NV US 23600 S Las Vegas Blvd Jean NV 89019 US 20 miles S of Las Vegas 1/2 mile to nearest hotel http://www.sincityskydiving.com/ jump@sincityskydiving.com Western Region 2 Cessna 206 Specializing in first-time jumpers. Sin City Skydiving is the best value in the Las Vegas area.",
+        "email": "jump@sincityskydiving.com",
+        "location": ["Jean, NV"],
+        "name": "Sin City Skydiving",
+        "phone": "(702) 300-8508",
+        "services": [],
+        "state": "NV",
         "training": ["Tandem"],
-        "website": "http://www.phoenixskydivecenter.com/"
+        "website": "http://www.sincityskydiving.com/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-111.7668333, 32.9548889]
+        "coordinates": [-115.3291, 35.7723]
       }
     },
     {
@@ -2486,7 +2537,7 @@
         "airport": "Middletown Regional Airport (MWO)",
         "anchor": 213955,
         "country": "US",
-        "description": "Start Skydiving Middletown Regional Airport (MWO), Middletown , OH US 1711 Run Way Middletown OH 45042-2300 US 29 miles NE of Cincinnati 0.5 miles to nearest hotel http://startskydiving.com/ info@startskydiving.com Mid-Eastern Region One Cessna 208B Super Cargomaster Grand Caravan, One Cessna 208 Caravan, and One Cessna P206 Amenities include: - 10,000 square feet of indoor hangar space complete with heat, cooling fans, insulation, rig racks, storage lockers, and a carpeted and padded indoor packing space. This hangar space is secured with multiple 24/7 cameras and is locked and armed with an alarm system every night. - online self-manifesting - air-conditioned and heated classrooms, restrooms, and registration/manifest area that are all fully finished - free wireless internet access - over 200 acres of level, soft, cut sod to land on airport property - rental gear - world-class coaching from Team Fastrax - debriefing stations - creeping area - mockups - load organizers - a grill serving food - a gear store - 24/7 access to showers and restrooms - shaded campgrounds with a fire pit and large picnic area with grills - Direct TV in lounge area - an RV park with electric hookups - local Airbnb 2-min away with multiple beds and rooms available for rent - a long bike path along the river - river kayaking nearby - a family park with summer splash pad right next to the airport DZ open seven days a week. Visit website for more info.",
+        "description": "Start Skydiving Middletown Regional Airport (MWO), Middletown , Ohio US 1711 Run Way Middletown Ohio 45042-2300 US 29 miles NE of Cincinnati 0.5 miles to nearest hotel http://startskydiving.com/ info@startskydiving.com Mid-Eastern Region One Cessna 208B Super Cargomaster Grand Caravan, One Cessna 208 Caravan, and One Cessna P206 Amenities include: - 10,000 square feet of indoor hangar space complete with heat, cooling fans, insulation, rig racks, storage lockers, and a carpeted and padded indoor packing space. This hangar space is secured with multiple 24/7 cameras and is locked and armed with an alarm system every night. - online self-manifesting - air-conditioned and heated classrooms, restrooms, and registration/manifest area that are all fully finished - free wireless internet access - over 200 acres of level, soft, cut sod to land on airport property - rental gear - world-class coaching from Team Fastrax - debriefing stations - creeping area - mockups - load organizers - a grill serving food - a gear store - 24/7 access to showers and restrooms - shaded campgrounds with a fire pit and large picnic area with grills - Direct TV in lounge area - an RV park with electric hookups - a long bike path along the river - river kayaking nearby - a family park with summer splash pad right next to the airport DZ open seven days a week. Visit website for more info.",
         "email": "info@startskydiving.com",
         "location": ["Middletown , OH"],
         "name": "Start Skydiving",
@@ -2499,6 +2550,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-84.39281, 39.53024]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Pilatus Porter PC-6 B2/H4", "1 Cessna 208 Caravan Blackhawk"],
+        "airport": "Airfield El Quijote, Lillo (Toledo)",
+        "anchor": 214239,
+        "country": "Spain",
+        "description": "Skydive Madrid Airfield El Quijote, Lillo (Toledo), Lillo, Toledo Spain Ctra. El Romeral S/N Aerodromo Centro De Paracaidismo Lillo Toledo 45870 Spain 100 km S of Madrid 10 km to nearest hotel http://www.skydivemadrid.es/ info@skydivemadrid.es International 1 Pilatus Porter PC H34, 1 Cessna Caravan Blackhawk Open five days a week year round. 100 km from Madrid using free motorway A-4. Hotel and restaurants located at the drop zone. We are one of the largest and most experienced drop zones in Spain. We are the closest drop zone to Madrid City offering a very friendly staff, packers and riggers. Modern facility with a great night life.",
+        "email": "info@skydivemadrid.es",
+        "location": ["Lillo, Toledo", "Spain"],
+        "name": "Skydive Madrid",
+        "phone": "+34 911299376",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant"],
+        "state": "Toledo",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.skydivemadrid.es/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.431951, 39.71768]
       }
     },
     {
@@ -2555,11 +2628,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Super King Air B90", "1 Hiller Uh-12c Helo", "1 Pitts S-2b Biplane"],
+        "aircraft": ["1 Super King Air C90", "1 Hiller Uh-12c Helo", "1 Pitts S-2b Biplane"],
         "airport": "Wings Field ",
         "anchor": 216257,
         "country": "US",
-        "description": "West Tennessee Skydiving Wings Field , Whiteville, TN US 580 Farris Rd Whiteville TN 38075 US 29 E of Memphis 12 to nearest hotel http://www.skydivekingair.com/ michaelmullins@skydivekingair.com Southern Region 1 Super King Air B90, 1 Hiller UH-12C Helo, 1 Pitts S-2B Biplane Entire DZ facility Air-Conditioned, including packing area and bathrooms. Free camping & bunking, hot showers, RV hookups and pool. FAI/IPC swoop pond, 80' x 300'. FREE Coaches for all AFF Graduates until \"A\" License! Super King Air, 14,500', HALO Oxygen jumps 28,000' to 41,000' with Cheyenne 400, Helicopter, inverted Bi-Plane jumps.",
+        "description": "West Tennessee Skydiving Wings Field , Whiteville, Tennessee US 580 Farris Rd Whiteville Tennessee 38075 US 29 E of Memphis 12 to nearest hotel http://www.skydivekingair.com/ michaelmullins@skydivekingair.com Southern Region 1 Super King Air C90, 1 Hiller UH-12C Helo, 1 Pitts S-2B Biplane Entire DZ facility Air-Conditioned, including packing area and bathrooms. Free camping & bunking, hot showers, RV hookups and pool. FAI/IPC swoop pond, 80' x 300'. FREE Coaches for all AFF Graduates until \"A\" License! Super King Air, 14,500', HALO Oxygen jumps 28,000' to 41,000' with Cheyenne 400, Helicopter, inverted Bi-Plane jumps.",
         "email": "michaelmullins@skydivekingair.com",
         "location": ["Whiteville, TN"],
         "name": "West Tennessee Skydiving",
@@ -2665,6 +2738,35 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Let L-410 Turbolet"],
+        "airport": "Miroslawice Airport",
+        "anchor": 225481,
+        "country": "Poland",
+        "description": "Olimpic Skydive Miroslawice Airport, Sobotka, Poland ul. Lotnicza 8 Sobotka 55-050 Poland 25 km S of Wroclaw 8 km to nearest hotel http://www.olimpic-skydive.pl/ info@olimpic-skydive.pl International 1 Turbolet L-410 DZ head quarters Office at Miroslawice airport open Monday-Friday. From Wroclaw city take Rt 35 southwest 25 km or take the Pietrzykowice Exit from Highway A-4. Vertical Wind Tunnel on location. Jumping place at Michalków Airport- EPOM. From Wroclaw city take A-8 and Rt 25 northeast 95 km. Before jumping you must join our client panel at https://olimpic-skydive-cp.com Calendar on our client panel lists events.",
+        "email": "info@olimpic-skydive.pl",
+        "location": ["Sobotka", "Poland"],
+        "name": "Olimpic Skydive",
+        "phone": "+48 570603597",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Showers"
+        ],
+        "state": "",
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": "http://www.olimpic-skydive.pl/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.767778, 50.955]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["2 Cessna 182s"],
         "airport": "Cloverdale Airport (O60)",
         "anchor": 228310,
@@ -2713,9 +2815,9 @@
         "airport": "Camarillo Airport (CMA)",
         "anchor": 230395,
         "country": "US",
-        "description": "iSkydive America – Los Angeles Camarillo Airport (CMA), Camarillo, CA US 478 Post St Camarillo CA 93010-8553 US 30 miles W of Los Angeles 1 mile to nearest hotel https://iskydive.com/los-angeles LA@iskydive.com Western Region 1 Cessna 182 Tandem Skydiving only 40 minutes from Los Angeles. Beautiful Ocean views on a scenic flight to altitude followed by 120 mph freefall. Call or book your reservation online.",
+        "description": "iSkydive America – Los Angeles Camarillo Airport (CMA), Oxnard, California US 2889 W 5th St Suite C Oxnard California 93030 US 34 miles W of Los Angeles 1 mile to nearest hotel https://iskydive.com/los-angeles LA@iskydive.com Western Region 1 Cessna 182 Tandem Skydiving with amazing Views of the Pacific Coastline just 45 minutes West of LA. Located just one mile from the pristine beaches at the Oxnard Shores Airport, iSkydive America - Los Angeles offers unparlalelled views of the best of Southern California, Mountains, Islands, Coastlines - its amazing. Come jump with us, we can't wait to show it to you. Just call or book online.",
         "email": "LA@iskydive.com",
-        "location": ["Camarillo, CA"],
+        "location": ["Oxnard, CA"],
         "name": "iSkydive America – Los Angeles",
         "phone": "(805) 322-4763",
         "services": ["Restaurant", "Showers"],
@@ -2800,6 +2902,36 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-78.2746325, 43.1735308]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Bird's Paradise Airpark",
+        "anchor": 235724,
+        "country": "Thailand",
+        "description": "Bird's Paradise Drop Zone Bird's Paradise Airpark, Sawang Daen Din, Sakon Nakhon Thailand 123 Moo 6 Sai moon Sawang Daen Din Sakon Nakhon 47110 Thailand 76 kms E of Sawang Daen Din 500 meters to nearest hotel https://web.facebook.com/profile.php?id=100089930096201 info@bpd.co.th International",
+        "email": "info@bpd.co.th",
+        "location": ["Sawang Daen Din, Sakon Nakhon", "Thailand"],
+        "name": "Bird's Paradise Drop Zone",
+        "phone": "+669619056590",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Bunkhouse",
+          "Restaurant",
+          "Swimming Pool",
+          "Showers"
+        ],
+        "state": "Sakon Nakhon",
+        "training": ["AFF", "Tandem"],
+        "website": "https://web.facebook.com/profile.php?id=100089930096201"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.54985, 17.52099]
       }
     },
     {
@@ -2897,7 +3029,7 @@
         "phone": "(202) 509-0799",
         "services": ["Packing Service", "Showers"],
         "state": "VA",
-        "training": ["Tandem"],
+        "training": ["AFF", "Tandem"],
         "website": "https://iskydive.com/dc/"
       },
       "geometry": {
@@ -2912,12 +3044,12 @@
         "airport": "Watsonville Municipal Airport (WVI)",
         "anchor": 241369,
         "country": "US",
-        "description": "Skydive Surfcity-Santa Cruz Watsonville Municipal Airport (WVI), Watsonville, CA US 160 Aviation Way Watsonville CA 95076-2095 US 60 miles S of Watsonville .5 mile to nearest hotel http://www.santacruz-skydiving.com/ info@skydivesantacruz.co Pacific Region Cessna 206, Cessna 182 We specialize in the first jump Tandem experience. We offer the most amazing views of Santa Cruz and Monterey. Only 30 minutes south of San Jose, CA and 55 minutes south of San Francisco, CA.",
-        "email": "info@skydivesantacruz.co",
+        "description": "Skydive Surfcity-Santa Cruz Watsonville Municipal Airport (WVI), Watsonville, California US 160 Aviation Way Watsonville California 95076-2095 US 48 miles S of Watsonville .5 mile to nearest hotel http://www.santacruz-skydiving.com/ office@skydivesantacruz.co Pacific Region Cessna 206, Cessna 182 We specialize in the first jump Tandem experience. We offer the most amazing views of Santa Cruz and Monterey. Only 40 minutes south of San Jose, CA and 75 minutes south of San Francisco, CA.",
+        "email": "office@skydivesantacruz.co",
         "location": ["Watsonville, CA"],
         "name": "Skydive Surfcity-Santa Cruz",
         "phone": "+1(831)435-5169",
-        "services": ["Rigging"],
+        "services": ["Rigging", "Restaurant"],
         "state": "CA",
         "training": ["Tandem"],
         "website": "http://www.santacruz-skydiving.com/"
@@ -2978,7 +3110,7 @@
         "airport": "Hidden Valley Airport (AZ43)",
         "anchor": 247178,
         "country": "US",
-        "description": "Skydive Phoenix Hidden Valley Airport (AZ43), Maricopa, AZ US 56580 W Dasher Dr Maricopa AZ 85139-2670 US 12 miles S of Phoenix 5 miles to nearest hotel http://www.skydivephoenix.com/ skydivephoenix@gmail.com Mountain Region PAC 750 XL Skydive Phoenix is located just 12 miles south of downtown Phoenix. Open 7 days a week year round. We pride ourselves in making your experience safe, fun, and memorable. We welcome all levels of jumpers, from first-timers to the experienced. We offer multiple disciplines of instruction, specializing in tandem student training and AFF/ASP.",
+        "description": "Skydive Phoenix Hidden Valley Airport (AZ43), Maricopa, Arizona US 56580 W Dasher Dr Maricopa Arizona 85139-2670 US 12 miles S of Phoenix 5 miles to nearest hotel http://www.skydivephoenix.com/ skydivephoenix@gmail.com Mountain Region PAC 750 XL Skydive Phoenix is located just 12 miles south of downtown Phoenix. Open 7 days a week year round. We pride ourselves in making your experience safe, fun, and memorable. We welcome all levels of jumpers, from first-timers to the experienced. We offer multiple disciplines of instruction, specializing in tandem student training and AFF/ASP. Multiple Examiners on site, Instructional courses taught year round on your schedule. Private airport with close knit and friendly staff and vibe.",
         "email": "skydivephoenix@gmail.com",
         "location": ["Maricopa, AZ"],
         "name": "Skydive Phoenix",
@@ -3012,16 +3144,7 @@
         "location": ["Dubai", "United Arab Emirates"],
         "name": "Skydive Dubai Desert Campus",
         "phone": "+971 48328080",
-        "services": [
-          "Packing Service",
-          "Rigging",
-          "Equipment Rental",
-          "Camping",
-          "Bunkhouse",
-          "Restaurant",
-          "Swimming Pool",
-          "Showers"
-        ],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant", "Showers"],
         "state": "",
         "training": ["AFF", "Tandem"],
         "website": "http://www.skydivedubai.ae/"
@@ -3324,8 +3447,8 @@
         "airport": "Middle Penninsula Regional Airport (FYJ)",
         "anchor": 254879,
         "country": "US",
-        "description": "No Limits Skydiving - West Point Middle Penninsula Regional Airport (FYJ), Mattaponi, VA US 1000 Airport Rd Mattaponi VA 23110-2103 US 35 miles E of Richmond 2 miles to nearest hotel http://www.nolimitsskydiving.com/ aerialadv@aol.com Mid-Atlantic Region 1 Cessna 182 Open 7 days a week all year. Convenient to Richmond, northern VA and Virginia Beach area.",
-        "email": "aerialadv@aol.com",
+        "description": "No Limits Skydiving - West Point Middle Penninsula Regional Airport (FYJ), Mattaponi, Virginia US 1000 Airport Rd Mattaponi Virginia 23110-2103 US 35 miles E of Richmond 2 miles to nearest hotel http://www.nolimitsskydiving.com/ nolimitsskydiving@gmail.com Mid-Atlantic Region 1 Cessna 182 Open 7 days a week all year. Convenient to Richmond, northern VA and Virginia Beach area.",
+        "email": "nolimitsskydiving@gmail.com",
         "location": ["Mattaponi, VA"],
         "name": "No Limits Skydiving - West Point",
         "phone": "(866) 553-2915",
@@ -3359,28 +3482,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-81.5798083, 24.6487544]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "aircraft": ["1 Pac 750xl"],
-        "airport": "Marion Coutny Airport-Brown Field (AFT)",
-        "anchor": 257523,
-        "country": "US",
-        "description": "Chattanooga Skydiving Company Marion Coutny Airport-Brown Field (AFT), Jasper, TN US 300 Airport Rd Jasper TN 37347-6294 US 20 miles W of Chattanooga 5 miles to nearest hotel http://www.chattanoogaskydivingcompany.com/ 855projump@gmail.com Southern Region 1 PAC 750XL The most scenic drop zone in the southeast. Serving Atlanta, Huntsville, Nashville, Knoxville and everywhere in between! Open 7 days a week, Mar-Dec; weekends only Jan and Feb. Minutes off I24, 30 minutes from downtown Chattanooga.",
-        "email": "855projump@gmail.com",
-        "location": ["Jasper, TN"],
-        "name": "Chattanooga Skydiving Company",
-        "phone": "(855) 776-5867",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
-        "state": "TN",
-        "training": ["AFF", "Tandem"],
-        "website": "http://www.chattanoogaskydivingcompany.com/"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-85.5853056, 35.0606667]
       }
     },
     {
@@ -3446,12 +3547,34 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Cessna 206"],
+        "airport": "Beloit Airport (44C)",
+        "anchor": 257800,
+        "country": "US",
+        "description": "Skydive The Rock Beloit Airport (44C), Beloit, WI US 4046 Wi 67 Hangar 2 Beloit WI 53511-9745 US 3.9 miles E of Beloit 2.3 miles to nearest hotel http://www.skydivetherock.com/ info@skydivetherock.com North Central Region 1 Cessna 206 Open five days a week, April through October. Near I-90 & I-43 Interstates along the Wisconsin and Illinois state Line. Private airport. 100ft X 100ft hangar. Large packing area and custom, ventilated and lockers for sport rigs.",
+        "email": "info@skydivetherock.com",
+        "location": ["Beloit, WI"],
+        "name": "Skydive The Rock",
+        "phone": "(312) 757-4454",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
+        "state": "WI",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.skydivetherock.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-88.96847, 42.49788]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna 182"],
         "airport": "Kingsley Field (MO9)",
         "anchor": 258774,
         "country": "US",
-        "description": "Ozarks Skydive Center Kingsley Field (MO9), Miller, MO US 3388 Lawerence 1070 Miller MO 65707 US 30 miles W of Springfield 15 miles to nearest hotel http://ozskydive.com/ ozarksskydive@gmail.com Central Region 1 Cessna 182 The Midwest's friendliest drop zone. Open weekends April -November & winter by appointment. We are located on a private airport with an emphasis on Tandem and student skydiving but always welcoming fun jumpers with plenty of packing and landing area for all experience levels. Located halfway between Springfield and Joplin. 12 miles north of Exit 38 on I-44 (2 miles north of Hwy 96) on Hwy 97 North to Lawrence County 2040, east 3/4 mile to drop zone.",
-        "email": "ozarksskydive@gmail.com",
+        "description": "Ozarks Skydive Center Kingsley Field (MO9), Miller, Missouri US 3103 Lawrence 1070 #2 Miller Missouri 65707 US 39 miles W of Springfield 15 miles - 39 miles to nearest hotel http://ozskydive.com/ ozarkskydivecenter@gmail.com Central Region 1 Cessna 182 Open Saturday-Sunday as well as some Friday's. Ozark's Skydive Center is your premier Tandem, Student and experienced jumper drop zone located in SW Missouri 45 min W of Springfield. .",
+        "email": "ozarkskydivecenter@gmail.com",
         "location": ["Miller, MO"],
         "name": "Ozarks Skydive Center",
         "phone": "(417) 882-5867",
@@ -3469,7 +3592,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-93.554361, 37.135314]
+        "coordinates": [-93.9290734, 37.2310697]
       }
     },
     {
@@ -3479,8 +3602,8 @@
         "airport": "Oceanside Municipal Airport (OKB)",
         "anchor": 260943,
         "country": "US",
-        "description": "GoJump Oceanside Oceanside Municipal Airport (OKB), Oceanside, CA US 480 Airport Rd Oceanside CA 92058-1205 US 38 miles N of San Diego 0.5 mile to nearest hotel http://www.gojump-oceanside.com/ office@gojump-oceanside.com Western Region Cessna 208B Caravan Sports Skydivers welcome: Current USPA B Licence (or foreign equivalent with temporary USPA Membership) required.",
-        "email": "office@gojump-oceanside.com",
+        "description": "GoJump Oceanside Oceanside Municipal Airport (OKB), Oceanside, CA US 480 Airport Rd Oceanside CA 92058-1205 US 38 miles N of San Diego 0.5 mile to nearest hotel http://www.gojump-oceanside.com/ office@gojump-america.com Western Region Cessna 208B Caravan Sports Skydivers welcome: Current USPA B Licence (or foreign equivalent with temporary USPA Membership) required.",
+        "email": "office@gojump-america.com",
         "location": ["Oceanside, CA"],
         "name": "GoJump Oceanside",
         "phone": "(760) 390-5867",
@@ -3548,11 +3671,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 182"],
+        "aircraft": ["1 Cessna 182/ 1 Cessna 206"],
         "airport": "Lake Chelan Airport (S10)",
         "anchor": 269042,
         "country": "US",
-        "description": "Skydive Chelan Lake Chelan Airport (S10), Chelan, WA US 201 Airport Way Chelan WA 98816-9145 US 40 miles N of Wenatchee 3 miles to nearest hotel http://www.skydivechelan.com/ info@skydivechelan.com Northwest Region 1 Cessna 182 We are open March-October 5 days a week, closed Tuesday & Wednesday. During the Fall and Spring we are open weekends. Our facilities consist of snack bar, refreshments, indoor packing area and outdoor lawn. We are a C182/c 206 dropzone with occasional helicopter and turbine aircraft. We specialize in first time tandem skydives and advanced flying skills. We have on sight Instructor Examiner for Tandem rating, Coach rating, and Static Line rating. Current USPA membership required.",
+        "description": "Skydive Chelan Lake Chelan Airport (S10), Chelan, Washington US 201 Airport Way Chelan Washington 98816-9145 US 40 miles N of Wenatchee 3 miles to nearest hotel http://www.skydivechelan.com/ info@skydivechelan.com Northwest Region 1 Cessna 182/ 1 Cessna 206 We are open March-October 5 days a week, closed Tuesday & Wednesday. During the Fall and Spring we are open weekends. Our facilities consist of snack bar, refreshments, indoor packing area and outdoor lawn. We are a C182/c 206 dropzone with occasional helicopter and turbine aircraft. We specialize in first time tandem skydives and advanced flying skills. We have on sight Instructor Examiner for Tandem rating, Coach rating, and Static Line rating. Current USPA membership required.",
         "email": "info@skydivechelan.com",
         "location": ["Chelan, WA"],
         "name": "Skydive Chelan",
@@ -3862,7 +3985,7 @@
         "airport": "PK Airpark (5W4)",
         "anchor": 301743,
         "country": "US",
-        "description": "Skydive Paraclete XP PK Airpark (5W4), Raeford, NC US 143 Airport Dr Raeford NC 28376-8087 US 14 miles SW of Fayetteville 4 miles to nearest hotel http://www.skydiveparacletexp.com/ info@skydiveparacletexp.com Mid-Atlantic Region 1 Cessna 208 Grand Caravan, 4 CASA 212, 1 Twin Otter, 1 Skyvan Open year round, 7 days a week, sunrise to sunset at PK Airpark in Raeford, NC. 2 Grand Caravans, 1 Twin Otter, 1 Supervan and 2 CASA's available. Swoop pond, enclosed packing and full-service bar and grill. Convenient to Fayetteville, Raleigh, and Southern Pines. Five minutes from Paraclete XP SkyVenture Indoor Skydiving.",
+        "description": "Skydive Paraclete XP PK Airpark (5W4), Raeford, North Carolina US 143 Airport Dr Raeford North Carolina 28376-8087 US 14 miles SW of Fayetteville 4 miles to nearest hotel http://www.skydiveparacletexp.com/ info@skydiveparacletexp.com Mid-Atlantic Region 1 Cessna 208 Grand Caravan, 4 CASA 212, 1 Twin Otter, 1 Skyvan Open year round, 7 days a week, sunrise to sunset at PK Airpark in Raeford, NC. 2 Grand Caravans, 1 Twin Otter, and 2 CASA's available. Swoop pond, enclosed packing and full-service bar and grill. Convenient to Fayetteville, Raleigh, and Southern Pines. Five minutes from Paraclete XP SkyVenture Indoor Skydiving.",
         "email": "info@skydiveparacletexp.com",
         "location": ["Raeford, NC"],
         "name": "Skydive Paraclete XP",
@@ -3883,6 +4006,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-79.189197, 35.018664]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna 208 Caravan"],
+        "airport": "Aerodrome de St Florentin Cheu",
+        "anchor": 301744,
+        "country": "France",
+        "description": "ParisJump Aerodrome de St Florentin Cheu, Yonne, France Route de L'Aerodrome Yonne 89600 France 170 km SE of Paris On-Site to nearest hotel http://www.parisjump.com/ contact@parisjump.com International 1 Cessna Caravan ParisJump is one of the nearest DZ's to Paris (170 km). AFF facilities are available on weekends and one week a month. We are located in the Bourgogne region with is famous for its bourguignon beef and wine (Charlis is approx. 15 min away). Load organizers are available. See you soon!",
+        "email": "contact@parisjump.com",
+        "location": ["Yonne", "France"],
+        "name": "ParisJump",
+        "phone": "+33 658637799",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Bunkhouse", "Restaurant"],
+        "state": "",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.parisjump.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [3.773903, 47.982739]
       }
     },
     {
@@ -3939,11 +4084,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Pac 750xl"],
+        "aircraft": ["1 Pac 750xl", "1 Cessna 208 Caravan"],
         "airport": "Mulino State Airport (4S9)",
         "anchor": 301747,
         "country": "US",
-        "description": "Pacific Northwest Skydiving Center Mulino State Airport (4S9), Mulino, OR US 26750 S Airport Rd Mulino OR 97042-9605 US 20 miles S of Portland 6 miles to nearest hotel http://www.pnwskydiving.com/ pnwskydiving@gmail.com Northwest Region 1 PAC 750XL PNW Skydiving Center is located in the heart of Willamette Valley, just 30 mins south of Portland, in the small hamlet of Mulino. Winter (Oct 15-Mar 1): 10am-Sunset Sat & Sun. Spring (Mar 1-May 1): 10am-Sunset Fri-Mon. Summer (May 1-Oct 15): 9am-Sunset 7 days/wk.",
+        "description": "Pacific Northwest Skydiving Center Mulino State Airport (4S9), Mulino, Oregon US 26750 S Airport Rd Mulino Oregon 97042-9605 US 20 miles S of Portland 6 miles to nearest hotel http://www.pnwskydiving.com/ pnwskydiving@gmail.com Northwest Region 1 PAC 750XL, 1 Cessna Caravan PNW Skydiving Center is located in the heart of Willamette Valley, just 30 mins south of Portland, in the small hamlet of Mulino. Winter (Oct 15-Mar 1): 10am-Sunset Sat & Sun. Spring (Mar 1-May 1): 10am-Sunset Fri-Mon. Summer (May 1-Oct 15): 9am-Sunset 7 days/wk.",
         "email": "pnwskydiving@gmail.com",
         "location": ["Mulino, OR"],
         "name": "Pacific Northwest Skydiving Center",
@@ -3956,6 +4101,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-122.590084, 45.216325]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["2 Dornier G92s", "1 Cessna 208 Super Caravan"],
+        "airport": "Aerodromo Municipal De Portimao",
+        "anchor": 301754,
+        "country": "Portugal",
+        "description": "Skydive Algarve Aerodromo Municipal De Portimao, Portimao-Alvor, Portugal Aerodromo Municipal de Portimao Portimao-Alvor 8500-059 Portugal 5 km W of Alvor-Portimao 500 mtrs to nearest hotel http://www.skydivealgarve.com/ info@skydivealgarve.com International 2 Dornier G92, 1 Cessna 208 Super Caravan Skydive Algarve operates fast-climbing turbine aircraft to 15,000ft over the beautiful beaches of the Portuguese Algarve region, 365 days a year. Based on a municipal airfield, the DZ facilities are ideal for those looking for a family friendly sun, sea & skydiving location. Jumps on to the local beach is a highlight for many skydivers who attend. Always contact the DZ to register your visit.",
+        "email": "info@skydivealgarve.com",
+        "location": ["Portimao-Alvor", "Portugal"],
+        "name": "Skydive Algarve",
+        "phone": "+351 282496581",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant"],
+        "state": "",
+        "training": ["Tandem"],
+        "website": "http://www.skydivealgarve.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-8.583889, 37.149444]
       }
     },
     {
@@ -4005,11 +4172,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["2 Cessna 182 And Cessna 208 Caravans"],
+        "aircraft": ["1 Cessna 182"],
         "airport": "Greeneville Municipal Airport (GCY)",
         "anchor": 301770,
         "country": "US",
-        "description": "Jump TN Greeneville Municipal Airport (GCY), Greeneville, TN US 246 Airport Rd Greeneville TN 37745-1823 US 2 miles N of Greeneville 1.7 miles to nearest hotel http://www.jumptn.com/ info@jumptn.com Southern Region 2 Cessna 182 and Cessna Caravan Open 4 days a week, Thursday through Sunday. 40 minutes from Tri-Cities area, 1 hour and 25 minutes from Asheville, NC and 1 hour and 10 minutes from Knoxville.",
+        "description": "Jump TN Greeneville Municipal Airport (GCY), Greeneville, Tennessee US 246 Airport Rd Greeneville Tennessee 37745-1823 US 2 miles N of Greeneville 1.7 miles to nearest hotel http://www.jumptn.com/ info@jumptn.com Southern Region 1 Cessna 182 Open primarily weekends. 40 minutes from Tri-Cities area, 1 hour and 25 minutes from Asheville, NC and 1 hour and 10 minutes from Knoxville.",
         "email": "info@jumptn.com",
         "location": ["Greeneville, TN"],
         "name": "Jump TN",
@@ -4080,7 +4247,13 @@
         "location": ["Cordoba", "Argentina"],
         "name": "Paracaidismo Alta Gracia",
         "phone": "+54 93513487628",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Bunkhouse"],
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Bunkhouse",
+          "Swimming Pool"
+        ],
         "state": "",
         "training": ["AFF", "Tandem"],
         "website": "http://www.paracaidismo-ag.com/"
@@ -4281,23 +4454,81 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["2 X Cessna 182.s"],
+        "aircraft": ["1 Cessna 182", "2 Cessna 172s"],
+        "airport": "Narnaul Airport",
+        "anchor": 301810,
+        "country": "India",
+        "description": "Skyhigh India Narnaul Airport, Haryana, India Bachod Airstrip, Narnaul District Mahendargarh Haryana 123021 India 140 km SW of Narnaul 6 km to nearest hotel http://www.skyhighindia.com/ rudra@skyhighindia.com International 1 Cessna 182, 2 Cessna 172 Open 5 days a week, just 2.5 hours away from National Capital New Delhi. We use Cessna 182 and 2 Cessna 172's. AFF programs run every month. We have a very big landing area for students and beginners. Limited gear for rent, there is a gear store available and we are also dealers for Sunpath and Vectors rigs. We have a café on site which serves hot meals, snacks and beverages throughout the day.",
+        "email": "rudra@skyhighindia.com",
+        "location": ["Haryana", "India"],
+        "name": "Skyhigh India",
+        "phone": "+91 9818890885",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "",
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": "http://www.skyhighindia.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [76.201852, 28.076319]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["2 X Cessna 182s"],
         "airport": "Perkins Field Airport (U08)",
         "anchor": 301811,
         "country": "US",
-        "description": "Fyrosity® Perkins Field Airport (U08), Overton, NV US 1110 Airport Rd Overton NV 89040 US 60 miles NE of Las Vegas 2 miles to nearest hotel http://www.skydivefyrositylasvegas.com/ hello@fyrosity.com Western Region 2 X Cessna 182. Fyrosity® Las Vegas. We are the largest fun jumper friendly DZ in Las Vegas and the state of Nevada open 7 days a week 365 days a year! We offer the largest skydiving facility in Nevada. Located just off of I-15 about 60 miles NE of Las Vegas, NV take Exit 93 toward Overton and follow signs to Overton Airport. Air conditioned packing, pool table, FREE Wi-Fi, and lockers available. Full-service RV park only 1 mile from the airport.",
+        "description": "Fyrosity® Perkins Field Airport (U08), Overton, Nevada US 1110 Airport Rd Overton Nevada 89040 US 60 miles NE of Las Vegas 2 miles to nearest hotel http://www.skydivefyrositylasvegas.com/ hello@fyrosity.com Western Region 2 X Cessna 182 Fyrosity® Skydiving Center Las Vegas. We are the largest fun jumper friendly DZ in Las Vegas and the state of Nevada. Open 7 days a week 365 days a year! We offer the largest skydiving facility in Nevada. Located just off of I-15 about 60 miles NE of Las Vegas, NV take Exit 93 toward Overton and follow signs to Overton Airport. Air conditioned packing, pool table, FREE Wi-Fi, and lockers available. Full-service RV park only 1 mile from the airport.",
         "email": "hello@fyrosity.com",
         "location": ["Overton, NV"],
         "name": "Fyrosity®",
         "phone": "(702) 720-6250",
-        "services": ["Packing Service", "Rigging", "Showers"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
         "state": "NV",
-        "training": ["AFF", "Tandem"],
+        "training": ["AFF", "Tandem", "Static Line"],
         "website": "http://www.skydivefyrositylasvegas.com/"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [-114.4406, 36.561483]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 K Pilatus Porter PC-6 B2/H4"],
+        "airport": "Aerodromo Barcelona Bages",
+        "anchor": 301818,
+        "country": "Spain",
+        "description": "Skydive BCN Aerodromo Barcelona Bages, Sant Fruitos de Bages, Spain c/Aerodromo Baracelona Bages Sant Fruitos de Bages 08272 Spain 50 km NW of Barcelona 2 km to nearest hotel http://www.skydivebcn.com/ info@saltamos.es International Kodiak100 and Pilatus Porter Open 4 days a week, year round. Flexible schedule for other days. Free pick up from Manresa train station. Hangar with lockers and full HD screens. Coaching available for FF/Relative WS/Wingsuit/Canopy Piloting. Swimming pool available in summer.",
+        "email": "info@saltamos.es",
+        "location": ["Sant Fruitos de Bages", "Spain"],
+        "name": "Skydive BCN",
+        "phone": "+34 675026046",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Restaurant",
+          "Swimming Pool",
+          "Showers"
+        ],
+        "state": "",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.skydivebcn.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [1.8625, 41.765278]
       }
     },
     {
@@ -4473,28 +4704,6 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 182", "1 C Cessna 208 Caravan Blackhawk"],
-        "airport": "Buckeye Municipal (BXK)",
-        "anchor": 301843,
-        "country": "US",
-        "description": "Skydive Buckeye Buckeye Municipal (BXK), Buckeye, AZ US 3000 S Palo Verde Rd Buckeye AZ 85326-5490 US 30 miles W of Phoenix 7 miles to nearest hotel http://skydivebuckeye.com/ info@skydivebuckeye.com Mountain Region 1 Cessna 182, Cessna 208B Blackhawk",
-        "email": "info@skydivebuckeye.com",
-        "location": ["Buckeye, AZ"],
-        "name": "Skydive Buckeye",
-        "phone": "(623) 980-4888",
-        "services": ["Packing Service", "Rigging", "Equipment Rental"],
-        "state": "AZ",
-        "training": ["AFF", "Tandem"],
-        "website": "http://skydivebuckeye.com/"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-112.6862, 33.4204]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "aircraft": ["1 Cessna 182"],
         "airport": "Mariposa-Yosemite Airport (MPI)",
         "anchor": 301846,
@@ -4629,15 +4838,7 @@
         "location": ["Abu Dhabi, Al Smeih Area", "United Arab Emirates"],
         "name": "Abu Dhabi Skydive",
         "phone": "+971 503133192",
-        "services": [
-          "Packing Service",
-          "Rigging",
-          "Equipment Rental",
-          "Camping",
-          "Restaurant",
-          "Swimming Pool",
-          "Showers"
-        ],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant", "Showers"],
         "state": "Al Smeih Area",
         "training": ["AFF", "Tandem"],
         "website": "http://www.abudhabiskydive.com/"
@@ -4771,7 +4972,7 @@
         "phone": "(214)-838-0111",
         "services": ["Packing Service", "Rigging"],
         "state": "TX",
-        "training": ["AFF", "Tandem"],
+        "training": ["Tandem"],
         "website": "https://iskydive.com/dallas-fort-worth/"
       },
       "geometry": {
@@ -4811,11 +5012,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 206", "1 Cessna 182"],
+        "aircraft": ["1 Cessna 182", "1 Uh 12 Hiller"],
         "airport": "Prosser Airport",
         "anchor": 335951,
         "country": "US",
-        "description": "Rattlesnake Mountain Skydiving Prosser Airport, Prosser, WA US 219 Nunn Rd Prosser WA 99350-7767 US 30 W of Tri-Cities .5 to nearest hotel http://www.rattlesnakemountainskydiving.com/ jon@rattlesnakemountainskydiving.com Northwest Region 1 Cessna 206, 1 Cessna 182 Rattlesnake Mountain Skydiving is centrally located in Prosser, Washington. We are surrounded by wine country from Walla Walla, Tri-Cities, Yakima and Ellensburg. Take exit 82, \"Wine Country Road\" from Interstate 82. Open Thursday-Sunday and most holidays.",
+        "description": "Rattlesnake Mountain Skydiving Prosser Airport, Prosser, Washington US 219 Nunn Rd Prosser Washington 99350-7767 US 30 W of Tri-Cities .5 to nearest hotel http://www.rattlesnakemountainskydiving.com/ jon@rattlesnakemountainskydiving.com Northwest Region 1 Cessna 182, UH 12 Hiller Rattlesnake Mountain Skydiving is centrally located in Prosser, Washington. We are surrounded by wine country from Walla Walla, Tri-Cities, Yakima and Ellensburg. Take exit 82, \"Wine Country Road\" from Interstate 82. Open Thursday-Sunday and most holidays.",
         "email": "jon@rattlesnakemountainskydiving.com",
         "location": ["Prosser, WA"],
         "name": "Rattlesnake Mountain Skydiving",
@@ -4833,30 +5034,30 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Pac 750"],
-        "airport": "Phusanfah Airfield",
-        "anchor": 336767,
-        "country": "Thailand",
-        "description": "Skydive Thailand Phusanfah Airfield, Chiang Mai, Thailand 449/1, Inthakhin Chiang Mai 50150 Thailand 20 miles NE of Chiang Mai 0.1 miles to nearest hotel http://www.skydivethailand.com/ fly@skydivethailand.com International 1 PAC 750 We operate on a private airfield just a short drive from Chiang Mai International Airport, with a premium resort and F&B on-site. Full altitude loads on our P750XL go to 13,000 feet MSL. Open to students, tandems and licensed skydivers.",
-        "email": "fly@skydivethailand.com",
-        "location": ["Chiang Mai", "Thailand"],
-        "name": "Skydive Thailand",
-        "phone": "+66 0972314295",
+        "aircraft": ["2 X 206 And 1 X 182s"],
+        "airport": "Cayuga East Airport",
+        "anchor": 337250,
+        "country": "Canada",
+        "description": "Skydive Ontario Cayuga East Airport, Cayuga, ON Canada 5820 Highway 3 Cayuga ON N0A 1E0 Canada 70 km SW of Toronto 20 km to nearest hotel https://www.skydiveontario.com/ skydiveontario@gmail.com International 2 x 206 and 1 x 182 Family vibes, clean and friendly DZ. We are pet friendly to happy animals. Everyone is welcome here. We love to Skydive, eat BBQ and have a good time. Located 1 hour from Toronto. We have 2 x 206 and wide body 182. Coaching, students progression and beginner jumpers are always welcome.",
+        "email": "skydiveontario@gmail.com",
+        "location": ["Cayuga, ON", "Canada"],
+        "name": "Skydive Ontario",
+        "phone": "(416) SKY-DIVE",
         "services": [
           "Packing Service",
           "Rigging",
           "Equipment Rental",
-          "Restaurant",
-          "Swimming Pool",
+          "Camping",
+          "Bunkhouse",
           "Showers"
         ],
-        "state": "",
-        "training": ["AFF", "Tandem"],
-        "website": "http://www.skydivethailand.com/"
+        "state": "ON",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "https://www.skydiveontario.com/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [98.98805778225413, 19.148736987709405]
+        "coordinates": [-79.7906, 42.96421]
       }
     },
     {
@@ -4928,14 +5129,14 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 208 Caravan 1 Cessna 206"],
+        "aircraft": ["1 Cessna 208 Caravan 1 Cessna 182"],
         "airport": "Windsor Shear Airport",
         "anchor": 338705,
         "country": "US",
-        "description": "Skydive The Falls Windsor Shear Airport, Youngstown, NY US 1698 Braley Rd Youngstown NY 14174-9733 US 9 miles N of Niagara Falls 1.1 miles to nearest hotel http://www.skydivethefalls.com/ info@skydivethefalls.com Eastern Region 1 Cessna Caravan 1 Cessna 206 Skydive the Falls offers close aerial views of Niagara Falls along with a skydive. Conveniently located 20 miles from Buffalo,NY. Open seven days a week, More information available at www.skydivethefalls.com.",
+        "description": "Skydive The Falls (Youngstown) Windsor Shear Airport, Youngstown, New York US 1698 Braley Rd Youngstown New York 14174-9733 US 9 miles N of Niagara Falls 1.1 miles to nearest hotel http://www.skydivethefalls.com/ info@skydivethefalls.com Eastern Region 1 Cessna Caravan 1 Cessna 182 Skydive the Falls offers close aerial views of Niagara Falls along with a skydive. Conveniently located 20 miles from Buffalo, NY or 10 miles directly from Niagara Falls, NY.Open seven days a week. May-November. More information available at www.skydivethefalls.com.",
         "email": "info@skydivethefalls.com",
         "location": ["Youngstown, NY"],
-        "name": "Skydive The Falls",
+        "name": "Skydive The Falls (Youngstown)",
         "phone": "716-783-1100",
         "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping"],
         "state": "NY",
@@ -5012,14 +5213,45 @@
         "location": ["Pulaski, WI"],
         "name": "Skydive Freefall Adventure LLC",
         "phone": "(920) 366-6086",
-        "services": ["Equipment Rental"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
         "state": "WI",
-        "training": ["AFF", "Tandem"],
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment"],
         "website": "http://www.skydivefreefalladventure.com/"
       },
       "geometry": {
         "type": "Point",
         "coordinates": [-88.218677, 44.640445]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Chung-Ju Airport",
+        "anchor": 340494,
+        "country": "Republic of Korea",
+        "description": "Skydive Korea Chung-Ju Airport, Chungju-si, Chungcheongbuk-do, Republic of Korea 19-1 Danam-gil, Angseong-myeon Chungju-si, Chungcheongbuk-do 27300 Republic of Korea 14 km SE of Yeoju Station 2 km to nearest hotel http://www.skydivekorea.com/ skyadv_contact@naver.com International It is the only DZ in South Korea. Full facilities, open weekends and indoor packing area. The Korean Belly Champion Team is our instructor. Over 2200 people choose to tandem skydive from our DZ. Over 1400 students graduated AFF course since 2005.",
+        "email": "skyadv_contact@naver.com",
+        "location": ["Chungju-si, Chungcheongbuk-do", "Republic of Korea"],
+        "name": "Skydive Korea",
+        "phone": "+82 15888715 ",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Swimming Pool",
+          "Showers"
+        ],
+        "state": "",
+        "training": ["AFF", "Tandem"],
+        "website": "http://www.skydivekorea.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [127.743597, 37.193403]
       }
     },
     {
@@ -5059,7 +5291,7 @@
         "airport": "9S5 - Pogreba Field",
         "anchor": 342326,
         "country": "US",
-        "description": "DZONE Skydiving-Bozeman 9S5 - Pogreba Field, Three Forks, MT US 1680 Airport Rd HNGR 20 Three Forks MT 59752 US 17 miles W of Bozeman 1 mile to nearest hotel https://bozeman.dzoneskydiving.com/ hello@dzoneskydiving.com Northwest Region 2x Super Cessna 182 (310hp, 17 minutes to altitude) Feel the Freedom!®",
+        "description": "DZONE Skydiving-Bozeman 9S5 - Pogreba Field, Three Forks, Montana US 1680 Airport Rd HNGR 20 Three Forks Montana 59752 US 17 miles W of Bozeman 1 mile to nearest hotel https://bozeman.dzoneskydiving.com/ hello@dzoneskydiving.com Northwest Region 2x Super Cessna 182 (310hp, 17 minutes to altitude) Feel the Freedom!®",
         "email": "hello@dzoneskydiving.com",
         "location": ["Three Forks, MT"],
         "name": "DZONE Skydiving-Bozeman",
@@ -5125,8 +5357,8 @@
         "airport": "Dropzone Airfield",
         "anchor": 345355,
         "country": "Thailand",
-        "description": "Dropzone Thailand Co. LTD Dropzone Airfield, Rayong, Thailand 95 Moo 4 Chakpong, Klaeng Rayong 21190 Thailand 8 km SW of Klaeng, Rayong District 1.5 km to nearest hotel https://dropzonethai.com/ Account@dropzonethai.com International 1 Quest Kodiak Open 12 months per year 6 days per week. The DZ is close to Pattaya, which is a major international tourist destination renowned for its stunning landscape and regarded as being the \"adventure capital of Thailand\". We are a new DZ (2020) with a brand new Quest Kodiak 100 aircraft which can take up to 12 jumpers and climb to 14000ft.",
-        "email": "Account@dropzonethai.com",
+        "description": "Dropzone Thailand Co. LTD Dropzone Airfield, Rayong, Thailand 95 Moo 4 Chakpong, Klaeng Rayong 21190 Thailand 8 km SW of Klaeng, Rayong District 1.5 km to nearest hotel https://dropzonethai.com/ manager@dropzonethai.com International 1 Quest Kodiak Open 12 months per year 6 days per week. The DZ is close to Pattaya, which is a major international tourist destination renowned for its stunning landscape and regarded as being the \"adventure capital of Thailand\". We are a new DZ (2020) with a brand new Quest Kodiak 100 aircraft which can take up to 12 jumpers and climb to 14000ft.",
+        "email": "manager@dropzonethai.com",
         "location": ["Rayong", "Thailand"],
         "name": "Dropzone Thailand Co. LTD",
         "phone": "+66 624 614 654",
@@ -5243,7 +5475,7 @@
         "airport": "Michael J Smith Field",
         "anchor": 350014,
         "country": "US",
-        "description": "Crystal Coast Skydiving Michael J Smith Field, Beaufort, NC US 150 Airport Rd Beaufort NC 28516-9751 US 1 mile N of Beaufort 1 mile to nearest hotel http://crystalcoastskydiving.com/ jump@crystalcoastskydiving.com Mid-Atlantic Region 1 Cessna 182 Open Thursday through Sunday February through November. Take HWY 70 E into Beaufort, NC. Spectacular views of the Crystal Coast. Tandems, AFF and Coaching available.",
+        "description": "Crystal Coast Skydiving Michael J Smith Field, Beaufort, North Carolina US 150 Airport Rd Beaufort North Carolina 28516-9751 US 1 mile N of Beaufort 1 mile to nearest hotel http://crystalcoastskydiving.com/ jump@crystalcoastskydiving.com Mid-Atlantic Region 1 Cessna 182 Open Thursday through Sunday during the summer, and every weekend during the winter. Take HWY 70 E into Beaufort, NC. Spectacular views of the Crystal Coast. Tandems, AFF and Coaching available.",
         "email": "jump@crystalcoastskydiving.com",
         "location": ["Beaufort, NC"],
         "name": "Crystal Coast Skydiving",
@@ -5287,7 +5519,7 @@
         "airport": "Aeródromo MTM (Montemorelos)",
         "anchor": 355511,
         "country": "Mexico",
-        "description": "Skydive Paracaidismo Nuevo Leon Aeródromo MTM (Montemorelos), Montemorelos, Nuevo León, Neuvo Leon Mexico Carreteta Nacional, Libramiento Mty-Linares Montemorelos, Nuevo León Neuvo Leon 67560 Mexico 80.7 km S of Monterrey, Centro 10.3 km to nearest hotel https://paracaidismonuevoleon.mx/ paracaidismonuevoleon@gmail.com International 2 C-182; 1 C-206 Skydive Paracaidismo Nuevo Leon is the only drop zone in the state of Nuevo Leon who offers the best skydive adventure. Safety and perfectly good airplanes, also with USPA and UPT tandem instructors. We are the perfect option to do tandem jumps and AFF courses in Monterrey, Mexico.",
+        "description": "Skydive Paracaidismo Nuevo Leon Aeródromo MTM (Montemorelos), Allende, Nuevo León, Neuvo Leon Mexico Carretera el porvenir Allende, Nuevo León Neuvo Leon 67354 Mexico 80.7 km S of Monterrey, Centro 10.3 km to nearest hotel https://paracaidismonuevoleon.mx/ paracaidismonuevoleon@gmail.com International 2 C-182; 1 C-206 Skydive Paracaidismo Nuevo Leon is the only drop zone in the state of Nuevo Leon who offers the best skydive adventure. Safety and perfectly good airplanes, also with USPA and UPT tandem instructors. We are the perfect option to do tandem jumps and AFF courses in Monterrey, Mexico.",
         "email": "paracaidismonuevoleon@gmail.com",
         "location": ["Allende, Nuevo León, Neuvo Leon", "Mexico"],
         "name": "Skydive Paracaidismo Nuevo Leon",
@@ -5299,7 +5531,7 @@
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [99, 25]
+        "coordinates": [-99.958333, 25.325833]
       }
     },
     {
@@ -5331,7 +5563,7 @@
         "airport": "Aeroporto de Caboledo",
         "anchor": 356458,
         "country": "Angola",
-        "description": "Skydive Angola Aeroporto de Caboledo, Luanda, Angola Aeroporto de Caboledo Luanda FN19 Angola 120 km S of Luanda to nearest hotel Skydiveangola@gmail.com International 1 Turboprop Located in Caboledo, the heart of the Natural Park paradise surf spot and beach resort. We are a boutique size operation dedicated to strong personal experiences and we fly our turboprop aircraft mostly from Friday until Sunday. We have a 3 km runway and an obstacle free landing zone. Several restaurants and beach facilities rest 5 minutes from the DZ. In a nutshell, you can do a safari, ride waves and still make the sunset load.",
+        "description": "Skydive Angola Aeroporto de Caboledo, Luanda, Angola Aeroporto de Caboledo Luanda FN19 Angola 120 km S of Luanda to nearest hotel https://skydiveangola.com/ Skydiveangola@gmail.com International 1 Turboprop Located in Caboledo, the heart of the Natural Park paradise surf spot and beach resort. We are a boutique size operation dedicated to strong personal experiences and we fly our turboprop aircraft mostly from Friday until Sunday. We have a 3 km runway and an obstacle free landing zone. Several restaurants and beach facilities rest 5 minutes from the DZ. In a nutshell, you can do a safari, ride waves and still make the sunset load.",
         "email": "Skydiveangola@gmail.com",
         "location": ["Luanda", "Angola"],
         "name": "Skydive Angola",
@@ -5339,7 +5571,7 @@
         "services": ["Packing Service", "Equipment Rental", "Restaurant", "Showers"],
         "state": "",
         "training": ["AFF", "Tandem"],
-        "website": ""
+        "website": "https://skydiveangola.com/"
       },
       "geometry": {
         "type": "Point",
@@ -5508,7 +5740,7 @@
         "airport": "Greenwood Lake Airport",
         "anchor": 360281,
         "country": "US",
-        "description": "iSkydive America – New York City Greenwood Lake Airport, West Milford, NJ US 126 Airport Rd West Milford NJ 07480-4603 US 30 mi N of New York City metro area 13 mi to nearest hotel https://iskydive.com/new-york-city nyc@iSkydive.com Eastern Region 1 Cessna 182 New York Tandem Skydiving offers a great view of New York City Skyline at 120 miles per hour. We are the closest skydiving center to New York City and we specialize in first time tandem skydiving. Located at the Greenwood Lake Airport with a great airport restaurant and friendly staff. Call or book online to schedule your skydive with amazing views, 120 mph thrills and friendly instructors.",
+        "description": "iSkydive America – New York City Greenwood Lake Airport, West Milford, New Jersey US 126 Airport Rd West Milford New Jersey 07480-4603 US 30 mi N of New York City metro area 13 mi to nearest hotel https://iskydive.com/new-york-city nyc@iSkydive.com Eastern Region 1 Cessna 182 New York Tandem Skydiving offers tandem jumps with amazing views of New York City Skyline at 120 miles per hour. The closest skydiving center to New York City and we specialize in first time tandem skydiving. Located at the Greenwood Lake Airport with a great airport restaurant, great views of Greenwood Lake and the NYC skyline, and friendly staff. Call or book online to schedule your first jump.",
         "email": "nyc@iSkydive.com",
         "location": ["West Milford, NJ"],
         "name": "iSkydive America – New York City",
@@ -5599,6 +5831,37 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 08 Caravan Cessna 208", "1 01 Grand Caravan Cessna 208"],
+        "airport": "Aeroporto De Boituva",
+        "anchor": 367987,
+        "country": "Brazil",
+        "description": "Federacao Paulista De Paraquedismo Aeroporto De Boituva, Boituva, Sao Paulo Brazil Estrada Municipal S/N Boituva Sao Paulo SP Brazil 18550-000 Brazil 117 km S of Boituva Onsite to nearest hotel https://fppq.org.br/ marcelo@consultoriaandrade.com.br International 08 Caravan C-208, 01 Grand Caravan C-208 Open every day of the week. There is a an auditorium for events, and a room for athletes. By appointment, there are also balloon jumps and a playground for children as well as massage clinics. An excellent place to take the family.",
+        "email": "marcelo@consultoriaandrade.com.br",
+        "location": ["Boituva, Sao Paulo", "Brazil"],
+        "name": "Federacao Paulista De Paraquedismo",
+        "phone": "+55 11999461610",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Swimming Pool",
+          "Showers"
+        ],
+        "state": "Sao Paulo",
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": "https://fppq.org.br/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [47.4131, 23.17535]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna 182 E"],
         "airport": "Lt. Warren Eaton Airport",
         "anchor": 368800,
@@ -5647,7 +5910,7 @@
         "airport": "Fremont County Airport",
         "anchor": 370692,
         "country": "US",
-        "description": "High Sky Adventure Parachute Club Fremont County Airport, Penrose, CO US 60298 US Highway 50 E Hngr 7 Penrose CO 81240-9515 US 8 miles W of Canon City 8 miles to nearest hotel https://highskyadventurepc.com/ freefaller1949@yahoo.com Mountain Region We are the oldest Skydive operation in Colorado with 30 years in business. Open Friday evening for Skydive training classes. Skydive operation and training are on Saturday and Sunday also. Open year-round. We are located at the Fremont County Airport; 60298 Hwy 50, Penrose Colorado adjacent to the War Memorial on the airport. If using GPS put in 35 Decker Drive, Penrose Colorado that will put you adjacent to the War Memorial parking lot and our location.",
+        "description": "High Sky Adventure Parachute Club Fremont County Airport, Penrose, Colorado US 60298 US Highway 50 E Hanger 7 Penrose Colorado 81240-9515 US 8 miles E of Canon City 8 miles to nearest hotel https://highskyadventurepc.com/ freefaller1949@yahoo.com Mountain Region We are the oldest Skydive operation in Colorado with 30 years in business. Open Friday evening for Skydive training classes. Skydive operation and training are on Saturday and Sunday also. Open year-round. We are located at the Fremont County Airport; 60298 Hwy 50, Penrose Colorado adjacent to the War Memorial on the airport. If using GPS put in 35 Decker Drive, Penrose Colorado that will put you adjacent to the War Memorial parking lot and our location.",
         "email": "freefaller1949@yahoo.com",
         "location": ["Penrose, CO"],
         "name": "High Sky Adventure Parachute Club",
@@ -5713,7 +5976,7 @@
         "airport": "Vipingo Ridge Airport and Diani Airport",
         "anchor": 371754,
         "country": "Kenya",
-        "description": "Go Jump Kenya Vipingo Ridge Airport and Diani Airport, Mombasa, Kenya Vipingo Ridge Airport and Diani Airport Mombasa 000000 Kenya 36 km N of Mombasa 5.1 km to nearest hotel https://www.gojumpkenya.com/ info@gojumpkenya.com International The dropzone is located at Diani Beach and Vipingo Beach Club on one of the pristine beaches of Kenya. Open six days a week, year round. All beach landings with option of landing on the golf course available. Stunning scenery of the Kenyan coastline.",
+        "description": "Go Jump Kenya Vipingo Ridge Airport and Diani Airport, Mombasa, Kenya Diani Airport and Vipingo Ridge Airport Mombasa 000000 Kenya 36 km N of Mombasa 5.1 km to nearest hotel https://www.gojumpkenya.com/ info@gojumpkenya.com International The dropzone is located at Diani Beach and Vipingo Beach Club on one of the pristine beaches of Kenya. Open six days a week, year round. All beach landings with option of landing on the golf course available. Stunning scenery of the Kenyan coastline.",
         "email": "info@gojumpkenya.com",
         "location": ["Mombasa", "Kenya"],
         "name": "Go Jump Kenya",
@@ -5834,11 +6097,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 2x Cessna 206s"],
+        "aircraft": ["1 Cessna 206 And Cessna 208 Caravan"],
         "airport": "Pegasus Air Park",
         "anchor": 374667,
         "country": "US",
-        "description": "Pegasus Skydive Center Pegasus Air Park, Saylorsburg, PA US 406 Greenview Dr Saylorsburg PA 18353 US 75 miles W of Alentown 5 miles to nearest hotel https://skydivepegasus.com/ info@skydivepegasus.com Eastern Region 2x Cessna 206 Open April to October - Every day 8:00 AM to Sunset. March & November - Weekends . Pegasus Skydive Center is nestled in the heart of the Poconos located a little over an hour from NYC and thirty minutes from Allentown. Sweeping free fall views of the surrounding Pocono Mountains. Manhattan is even visible on a clear day! Right now offering skydives with our rocket ship Turbo Utility Door 206. Come visit our little slice of heaven!",
+        "description": "Pegasus Skydive Center Pegasus Air Park, Saylorsburg, Pennsylvania US 406 Greenview Dr Saylorsburg Pennsylvania 18353 US 75 miles W of Alentown 5 miles to nearest hotel https://skydivepegasus.com/ info@skydivepegasus.com Eastern Region Cessna 206 and Cessna Caravan Open April to October - Every day 8:00 AM to Sunset. March & November - Weekends . Pegasus Skydive Center is nestled in the heart of the Poconos located a little over an hour from NYC and thirty minutes from Allentown. Sweeping free fall views of the surrounding Pocono Mountains. Manhattan is even visible on a clear day! Right now offering skydives with our rocket ship Turbo Utility Door 206. Come visit our little slice of heaven!",
         "email": "info@skydivepegasus.com",
         "location": ["Saylorsburg, PA"],
         "name": "Pegasus Skydive Center",
@@ -5900,6 +6163,28 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Cessna 208 Caravan Cessna 208", "1 Cessna 206", "1 P Piper Navajo PA31"],
+        "airport": "Lib Mandi",
+        "anchor": 375604,
+        "country": "Peru",
+        "description": "Paracaidismo Paracondor Peru Lib Mandi, Lima, Peru Carretera Panamericana Sur KM 49 Lima 15855 Peru 49 km S of Lima 2 km to nearest hotel https://www.paracaidismoperu.com/ daniel_castillo_85@hotmail.com International Cessna Caravan C-208, Cessna 206, Piper Seneca II Open on weekends; from Lima City take Panamericana Sur to km 49 southbound. Hangar at DZ, parachuting area, class rooms available, gear rentals, packers, ocean view from the sky, restaurant 10 minutes away, english speaking skydivers, coaches. AFF and Tandem instructors are USPA and UPT rated.",
+        "email": "daniel_castillo_85@hotmail.com",
+        "location": ["Lima", "Peru"],
+        "name": "Paracaidismo Paracondor Peru",
+        "phone": "+51 969775659",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant"],
+        "state": "",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "https://www.paracaidismoperu.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.7594, -12.39157]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Pilatus Pc-6"],
         "airport": "Carlo del Prete",
         "anchor": 376654,
@@ -5917,28 +6202,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [8.423242, 45.311331]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "aircraft": ["1 Cessna 182"],
-        "airport": "Davis Field",
-        "anchor": 376917,
-        "country": "US",
-        "description": "Skydive Cherokee Davis Field, Muskogee, OK US 1201 Sabre St Hngr 8 Muskogee OK 74403-6718 US 5 miles S of Muskogee, OK 5 miles to nearest hotel https://skydivecherokee.us/ 918skydive@gmail.com Southwest Region 1 Cessna 182 Open 7 days a week, year-round weather permitting. Located at Davis Field just outside of Muskogee, OK. 940 acres of landing area, WIFI, designated packing areas, air conditioned and heated lounge and shower access. CRW friendly and coaching available for students, formation skydiving and accuracy.",
-        "email": "918skydive@gmail.com",
-        "location": ["Muskogee, OK"],
-        "name": "Skydive Cherokee",
-        "phone": "(918) 759-3483",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
-        "state": "OK",
-        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
-        "website": "https://skydivecherokee.us/"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-95.3585, 35.66138]
       }
     },
     {
@@ -6018,6 +6281,28 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Cessna 208 Caravanb"],
+        "airport": "Yinggehai Airport",
+        "anchor": 377889,
+        "country": "China",
+        "description": "Skydive Sanya Yinggehai Airport, Sanya, Hainan, Hainan China Yinggehai Airport Sanya, Hainan Hainan 572539 China 80 km W of SanYa 3 km to nearest hotel twt18689900900@163.com International Cessna Caravan 208B We are the only domestic skydiving DZ that can carry the largest number of customers with our Cessna 208B. We also have an 1.000 square meter high-grade hangar with, reception area, preparation room, conference room, catering area, etc. The landing area covers more that 20.000 square meters. The company has two Pilots, three Crew members and more than 40 staff members. Skydive Sanya in Yinggehai, has been approved as a National Aviation Flight Center. We provide Tandem jumps, AFF training and fun jumps.",
+        "email": "twt18689900900@163.com",
+        "location": ["Sanya, Hainan, Hainan", "China"],
+        "name": "Skydive Sanya",
+        "phone": "+86 15669500548",
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
+        "state": "Hainan",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [108.69738, 18.51072]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna 208 Caravan", "1 Cessna 206"],
         "airport": "Saint-Esprit Airport",
         "anchor": 377890,
@@ -6069,6 +6354,28 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 P Piper Navajo PA31", "1 Iai Arava"],
+        "airport": "Aerpuerto Internacional de Ilopango",
+        "anchor": 377896,
+        "country": "El Salvador",
+        "description": "Skydive El Salvador Aerpuerto Internacional de Ilopango, Ilopango, San Salvador/El Salvador El Salvador Panamericana KM 9 1/2 Boulevard Del Ejercito Nacional Ilopango San Salvador/El Salvador 00000 El Salvador 11km S of San Salvador 2km to nearest hotel https://skydiveelsalvador.com.sv/ info@skydiveelsalvador.com.sv International Piper PA-34 Seneca, IAI Arava Open Saturdays and Sundays, but always contact DZ in advance for bookings and slot availibility. Close drive from San Salvador and amazing view of Ilopango Lake! We use cilvilian and military aircraft so come add them to your logbook!",
+        "email": "info@skydiveelsalvador.com.sv",
+        "location": ["Ilopango, San Salvador/El Salvador", "El Salvador"],
+        "name": "Skydive El Salvador",
+        "phone": "+50360648238",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Restaurant"],
+        "state": "San Salvador/El Salvador",
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": "https://skydiveelsalvador.com.sv/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-89.112908, 13.69119]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna 182"],
         "airport": "Aerodromo Par Roberto Chavez",
         "anchor": 377902,
@@ -6091,23 +6398,31 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 207"],
-        "airport": "Cherry Capital Airport",
-        "anchor": 377905,
-        "country": "US",
-        "description": "Skydive TC Cherry Capital Airport, Traverse City, MI US 1170 Airport Access Rd. Traverse City MI 49686 US 250 miles NW of Detroit .1 mile to nearest hotel http://www.skydivetc.com/ manifest@skydivetc.com Mid-Eastern Region 1 Cessna 207 Open six days a week, May through October. Award winning Traverse City location. Close to beaches, vineyards and breweries. Frequent helicopter jumps available.",
-        "email": "manifest@skydivetc.com",
-        "location": ["Traverse City, MI"],
-        "name": "Skydive TC",
-        "phone": "(231) 649-6663",
-        "services": ["Packing Service", "Camping"],
-        "state": "MI",
+        "aircraft": [],
+        "airport": "Grozny",
+        "anchor": 377913,
+        "country": "Russian Federation",
+        "description": "Goodsky Grozny, Gudermes, Chechen republic Russian Federation Rostovskaya 2 Gudermes Chechen republic 366208 Russian Federation 36 kilometres W of Grozny 50 meters to nearest hotel https://goodsky.site/ s.porubaev@mail.ru International The largest DZ in the Caucasus region and one of the largest in Europe. It has excellent infrastructure, including an AFF training facility, a rigging loft, a packing area, hotels, a large landing area, and a swoop pond where competitions are held.",
+        "email": "s.porubaev@mail.ru",
+        "location": ["Gudermes, Chechen republic", "Russian Federation"],
+        "name": "Goodsky",
+        "phone": "+79284903077",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "Chechen republic",
         "training": ["AFF", "Tandem"],
-        "website": "http://www.skydivetc.com/"
+        "website": "https://goodsky.site/"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-85.57932, 44.742]
+        "coordinates": [45.69611, 43.39682]
       }
     },
     {
@@ -6218,6 +6533,57 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-111.44427, 33.75565]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Helicopter Airbus As350b3e"],
+        "airport": "Jrvezh Helipad",
+        "anchor": 377928,
+        "country": "Armenia",
+        "description": "SKYDIVE ARMENIA Jrvezh Helipad, Jrvezh, Kotayk Armenia Yerevan-Garni Hwy 6/14 Jrvezh Kotayk 2227 Armenia 7.2 miles E of Yerevan/Yeritasardakan 0 miles to nearest hotel https://skydivearmenia.am/en info@armheli.com International Helicopter Airbus AS350B3E Experience thrilling Skydiving adventures in Aamenia's Jrvezh reserve park with our drop zone services. Enjoy tandem jumps, capturing your adrenaline rush with video and photo shooting options. After the action-packed day, unwind in a comfortable hotel room amid picturesque landscapes. Discover Armenia's rich history, stunning scenery and warm hospitality, making it a dream destination for skydivers.",
+        "email": "info@armheli.com",
+        "location": ["Jrvezh, Kotayk", "Armenia"],
+        "name": "SKYDIVE ARMENIA&nbsp;",
+        "phone": "+374 44888333",
+        "services": ["Packing Service", "Equipment Rental", "Bunkhouse", "Restaurant", "Showers"],
+        "state": "Kotayk",
+        "training": ["AFF", "Tandem"],
+        "website": "https://skydivearmenia.am/en"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [44.61689, 40.183611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Pc-6"],
+        "airport": "Heng Shui Tao Cheng  Airport",
+        "anchor": 377931,
+        "country": "China",
+        "description": "Yan Huang Skydive Heng Shui Tao Cheng Airport, 衡水市, He Nan China 衡水桃城河沿机场 衡水市 He Nan 053000 China 5 km SE of Heng Shui City 1 km to nearest hotel wjm_skydive@hotmail.com International PC-6 位于河北省衡水市桃城区，距离北京、天津、自驾3小时车程。高铁直达。FJ为主的跳伞基地，飞行高度13000英尺约3900米。",
+        "email": "wjm_skydive@hotmail.com",
+        "location": ["衡水市, He Nan", "China"],
+        "name": "Yan Huang Skydive",
+        "phone": "+86 15601225057",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant"
+        ],
+        "state": "He Nan",
+        "training": ["AFF", "Tandem"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [115.3427, 37.4104]
       }
     },
     {
@@ -6362,16 +6728,16 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 King Air E-90"],
+        "aircraft": ["1 Cessna 208 Caravan", "1 Cessna 182"],
         "airport": "Butler Memorial Airport (BUM)",
         "anchor": 377958,
         "country": "US",
-        "description": "Skydive Kansas City Butler Memorial Airport (BUM), Butler, MO US SKC Holdings, LLC Butler MO 64730-9388 US 60 miles S of Kansas City 2 miles to nearest hotel https://www.skydivekc.com/ jump@skydivekc.com Central Region King Air E-90 Open Saturday and Sunday from April - October. We offer tandem skydiving and AFF training as well as Coaching for students and experienced skydivers. We are a fun jumper, friendly, King Air DZ with a dedicated campground for staff and experienced jumpers. Follow us on Facebook and Instagram for the latest updates on aircraft and events.",
+        "description": "Skydive Kansas City Butler Memorial Airport (BUM), Butler, Missouri US SKC Holdings, LLC Butler Missouri 64730-9388 US 60 miles S of Kansas City, MO 2 miles to nearest hotel https://www.skydivekc.com/ jump@skydivekc.com Central Region Cessna Caravan, Cessna 182 Open Friday through Monday,s from April - October. We offer tandem skydiving and AFF training as well as Coaching for students and experienced skydivers. We are a fun jumper-friendly, Caravan and 182 dropzone, with a dedicated campground for staff and experienced jumpers. Follow us on Facebook and Instagram for the latest updates on aircraft and events.",
         "email": "jump@skydivekc.com",
         "location": ["Butler, MO"],
         "name": "Skydive Kansas City",
         "phone": "(816) 524-5867",
-        "services": ["Packing Service", "Rigging", "Equipment Rental"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
         "state": "MO",
         "training": ["AFF", "Tandem"],
         "website": "https://www.skydivekc.com/"
@@ -6388,7 +6754,7 @@
         "airport": "Phusanfah Airfield",
         "anchor": 377959,
         "country": "Thailand",
-        "description": "Skydive Chiang Mai Phusanfah Airfield, Chaing Mai, Chiang Mai Thailand 449 Moo 7 Ban P ong, T Inthakin Chaing Mai Chiang Mai 50150 Thailand 45 km N of Chiang Mai 50 m to nearest hotel https://skydivingchiangmai.com/ skydivechiangmai.business@gmail.com International Pax 780 XL The newest DZ in Thailand, we offer state-of-the-art skydiving facilities, including a full-service drop zone, experienced instructors, and a range of jump options from tandem to solo dives. Safety is our priority, with top-notch equipment and training. Enjoy breathtaking views and a supportive community of skydiving enthusiasts. Join us for an unforgettable experience!",
+        "description": "Skydive Chiang Mai Phusanfah Airfield, Chaing Mai, Chiang Mai Thailand 449 Moo 7 Ban P ong, T Inthakin Chaing Mai Chiang Mai 50150 Thailand 45 km N of Chiang Mai 50 m to nearest hotel https://skydivechiangmaioffical.com/ skydivechiangmai.business@gmail.com International Pax 780 XL The newest DZ in Thailand, we offer state-of-the-art skydiving facilities, including a full-service drop zone, experienced instructors, and a range of jump options from tandem to solo dives. Safety is our priority, with top-notch equipment and training. Enjoy breathtaking views and a supportive community of skydiving enthusiasts. Join us for an unforgettable experience!",
         "email": "skydivechiangmai.business@gmail.com",
         "location": ["Chaing Mai, Chiang Mai", "Thailand"],
         "name": "Skydive Chiang Mai",
@@ -6404,7 +6770,7 @@
         ],
         "state": "Chiang Mai",
         "training": ["AFF", "Tandem"],
-        "website": "https://skydivingchiangmai.com/"
+        "website": "https://skydivechiangmaioffical.com/"
       },
       "geometry": {
         "type": "Point",
@@ -6418,14 +6784,14 @@
         "airport": "Ovid Airport",
         "anchor": 377960,
         "country": "US",
-        "description": "Skydive Seneca Lake Ovid Airport, Ovid, NY US 2562 Parish Rd Ovid NY 14521 US 22 miles N of Geneva 7.74 miles to nearest hotel https://skydivesenecalake.com/ info@skydivesenecalake.com Eastern Region TU206U Open 5 days a week, 2 plane 2 pilot operation. 12.5k AGL jumps offered in our Turbo 206. Thriving student program and fun jumper community. Located in the heart of the Finger Lakes region. Picturesque views of wine country and the Finger Lakes Climate controlled packing area. On-site camping and RV sites, staff housing and laundry. Proud sponsor of the Rochester Institute of Technology skydiving club. Centrally located between Geneva and Ithaca.",
+        "description": "Skydive Seneca Lake Ovid Airport, Ovid, NY US 2562 Parish Rd Ovid NY 14521 US 22 miles S of Geneva 7.74 miles to nearest hotel https://skydivesenecalake.com/ info@skydivesenecalake.com Eastern Region TU206U Open 5 days a week, 2 plane 2 pilot operation. 12.5k AGL jumps offered in our Turbo 206. Thriving student program and fun jumper community. Located in the heart of the Finger Lakes region. Picturesque views of wine country and the Finger Lakes Climate controlled packing area. On-site camping and RV sites, staff housing and laundry. Proud sponsor of the Rochester Institute of Technology skydiving club. Centrally located between Geneva and Ithaca.",
         "email": "info@skydivesenecalake.com",
         "location": ["Ovid, NY"],
         "name": "Skydive Seneca Lake",
         "phone": "(315) 694-6959",
         "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
         "state": "NY",
-        "training": ["AFF", "Tandem", "Static Line"],
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
         "website": "https://skydivesenecalake.com/"
       },
       "geometry": {
@@ -6492,7 +6858,7 @@
         "airport": "Caldwell Executive Airport",
         "anchor": 377970,
         "country": "US",
-        "description": "Skydive Skydown Caldwell Executive Airport, Caldwell, ID US 4421 Aviation Way Caldwell ID 83605-1500 US 3 miles SE of Caldwell 4.3 miles to nearest hotel https://skydiveskydown.com/ info@skydiveskydown.com Northwest Region Cessna 182 Open 5 days a week. Located in Caldwell, about 25 minutes outside of Boise. Exit 29 from I-84 west.",
+        "description": "Skydive Skydown Caldwell Executive Airport, Caldwell, Idaho US 4421 Aviation Way Caldwell Idaho 83605-1500 US 3 miles SE of Caldwell 4.3 miles to nearest hotel https://skydiveskydown.com/ info@skydiveskydown.com Northwest Region Cessna 182 Skydive Skydown is Idaho's closest dropzone to Boise, conveniently located at Exit 29 off I-84 West in Caldwell, Idaho. Open 5 days a week, Skydown offers tandem skydiving, student skydiving programs, and sport skydiving for licensed jumpers, serving the entire Boise, Meridian, Nampa, and Treasure Valley Region.Just minutes from Boise and easily accessible from I-84, Skydown is proud to be Idaho's premier dropzone.",
         "email": "info@skydiveskydown.com",
         "location": ["Caldwell, ID"],
         "name": "Skydive Skydown",
@@ -6514,7 +6880,7 @@
         "airport": "Qualicum Beach Airport",
         "anchor": 377972,
         "country": "Canada",
-        "description": "Skydive Vancouver Island Qualicom Beach Airport, Nanoose Bay, BC Canada 1515 Island Hwy E Nanoose Bay BC BC V9PA3 Canada 30 km W of Nanaimo 5 km to nearest hotel http://www.skydivevancouverisland.com/ info@skydivevancouverisland.com International Cessna 182, Cessna 206 Open Thursday - Monday from April to October",
+        "description": "Skydive Vancouver Island Qualicum Beach Airport, Nanoose Bay, BC Canada 1515 Island Hwy E Nanoose Bay BC BC V9PA3 Canada 30 km W of Nanaimo 5 km to nearest hotel http://www.skydivevancouverisland.com/ info@skydivevancouverisland.com International Cessna 182, Cessna 206 Open Thursday - Monday from April to October",
         "email": "info@skydivevancouverisland.com",
         "location": ["Nanoose Bay, BC", "Canada"],
         "name": "Skydive Vancouver Island",
@@ -6532,11 +6898,41 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["5 Cessna 208 Caravans"],
+        "airport": "Airfield Boituva",
+        "anchor": 377973,
+        "country": "Brazil",
+        "description": "Skydive Thru Quero Saltar Airfield Boituva, Boituva , São Paulo Brazil Centro Nacional de Paraquedismo - Estrada Municipal de Boituva s/n Boituva São Paulo 18550-000 Brazil 115 km S of São Paulo 1.5 km to nearest hotel https://querosaltar.com.br/ vicentegomes@querosaltar.com.br International 5 Cessna 208 Caravans The SKYDIVETHRU is a school with 25 years of existence, with certificated professionals on USPA, CBPq, DFV e PAI. We have the principal objective formation new atlets, evolution in belly fly, freefly and offer tandem jumps with tandem pilots certificated on UPT and SWS equipment. Place to Lazer. The DZ it's open 365 days of the year. Address: Centro Nacional de Paraquedismo - Estrada Municipal de Boituva.email: skydivethruparaquedismo@gmail.com",
+        "email": "vicentegomes@querosaltar.com.br",
+        "location": ["Boituva , São Paulo", "Brazil"],
+        "name": "Skydive Thru Quero Saltar",
+        "phone": "+ 55 11997765735",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "São Paulo",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "https://querosaltar.com.br/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.69122116303023, -23.295503914735686]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Cessna 182"],
         "airport": "Central Florida Airpark",
         "anchor": 377976,
         "country": "US",
-        "description": "Florida Skydive Central Florida Airpark, Coleman, Florida US 1511 Taylor Avenue Coleman Florida 33521 US 54 Miles NW of Orlando 3 Miles to nearest hotel http://www.floridaskydive.co/ jump@floridaskydive.co Southeast Region Cessna 182 Florida Skydive is open Wednesdays, Friday-Sunday, 8 am to Sunset, bookings based. We are located in the city of Coleman, North West of Orlando. We operate out of a 182 Cessna.",
+        "description": "Florida Skydive Central Florida Airpark, Coleman, Florida US 1511 Taylor Avenue Coleman Florida 33521 US 54 Miles NW of Orlando 3 Miles to nearest hotel http://www.floridaskydive.co/ jump@floridaskydive.co Southeast Region Cessna 182 Florida Skydive is open Wednesday and Friday through Sunday from 9 AM until sunset (weather and bookings permitting). We’re tucked away in the small town of Coleman, Florida, just northwest of Orlando. We operate out of a Cessna 182 , which means smaller loads, more personal attention, and the kind of friendly, laid-back drop zone vibe that keeps people coming back jump after jump. Whether it’s your first tandem jump or you’re already part of the skydiving family, you’ll feel right at home from the moment you arrive. Meet great people, and make a day of it in the skies over Central Florida!",
         "email": "jump@floridaskydive.co",
         "location": ["Coleman, FL"],
         "name": "Florida Skydive",
@@ -6576,15 +6972,45 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 Y-12", "1 Cessna", "1 Helicopters"],
+        "airport": "Air Force Station Koggala",
+        "anchor": 377979,
+        "country": "Sri Lanka",
+        "description": "Eagles' Skydive Drop Zone Koggala, Sri Lanka Air Force Station Koggala, Galle, Sri Lanka Sri Lanka Sri Lanka Air Force Station Galle Sri Lanka X8VC+R6H Sri Lanka 140 km S of Koggala 2.2 Km to nearest hotel https://www.airforce.lk/skydive eaglesskydive@airforce.lk International Y-12, Cessna, Helicopters Open throughout the year. Sunny weather around beaches. From nearest Capital to DZ only 15 min and 14 km. Air-conditioned and heated accommodation available. Fully resources at DZ. Boat riding, Surfing, Scuba diving and Sea bathing also available. Friendly and experienced team.",
+        "email": "eaglesskydive@airforce.lk",
+        "location": ["Galle, Sri Lanka", "Sri Lanka"],
+        "name": "Eagles' Skydive Drop Zone Koggala, Sri Lanka",
+        "phone": "+94 772229155",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Bunkhouse",
+          "Restaurant",
+          "Swimming Pool",
+          "Showers"
+        ],
+        "state": "Sri Lanka",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "https://www.airforce.lk/skydive"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [80.32172, 5.99525]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": ["1 Pc-6"],
         "airport": "Hailing Airport",
         "anchor": 377985,
         "country": "China",
-        "description": "Skydive Hailing Island Hailing Airport, Yangjiang, Guangdong China Shi Li Yin Tan Yangjiang Guangdong 529536 China of 1km to nearest hotel 523284372@qq.com International PC-6",
-        "email": "523284372@qq.com",
+        "description": "Skydive Hailing Island Hailing Airport, Yangjiang, Guangdong China Shi Li Yin Tan Yangjiang Guangdong 529536 China 10 E of Hailing Island 1km to nearest hotel huangfang.apex@gmail.com International PC-6",
+        "email": "huangfang.apex@gmail.com",
         "location": ["Yangjiang, Guangdong", "China"],
         "name": "Skydive Hailing Island",
-        "phone": "+86 602869144",
+        "phone": "+8615306346846",
         "services": [
           "Packing Service",
           "Rigging",
@@ -6634,33 +7060,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna 182"],
-        "airport": "Madras Municipal Airport",
-        "anchor": 377988,
-        "country": "US",
-        "description": "Skydive Bend Madras Municipal Airport, Madras, OR US 2028 NW Berg Dr Madras OR 97741 US 46 miles N of Bend 2 Miles to nearest hotel http://skydivingbend.com/ info@skydivingbend.com Northwest Region Cessna 182",
-        "email": "info@skydivingbend.com",
-        "location": ["Madras, OR"],
-        "name": "Skydive Bend",
-        "phone": "(541) 777-3009",
-        "services": ["Packing Service", "Rigging"],
-        "state": "OR",
-        "training": ["Tandem"],
-        "website": "http://skydivingbend.com/"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-121.14785416911039, 44.6729567127188]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "aircraft": ["1 Cessna 182a"],
         "airport": "Limon Municipal Airport (KLIC)",
         "anchor": 377993,
         "country": "US",
-        "description": "Skydive Colorado Limon Municipal Airport (KLIC), Limon, US 21650 State Road 40/287 Limon 80828 US 90 miles E of Denver 2.6 miles to nearest hotel http://skydivecolorado.co/ info@skydivecolorado.co Mountain Region Cessna 182A Skydive Colorado its a great welcoming place for all Skill Levels and disciplines. RW, freefly and wingsuit organizing, advance Canopy Camps. Open weekends Spring-Fall. Take I-70 One hour South East from Denver Metro, right on Limon Municipal Airport.",
+        "description": "Skydive Colorado Limon Municipal Airport (KLIC), Limon, CO US 21650 State Road 40/287 Limon CO 80828 US 90 miles E of Denver 2.6 miles to nearest hotel http://skydivecolorado.co/ info@skydivecolorado.co Mountain Region Cessna 182A Skydive Colorado its a great welcoming place for all Skill Levels and disciplines. RW, freefly and wingsuit organizing, advance Canopy Camps. Open weekends Spring-Fall. Take I-70 One hour South East from Denver Metro, right on Limon Municipal Airport.",
         "email": "info@skydivecolorado.co",
         "location": ["Limon, CO"],
         "name": "Skydive Colorado",
@@ -6673,6 +7077,28 @@
       "geometry": {
         "type": "Point",
         "coordinates": [-103.69099, 39.33962]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna - 182"],
+        "airport": "Aerodromo Los Campanos",
+        "anchor": 377995,
+        "country": "Colombia",
+        "description": "Epico Skydive Aerodromo Los Campanos, Barranquilla, Colombia Via Al Mar KM 78 Cartagena-Barranquilla Barranquilla 081028 Colombia 20 km W of Barranquilla 2 km to nearest hotel http://www.vuelaepico.co/ info@vuelaepico.co International Cessna - 182 Skydive with sea view, located at 50 minutes from Cartagena and 30 minutes from Barranquilla. Open Friday to Sunday. We have availability for fun jumpers all week with previous reservations.",
+        "email": "info@vuelaepico.co",
+        "location": ["Barranquilla", "Colombia"],
+        "name": "Epico Skydive",
+        "phone": "+57 311 837 82 22",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping", "Showers"],
+        "state": "",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "http://www.vuelaepico.co/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-75.0326625, 10.8821123]
       }
     },
     {
@@ -6704,12 +7130,12 @@
         "airport": "Stevensville Montana Airport - 32S",
         "anchor": 378002,
         "country": "US",
-        "description": "Skydive Missoula Stevensville Montana Airport - 32S, Stevensville, Montana US 3911 Flying Lane Stevensville Montana 59870 US 30 miles S of Missoula .5 mile to nearest hotel http://www.skydivemissoula.com/ info@skydivemissoula.com Northwest Region Piper PA 31-310 Navajo/ Cessna 182 Highest altitude and capacity of any DZ in Montana, flying ten jumpers to 18K MSL in 20 min! Full service DZ offering rigging and gear rental/sales. 30 minutes south of Missoula. Open May-November, Fri-Sun, 8:30 am - sunset. For groups or other days, please call to schedule. Rigging services on-site. Come jump with us in the beautiful Bitterroot Valley!",
+        "description": "Skydive Missoula Stevensville Montana Airport - 32S, Stevensville, Montana US 3911 Flying Lane Stevensville Montana 59870 US 30 miles S of Missoula .5 mile to nearest hotel http://www.skydivemissoula.com/ info@skydivemissoula.com Northwest Region Piper PA 31-310 Navajo/ Cessna 182 Highest altitude and capacity of any DZ in Montana, flying eight jumpers to 17K MSL in 20 min! Full service DZ offering rigging and gear rental/sales. 30 minutes south of Missoula. Open May-October, Thurs-Sun, 8:30 am - sunset. For groups or other days, please call to schedule. Rigging services on-site. Come jump with us in the beautiful Bitterroot Valley!",
         "email": "info@skydivemissoula.com",
         "location": ["Stevensville, MT"],
         "name": "Skydive Missoula",
         "phone": "(406) 201-9131",
-        "services": ["Packing Service", "Rigging", "Equipment Rental", "Showers"],
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Bunkhouse", "Showers"],
         "state": "MT",
         "training": ["AFF", "Tandem", "Static Line"],
         "website": "http://www.skydivemissoula.com/"
@@ -6766,11 +7192,114 @@
     {
       "type": "Feature",
       "properties": {
+        "aircraft": ["1 An-2b Er-07206", "1 An-3t Ur-Aaf"],
+        "airport": "Aerodromul Vadul-lui-Voda",
+        "anchor": 378011,
+        "country": "Moldova",
+        "description": "DZM Skydive MoldAVIA Aerodromul Vadul-lui-Voda, Vaduleni, Moldova Aerodromul Vadul-lui-Voda Vaduleni MD-4814 Moldova 25 km E of Chisinau 3 km to nearest hotel aeroskydive@gmail.com International AN-2b ER-07206, AN-3T UR-AAF",
+        "email": "aeroskydive@gmail.com",
+        "location": ["Vaduleni", "Moldova"],
+        "name": "DZM Skydive MoldAVIA",
+        "phone": "+373 69498565",
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
+        "state": "",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [29.09466, 47.06767]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Pc-6"],
+        "airport": "Wanning Xinglong Airport",
+        "anchor": 378013,
+        "country": "China",
+        "description": "Wanning Coffee Skydiving Wanning Xinglong Airport, Wanning , Hainan China Wanning Xinglong Airport Wanning Hainan 571533 China 10km S of Wanning 5km to nearest hotel huangfang.apex@gmail.com International PC-6",
+        "email": "huangfang.apex@gmail.com",
+        "location": ["Wanning , Hainan", "China"],
+        "name": "Wanning Coffee Skydiving",
+        "phone": "+861530634684",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "Hainan",
+        "training": ["AFF", "Tandem"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [110.34810413020143, 18.672725616559234]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna Grand Caravan 208"],
+        "airport": "Aeroporto De Boituva",
+        "anchor": 378014,
+        "country": "Brazil",
+        "description": "Martinfly Paraquedismo Aeroporto De Boituva, Boituva, SP Brazil Avenida Industrial, 1215 Boituva SP 18550-000 Brazil 3.8km NE of Boituva to nearest hotel https://www.instagram.com/martinflypqd/ martinflypqd@gmail.com International Cessna Grand Caravan 208 For those coming from the heart of the city, the distance to downtown Boituva is approximately 3.8 km, which translates to about an 8-minute drive. The predominant direction to reach the MARTINFLY PARAQUEDISMO from the city center is to the northeast.At the MARTINFLY PARAQUEDISMO, the most iconic aircraft frequently used for jumps is the Cessna Grand Caravan 208.",
+        "email": "martinflypqd@gmail.com",
+        "location": ["Boituva, SP", "Brazil"],
+        "name": "Martinfly Paraquedismo",
+        "phone": "+55 11957370234",
+        "services": ["Packing Service", "Equipment Rental", "Camping", "Restaurant", "Showers"],
+        "state": "SP",
+        "training": ["AFF", "Tandem"],
+        "website": "https://www.instagram.com/martinflypqd/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-47.68605, -23.2965]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 208b Cessnas"],
+        "airport": "Xi'An Lantain Airport",
+        "anchor": 378016,
+        "country": "China",
+        "description": "Xi'An BlueSky Skydive Xi'An Lantain Airport, Xi'An, Shaanxi Province China Xi'An LanTian Airport Xi'An Shaanxi Province 710500 China 30km N of Xi'AN to nearest hotel weilai19930704@gmail.com International 208B Cessna Open seven days a week, from March-December, close to Xi'An City, 30Km , AC and heated airport lobby, Big packing floor. 300m by 200m grass landing area. golf kart shuttle. 208B Cessna.",
+        "email": "weilai19930704@gmail.com",
+        "location": ["Xi'An, Shaanxi Province", "China"],
+        "name": "Xi'An BlueSky Skydive",
+        "phone": "+19 542777657",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "Shaanxi Province",
+        "training": ["AFF", "Tandem"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [108.73507, 34.414555]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "aircraft": [],
         "airport": "Lake Wood Airport",
         "anchor": 378017,
         "country": "US",
-        "description": "iSkydive America - Philadelphia Lake Wood Airport, Lakewood, NJ US 1900 Cedar Bridge Ave Lakewood NJ 08701 US 15 miles E of Philadelphia Metro Area 1 mile to nearest hotel http://iskydive.com/philadelphia philly@iskydive.com Eastern Region Jump into summer with iSkydive America - Philadelphia. Conveniently located along the coastline just one hour East of Philly and one hour South of NYC, and with the unmatched coastal views available for your first skydive. We specialize in first time tandem jumpers with thrilling views of the Jersey Shore. Call today and schedule your adventure of a lifetime with iSkydive America - Philadelphia.",
+        "description": "iSkydive America - Philadelphia Lake Wood Airport, Lakewood, New Jersey US 1900 Cedar Bridge Ave Lakewood New Jersey 08701 US 15 miles E of Philadelphia Metro Area 1 mile to nearest hotel http://iskydive.com/philadelphia philly@iskydive.com Eastern Region Jump into summer with iSkydive America - Philadelphia. Conveniently located along the Jersey Shore just one hour East of Philly and one hour South of NYC, and with the unmatched coastal views available for your first skydive. We specialize in first time tandem jumpers with thrilling views of the Jersey Shore. Call today and schedule your adventure of a lifetime with iSkydive America - Philadelphia.",
         "email": "philly@iskydive.com",
         "location": ["Lakewood, NJ"],
         "name": "iSkydive America - Philadelphia",
@@ -6810,11 +7339,11 @@
     {
       "type": "Feature",
       "properties": {
-        "aircraft": ["1 Cessna-206"],
+        "aircraft": ["1 Cessna-206", "1 Cessna-182"],
         "airport": "Dona Ana County International Jetport",
         "anchor": 378019,
         "country": "US",
-        "description": "Southwest Skydive LLC Dona Ana County International Jetport, Santa Teresa, New Mexico US Dona Ana County International Jetport Santa Teresa New Mexico 88008 US 7 mi W of El Paso, TX 1 mi to nearest hotel http://southwestskydive.com/ contact@southwestskydive.com Southwest Region Cessna-206 Open Fri-Sun, all year. From I-10, take exit 8 Paseo Del Norte and go West on Artcraft for 7 miles. Follow signs for Jetport. Coaching available in multiple disciplines. Night jumps every full moon Friday. Field elevation 4,119'. AAD required.",
+        "description": "Southwest Skydive LLC Dona Ana County International Jetport, Santa Teresa, New Mexico US Dona Ana County International Jetport Santa Teresa New Mexico 88008 US 7 mi W of El Paso, TX 1 mi to nearest hotel http://southwestskydive.com/ contact@southwestskydive.com Southwest Region Cessna-206, Cessna-182 Open Fri-Sun, all year. From I-10, take exit 8 Paseo Del Norte and go West on Artcraft for 7 miles. Follow signs for Jetport. Coaching available in multiple disciplines. Night jumps every full moon Friday. Field elevation 4,119'. AAD required.",
         "email": "contact@southwestskydive.com",
         "location": ["Santa Teresa, NM"],
         "name": "Southwest Skydive LLC",
@@ -6924,7 +7453,7 @@
         "airport": "Berkeley County Airport",
         "anchor": 378032,
         "country": "US",
-        "description": "iSkydive Charleston SC Berkeley County Airport, Moncks Corner, SC US Berkeley County Airport Moncks Corner SC 29461 US 1 mile N of Charleston to nearest hotel http://iskydive.com/Charleston charleston@iskydive.com Mid-Atlantic Region Cessna 182 Located at the Berkeley County Airport, iSkydive Charleston SC is located inside the Charleston Metro Area, only 40 minutes from downtown. Enjoy amazing views of Lake Moultrie on your skydive with scenic flights toward the Atlantic coast for more amazing views. Its an easy drive North of Charleston on Highway 52, just look for iSkydive Charleston SC on Google maps.",
+        "description": "iSkydive Charleston SC Berkeley County Airport, Moncks Corner, South Carolina US Berkeley County Airport Moncks Corner South Carolina 29461 US 1 mile N of Charleston to nearest hotel http://iskydive.com/Charleston charleston@iskydive.com Mid-Atlantic Region Cessna 182 Located at the Berkeley County Airport, iSkydive Charleston SC is located inside the Charleston Metro Area, only 40 minutes from downtown. Enjoy amazing views of Lake Moultrie on your skydive with scenic flights toward the Atlantic coast for more amazing views. Its an easy drive North of Charleston on Highway 52, just look for iSkydive Charleston SC on Google maps.",
         "email": "charleston@iskydive.com",
         "location": ["Moncks Corner, SC"],
         "name": "iSkydive Charleston SC",
@@ -6966,6 +7495,300 @@
       "geometry": {
         "type": "Point",
         "coordinates": [112.11014, 21.95834]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Nanki Shirahama Airport",
+        "anchor": 378041,
+        "country": "Japan",
+        "description": "Nanki Shirahama Sky Resort Ocean Skydiving Nanki Shirahama Airport, Wakayama Prefecture, Japan Nanki Shirahama Airport Wakayama Prefecture 649-2211 Japan of to nearest hotel https://ecoprojectskydiving.com/ hello@ecoprojectskydiving.com International The only place in Japan where you can skydive with an ocean view.",
+        "email": "hello@ecoprojectskydiving.com",
+        "location": ["Wakayama Prefecture", "Japan"],
+        "name": "Nanki Shirahama Sky Resort Ocean Skydiving",
+        "phone": "+817052605995",
+        "services": ["Packing Service", "Rigging"],
+        "state": "",
+        "training": [],
+        "website": "https://ecoprojectskydiving.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [135.36051, 33.66242]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna 208 Caravan 1 Cessna 206"],
+        "airport": "Niagara Falls International Airport",
+        "anchor": 378042,
+        "country": "US",
+        "description": "Skydive The Falls (Downtown Niagara) Niagara Falls International Airport, Niagara Falls, NY US 9700 Porter Rd. Niagara Falls NY 14304 US 4 E of Niagara Falls .26 Miles to nearest hotel https://skydivethefalls.com/ info@skydivethefalls.com Eastern Region 1 Cessna Caravan 1 Cessna 206 Tandems only. Open from Mon-Sun: 7 am to 10 am. May to October.",
+        "email": "info@skydivethefalls.com",
+        "location": ["Niagara Falls, NY"],
+        "name": "Skydive The Falls (Downtown Niagara)",
+        "phone": "(716) 783-1100",
+        "services": [],
+        "state": "NY",
+        "training": ["Tandem"],
+        "website": "https://skydivethefalls.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-78.95125, 43.10133]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Bentota Beach",
+        "anchor": 378044,
+        "country": "Sri Lanka",
+        "description": "Skydive Sri Lanka Bentota Beach, Kaluwamodara, Bentota Sri Lanka Galle Road Kaluwamodara Bentota 80500 Sri Lanka of to nearest hotel https://skydivesrilanka.com/ info@skydivesrilanka.com International Beach landing area. Tandem Skydives and experienced licensed sports jumpers. No amenities or aviation facilities.",
+        "email": "info@skydivesrilanka.com",
+        "location": ["Kaluwamodara, Bentota", "Sri Lanka"],
+        "name": "Skydive Sri Lanka",
+        "phone": "+94760261100",
+        "services": [],
+        "state": "Bentota",
+        "training": ["Tandem"],
+        "website": "https://skydivesrilanka.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [79.99341, 6.44042]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna C182b"],
+        "airport": "Kalispell City Airport",
+        "anchor": 378046,
+        "country": "US",
+        "description": "Skydive Glacier Country LLC Kalispell City Airport, Kalispell, MT US 20 Ryan Lan Kalispell MT 59901 US 1 mile S of Kalispell, MT .1 mile to nearest hotel https://skydiveglaciercountry.com/ info@skydiveglaciercountry.com Northwest Region Cessna C182b Montana's newest DZ, the only skydiving center in the US with views of Glacier National Park! Open May thru September exclusively for tandem skydiving.",
+        "email": "info@skydiveglaciercountry.com",
+        "location": ["Kalispell, MT"],
+        "name": "Skydive Glacier Country LLC",
+        "phone": "+14064077092",
+        "services": [],
+        "state": "MT",
+        "training": ["Tandem"],
+        "website": "https://skydiveglaciercountry.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-114.303741, 48.178569]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 C182", "1 C206"],
+        "airport": "June C. Tune Airport (KJWN)",
+        "anchor": 378047,
+        "country": "US",
+        "description": "Go Skydive Nashville June C. Tune Airport (KJWN), Nashville, TN US 220 Tune Airport, Suite 120 Nashville TN 37209 US 4 Miles W of Nashville 1 Mile to nearest hotel http://www.goskydivenashville.com/ contact@goskydivenashville.com Southern Region C182, C206 Nashville's premire tandem skydiving center, located 5 minutes from downtown Nashville at John C. Tune Airport (KJWN). Come live adventurously with us!",
+        "email": "contact@goskydivenashville.com",
+        "location": ["Nashville, TN"],
+        "name": "Go Skydive Nashville",
+        "phone": "(615) 588-7885",
+        "services": ["Packing Service", "Rigging"],
+        "state": "TN",
+        "training": ["Tandem"],
+        "website": "http://www.goskydivenashville.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-86.8829, 36.17724]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Warren County Memorial",
+        "anchor": 378049,
+        "country": "US",
+        "description": "Middle Tennessee Skydiving Warren County Memorial, McMinnville , Tennessee US 48 W Airport Rd McMinnville Tennessee 37110 US 73 Miles SE of Nashville 3 Miles to nearest hotel http://middletennesseeskydive.com/ MiddleTennesseeskydiving@gmail.com Southern Region",
+        "email": "MiddleTennesseeskydiving@gmail.com",
+        "location": ["McMinnville , TN"],
+        "name": "Middle Tennessee Skydiving",
+        "phone": "+1 (629) 262-8151",
+        "services": ["Packing Service", "Rigging", "Showers"],
+        "state": "TN",
+        "training": ["Tandem", "Instructor Assisted Deployment"],
+        "website": "http://middletennesseeskydive.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-85.84259, 35.7003]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 P750"],
+        "airport": "",
+        "anchor": 378051,
+        "country": "China",
+        "description": "Skydive Have Fun , Sanya, Sanya Hainan China Yezhou Road 23rd. Haitang Bay Sanya Sanya Hainan 572013 China 24 km E of Sanya 2 km to nearest hotel skydivehavefun@outlook.com International P750 Open seven days a week, year round. From the nearest city, take Haitong Road east to Yezhou Road. Go north 1.8 kilometers to the airport. Air-conditioned, a Wifi and microwave hangar. Coaching, rigging services available. Formation skydiving and style & accuracy.",
+        "email": "skydivehavefun@outlook.com",
+        "location": ["Sanya, Sanya Hainan", "China"],
+        "name": "Skydive Have Fun",
+        "phone": "+86 15091919776",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping"],
+        "state": "Sanya Hainan",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [109.7679401, 18.3998585]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["2 Type Tbds"],
+        "airport": "Defuniak Springs Municipal Airport",
+        "anchor": 378052,
+        "country": "US",
+        "description": "Emerald Coast Skydive Defuniak Springs Municipal Airport, DeFuniak Springs, FL US 183 Gene Hurley Rd DeFuniak Springs FL 32435 US 2 miles W of Defuniak Springs 2 miles to nearest hotel byron_b@methodendeavors.com Southern Region 2 Type TBD Take exit 85 and go north on 331 when you get to highway 90, take a left and travel 2 miles and the airport will be on your left. Tandems, AFFI, coach, all available.",
+        "email": "byron_b@methodendeavors.com",
+        "location": ["DeFuniak Springs, FL"],
+        "name": "Emerald Coast Skydive",
+        "phone": "(850) 307-7771",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Camping"],
+        "state": "FL",
+        "training": ["AFF", "Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-87.5474, 30.4693]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna 206"],
+        "airport": "Birr Airfield (EIBR)",
+        "anchor": 378054,
+        "country": "Ireland",
+        "description": "Skydivethru Ireland Birr Airfield (EIBR), Birr, CO. Offaly Ireland Birr Airfield, Roscrea Road, Crinkle Birr CO. Offaly R42V380 Ireland 52 km N of Birr 1 km to nearest hotel http://www.skydivethru.ie/ info@skydivethru.ie International Cessna 206 Our school has USPA instructors, we have an S&TA and examiners for coach and tandem courses. Our focus is to serve all athletes in all disciplines. We have tandem jumps, AFF and SL courses and will operate 6 days a week, weather permitting. We have a packing area with riggers and all our professionals are multi-rated.",
+        "email": "info@skydivethru.ie",
+        "location": ["Birr, CO. Offaly", "Ireland"],
+        "name": "Skydivethru Ireland",
+        "phone": "+353894098150",
+        "services": ["Packing Service", "Rigging", "Equipment Rental", "Bunkhouse"],
+        "state": "CO. Offaly",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "http://www.skydivethru.ie/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-7.89869, 53.07253]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": [],
+        "airport": "Aerodromo Revalora",
+        "anchor": 378068,
+        "country": "Peru",
+        "description": "PARACAIDISMO VOLAMOS PERU Aerodromo Revalora, San Vincente de Canete, Lima Peru QPGH+G62 San Vincente de Canete Lima 15700 Peru 160 km S of Lima 20 km to nearest hotel http://www.valamosperu.com/ volamos.pe@gmail.com International Volamos Perú operates at Revalora Airfield in Cañete, Peru, offering sport skydiving activities, tandem jumps, coaching, and training programs. Facilities include packing area, team rooms, camping area, showers, videography services, and gear support. Operations are conducted under DGAC Peru regulations with USPA-oriented safety standards.",
+        "email": "volamos.pe@gmail.com",
+        "location": ["San Vincente de Canete, Lima", "Peru"],
+        "name": "PARACAIDISMO VOLAMOS PERU",
+        "phone": "+51941197391",
+        "services": ["Packing Service", "Equipment Rental", "Camping", "Bunkhouse", "Showers"],
+        "state": "Lima",
+        "training": ["AFF", "Tandem", "Static Line"],
+        "website": "http://www.valamosperu.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-76.99385, -12.08618]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 Cessna 182"],
+        "airport": "Hot Springs Municipal Airport",
+        "anchor": 378070,
+        "country": "US",
+        "description": "Skydive South Dakota Hot Springs Municipal Airport, Hot Springs , South Dakota US 27858 US-385 Hot Springs South Dakota 57747 US 54 Miles SW of Rapid City 1 mile Southwest of the DZ to nearest hotel https://www.skydivesouthdakota.com/ info@skydivesouthdakota.com North Central Region Cessna 182",
+        "email": "info@skydivesouthdakota.com",
+        "location": ["Hot Springs , SD"],
+        "name": "Skydive South Dakota",
+        "phone": "+1 (605) 215-0266",
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
+        "state": "SD",
+        "training": ["Tandem", "Instructor Assisted Deployment", "Static Line"],
+        "website": "https://www.skydivesouthdakota.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-103.392553, 43.368941]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["3 Helicopters：Bell 429，Bell407s"],
+        "airport": "",
+        "anchor": 378071,
+        "country": "China",
+        "description": "Skydive Tarhe , SanYa, HaiNan China No. 32, Group 5, Haifeng Village, Haitang District SanYa HaiNan 572000 China 30km E of SanYa 5km to nearest hotel yinanskydiver@icloud.com International 3 Helicopters：Bell 429，Bell407 Open seven days a week, year round. From SanYa City, take G98 Expressway east to Haitang Bay exit, then process to Skydive Tarhe Drop Zone. USPA and UPT certified tandem instructors offer tandem jumps and coaching in formation skydiving and style & accuracy. Helicopter jumps available year round.",
+        "email": "yinanskydiver@icloud.com",
+        "location": ["SanYa, HaiNan", "China"],
+        "name": "Skydive Tarhe",
+        "phone": "+86 17724361773",
+        "services": ["Packing Service", "Rigging", "Equipment Rental"],
+        "state": "HaiNan",
+        "training": ["Tandem"],
+        "website": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [109.754839, 18.386154]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "aircraft": ["1 P Pilatus Porter PC-6 B2/H4"],
+        "airport": "Aviosuperficie Cumiana (Airfield registered with Italian Civil Aviation Authority ENAO)",
+        "anchor": 378074,
+        "country": "Italy",
+        "description": "SKY DREAM CENTER Aviosuperficie Cumiana (Airfield registered with Italian Civil Aviation Authority ENAO), Cumiana, TO Italy Sky Dream Center Cumiana TO 10040 Italy 25 km SW of Turin 2 km to nearest hotel http://skydreamcenter.it/ info@skydreamcenter.it International Pilatus Porter PC-6 Skydiving school since 2002, Sky Dream Center is located 30 km SW of Turin. Pilatus Porter PC-6, jumps from 4000 m. Tandem jumps and AFF courses. Accuracy landing from 1000 m. Lodge (8 beds), hot showers, free camping, bar on-site. Five minutes from train station. From main city Turin, take SS23 toward Pinerolo, then follow signs to Cumiana airport (35 minutes).",
+        "email": "info@skydreamcenter.it",
+        "location": ["Cumiana, TO", "Italy"],
+        "name": "SKY DREAM CENTER",
+        "phone": "+39 3389378846",
+        "services": [
+          "Packing Service",
+          "Rigging",
+          "Equipment Rental",
+          "Camping",
+          "Bunkhouse",
+          "Restaurant",
+          "Showers"
+        ],
+        "state": "TO",
+        "training": ["AFF", "Tandem"],
+        "website": "http://skydreamcenter.it/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [7.430277, 44.937222]
       }
     }
   ]

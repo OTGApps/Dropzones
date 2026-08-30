@@ -8,6 +8,7 @@ import { fileURLToPath } from "url"
 
 import { parseAircraftString } from "./parsers/aircraft.js"
 import { normalizeWhitespace } from "./utils/strings.js"
+import { nextVersion } from "./utils/version.js"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -313,15 +314,26 @@ export class DZScraper {
   }
 
   /**
-   * Generate version string in YYY.MM.DD.V format
+   * Generate version string in YYYY.MM.DD.N format.
+   * N auto-increments when a version for the same day already exists in the
+   * current output file; otherwise it resets to 1.
    */
   getVersion() {
     const now = new Date()
     const year = now.getFullYear()
     const month = String(now.getMonth() + 1).padStart(2, "0")
     const day = String(now.getDate()).padStart(2, "0")
-    const version = 1 // Can be incremented if multiple versions generated per day
-    return `${year}.${month}.${day}.${version}`
+    const today = `${year}.${month}.${day}`
+
+    let prevVersion
+    try {
+      const existing = JSON.parse(fs.readFileSync(this.outputFile, "utf-8"))
+      prevVersion = existing.metadata?.version
+    } catch {
+      // No existing output file, or it's unreadable/unparseable - start fresh
+    }
+
+    return nextVersion(today, prevVersion)
   }
 
   /**
@@ -349,6 +361,13 @@ export class DZScraper {
 
       console.log(`Processing: ${dz.AccountName.trim()}`)
 
+      const lon = parseFloat(dz.Longitude)
+      const lat = parseFloat(dz.Latitude)
+      if (Number.isNaN(lon) || Number.isNaN(lat)) {
+        console.warn(`  Skipping ${dz.AccountName.trim()} (${accountNumber}): missing coordinates`)
+        continue
+      }
+
       try {
         // Start with API data
         const feature = {
@@ -370,7 +389,7 @@ export class DZScraper {
           },
           geometry: {
             type: "Point",
-            coordinates: [parseFloat(dz.Longitude) || 0, parseFloat(dz.Latitude) || 0],
+            coordinates: [lon, lat],
           },
         }
 
@@ -408,6 +427,8 @@ export class DZScraper {
     // Sort features by anchor
     geojson.features.sort((a, b) => a.properties.anchor - b.properties.anchor)
 
+    geojson.metadata.count = geojson.features.length
+
     return geojson
   }
 
@@ -420,7 +441,11 @@ export class DZScraper {
     if (dz.PhysicalAddressLine1) location.push(dz.PhysicalAddressLine1)
     if (dz.PhysicalAddressLine2) location.push(dz.PhysicalAddressLine2)
 
-    const cityStateZip = [dz.PhysicalCity, dz.PhysicalState, dz.PhysicalZip]
+    const cityStateZip = [
+      dz.PhysicalCity,
+      this.normalizeUsState(dz.PhysicalState, dz.PhysicalCountry),
+      dz.PhysicalZip,
+    ]
       .filter(Boolean)
       .join(", ")
 
@@ -433,10 +458,24 @@ export class DZScraper {
   }
 
   /**
+   * Normalize a US state to a 2-letter uppercase code. The app groups dropzones
+   * by `state` verbatim and prints the location array as-is, so "Ok" and
+   * "South Dakota" would split from "OK". Non-US regions pass through trimmed.
+   */
+  normalizeUsState(state, country) {
+    if (!state) return state
+    const s = state.trim()
+    if (!["US", "United States"].includes(country)) return s
+    if (this.stateAbbreviations[s]) return this.stateAbbreviations[s]
+    if (/^[a-z]{2}$/i.test(s)) return s.toUpperCase()
+    return s
+  }
+
+  /**
    * Normalize feature data for consistency
-   * - Trims whitespace from name
+   * - Trims whitespace from name and state
    * - Normalizes country names
-   * - Converts full US state names to abbreviations
+   * - Converts full US state names to abbreviations and uppercases bare 2-letter codes
    */
   normalizeFeature(feature) {
     const props = feature.properties
@@ -446,15 +485,16 @@ export class DZScraper {
       props.name = props.name.trim()
     }
 
+    if (props.state) {
+      props.state = props.state.trim()
+    }
+
     // Normalize country names
     if (props.country && this.countryNormalization[props.country]) {
       props.country = this.countryNormalization[props.country]
     }
 
-    // Convert full US state names to abbreviations
-    if (props.country === "US" && props.state && this.stateAbbreviations[props.state]) {
-      props.state = this.stateAbbreviations[props.state]
-    }
+    props.state = this.normalizeUsState(props.state, props.country)
   }
 
   /**

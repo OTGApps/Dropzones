@@ -23,6 +23,17 @@ The scraper will:
 5. Merge API data with scraped details
 6. Output `dropzones.geojson` with all dropzone data
 
+The `metadata.version` (`YYYY.MM.DD.N`) auto-increments `N` when the existing output
+file already has a version for the current day.
+
+## Tests
+
+```
+pnpm test:scraper
+```
+
+Unit tests for the pure parsers/helpers, run with the built-in `node --test` runner.
+
 ## Output Format
 
 The output is a GeoJSON FeatureCollection:

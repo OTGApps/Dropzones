@@ -28,4 +28,9 @@ config.resolver.unstable_conditionNames = ["require", "default", "browser"]
 // such as Firebase that use the extension cjs.
 config.resolver.sourceExts.push("cjs")
 
+// Treat .geojson as a JSON source module (see metro.transformer.js) so Metro
+// watches assets/dropzones.geojson and reseeds dev on change.
+config.resolver.sourceExts.push("geojson")
+config.transformer.babelTransformerPath = require.resolve("./metro.transformer.js")
+
 module.exports = config
