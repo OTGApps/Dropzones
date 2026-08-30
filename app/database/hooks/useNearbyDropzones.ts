@@ -21,8 +21,11 @@ export function useNearbyDropzones(location: LocationObject | null): UseNearbyDr
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
+  const latitude = location?.coords.latitude
+  const longitude = location?.coords.longitude
+
   useEffect(() => {
-    if (!db || !isReady || !location) {
+    if (!db || !isReady || latitude === undefined || longitude === undefined) {
       setIsLoading(false)
       return
     }
@@ -38,8 +41,8 @@ export function useNearbyDropzones(location: LocationObject | null): UseNearbyDr
         const withDistance: DropzoneWithDistance[] = dzs.map((dz) => ({
           ...dz,
           distanceFromUser: distanceCalculator(
-            location.coords.latitude,
-            location.coords.longitude,
+            latitude,
+            longitude,
             dz.coordinates.latitude,
             dz.coordinates.longitude,
           ),
@@ -60,7 +63,7 @@ export function useNearbyDropzones(location: LocationObject | null): UseNearbyDr
     return () => {
       ignore = true
     }
-  }, [db, isReady, dataVersion, location?.coords.latitude, location?.coords.longitude])
+  }, [db, isReady, dataVersion, latitude, longitude])
 
   return { dropzones, isLoading, error }
 }
