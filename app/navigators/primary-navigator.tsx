@@ -14,6 +14,7 @@ import {
   DropzoneDetailScreen,
   ListDetailScreen,
   NearMeScreen,
+  AboutScreen,
 } from "../screens"
 
 export type PrimaryParamList = {
@@ -27,6 +28,7 @@ export type PrimaryParamList = {
   "by-aircraft": undefined
   "by-services": undefined
   "by-training": undefined
+  "about": undefined
   // flagged: undefined
 }
 
@@ -116,6 +118,13 @@ export function PrimaryNavigator() {
           title: "By Training Offered",
         }}
         component={ByTrainingScreen}
+      />
+      <Stack.Screen
+        name="about"
+        options={{
+          title: "About",
+        }}
+        component={AboutScreen}
       />
     </Stack.Navigator>
   )

@@ -1,17 +1,14 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { View } from "react-native"
 import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
 
-import MapStack from "./map-stack"
-import PrimaryStack from "./primary-stack"
+import { PrimaryNavigator } from "./primary-navigator"
+import { MapNavigator } from "./map-navigator"
 
 export type NavigatorParamList = {
   dropzones: undefined
   map: undefined
-  Home: undefined
-  Profile: undefined
 }
 
 const Tab = createBottomTabNavigator<NavigatorParamList>()
@@ -36,7 +33,7 @@ const TabNavigator = () => {
     >
       <Tab.Screen
         name="dropzones"
-        component={PrimaryStack}
+        component={PrimaryNavigator}
         options={{
           tabBarLabel: "Dropzones",
           tabBarIcon: ({ color, size }) => <Icon name="plane" color={color} size={size} />,
@@ -44,7 +41,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="map"
-        component={MapStack}
+        component={MapNavigator}
         options={{
           tabBarLabel: "Map",
           tabBarIcon: ({ color, size }) => <Icon name="map" color={color} size={size} />,
