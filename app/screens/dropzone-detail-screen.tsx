@@ -12,7 +12,7 @@ import {
 import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
-import MapView, { Marker } from "react-native-maps"
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"
 import openMap from "react-native-open-maps"
 import { List, Button, Text } from "react-native-paper"
 import { useAnimatedReaction, interpolate, Extrapolate, runOnJS } from "react-native-reanimated"
@@ -265,6 +265,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           ref={mapRef}
           style={themed($fullScreenMap)}
           initialRegion={regionToDisplay}
+          provider={Platform.OS === "android" ? PROVIDER_GOOGLE : undefined}
           mapType={"satellite"}
           scrollEnabled={sheetIndex === 0}
           zoomEnabled={sheetIndex === 0}
