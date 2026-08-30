@@ -111,9 +111,15 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
     }).start()
   }, [sheetIndex, zoomControlsOpacity])
 
-  // Update map region when zoom changes
+  // Update map region when zoom changes. Skip the first run — the map already
+  // starts at the dropzone via `initialRegion`, so animating on mount is wrong.
+  const didInitialRegion = useRef(false)
   useEffect(() => {
     if (mapRef.current && selectedDZ) {
+      if (!didInitialRegion.current) {
+        didInitialRegion.current = true
+        return
+      }
       const { coordinates } = selectedDZ
       // Apply manual zoom when sheet is collapsed (index 0)
       const effectiveZoom = sheetIndex === 0 ? zoomMultiplier * manualZoom : zoomMultiplier
