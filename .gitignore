@@ -93,3 +93,6 @@ app-dependency-graph.png
 
 
 .expo/
+
+# Google Play service account key (local submit only)
+google-play-service-account.json

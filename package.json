@@ -119,9 +119,5 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "react-native-screens@4.23.0": "patches/react-native-screens@4.23.0.patch"
-    }
-  }
+  "packageManager": "pnpm@11.24.0"
 }
