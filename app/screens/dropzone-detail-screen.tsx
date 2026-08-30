@@ -140,8 +140,8 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
       const { coordinates } = selectedDZ
       // Apply manual zoom when sheet is collapsed (index 0)
       const effectiveZoom = sheetIndex === 0 ? zoomMultiplier * manualZoom : zoomMultiplier
-      const latitudeDelta = Platform.select({ ios: 0.044, android: 0.005 }) / effectiveZoom
-      const longitudeDelta = Platform.select({ ios: 0.055, android: 0.015 }) / effectiveZoom
+      const latitudeDelta = 0.044 / effectiveZoom
+      const longitudeDelta = 0.055 / effectiveZoom
       // Interpolate offset: zoom 2.5 -> 0 offset (centered), zoom 1 -> 0.6 offset (high)
       const offsetMultiplier = ((2.5 - zoomMultiplier) / 1.5) * 0.6
       const latitudeOffset = latitudeDelta * offsetMultiplier
@@ -244,8 +244,8 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   // Offset the map center based on sheet position
   // At 5% (handle-only, zoom 2.5x): marker centered (offset = 0)
   // At 75% (expanded, zoom 1x): marker offset to be visible above sheet (offset = 0.6)
-  const latitudeDelta = Platform.select({ ios: 0.044, android: 0.005 }) / zoomMultiplier
-  const longitudeDelta = Platform.select({ ios: 0.055, android: 0.015 }) / zoomMultiplier
+  const latitudeDelta = 0.044 / zoomMultiplier
+  const longitudeDelta = 0.055 / zoomMultiplier
   // Interpolate offset: zoom 2.5 -> 0 offset (centered), zoom 1 -> 0.6 offset (high)
   const offsetMultiplier = ((2.5 - zoomMultiplier) / 1.5) * 0.6
   const latitudeOffset = latitudeDelta * offsetMultiplier
