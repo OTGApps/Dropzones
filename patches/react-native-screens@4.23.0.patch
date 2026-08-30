@@ -1,0 +1,15 @@
+diff --git a/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt b/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt
+--- a/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt
++++ b/android/src/main/java/com/swmansion/rnscreens/CustomToolbar.kt
+@@ -126,8 +126,9 @@ open class CustomToolbar(
+         //
+         // Additionally we need to gracefully handle possible display cutouts.
++        val targetInsets = rootWindowInsets ?: unhandledInsets
+         val cutoutInsets =
+-            resolveInsetsOrZero(WindowInsetsCompat.Type.displayCutout(), unhandledInsets)
++            resolveInsetsOrZero(WindowInsetsCompat.Type.displayCutout(), targetInsets)
+         val systemBarInsets =
+-            resolveInsetsOrZero(WindowInsetsCompat.Type.systemBars(), unhandledInsets)
++            resolveInsetsOrZero(WindowInsetsCompat.Type.systemBars(), targetInsets)
+ 
+         // This seems to work fine in all tested configurations, because cutout & system bars overlap
