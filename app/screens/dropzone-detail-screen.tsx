@@ -9,13 +9,12 @@ import {
   Animated,
   TouchableOpacity,
 } from "react-native"
-import BottomSheet, { BottomSheetScrollView, useBottomSheetInternal } from "@gorhom/bottom-sheet"
+import BottomSheet, { BottomSheetScrollView } from "@gorhom/bottom-sheet"
 import { useNavigation } from "@react-navigation/native"
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps"
 import openMap from "react-native-open-maps"
 import { List, Button, Text } from "react-native-paper"
-import { useAnimatedReaction, interpolate, Extrapolate, runOnJS } from "react-native-reanimated"
 import { FontAwesome as Icon } from "@expo/vector-icons"
 
 import { useAppTheme } from "@/theme/context"
@@ -55,23 +54,6 @@ export interface DropzoneDetailScreenProps {
   route: any
 }
 
-// Component to track bottom sheet position and update map zoom
-const BottomSheetZoomTracker: FC<{ onZoomChange: (zoom: number) => void }> = ({ onZoomChange }) => {
-  const { animatedIndex } = useBottomSheetInternal()
-
-  useAnimatedReaction(
-    () => animatedIndex.value,
-    (index, previousIndex) => {
-      // Interpolate zoom: at index 0 (5% handle-only) -> zoom 2.5, at index 1 (75%) -> zoom 1
-      const zoom = interpolate(index, [0, 1], [2.5, 1], Extrapolate.CLAMP)
-      runOnJS(onZoomChange)(zoom)
-    },
-    [animatedIndex],
-  )
-
-  return null
-}
-
 export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function DropzoneDetailScreen(
   props,
 ) {
@@ -97,11 +79,6 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
   const [manualZoom, setManualZoom] = useState(1)
   // Animated value for zoom controls fade in/out
   const zoomControlsOpacity = useRef(new Animated.Value(0)).current
-
-  // Callback to update zoom when bottom sheet moves
-  const handleZoomChange = useCallback((zoom: number) => {
-    setZoomMultiplier(zoom)
-  }, [])
 
   // Handle bottom sheet position changes
   const handleSheetChange = useCallback((index: number) => {
@@ -297,7 +274,6 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           backgroundStyle={themed($sheetBackground)}
           handleIndicatorStyle={themed($handleIndicator)}
         >
-          <BottomSheetZoomTracker onZoomChange={handleZoomChange} />
           <BottomSheetScrollView contentContainerStyle={themed($scrollViewContent)}>
             <View style={themed($sheetHeader)}>
               <Button
