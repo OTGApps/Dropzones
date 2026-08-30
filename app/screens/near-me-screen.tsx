@@ -43,7 +43,6 @@ export const NearMeScreen: FC = function NearMeScreen(props) {
       ListEmptyComponent={<ListEmpty message="No dropzones found nearby" />}
       renderItem={renderItem}
       ItemSeparatorComponent={ListSeparator}
-      removeClippedSubviews
     />
   )
 }

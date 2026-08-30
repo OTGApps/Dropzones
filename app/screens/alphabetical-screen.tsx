@@ -87,7 +87,6 @@ export const AlphabeticalScreen: FC = function AlphabeticalScreen() {
 
   return (
     <SectionList
-      removeClippedSubviews
       style={FULL}
       sections={dataSource}
       extraData={dropzones}
