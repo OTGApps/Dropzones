@@ -18,7 +18,8 @@ if (__DEV__) {
 }
 import "./utils/gestureHandler"
 
-import { useEffect, useState, type PropsWithChildren } from "react"
+import { useEffect, useRef, useState, type PropsWithChildren } from "react"
+import { Animated, StyleSheet, View } from "react-native"
 import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen"
 import { KeyboardProvider } from "react-native-keyboard-controller"
@@ -48,13 +49,37 @@ SplashScreen.setOptions({ duration: 300, fade: true })
  */
 function DatabaseLoadingWrapper({ children }: { children: React.ReactNode }): JSX.Element | null {
   const { isReady, progress, message } = useDatabase()
+  const overlayOpacity = useRef(new Animated.Value(1)).current
+  const [isOverlayMounted, setIsOverlayMounted] = useState(true)
 
-  if (!isReady) {
-    return <LoadingScreen message={message} progress={progress} />
+  useEffect(() => {
+    if (isReady) {
+      Animated.timing(overlayOpacity, {
+        toValue: 0,
+        duration: 450,
+        useNativeDriver: true,
+      }).start(() => setIsOverlayMounted(false))
+    }
+  }, [isReady, overlayOpacity])
+
+  if (!isOverlayMounted) {
+    return <>{children}</>
   }
 
-  return <>{children}</>
+  return (
+    <View style={$fill}>
+      {isReady && children}
+      <Animated.View
+        style={[StyleSheet.absoluteFill, { opacity: overlayOpacity }]}
+        pointerEvents={isReady ? "none" : "auto"}
+      >
+        <LoadingScreen message={message} progress={progress} />
+      </Animated.View>
+    </View>
+  )
 }
+
+const $fill = { flex: 1 } as const
 
 /**
  * Feeds the active app theme into react-native-paper so its components match light / dark mode.

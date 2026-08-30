@@ -20,8 +20,12 @@
       }
     },
     "adaptiveIcon": {
-      "backgroundImage": "./assets/images/splash-light.png",
-      "foregroundImage": "./assets/images/icon-bg-light.png"
+      "backgroundImage": "./assets/images/icon-bg-light.png",
+      "foregroundImage": "./assets/images/splash-light.png",
+      "dark": {
+        "backgroundImage": "./assets/images/icon-bg-dark.png",
+        "foregroundImage": "./assets/images/splash-dark.png"
+      }
     }
   },
   "ios": {
@@ -49,15 +53,11 @@
       "expo-splash-screen",
       {
         "image": "./assets/images/splash-light.png",
-        "imageWidth": 300,
+        "imageWidth": 180,
         "resizeMode": "contain",
-        "backgroundColor": "#000000",
-        "android": {
-          "backgroundColor": "#1a73e8",
-          "dark": {
-            "image": "./assets/images/splash-dark.png",
-            "backgroundColor": "#000000"
-          }
+        "backgroundColor": "#114F88",
+        "dark": {
+          "backgroundColor": "#191015"
         }
       }
     ],

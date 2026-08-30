@@ -3,112 +3,100 @@ import { View, ViewStyle, TextStyle, Image, ImageStyle } from "react-native"
 import { ActivityIndicator, ProgressBar, Text } from "react-native-paper"
 
 import { useAppTheme } from "@/theme/context"
-import { ThemedStyle } from "@/theme/types"
 
 export interface LoadingScreenProps {
   message?: string | null
   progress?: { current: number; total: number } | null
 }
 
+// Must match the expo-splash-screen config in app.json so the native splash
+// transitions seamlessly into this screen.
+const SPLASH_BACKGROUND = { light: "#114F88", dark: "#191015" }
+const SPLASH_IMAGE_WIDTH = 180
+const FOREGROUND = "#F4F2F1"
+
 /**
- * Full-screen loading overlay shown during database initialization.
- * Displays progress bar and status messages.
+ * Full-screen loading overlay shown during database initialization. Mirrors the
+ * native splash screen (same background, same centered logo at the same size) so
+ * the handoff from native splash to JS is invisible; progress UI is overlaid
+ * below the logo without shifting it.
  */
 export const LoadingScreen: FC<LoadingScreenProps> = ({ message, progress }) => {
-  const { themed } = useAppTheme()
+  const { themeContext } = useAppTheme()
 
   const progressPercent = progress ? progress.current / progress.total : 0
   const progressText = progress
     ? `${progress.current.toLocaleString()} / ${progress.total.toLocaleString()}`
     : null
-
   const percentageText = progress ? `${Math.round(progressPercent * 100)}%` : null
 
   return (
-    <View style={themed($container)}>
-      <View style={themed($content)}>
-        {/* App Logo */}
-        <Image
-          source={require("../../assets/images/adaptive-icon.png")}
-          style={themed($logo)}
-          resizeMode="contain"
-        />
+    <View style={[$container, { backgroundColor: SPLASH_BACKGROUND[themeContext] }]}>
+      <Image
+        source={require("../../assets/images/splash-light.png")}
+        style={$logo}
+        resizeMode="contain"
+      />
 
-        {/* Progress Bar or Activity Indicator */}
-        <View style={themed($progressContainer)}>
+      <View style={$overlay}>
+        <View style={$progressContainer}>
           {progress ? (
-            <ProgressBar progress={progressPercent} style={themed($progressBar)} />
+            <ProgressBar progress={progressPercent} color={FOREGROUND} style={$progressBar} />
           ) : (
-            <ActivityIndicator size="large" style={themed($activityIndicator)} />
+            <ActivityIndicator size="large" color={FOREGROUND} />
           )}
         </View>
 
-        {/* Status Message */}
-        {message && <Text style={themed($messageText)}>{message}</Text>}
-
-        {/* Progress Text */}
-        {progressText && <Text style={themed($progressText)}>{progressText}</Text>}
-
-        {/* Percentage */}
-        {percentageText && <Text style={themed($percentageText)}>{percentageText}</Text>}
+        {message && <Text style={$messageText}>{message}</Text>}
+        {progressText && <Text style={$progressText}>{progressText}</Text>}
+        {percentageText && <Text style={$progressText}>{percentageText}</Text>}
       </View>
     </View>
   )
 }
 
-const $container: ThemedStyle<ViewStyle> = ({ colors }) => ({
+const $container: ViewStyle = {
   flex: 1,
-  backgroundColor: colors.background,
   justifyContent: "center",
   alignItems: "center",
-})
+}
 
-const $content: ThemedStyle<ViewStyle> = ({ spacing }) => ({
+const $logo: ImageStyle = {
+  width: SPLASH_IMAGE_WIDTH,
+  height: SPLASH_IMAGE_WIDTH,
+}
+
+const $overlay: ViewStyle = {
+  position: "absolute",
+  bottom: "18%",
   width: "80%",
   alignItems: "center",
-  gap: spacing.md,
-})
+  gap: 8,
+}
 
-const $logo: ThemedStyle<ImageStyle> = () => ({
-  width: 120,
-  height: 120,
-  marginBottom: 40,
-})
-
-const $progressContainer: ThemedStyle<ViewStyle> = () => ({
+const $progressContainer: ViewStyle = {
   width: "100%",
   minHeight: 40,
   justifyContent: "center",
   alignItems: "center",
-})
+}
 
-const $progressBar: ThemedStyle<ViewStyle> = () => ({
+const $progressBar: ViewStyle = {
   width: "100%",
   height: 8,
   borderRadius: 4,
-})
+}
 
-const $activityIndicator: ThemedStyle<ViewStyle> = () => ({
-  // ActivityIndicator styles
-})
-
-const $messageText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+const $messageText: TextStyle = {
   fontSize: 18,
-  color: colors.text,
+  color: FOREGROUND,
   textAlign: "center",
-  marginTop: spacing.sm,
-})
+  marginTop: 8,
+}
 
-const $progressText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
-  fontSize: 16,
-  color: colors.textDim,
-  textAlign: "center",
-  marginTop: spacing.xs,
-})
-
-const $percentageText: ThemedStyle<TextStyle> = ({ colors, spacing }) => ({
+const $progressText: TextStyle = {
   fontSize: 14,
-  color: colors.textDim,
+  color: FOREGROUND,
+  opacity: 0.7,
   textAlign: "center",
-  marginTop: spacing.xs,
-})
+}
