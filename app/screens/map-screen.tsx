@@ -53,6 +53,7 @@ const ClusterMarker = memo(function ClusterMarker({
 
   return (
     <Marker
+      testID={`map-cluster-${cluster.properties.cluster_id}`}
       coordinate={{
         latitude: cluster.geometry.coordinates[1],
         longitude: cluster.geometry.coordinates[0],
@@ -91,6 +92,7 @@ const DropzoneMarker = memo(function DropzoneMarker({
 
   return (
     <Marker
+      testID={`map-marker-${dropzone.anchor}`}
       coordinate={coordinate}
       title={dropzone.name}
       description={dropzone.stateCode}
@@ -99,6 +101,7 @@ const DropzoneMarker = memo(function DropzoneMarker({
       <Callout onPress={handleCalloutPress} style={{ backgroundColor: colors.background }}>
         {Platform.OS === "ios" ? (
           <List.Item
+            testID={`map-callout-${dropzone.anchor}`}
             style={themed($calloutItem)}
             titleStyle={themed($calloutTitle)}
             descriptionStyle={themed($calloutDescription)}

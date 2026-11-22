@@ -27,6 +27,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
   const renderItem = useCallback(
     ({ item }: { item: string }) => (
       <List.Item
+        testID={`service-item-${item.toLowerCase().replace(/\s+/g, "-")}`}
         title={item}
         onPress={() =>
           navigation.navigate("list-detail", {

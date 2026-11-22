@@ -38,6 +38,7 @@ const DropzoneListRowComponent: FC<DropzoneListRowProps> = (props) => {
   return (
     <List.Item
       key={"listItem-" + index}
+      testID={`dropzone-item-${item.anchor}`}
       title={item.name}
       description={displaySubtitle || undefined}
       onPress={pressed}

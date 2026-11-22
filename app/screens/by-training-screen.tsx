@@ -38,6 +38,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
       const title = TRAINING_TITLES[item.toLowerCase()] ?? item
       return (
         <List.Item
+          testID={`training-item-${item.toLowerCase().replace(/\s+/g, "-")}`}
           title={title}
           onPress={() =>
             navigation.navigate("list-detail", {
