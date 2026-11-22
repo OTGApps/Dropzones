@@ -1,7 +1,7 @@
 nodeLinker: hoisted
 
 allowBuilds:
+  '@parcel/watcher': false
   esbuild: true
   puppeteer: true
   unrs-resolver: true
-
