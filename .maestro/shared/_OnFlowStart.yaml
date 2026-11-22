@@ -8,6 +8,9 @@
 # check if the dev menu is showing and dismiss it if necessary.
 # Then the app is then launched and ready for the maestro tests to run.
 #
+# Maestro grants every permission on launch by default. Pass env LOCATION_PERMISSION
+# (`allow`, `deny` or `unset`) to override it, e.g. `unset` to make the OS prompt appear.
+#
 # This flow should be included in every maestro test header as `onFlowStart` to ensure expo screens
 # are bypassed if necessary. Example:
 #
@@ -18,12 +21,16 @@
 # [your maestro flow]
 #
 appId: ${MAESTRO_APP_ID}
+env:
+  LOCATION_PERMISSION: allow
 ---
 # launch the app with a clean slate
 - launchApp:
     clearState: true
     clearKeychain: true
     stopApp: true
+    permissions:
+      location: ${LOCATION_PERMISSION}
 
 - waitForAnimationToEnd
 

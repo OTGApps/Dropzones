@@ -40,10 +40,13 @@ onFlowStart:
 # --- github link opens the browser ---
 - tapOn:
     id: "about-github-item"
-- launchApp:
-    appId: ${MAESTRO_APP_ID}
-- waitForAnimationToEnd
-- assertVisible: "USPA Dropzone Finder"
+- extendedWaitUntil:
+    notVisible: "USPA Dropzone Finder"
+    timeout: 10000
+- runFlow:
+    file: ../shared/_ReturnToApp.yaml
+    env:
+      EXPECTED_TEXT: "USPA Dropzone Finder"
 
 - runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"

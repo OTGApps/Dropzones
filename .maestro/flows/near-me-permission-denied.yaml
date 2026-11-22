@@ -3,13 +3,19 @@
 # "Error" alert instead of crashing or hanging on the loading spinner.
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
-  - runFlow: ../shared/_OnFlowStart.yaml
+  - runFlow:
+      file: ../shared/_OnFlowStart.yaml
+      env:
+        LOCATION_PERMISSION: unset
 ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-near-me"
 
 # --- deny location permission (iOS/Android wording varies) ---
+- extendedWaitUntil:
+    visible: "Don.t Allow|Deny"
+    timeout: 10000
 - runFlow:
     when:
       visible: "Don.t Allow"

@@ -28,6 +28,10 @@ onFlowStart:
     id: "aircraft-search-input"
 - inputText: "Cessna"
 - hideKeyboard
+- assertVisible:
+    id: "aircraft-item-.*cessna.*"
+- assertNotVisible:
+    id: "aircraft-item-.*(king-air|twin-otter).*"
 - scroll
 
 - tapOn:

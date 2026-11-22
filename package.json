@@ -117,7 +117,7 @@
     "typescript": "~6.0.3"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.13.0"
   },
   "packageManager": "pnpm@11.24.0"
 }

@@ -1,10 +1,9 @@
 #flow: Shared _Back
 #intent: Navigate back one screen, cross-platform. Maestro's `back` command
 # only works on Android (it drives the hardware/software back action); iOS
-# has no equivalent, so there we tap the native stack header's back button
-# instead. That button is rendered by react-navigation's default header and
-# carries no testID, so this is a point tap - top-left corner, where the
-# back chevron always sits.
+# has no equivalent. The native stack header's back button has no testID and
+# its position depends on the device's safe-area inset, so on iOS we use the
+# interactive pop gesture instead: an edge swipe from the left side.
 appId: ${MAESTRO_APP_ID}
 ---
 - runFlow:
@@ -16,5 +15,6 @@ appId: ${MAESTRO_APP_ID}
     when:
       platform: iOS
     commands:
-      - tapOn:
-          point: "6%, 6%"
+      - swipe:
+          start: "1%, 50%"
+          end: "90%, 50%"

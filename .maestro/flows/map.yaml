@@ -1,10 +1,12 @@
 # flow: Map
 # intent: Zoom the map into Skydive Perris's cluster (anchor 100778), open its
 # marker's callout by testID, and confirm it navigates to that dropzone's
-# detail screen. The zoom tap point is computed from the INITIAL_REGION in
-# map-screen.tsx (lat 39.828 / lon -98.579, 50deg delta) against Perris, CA's
-# real coordinates - it lands on/near the marker, but cluster boundaries are
-# runtime-computed so the point taps may need nudging per device size.
+# detail screen. The callout and detail steps run on iOS only; on Android the
+# flow stops at the marker. The zoom tap point is computed from the
+# INITIAL_REGION in map-screen.tsx (lat 39.828 / lon -98.579, 50deg delta)
+# against Perris, CA's real coordinates - it lands on/near the marker, but
+# cluster boundaries are runtime-computed so the point taps may need nudging
+# per device size.
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
   - runFlow: ../shared/_OnFlowStart.yaml
@@ -24,12 +26,20 @@ onFlowStart:
 # --- once resolved to an individual marker, target it by testID ---
 - tapOn:
     id: "map-marker-100778"
-- tapOn:
-    id: "map-callout-100778"
-- waitForAnimationToEnd
-- assertVisible: "Got it!"
-- tapOn: "Got it!"
 
-- runFlow: ../shared/_Back.yaml
+# The iOS callout is a React Native view that carries the testID. Android renders
+# the stock native info window, which has no selectable node, so the callout and
+# detail steps run on iOS only.
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - tapOn:
+          id: "map-callout-100778"
+      - waitForAnimationToEnd
+      - assertVisible: "Got it!"
+      - tapOn: "Got it!"
+      - runFlow: ../shared/_Back.yaml
+
 - tapOn: "Dropzones"
 - assertVisible: "Find Dropzones"
