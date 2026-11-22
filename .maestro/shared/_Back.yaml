@@ -1,9 +1,8 @@
 #flow: Shared _Back
 #intent: Navigate back one screen, cross-platform. Maestro's `back` command
 # only works on Android (it drives the hardware/software back action); iOS
-# has no equivalent. The native stack header's back button has no testID and
-# its position depends on the device's safe-area inset, so on iOS we use the
-# interactive pop gesture instead: an edge swipe from the left side.
+# has no equivalent, so there we tap the native stack header's back button.
+# UIKit exposes it with the accessibility id `BackButton`.
 appId: ${MAESTRO_APP_ID}
 ---
 - runFlow:
@@ -15,6 +14,5 @@ appId: ${MAESTRO_APP_ID}
     when:
       platform: iOS
     commands:
-      - swipe:
-          start: "1%, 50%"
-          end: "90%, 50%"
+      - tapOn:
+          id: "BackButton"

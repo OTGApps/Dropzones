@@ -8,6 +8,9 @@ onFlowStart:
   - runFlow: ../shared/_OnFlowStart.yaml
 ---
 - assertVisible: "Find Dropzones"
+- setLocation:
+    latitude: 33.78
+    longitude: -117.23
 
 # --- Near Me ---
 - tapOn:
@@ -26,11 +29,11 @@ onFlowStart:
     id: "menu-item-alphabetical"
 - assertVisible:
     id: "alphabetical-search-input"
-- scroll
 - tapOn:
     id: "dropzone-item-.*"
     index: 0
 - waitForAnimationToEnd
+- tapOn: "Got it!"
 - runFlow: ../shared/_Back.yaml
 - runFlow: ../shared/_Back.yaml
 
@@ -73,7 +76,7 @@ onFlowStart:
 
 # --- Map tab ---
 - assertVisible: "Find Dropzones"
-- tapOn: "Map"
+- tapOn: "Map, tab.*"
 - waitForAnimationToEnd
-- tapOn: "Dropzones"
+- tapOn: "Dropzones, tab.*"
 - assertVisible: "Find Dropzones"

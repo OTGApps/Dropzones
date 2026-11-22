@@ -22,50 +22,68 @@ onFlowStart:
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
 
-# --- bottom sheet content sections ---
+# The iOS accessibility tree exposes the bottom sheet as a single element and hides its
+# children, so the sheet's content can only be selected on Android.
 - assertVisible: "Skydive Perris"
-- assertVisible:
-    id: "detail-website-button"
-- assertVisible:
-    id: "detail-phone-item"
-- assertVisible:
-    id: "detail-email-item"
-- assertVisible:
-    id: "detail-location-item"
-- assertVisible:
-    id: "detail-aircraft-item"
-- assertVisible:
-    id: "detail-services-item"
-- assertVisible:
-    id: "detail-training-item"
-
-# --- call the dropzone (opens the phone dialer) ---
-- tapOn:
-    id: "detail-phone-item"
 - runFlow:
-    file: ../shared/_ReturnToApp.yaml
-    env:
-      EXPECTED_TEXT: "Skydive Perris"
+    when:
+      platform: Android
+    commands:
+      - assertVisible: "Skydive Perris"
+      - assertVisible:
+          id: "detail-website-button"
+      - assertVisible:
+          id: "detail-phone-item"
+      - assertVisible:
+          id: "detail-email-item"
+      - assertVisible:
+          id: "detail-location-item"
+      - assertVisible:
+          id: "detail-aircraft-item"
+      - assertVisible:
+          id: "detail-services-item"
+      - assertVisible:
+          id: "detail-training-item"
 
-# --- email the dropzone (opens the mail client) ---
-- tapOn:
-    id: "detail-email-item"
-- runFlow:
-    file: ../shared/_ReturnToApp.yaml
-    env:
-      EXPECTED_TEXT: "Skydive Perris"
+      # --- call the dropzone (opens the phone dialer) ---
+      - tapOn:
+          id: "detail-phone-item"
+      - runFlow:
+          file: ../shared/_ReturnToApp.yaml
+          env:
+            EXPECTED_TEXT: "Skydive Perris"
 
-# --- open the dropzone's website ---
-- tapOn:
-    id: "detail-website-button"
-- runFlow:
-    file: ../shared/_ReturnToApp.yaml
-    env:
-      EXPECTED_TEXT: "Skydive Perris"
+      # --- email the dropzone (opens the mail client) ---
+      - tapOn:
+          id: "detail-email-item"
+      - runFlow:
+          file: ../shared/_ReturnToApp.yaml
+          env:
+            EXPECTED_TEXT: "Skydive Perris"
+
+      # --- open the dropzone's website ---
+      - tapOn:
+          id: "detail-website-button"
+      - runFlow:
+          file: ../shared/_ReturnToApp.yaml
+          env:
+            EXPECTED_TEXT: "Skydive Perris"
 
 # --- driving directions header icon (opens Maps) ---
 - tapOn:
     id: "detail-directions-button"
+
+# Apple Maps asks for location the first time it opens. A system alert survives relaunching
+# the app and covers every later flow, so decline it here.
+- extendedWaitUntil:
+    visible: "Allow Once"
+    timeout: 8000
+    optional: true
+- runFlow:
+    when:
+      visible: "Allow Once"
+    commands:
+      - tapOn: "Don.t Allow"
 - runFlow:
     file: ../shared/_ReturnToApp.yaml
     env:

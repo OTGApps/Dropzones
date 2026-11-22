@@ -1,45 +1,14 @@
 # flow: Map
-# intent: Zoom the map into Skydive Perris's cluster (anchor 100778), open its
-# marker's callout by testID, and confirm it navigates to that dropzone's
-# detail screen. The callout and detail steps run on iOS only; on Android the
-# flow stops at the marker. The zoom tap point is computed from the
-# INITIAL_REGION in map-screen.tsx (lat 39.828 / lon -98.579, 50deg delta)
-# against Perris, CA's real coordinates - it lands on/near the marker, but
-# cluster boundaries are runtime-computed so the point taps may need nudging
-# per device size.
+# intent: Open the Map tab, confirm the map screen renders, and return to the
+# Dropzones tab. Marker, cluster and callout taps are not covered: on iOS the
+# map exposes a single empty AnnotationContainer to accessibility, so Maestro
+# cannot select annotations by testID or text.
 appId: ${MAESTRO_APP_ID}
 onFlowStart:
   - runFlow: ../shared/_OnFlowStart.yaml
 ---
 - assertVisible: "Find Dropzones"
-- tapOn: "Map"
-- waitForAnimationToEnd
-
-# --- zoom into the SoCal cluster until Skydive Perris's marker separates out ---
-- repeat:
-    times: 3
-    commands:
-      - tapOn:
-          point: "32%, 62%"
-      - waitForAnimationToEnd
-
-# --- once resolved to an individual marker, target it by testID ---
-- tapOn:
-    id: "map-marker-100778"
-
-# The iOS callout is a React Native view that carries the testID. Android renders
-# the stock native info window, which has no selectable node, so the callout and
-# detail steps run on iOS only.
-- runFlow:
-    when:
-      platform: iOS
-    commands:
-      - tapOn:
-          id: "map-callout-100778"
-      - waitForAnimationToEnd
-      - assertVisible: "Got it!"
-      - tapOn: "Got it!"
-      - runFlow: ../shared/_Back.yaml
-
-- tapOn: "Dropzones"
+- tapOn: "Map, tab.*"
+- assertVisible: "Dropzone Map"
+- tapOn: "Dropzones, tab.*"
 - assertVisible: "Find Dropzones"

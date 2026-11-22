@@ -30,9 +30,15 @@ onFlowStart:
 - hideKeyboard
 - assertVisible:
     id: "aircraft-item-.*cessna.*"
-- assertNotVisible:
-    id: "aircraft-item-.*(king-air|twin-otter).*"
+- extendedWaitUntil:
+    notVisible:
+      id: "aircraft-item-(?!.*cessna).*"
+    timeout: 5000
 - scroll
+- scrollUntilVisible:
+    element:
+      id: "aircraft-search-input"
+    direction: UP
 
 - tapOn:
     id: "aircraft-search-input"

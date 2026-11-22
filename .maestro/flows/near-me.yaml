@@ -10,6 +10,9 @@ onFlowStart:
         LOCATION_PERMISSION: unset
 ---
 - assertVisible: "Find Dropzones"
+- setLocation:
+    latitude: 33.78
+    longitude: -117.23
 - tapOn:
     id: "menu-item-near-me"
 
@@ -39,7 +42,8 @@ onFlowStart:
 # --- dropzone detail: disclaimer + bottom sheet loaded ---
 - assertVisible: "Got it!"
 - tapOn: "Got it!"
-- assertNotVisible: "Dropzones Near Me"
+- assertVisible:
+    id: "detail-directions-button"
 - runFlow: ../shared/_Back.yaml
 - runFlow: ../shared/_Back.yaml
 - assertVisible: "Find Dropzones"

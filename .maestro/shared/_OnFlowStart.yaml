@@ -8,8 +8,12 @@
 # check if the dev menu is showing and dismiss it if necessary.
 # Then the app is then launched and ready for the maestro tests to run.
 #
+# Pass env METRO_URL to point the dev client at a Metro server other than http://localhost:8081.
+#
 # Maestro grants every permission on launch by default. Pass env LOCATION_PERMISSION
-# (`allow`, `deny` or `unset`) to override it, e.g. `unset` to make the OS prompt appear.
+# to override location. `unset` makes the OS prompt appear and works on both platforms.
+# Other values are platform-specific: iOS takes `always`, `inuse` or `never`; Android
+# takes `allow` or `deny`. The default is `inuse` on iOS and `allow` on Android.
 #
 # This flow should be included in every maestro test header as `onFlowStart` to ensure expo screens
 # are bypassed if necessary. Example:
@@ -22,7 +26,8 @@
 #
 appId: ${MAESTRO_APP_ID}
 env:
-  LOCATION_PERMISSION: ${LOCATION_PERMISSION || "allow"}
+  METRO_URL: '${METRO_URL || "http://localhost:8081"}'
+  LOCATION_PERMISSION: '${LOCATION_PERMISSION || (maestro.platform == "ios" ? "inuse" : "allow")}'
 ---
 # launch the app with a clean slate
 - launchApp:
@@ -34,13 +39,31 @@ env:
 
 - waitForAnimationToEnd
 
-# conditionally run the dev client flow if the words "Development servers" is present.
+# conditionally connect the dev client to Metro if the words "Development servers" are present.
+# clearState wipes the launcher's server history and the simulator does not reliably discover
+# Metro, so open the dev client deep link directly instead of tapping a discovered server.
+# The deep link flags hide the dev client's floating menu button, which otherwise covers the
+# header's top-right button, and skip the one-time onboarding sheet.
 # this uses the default maestro timeout and moves on if it doesn't see the text.
 - runFlow:
     when:
       visible: 'Development servers'
     commands:
-      # this regex allows for different hosts and ports
-      - tapOn: "http://.*:.*" 
+      - openLink: "exp+dropzones://?__expo_url=${encodeURIComponent(METRO_URL)}&__expo_disable_fab=1&__expo_disable_onboarding=1"
       - waitForAnimationToEnd
-      - tapOn: "Close" # dismiss the bottom sheet
+
+# the one-time dev menu intro sheet covers the app after first connect; dismiss it if shown.
+- runFlow:
+    when:
+      visible: "Continue"
+    commands:
+      - tapOn: "Continue"
+      - waitForAnimationToEnd
+
+# the dev menu sheet (Reload, Go home, Tools) opens over the app after Continue; close it if shown.
+- runFlow:
+    when:
+      visible: "Go home"
+    commands:
+      - tapOn: "Close"
+      - waitForAnimationToEnd

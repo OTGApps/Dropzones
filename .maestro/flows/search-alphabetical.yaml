@@ -26,6 +26,10 @@ onFlowStart:
 - eraseText
 - hideKeyboard
 - scroll
+- scrollUntilVisible:
+    element:
+      id: "alphabetical-search-input"
+    direction: UP
 
 # --- open a searched result -> correct detail screen ---
 - tapOn:
