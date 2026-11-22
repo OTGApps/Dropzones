@@ -22,7 +22,7 @@
 #
 appId: ${MAESTRO_APP_ID}
 env:
-  LOCATION_PERMISSION: allow
+  LOCATION_PERMISSION: ${LOCATION_PERMISSION || "allow"}
 ---
 # launch the app with a clean slate
 - launchApp:
