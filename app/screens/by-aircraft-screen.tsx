@@ -9,6 +9,7 @@ import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight, $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { slugify } from "@/utils/slugify"
 
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"
@@ -68,7 +69,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
       }
       return (
         <List.Item
-          testID={`aircraft-item-${item.name.toLowerCase().replace(/\s+/g, "-")}`}
+          testID={`aircraft-item-${slugify(item.name)}`}
           title={item.name}
           onPress={onPressed}
           right={(props) => (

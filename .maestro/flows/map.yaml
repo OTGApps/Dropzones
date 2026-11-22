@@ -14,15 +14,12 @@ onFlowStart:
 - waitForAnimationToEnd
 
 # --- zoom into the SoCal cluster until Skydive Perris's marker separates out ---
-- tapOn:
-    point: "32%, 62%"
-- waitForAnimationToEnd
-- tapOn:
-    point: "32%, 62%"
-- waitForAnimationToEnd
-- tapOn:
-    point: "32%, 62%"
-- waitForAnimationToEnd
+- repeat:
+    times: 3
+    commands:
+      - tapOn:
+          point: "32%, 62%"
+      - waitForAnimationToEnd
 
 # --- once resolved to an individual marker, target it by testID ---
 - tapOn:

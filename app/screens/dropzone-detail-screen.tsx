@@ -280,20 +280,10 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           style={[themed($zoomControls), { opacity: zoomControlsOpacity }]}
           pointerEvents={sheetIndex === 0 ? "auto" : "none"}
         >
-          <TouchableOpacity
-            testID="detail-zoom-in-button"
-            onPress={handleZoomIn}
-            style={themed($zoomButton)}
-            activeOpacity={0.7}
-          >
+          <TouchableOpacity onPress={handleZoomIn} style={themed($zoomButton)} activeOpacity={0.7}>
             <Icon name="plus" size={20} color="#fff" />
           </TouchableOpacity>
-          <TouchableOpacity
-            testID="detail-zoom-out-button"
-            onPress={handleZoomOut}
-            style={themed($zoomButton)}
-            activeOpacity={0.7}
-          >
+          <TouchableOpacity onPress={handleZoomOut} style={themed($zoomButton)} activeOpacity={0.7}>
             <Icon name="minus" size={20} color="#fff" />
           </TouchableOpacity>
         </Animated.View>
@@ -310,7 +300,6 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           <BottomSheetScrollView contentContainerStyle={themed($scrollViewContent)}>
             <View style={themed($sheetHeader)}>
               <Button
-                testID="detail-name-button"
                 mode="text"
                 labelStyle={themed($sectionTitleText)}
                 style={themed($noPadding)}

@@ -42,34 +42,34 @@ onFlowStart:
 # --- call the dropzone (opens the phone dialer) ---
 - tapOn:
     id: "detail-phone-item"
-- launchApp:
-    appId: ${MAESTRO_APP_ID}
-- waitForAnimationToEnd
-- assertVisible: "Skydive Perris"
+- runFlow:
+    file: ../shared/_ReturnToApp.yaml
+    env:
+      EXPECTED_TEXT: "Skydive Perris"
 
 # --- email the dropzone (opens the mail client) ---
 - tapOn:
     id: "detail-email-item"
-- launchApp:
-    appId: ${MAESTRO_APP_ID}
-- waitForAnimationToEnd
-- assertVisible: "Skydive Perris"
+- runFlow:
+    file: ../shared/_ReturnToApp.yaml
+    env:
+      EXPECTED_TEXT: "Skydive Perris"
 
 # --- open the dropzone's website ---
 - tapOn:
     id: "detail-website-button"
-- launchApp:
-    appId: ${MAESTRO_APP_ID}
-- waitForAnimationToEnd
-- assertVisible: "Skydive Perris"
+- runFlow:
+    file: ../shared/_ReturnToApp.yaml
+    env:
+      EXPECTED_TEXT: "Skydive Perris"
 
 # --- driving directions header icon (opens Maps) ---
 - tapOn:
     id: "detail-directions-button"
-- launchApp:
-    appId: ${MAESTRO_APP_ID}
-- waitForAnimationToEnd
-- assertVisible: "Skydive Perris"
+- runFlow:
+    file: ../shared/_ReturnToApp.yaml
+    env:
+      EXPECTED_TEXT: "Skydive Perris"
 
 - runFlow: ../shared/_Back.yaml
 - runFlow: ../shared/_Back.yaml

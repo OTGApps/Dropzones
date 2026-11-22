@@ -9,6 +9,7 @@ import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { slugify } from "@/utils/slugify"
 
 import { useUniqueServices } from "../database"
 
@@ -27,7 +28,7 @@ export const ByServicesScreen: FC = function ByServicesScreen() {
   const renderItem = useCallback(
     ({ item }: { item: string }) => (
       <List.Item
-        testID={`service-item-${item.toLowerCase().replace(/\s+/g, "-")}`}
+        testID={`service-item-${slugify(item)}`}
         title={item}
         onPress={() =>
           navigation.navigate("list-detail", {

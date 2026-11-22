@@ -1,0 +1,10 @@
+#flow: Shared _ReturnToApp
+#intent: Come back to the app after a tap handed off to another app (dialer,
+# mail, browser, Maps), wait for animations to settle, and assert the expected
+# text is visible. Pass the text as env EXPECTED_TEXT.
+appId: ${MAESTRO_APP_ID}
+---
+- launchApp:
+    appId: ${MAESTRO_APP_ID}
+- waitForAnimationToEnd
+- assertVisible: "${EXPECTED_TEXT}"

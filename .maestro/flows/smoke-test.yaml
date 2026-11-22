@@ -34,7 +34,7 @@ onFlowStart:
 - runFlow: ../shared/_Back.yaml
 - runFlow: ../shared/_Back.yaml
 
-# --- By State -> list-detail -> dropzone detail ---
+# --- By State ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-by-state"
@@ -57,7 +57,7 @@ onFlowStart:
 - scroll
 - runFlow: ../shared/_Back.yaml
 
-# --- Training Capibilities ---
+# --- Training Capabilities ---
 - assertVisible: "Find Dropzones"
 - tapOn:
     id: "menu-item-by-training"

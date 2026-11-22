@@ -53,7 +53,6 @@ const ClusterMarker = memo(function ClusterMarker({
 
   return (
     <Marker
-      testID={`map-cluster-${cluster.properties.cluster_id}`}
       coordinate={{
         latitude: cluster.geometry.coordinates[1],
         longitude: cluster.geometry.coordinates[0],
