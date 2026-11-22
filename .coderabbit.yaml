@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en-US
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - "^master$"
+    ignore_title_keywords:
+      - "WIP"
+  path_filters:
+    - "!pnpm-lock.yaml"
+    - "!scraper/local_files/**"
+    - "!assets/**"
+    - "!_art/**"
+  path_instructions:
+    - path: "app/**/*.{ts,tsx}"
+      instructions: >-
+        Expo and React Native app. Use function components and hooks. Style with the themed()
+        helpers from useAppTheme, not inline literals. Add testID props to interactive elements,
+        because Maestro flows in .maestro select by testID.
+    - path: "scraper/src/**"
+      instructions: >-
+        Node scraper that builds the dropzone dataset from USPA pages. Flag changes that alter
+        the output schema consumed by app/database.
+    - path: ".maestro/**"
+      instructions: >-
+        Maestro E2E flows. Select by testID, not text or point taps. Flows must run on both iOS
+        and Android.
+  tools:
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    actionlint:
+      enabled: true
+
+chat:
+  auto_reply: true
