@@ -9,6 +9,7 @@ import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { slugify } from "@/utils/slugify"
 
 import { useUniqueTraining } from "../database"
 
@@ -38,6 +39,7 @@ export const ByTrainingScreen: FC = function ByTrainingScreen() {
       const title = TRAINING_TITLES[item.toLowerCase()] ?? item
       return (
         <List.Item
+          testID={`training-item-${slugify(item)}`}
           title={title}
           onPress={() =>
             navigation.navigate("list-detail", {

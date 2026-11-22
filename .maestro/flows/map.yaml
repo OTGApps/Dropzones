@@ -1,0 +1,14 @@
+# flow: Map
+# intent: Open the Map tab, confirm the map screen renders, and return to the
+# Dropzones tab. Marker, cluster and callout taps are not covered: on iOS the
+# map exposes a single empty AnnotationContainer to accessibility, so Maestro
+# cannot select annotations by testID or text.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn: "Map, tab.*"
+- assertVisible: "Dropzone Map"
+- tapOn: "Dropzones, tab.*"
+- assertVisible: "Find Dropzones"

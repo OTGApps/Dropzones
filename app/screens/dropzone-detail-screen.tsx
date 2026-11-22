@@ -163,6 +163,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
           color={colors.headerText}
           onPress={openDrivingDirectons}
           style={themed($headerCarIcon)}
+          testID="detail-directions-button"
         />
       ),
     })
@@ -308,6 +309,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               </Button>
               {!!selectedDZ.website && (
                 <Button
+                  testID="detail-website-button"
                   mode="text"
                   icon="open-in-new"
                   labelStyle={themed($sectionSubtitleText)}
@@ -327,6 +329,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.phone && (
                 <List.Item
+                  testID="detail-phone-item"
                   title="Phone"
                   description={selectedDZ.phone}
                   onPress={openPhone}
@@ -346,6 +349,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.email && (
                 <List.Item
+                  testID="detail-email-item"
                   title="Email"
                   description={selectedDZ.email.toLowerCase()}
                   onPress={handleEmail}
@@ -365,6 +369,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.airport && (
                 <List.Item
+                  testID="detail-location-item"
                   title="Location"
                   description={selectedDZ.airport || selectedDZ.location.join(", ")}
                   onPress={openDrivingDirectons}
@@ -384,6 +389,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.aircraft && selectedDZ.aircraft.length > 0 && (
                 <List.Item
+                  testID="detail-aircraft-item"
                   title="Aircraft"
                   description={selectedDZ.aircraft.slice().sort().join(", ")}
                   left={() => (
@@ -398,6 +404,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.services && selectedDZ.services.length > 0 && (
                 <List.Item
+                  testID="detail-services-item"
                   title="Services"
                   description={selectedDZ.services.slice().sort().join(", ")}
                   left={() => (
@@ -407,6 +414,7 @@ export const DropzoneDetailScreen: FC<DropzoneDetailScreenProps> = function Drop
               )}
               {selectedDZ.training && selectedDZ.training.length > 0 && (
                 <List.Item
+                  testID="detail-training-item"
                   title="Training Offered"
                   description={selectedDZ.training.slice().sort().join(", ")}
                   left={() => (

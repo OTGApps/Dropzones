@@ -91,6 +91,7 @@ const DropzoneMarker = memo(function DropzoneMarker({
 
   return (
     <Marker
+      testID={`map-marker-${dropzone.anchor}`}
       coordinate={coordinate}
       title={dropzone.name}
       description={dropzone.stateCode}
@@ -99,6 +100,7 @@ const DropzoneMarker = memo(function DropzoneMarker({
       <Callout onPress={handleCalloutPress} style={{ backgroundColor: colors.background }}>
         {Platform.OS === "ios" ? (
           <List.Item
+            testID={`map-callout-${dropzone.anchor}`}
             style={themed($calloutItem)}
             titleStyle={themed($calloutTitle)}
             descriptionStyle={themed($calloutDescription)}

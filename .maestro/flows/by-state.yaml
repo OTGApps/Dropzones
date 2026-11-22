@@ -1,0 +1,40 @@
+# flow: By State
+# intent: Browse states, drill into California's dropzone list, confirm the
+# list-detail search box filters it down to a known dropzone, and open detail.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-state"
+
+- scrollUntilVisible:
+    element:
+      id: "state-item-ca"
+    direction: DOWN
+- tapOn:
+    id: "state-item-ca"
+- waitForAnimationToEnd
+- assertVisible: "California"
+- assertVisible:
+    id: "list-detail-search-input"
+
+# --- filter the state's dropzones down to one known result ---
+- tapOn:
+    id: "list-detail-search-input"
+- inputText: "Skydive Perris"
+- hideKeyboard
+- assertVisible:
+    id: "dropzone-item-100778"
+- tapOn:
+    id: "dropzone-item-100778"
+- waitForAnimationToEnd
+- assertVisible: "Skydive Perris"
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- assertVisible: "Find Dropzones"

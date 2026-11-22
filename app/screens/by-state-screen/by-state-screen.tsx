@@ -58,6 +58,7 @@ export const ByStateScreen: FC = function ByStateScreen() {
 
       return (
         <List.Item
+          testID={`state-item-${item.toLowerCase()}`}
           title={thisState.fullName}
           onPress={() =>
             navigation.navigate("list-detail", {

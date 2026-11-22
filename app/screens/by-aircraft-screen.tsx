@@ -9,6 +9,7 @@ import type { PrimaryNavigationProp } from "@/navigators/navigationTypes"
 import { useAppTheme } from "@/theme/context"
 import { $chevronRight, $searchbar, $styles } from "@/theme/styles"
 import { ThemedStyle } from "@/theme/types"
+import { slugify } from "@/utils/slugify"
 
 import { useUniqueAircraft } from "../database"
 import { load, save } from "../utils/storage"
@@ -68,6 +69,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
       }
       return (
         <List.Item
+          testID={`aircraft-item-${slugify(item.name)}`}
           title={item.name}
           onPress={onPressed}
           right={(props) => (
@@ -98,7 +100,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
           </Text>
         </Card.Content>
         <Card.Actions>
-          <Button mode="outlined" onPress={hideHeaderComponent}>
+          <Button testID="aircraft-warning-dismiss" mode="outlined" onPress={hideHeaderComponent}>
             OK
           </Button>
         </Card.Actions>
@@ -116,6 +118,7 @@ export const ByAircraftScreen: FC = function ByAircraftScreen() {
   const searchBar = useMemo(
     () => (
       <Searchbar
+        testID="aircraft-search-input"
         placeholder="Search Aircraft..."
         value={searchQuery}
         onChangeText={handleSearch}

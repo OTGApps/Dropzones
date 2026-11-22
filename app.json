@@ -21,11 +21,7 @@
     },
     "adaptiveIcon": {
       "backgroundImage": "./assets/images/icon-bg-light.png",
-      "foregroundImage": "./assets/images/splash-light.png",
-      "dark": {
-        "backgroundImage": "./assets/images/icon-bg-dark.png",
-        "foregroundImage": "./assets/images/splash-dark.png"
-      }
+      "foregroundImage": "./assets/images/splash-light.png"
     }
   },
   "ios": {

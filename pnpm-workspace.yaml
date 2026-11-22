@@ -1,9 +1,7 @@
 nodeLinker: hoisted
 
 allowBuilds:
+  '@parcel/watcher': false
   esbuild: true
   puppeteer: true
   unrs-resolver: true
-
-patchedDependencies:
-  react-native-screens@4.23.0: patches/react-native-screens@4.23.0.patch

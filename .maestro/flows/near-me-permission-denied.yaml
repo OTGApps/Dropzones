@@ -1,0 +1,33 @@
+# flow: Near Me - Permission Denied
+# intent: Deny the location permission prompt and confirm the app surfaces the
+# "Location denied" alert instead of crashing or hanging on the loading spinner.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow:
+      file: ../shared/_OnFlowStart.yaml
+      env:
+        LOCATION_PERMISSION: unset
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-near-me"
+
+# --- deny location permission (iOS/Android wording varies) ---
+- extendedWaitUntil:
+    visible: "Don.t Allow|Deny"
+    timeout: 10000
+- runFlow:
+    when:
+      visible: "Don.t Allow"
+    commands:
+      - tapOn: "Don.t Allow"
+- runFlow:
+    when:
+      visible: "Deny"
+    commands:
+      - tapOn: "Deny"
+
+- assertVisible: "Location denied"
+- assertVisible: "Permission to access your location was denied."
+- tapOn: "OK"
+- assertVisible: "Find Dropzones"

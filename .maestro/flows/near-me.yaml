@@ -1,0 +1,49 @@
+# flow: Near Me
+# intent: Grant location permission, load the nearby-dropzones list, open the
+# nearest result, and confirm the detail screen (map + bottom sheet + disclaimer)
+# renders for real GPS-driven data.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow:
+      file: ../shared/_OnFlowStart.yaml
+      env:
+        LOCATION_PERMISSION: unset
+---
+- assertVisible: "Find Dropzones"
+- setLocation:
+    latitude: 33.78
+    longitude: -117.23
+- tapOn:
+    id: "menu-item-near-me"
+
+# --- grant location permission (iOS/Android wording varies) ---
+- extendedWaitUntil:
+    visible: "While using the app|Allow Once"
+    timeout: 10000
+- runFlow:
+    when:
+      visible: "While using the app"
+    commands:
+      - tapOn: "While using the app"
+- runFlow:
+    when:
+      visible: "Allow Once"
+    commands:
+      - tapOn: "Allow Once"
+- waitForAnimationToEnd
+
+# --- nearby list loaded, sorted by distance ---
+- assertVisible: "Dropzones Near Me"
+- tapOn:
+    id: "dropzone-item-.*"
+    index: 0
+- waitForAnimationToEnd
+
+# --- dropzone detail: disclaimer + bottom sheet loaded ---
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+- assertVisible:
+    id: "detail-directions-button"
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- assertVisible: "Find Dropzones"

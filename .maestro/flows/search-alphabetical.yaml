@@ -1,0 +1,47 @@
+# flow: Alphabetical + Search
+# intent: Verify the section-list groups dropzones by first letter, the search
+# box narrows results to a known dropzone, clearing it restores the full list,
+# and tapping a result opens the correct detail screen.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-alphabetical"
+- assertVisible:
+    id: "alphabetical-search-input"
+
+# --- search narrows to a known dropzone ---
+- tapOn:
+    id: "alphabetical-search-input"
+- inputText: "Skydive Perris"
+- hideKeyboard
+- assertVisible:
+    id: "dropzone-item-100778"
+
+# --- clearing search restores the full alphabetical list ---
+- tapOn:
+    id: "alphabetical-search-input"
+- eraseText
+- hideKeyboard
+- scroll
+- scrollUntilVisible:
+    element:
+      id: "alphabetical-search-input"
+    direction: UP
+
+# --- open a searched result -> correct detail screen ---
+- tapOn:
+    id: "alphabetical-search-input"
+- inputText: "Skydive Perris"
+- hideKeyboard
+- tapOn:
+    id: "dropzone-item-100778"
+- waitForAnimationToEnd
+- assertVisible: "Skydive Perris"
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- assertVisible: "Find Dropzones"

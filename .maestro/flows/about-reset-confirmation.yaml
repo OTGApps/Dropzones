@@ -1,0 +1,23 @@
+# flow: About - Reset Database Confirmation
+# intent: Long-pressing "Check for Data Updates" opens a destructive confirm
+# dialog (deletes and reseeds all local dropzone data). Verify the dialog
+# appears and gates the action - always tap "Cancel", never "Reset", so this
+# flow stays non-destructive.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "header-about-button"
+- assertVisible: "USPA Dropzone Finder"
+
+- longPressOn:
+    id: "about-check-updates-item"
+- assertVisible: "Reset Database"
+- assertVisible: "This will delete all dropzone data and reload from the bundled file. This action cannot be undone. Continue?"
+- tapOn: "Cancel"
+- assertNotVisible: "Reset Database"
+
+- runFlow: ../shared/_Back.yaml
+- assertVisible: "Find Dropzones"

@@ -1,0 +1,82 @@
+# flow: Smoke Test
+# intent: Global smoke test that walks the entire app end to end - every menu
+# item on the welcome screen, into a detail screen and back, the map tab, and
+# the about screen. Not exhaustive assertions, just "does every screen load
+# and navigate without crashing."
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+- setLocation:
+    latitude: 33.78
+    longitude: -117.23
+
+# --- Near Me ---
+- tapOn:
+    id: "menu-item-near-me"
+- runFlow:
+    when:
+      visible: "While using the app"
+    commands:
+      - tapOn: "While using the app"
+- waitForAnimationToEnd
+- runFlow: ../shared/_Back.yaml
+
+# --- Alphabetical -> dropzone detail ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-alphabetical"
+- assertVisible:
+    id: "alphabetical-search-input"
+- tapOn:
+    id: "dropzone-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- tapOn: "Got it!"
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+
+# --- By State ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-state"
+- scroll
+- runFlow: ../shared/_Back.yaml
+
+# --- Aircraft Type (SectionList with warning card + search) ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-aircraft"
+- assertVisible:
+    id: "aircraft-search-input"
+- scroll
+- runFlow: ../shared/_Back.yaml
+
+# --- Services Offered ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-services"
+- scroll
+- runFlow: ../shared/_Back.yaml
+
+# --- Training Capabilities ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-training"
+- scroll
+- runFlow: ../shared/_Back.yaml
+
+# --- About screen ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "header-about-button"
+- assertVisible: "USPA Dropzone Finder"
+- runFlow: ../shared/_Back.yaml
+
+# --- Map tab ---
+- assertVisible: "Find Dropzones"
+- tapOn: "Map, tab.*"
+- waitForAnimationToEnd
+- tapOn: "Dropzones, tab.*"
+- assertVisible: "Find Dropzones"

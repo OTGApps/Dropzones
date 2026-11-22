@@ -54,6 +54,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
           color={colors.headerText}
           onPress={() => navigation.navigate("about")}
           style={themed($headerIcon)}
+          testID="header-about-button"
         />
       ),
     })
@@ -92,6 +93,7 @@ export const WelcomeScreen: FC = function WelcomeScreen() {
 
     return (
       <List.Item
+        testID={`menu-item-${item.screen}`}
         title={item.title}
         description={item.subtitle}
         disabled={!item.screen}

@@ -1,0 +1,49 @@
+# flow: Services Offered + Training Capabilities
+# intent: These two screens are structurally identical (plain list ->
+# list-detail -> dropzone detail), so one flow covers both instead of
+# duplicating the same steps in two files.
+appId: ${MAESTRO_APP_ID}
+onFlowStart:
+  - runFlow: ../shared/_OnFlowStart.yaml
+---
+- assertVisible: "Find Dropzones"
+
+# --- Services Offered ---
+- tapOn:
+    id: "menu-item-by-services"
+- tapOn:
+    id: "service-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- assertVisible:
+    id: "list-detail-search-input"
+- tapOn:
+    id: "dropzone-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+
+# --- Training Capabilities ---
+- assertVisible: "Find Dropzones"
+- tapOn:
+    id: "menu-item-by-training"
+- tapOn:
+    id: "training-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- assertVisible:
+    id: "list-detail-search-input"
+- tapOn:
+    id: "dropzone-item-.*"
+    index: 0
+- waitForAnimationToEnd
+- assertVisible: "Got it!"
+- tapOn: "Got it!"
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- runFlow: ../shared/_Back.yaml
+- assertVisible: "Find Dropzones"
