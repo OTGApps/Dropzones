@@ -81,8 +81,8 @@ importers:
         specifier: ~55.0.22
         version: 55.0.22(expo@55.0.30)(react-native-web@0.21.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-native@0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1))(supports-color@8.1.1)
       i18next:
-        specifier: ^23.16.8
-        version: 23.16.8
+        specifier: ^26.3.4
+        version: 26.7.2(typescript@5.9.3)
       intl-pluralrules:
         specifier: ^2.0.1
         version: 2.0.1
@@ -100,7 +100,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       react-i18next:
         specifier: ^15.7.4
-        version: 15.7.4(i18next@23.16.8)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1))(react@19.2.0)(typescript@5.9.3)
+        version: 15.7.4(i18next@26.7.2(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react-native@0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1))(react@19.2.0)(typescript@5.9.3)
       react-native:
         specifier: 0.83.10
         version: 0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1)
@@ -3473,8 +3473,13 @@ packages:
   hyphenate-style-name@1.1.0:
     resolution: {integrity: sha512-WDC/ui2VVRrz3jOVi+XtjqkDjiVjTtFaAGiW37k6b+ohyQ5wYDOGkvCZa8+H0nx3gyvv0+BST9xuOgIyGQ00gw==}
 
-  i18next@23.16.8:
-    resolution: {integrity: sha512-06r/TitrM88Mg5FdUXAKL96dJMzgqLE5dv3ryBAra4KCwD9mJ4ndOTS95ZuymIGoE+2hzfdaMak2X11/es7ZWg==}
+  i18next@26.7.2:
+    resolution: {integrity: sha512-RsOY3BeaCDdkk52NeJSFAXELQ2rQXBO/tOub6L8ue2ICPfR/FRDWDOfEDg4xMPd1SqO5goVYQ6i72qWEUB/PPw==}
+    peerDependencies:
+      typescript: ^5 || ^6 || ^7
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
@@ -4667,6 +4672,7 @@ packages:
 
   react-native-edge-to-edge@1.6.2:
     resolution: {integrity: sha512-koEF6WRAfdGNelXlP7NtHrQhFGtplwciYNWLHOCTCk0Thc7dlxtqxHRYSA5vPJgWOEkVBFqxcoOqKwAtqOmLNw==}
+    deprecated: This package is deprecated. Set edgeToEdgeEnabled=true in android/gradle.properties instead.
     peerDependencies:
       react: '*'
       react-native: '*'
@@ -9732,9 +9738,9 @@ snapshots:
 
   hyphenate-style-name@1.1.0: {}
 
-  i18next@23.16.8:
-    dependencies:
-      '@babel/runtime': 7.29.7
+  i18next@26.7.2(typescript@5.9.3):
+    optionalDependencies:
+      typescript: 5.9.3
 
   iconv-lite@0.6.3:
     dependencies:
@@ -11208,11 +11214,11 @@ snapshots:
     dependencies:
       react: 19.2.0
 
-  react-i18next@15.7.4(i18next@23.16.8)(react-dom@19.2.0(react@19.2.0))(react-native@0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1))(react@19.2.0)(typescript@5.9.3):
+  react-i18next@15.7.4(i18next@26.7.2(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react-native@0.83.10(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.0)(supports-color@8.1.1))(react@19.2.0)(typescript@5.9.3):
     dependencies:
       '@babel/runtime': 7.29.7
       html-parse-stringify: 3.1.0
-      i18next: 23.16.8
+      i18next: 26.7.2(typescript@5.9.3)
       react: 19.2.0
     optionalDependencies:
       react-dom: 19.2.0(react@19.2.0)
