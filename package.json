@@ -56,7 +56,7 @@
     "expo-splash-screen": "~55.0.25",
     "expo-sqlite": "~55.0.20",
     "expo-system-ui": "~55.0.22",
-    "i18next": "^23.16.8",
+    "i18next": "^26.3.4",
     "intl-pluralrules": "^2.0.1",
     "lodash": "^4.17.21",
     "query-string": "7.0.1",
